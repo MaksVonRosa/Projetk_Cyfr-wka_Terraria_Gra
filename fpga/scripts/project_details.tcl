@@ -34,7 +34,9 @@ set sv_files {
     ../rtl/vga_pkg.sv
     ../rtl/vga_timing.sv
     ../rtl/draw_bg.sv
-    ../rtl/draw_char.sv
+    ../rtl/char.sv
+    ../rtl/char_ctrl.sv
+    ../rtl/char_draw.sv
     ../rtl/top_vga.sv
     ../rtl/vga_if.sv
     rtl/top_vga_basys3.sv

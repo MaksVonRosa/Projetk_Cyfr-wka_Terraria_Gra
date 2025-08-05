@@ -82,7 +82,7 @@ module top_vga (
         .vga_bg_out (vga_if_bg.out)
     );
 
-    draw_char u_draw_char (
+    draw_char u_char (
         .clk,
         .rst,
         .stepleft,
