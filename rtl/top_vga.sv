@@ -44,6 +44,9 @@ module top_vga (
     // VGA signals from character
     vga_if vga_if_char();
 
+    // VGA signals from platform
+    vga_if vga_plat();
+
     /**
      * Signals assignments
      */
@@ -51,6 +54,9 @@ module top_vga (
     assign vs = vga_if_char.vsync;
     assign hs = vga_if_char.hsync;
     assign {r,g,b} = vga_if_char.rgb;
+    assign char_x = u_char.u_ctrl.pos_x;
+    assign char_y = u_char.u_ctrl.pos_y;
+    
 
 
     /**
@@ -88,8 +94,20 @@ module top_vga (
         .stepleft,
         .stepright,
         .stepjump,
+        .on_ground(on_ground),
         .vga_char_in (vga_if_bg.in),
         .vga_char_out (vga_if_char.out)
+    );
+
+    platform u_platform (
+        .clk(clk),
+        .rst(rst),
+        .char_x(char_x),
+        .char_y(char_y),
+        .char_hgt(32),
+        .vga_in(vga_if_char.in),
+        .vga_out(vga_plat.out),
+        .on_ground(on_ground)
     );
 
 endmodule

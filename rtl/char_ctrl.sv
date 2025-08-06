@@ -4,8 +4,10 @@ module char_ctrl (
     input  logic stepleft,
     input  logic stepright,
     input  logic stepjump,
+    input  logic on_ground,
     output logic [11:0] pos_x,
-    output logic [11:0] pos_y
+    output logic [11:0] pos_y,
+    output logic flip_h
 );
     import vga_pkg::*;
 
@@ -25,6 +27,12 @@ module char_ctrl (
     localparam integer FRAME_TICKS = 65_000_000 / 60;
     logic [20:0] tick_count;
     logic        frame_tick;
+
+    always_ff @(posedge clk or posedge rst) begin
+        if (rst) flip_h <= 0;
+        else if (stepleft)  flip_h <= 1;
+        else if (stepright) flip_h <= 0;
+    end
 
     always_ff @(posedge clk) begin
         if (tick_count == FRAME_TICKS - 1) begin

@@ -37,6 +37,7 @@ set sv_files {
     ../rtl/char.sv
     ../rtl/char_ctrl.sv
     ../rtl/char_draw.sv
+    ../rtl/platform.sv
     ../rtl/top_vga.sv
     ../rtl/vga_if.sv
     rtl/top_vga_basys3.sv
