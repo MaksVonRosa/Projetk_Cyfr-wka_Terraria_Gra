@@ -1,0 +1,7 @@
+1) Poruszanie się postaci
+2) Wybór/Staty postaci
+2.5) Sprite Postaci
+3) Ataki
+4) Boss (poruszanie się, atakowanie, sprite, staty)
+5) Interakcja z bossem
+6) Gdzieś po drodze menu
