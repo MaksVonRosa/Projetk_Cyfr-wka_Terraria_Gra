@@ -5,6 +5,7 @@ module draw_char (
     input  logic stepright,
     input  logic stepjump,
     input  logic on_ground,
+    output logic ground_lvl,
 
     vga_if.in  vga_char_in,
     vga_if.out vga_char_out
@@ -23,7 +24,8 @@ module draw_char (
         .on_ground(on_ground),
         .pos_x(pos_x),
         .pos_y(pos_y),
-        .flip_h(flip_h)
+        .flip_h(flip_h),
+        .ground_lvl
     );
 
     // Character Draw

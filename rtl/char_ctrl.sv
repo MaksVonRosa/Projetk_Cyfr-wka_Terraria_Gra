@@ -7,6 +7,7 @@ module char_ctrl (
     input  logic on_ground,
     output logic [11:0] pos_x,
     output logic [11:0] pos_y,
+    output logic [11:0] ground_lvl,
     output logic flip_h
 );
     import vga_pkg::*;
@@ -63,7 +64,7 @@ module char_ctrl (
             is_jumping <= 0;
             jump_peak  <= GROUND_Y - JUMP_HEIGHT;
         end else if (frame_tick) begin
-            if (!is_jumping && stepjump && next_y == GROUND_Y)
+            if (!is_jumping && stepjump && on_ground)
                 is_jumping <= 1;
 
             if (is_jumping) begin
@@ -72,15 +73,17 @@ module char_ctrl (
                 else
                     is_jumping <= 0;
             end else begin
-                if (next_y < GROUND_Y - FALL_SPEED)
+                if (!on_ground)
                     next_y <= next_y + FALL_SPEED;
                 else
-                    next_y <= GROUND_Y;
+                    next_y <= next_y;
             end
         end
     end
 
     assign pos_x = next_x;
     assign pos_y = next_y;
+    assign ground_lvl = GROUND_Y;
 
 endmodule
+//Nie działa coś ale jestem zmęczony, jutro popracuje nad tym

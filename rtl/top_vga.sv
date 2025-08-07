@@ -19,8 +19,12 @@ module top_vga (
         input  logic stepleft,
         input  logic stepright,
         input  logic stepjump,
+        output logic on_ground,
         output logic vs,
         output logic hs,
+        output logic ground_lvl,
+        output logic [11:0] char_x,
+        output logic [11:0] char_y,
         output logic [3:0] r,
         output logic [3:0] g,
         output logic [3:0] b
@@ -88,26 +92,29 @@ module top_vga (
         .vga_bg_out (vga_if_bg.out)
     );
 
-    draw_char u_char (
-        .clk,
-        .rst,
-        .stepleft,
-        .stepright,
-        .stepjump,
-        .on_ground(on_ground),
-        .vga_char_in (vga_if_bg.in),
-        .vga_char_out (vga_if_char.out)
-    );
-
     platform u_platform (
         .clk(clk),
         .rst(rst),
         .char_x(char_x),
         .char_y(char_y),
         .char_hgt(32),
-        .vga_in(vga_if_char.in),
+        .vga_in(vga_if_bg.in),
         .vga_out(vga_plat.out),
-        .on_ground(on_ground)
+        .ground_lvl,
+        .on_ground
     );
+
+    draw_char u_char (
+        .clk,
+        .rst,
+        .stepleft,
+        .stepright,
+        .stepjump,
+        .on_ground,
+        .ground_lvl,
+        .vga_char_in (vga_plat.in),
+        .vga_char_out (vga_if_char.out)
+    );
+
 
 endmodule
