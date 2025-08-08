@@ -5,6 +5,7 @@ module char_ctrl (
     input  logic stepright,
     input  logic stepjump,
     input  logic on_ground,
+    input  logic [11:0] ground_y,
     output logic [11:0] pos_x,
     output logic [11:0] pos_y,
     output logic [11:0] ground_lvl,
@@ -12,11 +13,11 @@ module char_ctrl (
 );
     import vga_pkg::*;
 
-    localparam CHAR_HGT    = 32;
-    localparam CHAR_LNG    = 25;
+    localparam CHAR_HGT    = 27;
+    localparam CHAR_LNG    = 19;
     localparam HOR_CENTER  = HOR_PIXELS / 2;
-    localparam GROUND_Y    = VER_PIXELS - 20 - CHAR_HGT;
-    localparam JUMP_HEIGHT = 200;
+    localparam GROUND_Y    = VER_PIXELS - 52 - CHAR_HGT;
+    localparam JUMP_HEIGHT = 300;
     localparam JUMP_SPEED  = 7;
     localparam FALL_SPEED  = 5;
     localparam MOVE_STEP   = 5;
@@ -64,21 +65,23 @@ module char_ctrl (
             is_jumping <= 0;
             jump_peak  <= GROUND_Y - JUMP_HEIGHT;
         end else if (frame_tick) begin
-            if (!is_jumping && stepjump && on_ground)
-                is_jumping <= 1;
+    if (!is_jumping && stepjump && on_ground)
+        is_jumping <= 1;
 
-            if (is_jumping) begin
-                if (next_y > jump_peak + JUMP_SPEED)
-                    next_y <= next_y - JUMP_SPEED;
-                else
-                    is_jumping <= 0;
-            end else begin
-                if (!on_ground)
-                    next_y <= next_y + FALL_SPEED;
-                else
-                    next_y <= next_y;
-            end
+    if (is_jumping) begin
+        if (next_y > jump_peak + JUMP_SPEED)
+            next_y <= next_y - JUMP_SPEED;
+        else
+            is_jumping <= 0;
+    end else begin
+        if (!on_ground) begin
+            next_y <= next_y + FALL_SPEED;
+        end else begin
+            next_y <= next_y;
+            jump_peak <= pos_y - JUMP_HEIGHT;
         end
+    end
+end
     end
 
     assign pos_x = next_x;
@@ -86,4 +89,3 @@ module char_ctrl (
     assign ground_lvl = GROUND_Y;
 
 endmodule
-//Nie działa coś ale jestem zmęczony, jutro popracuje nad tym

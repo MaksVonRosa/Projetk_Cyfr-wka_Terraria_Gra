@@ -64,45 +64,42 @@ module draw_bg (
     end else begin
         // Floor
         if (vcount_in >= (5*VER_PIXELS)/6) begin
-            rgb_nxt = 12'h642; // wood base
+            rgb_nxt = 12'h642;
             if ((vcount_in % 8) < 2)
-                rgb_nxt = 12'h420; // plank line
+                rgb_nxt = 12'h420;
             
-            //red carpet
+            //carpet
             if (vcount_in >= (5*VER_PIXELS)/6 + 5 && vcount_in <= (5*VER_PIXELS)/6 + 45) begin
-                rgb_nxt = 12'hf00; // carpet
+                rgb_nxt = 12'h80a;
                 
                 if (vcount_in == (5*VER_PIXELS)/6 + 5 || vcount_in == (5*VER_PIXELS)/6 + 45)
-                    rgb_nxt = 12'hff0; // gold line
+                    rgb_nxt = 12'hff0;
 
                 if ((hcount_in >= 10 && hcount_in <= 12) ||
                     (hcount_in >= HOR_PIXELS - 12 && hcount_in <= HOR_PIXELS - 10))
-                    rgb_nxt = 12'hff0; // gold line
+                    rgb_nxt = 12'hff0;
             end
         end
         else begin
-            rgb_nxt = 12'h666; // stone base
+            rgb_nxt = 12'h666;
             
-            // Brick edges vertical
             if ((((vcount_in / 16) % 2 == 1 ? (hcount_in + 16) : hcount_in) % 32) < 2 ||
                 (((vcount_in / 16) % 2 == 1 ? (hcount_in + 16) : hcount_in) % 32) > 29)
-                rgb_nxt = 12'h444; // dark edge
+                rgb_nxt = 12'h444;
             
-            // Brick edges horizontal mortar
             else if ((vcount_in % 16) < 2)
-                rgb_nxt = 12'h444; // horizontal edge
+                rgb_nxt = 12'h444;
             
-            // Two big arched windows (~64x96 px) at 1/3 and 2/3 width
+            // Two big arched windows
             if (
                 (hcount_in > HOR_PIXELS/3 - 32 && hcount_in < HOR_PIXELS/3 + 32) &&
                 (vcount_in > VER_PIXELS/3 && vcount_in < VER_PIXELS/3 + 96) &&
-                // Arch top: upper 20 px form semi-circle (radius 32 px)
                 (
-                    (vcount_in >= VER_PIXELS/3 + 20) || // below arch top
+                    (vcount_in >= VER_PIXELS/3 + 20) ||
                     (((hcount_in - HOR_PIXELS/3)*(hcount_in - HOR_PIXELS/3) + (vcount_in - (VER_PIXELS/3 + 20))*(vcount_in - (VER_PIXELS/3 + 20))) <= 32*32)
                 )
             )
-                rgb_nxt = 12'h6cf; // left window
+                rgb_nxt = 12'h6cf;
             
             else if (
                 (hcount_in > (2*HOR_PIXELS)/3 - 32 && hcount_in < (2*HOR_PIXELS)/3 + 32) &&
@@ -112,37 +109,35 @@ module draw_bg (
                     (((hcount_in - (2*HOR_PIXELS)/3)*(hcount_in - (2*HOR_PIXELS)/3) + (vcount_in - (VER_PIXELS/3 + 20))*(vcount_in - (VER_PIXELS/3 + 20))) <= 32*32)
                 )
             )
-                rgb_nxt = 12'h6cf; // right window
+                rgb_nxt = 12'h6cf;
             
-            // Columns positions: 1/6, 1/2, 5/6 screen width, width 30 px
+            // Columns
             if (
                 (hcount_in > HOR_PIXELS/6 - 15 && hcount_in < HOR_PIXELS/6 + 15) ||
                 (hcount_in > HOR_PIXELS/2 - 15 && hcount_in < HOR_PIXELS/2 + 15) ||
                 (hcount_in > (5*HOR_PIXELS)/6 - 15 && hcount_in < (5*HOR_PIXELS)/6 + 15)
             ) begin
-                // 3D shading: lighter left 5 px, darker right 5 px, middle base color
                 if (
                     ( (hcount_in > (HOR_PIXELS/6 - 15) && hcount_in <= (HOR_PIXELS/6 - 10)) ||
                       (hcount_in > (HOR_PIXELS/2 - 15) && hcount_in <= (HOR_PIXELS/2 - 10)) ||
                       (hcount_in > ((5*HOR_PIXELS)/6 - 15) && hcount_in <= ((5*HOR_PIXELS)/6 - 10)) )
                 )
-                    rgb_nxt = 12'h666; // lighter edge
+                    rgb_nxt = 12'h666;
                 
                 else if (
                     ( (hcount_in >= (HOR_PIXELS/6 + 10) && hcount_in < (HOR_PIXELS/6 + 15)) ||
                       (hcount_in >= (HOR_PIXELS/2 + 10) && hcount_in < (HOR_PIXELS/2 + 15)) ||
                       (hcount_in >= ((5*HOR_PIXELS)/6 + 10) && hcount_in < ((5*HOR_PIXELS)/6 + 15)) )
                 )
-                    rgb_nxt = 12'h222; // darker edge
+                    rgb_nxt = 12'h222; 
                 
                 else
-                    rgb_nxt = 12'h444; // column base
+                    rgb_nxt = 12'h444;
                 
-                // Vertical Greek-style stripes every 4 px inside column (width 30 px)
                 if (((hcount_in - (HOR_PIXELS/6 - 15)) % 4 == 1) ||
                     ((hcount_in - (HOR_PIXELS/2 - 15)) % 4 == 1) ||
                     ((hcount_in - ((5*HOR_PIXELS)/6 - 15)) % 4 == 1))
-                    rgb_nxt = 12'h222; // stripe
+                    rgb_nxt = 12'h222;
             end
         end
     end

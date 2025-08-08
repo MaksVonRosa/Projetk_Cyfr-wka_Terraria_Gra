@@ -23,6 +23,7 @@ module top_vga (
         output logic vs,
         output logic hs,
         output logic ground_lvl,
+        output logic [11:0] ground_y,
         output logic [11:0] char_x,
         output logic [11:0] char_y,
         output logic [3:0] r,
@@ -100,7 +101,7 @@ module top_vga (
         .char_hgt(32),
         .vga_in(vga_if_bg.in),
         .vga_out(vga_plat.out),
-        .ground_lvl,
+        .ground_y,
         .on_ground
     );
 
@@ -112,6 +113,7 @@ module top_vga (
         .stepjump,
         .on_ground,
         .ground_lvl,
+        .ground_y,
         .vga_char_in (vga_plat.in),
         .vga_char_out (vga_if_char.out)
     );
