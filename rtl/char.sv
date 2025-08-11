@@ -7,13 +7,17 @@ module draw_char (
     input  logic on_ground,
     input  logic ground_y,
     output logic ground_lvl,
-
+    output logic [11:0] pos_x_out,
+    output logic [11:0] pos_y_out,
     vga_if.in  vga_char_in,
     vga_if.out vga_char_out
 );
 
     logic [11:0] pos_x, pos_y;
     logic flip_h;
+
+    assign pos_x_out = pos_x;
+    assign pos_y_out = pos_y;
 
     // Character Movement
     char_ctrl u_ctrl (

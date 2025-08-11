@@ -42,12 +42,16 @@ module top_vga (
     wire [10:0] vcount_tim, hcount_tim;
     wire vsync_tim, hsync_tim;
     wire vblnk_tim, hblnk_tim;
+    wire [11:0] pos_x_out, pos_y_out;
 
     // VGA signals from background
     vga_if vga_if_bg();
 
     // VGA signals from character
     vga_if vga_if_char();
+
+     // VGA signals from character
+    vga_if vga_boss();
 
     // VGA signals from platform
     vga_if vga_plat();
@@ -59,8 +63,8 @@ module top_vga (
     assign vs = vga_if_char.vsync;
     assign hs = vga_if_char.hsync;
     assign {r,g,b} = vga_if_char.rgb;
-    assign char_x = u_char.u_ctrl.pos_x;
-    assign char_y = u_char.u_ctrl.pos_y;
+    assign char_x = pos_x_out;
+    assign char_y = pos_y_out;
     
 
 
@@ -104,6 +108,15 @@ module top_vga (
         .ground_y,
         .on_ground
     );
+    
+    boss_draw u_boss_draw (
+        .clk     (clk),
+        .rst     (rst),
+        .char_x(char_x),
+        //.char_y(char_y),
+        .vga_in  (vga_plat.in),
+        .vga_out (vga_boss.out)
+    );
 
     draw_char u_char (
         .clk,
@@ -114,9 +127,10 @@ module top_vga (
         .on_ground,
         .ground_lvl,
         .ground_y,
-        .vga_char_in (vga_plat.in),
+        .pos_x_out (pos_x_out),
+        .pos_y_out (pos_y_out),
+        .vga_char_in (vga_boss.in),
         .vga_char_out (vga_if_char.out)
     );
-
 
 endmodule

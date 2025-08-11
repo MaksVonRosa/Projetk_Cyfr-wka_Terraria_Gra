@@ -29,7 +29,7 @@ module char_draw (
 
     always_ff @(posedge clk) begin
         if (rst) begin
-            draw_x <= HOR_PIXELS / 2;
+            draw_x <= HOR_PIXELS / 5;
             draw_y <= VER_PIXELS - 50 - CHAR_HGT;
         end else begin
             draw_x <= pos_x;
