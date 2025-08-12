@@ -25,7 +25,9 @@ module top_vga (
         output logic hs,
         output logic [3:0] r,
         output logic [3:0] g,
-        output logic [3:0] b
+        output logic [3:0] b,
+        output logic [11:0] char_x, char_y
+
     );
 
     timeunit 1ns;
@@ -39,6 +41,7 @@ module top_vga (
     wire [10:0] vcount_tim, hcount_tim;
     wire vsync_tim, hsync_tim;
     wire vblnk_tim, hblnk_tim;
+    wire [11:0] pos_x_out, pos_y_out;
 
     // VGA signals from background
     vga_if vga_if_bg();
@@ -49,8 +52,10 @@ module top_vga (
     // VGA signals from platform
     vga_if vga_plat();
 
-    // Signals from Mouse
+    // Signals from weapon
     //vga_if vga_if_MouseCtl();
+    vga_if vga_wpn();
+
 
     /**
      * Signals assignments
@@ -59,8 +64,8 @@ module top_vga (
     assign vs = vga_if_char.vsync;
     assign hs = vga_if_char.hsync;
     assign {r,g,b} = vga_if_char.rgb;
-    assign char_x = u_char.u_ctrl.pos_x;
-    assign char_y = u_char.u_ctrl.pos_y;
+    assign char_x = pos_x_out;
+    assign char_y = pos_y_out;
     
     logic [11:0] xpos_MouseCtl;
     logic [11:0] ypos_MouseCtl;
@@ -111,6 +116,9 @@ module top_vga (
         .stepright,
         .stepjump,
         .on_ground(on_ground),
+        .mouse_left(mouse_left),
+        .pos_x_out(pos_x_out),
+        .pos_y_out(pos_y_out),
         .vga_char_in (vga_if_bg.in),
         .vga_char_out (vga_if_char.out)
     );

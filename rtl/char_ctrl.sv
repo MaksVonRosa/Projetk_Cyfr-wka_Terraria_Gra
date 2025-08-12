@@ -6,8 +6,10 @@ module char_ctrl (
     input  logic stepjump,
     input  logic on_ground,
     input  logic mouse_left,
+
     output logic [11:0] pos_x,
     output logic [11:0] pos_y,
+    output logic draw_weapon,
     output logic flip_h
 );
     import vga_pkg::*;
@@ -28,6 +30,10 @@ module char_ctrl (
     localparam integer FRAME_TICKS = 65_000_000 / 60;
     logic [20:0] tick_count;
     logic        frame_tick;
+
+    //logic draw_weapon;
+
+
 
     always_ff @(posedge clk or posedge rst) begin
         if (rst) flip_h <= 0;
@@ -78,6 +84,17 @@ module char_ctrl (
                 else
                     next_y <= GROUND_Y;
             end
+        end
+    end
+
+//Interacting with mouse
+    always_ff @(posedge clk or posedge rst) begin
+        if (rst) begin
+            draw_weapon <= 0;
+        end else if (mouse_left) begin
+            draw_weapon <= 1;
+        end else begin
+            draw_weapon <= 0;
         end
     end
 

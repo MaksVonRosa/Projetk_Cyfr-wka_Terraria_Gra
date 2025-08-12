@@ -4,6 +4,7 @@ module wpn_draw_def (
     input  logic [11:0] pos_x,
     input  logic [11:0] pos_y,
     input  logic flip_h,
+    input  logic draw_enable,
     output logic [11:0] wpn_hgt,
     output logic [11:0] wpn_lng,
 
@@ -40,7 +41,8 @@ module wpn_draw_def (
     always_comb begin
         rgb_nxt = vga_in.rgb;
 
-        if (!vga_in.vblnk && !vga_in.hblnk &&
+        if (draw_enable && 
+            !vga_in.vblnk && !vga_in.hblnk &&
             vga_in.hcount >= draw_x - WPN_LNG &&
             vga_in.hcount <  draw_x + WPN_LNG &&
             vga_in.vcount >= draw_y - WPN_HGT &&

@@ -1,7 +1,7 @@
 ################################################################################
 #                    DO NOT MANUALLY EDIT THIS FILE!                           #
 ################################################################################
-# This file contains the automatically generated build configuration (2025/08/12 22:04:12)
+# This file contains the automatically generated build configuration (2025/08/13 00:49:29)
 # requested at line 3 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/.dvt/default.build
 
 
@@ -9,7 +9,9 @@
 +dvt_init
 
 fpga/rtl/top_vga_basys3.sv
-rtl/attack.sv
+rtl/Attack_Control/attack_archer.sv
+rtl/Attack_Control/attack_mage.sv
+rtl/Attack_Control/attack_melee.sv
 rtl/char.sv
 rtl/clk_wiz_0_clk_wiz.v
 rtl/top_vga.sv
@@ -19,6 +21,8 @@ sim/top_fpga/top_fpga_tb.sv
 sim/top_vga/top_vga_tb.sv
 rtl/vga_pkg.sv
 sim/vga_timing/vga_timing_tb.sv
+rtl/wpn_draw_def.sv
+rtl/wpn_draw_att.sv
 rtl/vga_timing.sv
 rtl/platform.sv
 rtl/draw_bg.sv
@@ -26,4 +30,14 @@ rtl/char_draw.sv
 rtl/char_ctrl.sv
 sim/common/glbl.v
 
-################ No files found. ################
+################ VHDL Auto-config Directives ################
+
++dvt_init_xilinx+UNISIM
++dvt_env+DVT_XILINX_HOME=/home_local/Xilinx/Vivado/2021.2/
+
++dvt_init -work work
+
+rtl/Mouse_Control/Ps2Interface.vhd
+rtl/Mouse_Control/MouseDisplay.vhd
+rtl/Mouse_Control/MouseCtl.vhd
+
