@@ -18,14 +18,14 @@ module top_vga_basys3 (
         input  wire btnU,
         input  wire btnR,
         input  wire btnL,
+        input wire PS2Clk,
+        input wire PS2Data,
         output wire Vsync,
         output wire Hsync,
         output wire [3:0] vgaRed,
         output wire [3:0] vgaGreen,
         output wire [3:0] vgaBlue,
-        output wire JA1,
-        inout wire PS2Clk,
-        inout wire PS2Data
+        output wire JA1
     );
 
     timeunit 1ns;
@@ -93,6 +93,8 @@ module top_vga_basys3 (
         .stepleft(btnL),
         .stepright(btnR),
         .stepjump(btnU),
+        .ps2_clk(PS2Clk),
+        .ps2_data(PS2Data),
         .r(vgaRed),
         .g(vgaGreen),
         .b(vgaBlue),

@@ -47,8 +47,7 @@ module char_draw (
             vga_in.vcount <  draw_y + CHAR_HGT) begin
 
             rel_y = vga_in.vcount - (draw_y - CHAR_HGT);
-            rel_x = flip_h ? (IMG_WIDTH - 1) - (vga_in.hcount - (draw_x - CHAR_LNG)) : 
-                            (vga_in.hcount - (draw_x - CHAR_LNG));
+            rel_x = flip_h ? (IMG_WIDTH - 1) - (vga_in.hcount - (draw_x - CHAR_LNG)) : (vga_in.hcount - (draw_x - CHAR_LNG));
 
             if (rel_x < IMG_WIDTH && rel_y < IMG_HEIGHT) begin
                 rom_addr = rel_y * IMG_WIDTH + rel_x;

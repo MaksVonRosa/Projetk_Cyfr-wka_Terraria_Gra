@@ -23,7 +23,8 @@ module draw_char (
         .on_ground(on_ground),
         .pos_x(pos_x),
         .pos_y(pos_y),
-        .flip_h(flip_h)
+        .flip_h(flip_h),
+        .mouse_left(mouse_left)
     );
 
     // Character Draw

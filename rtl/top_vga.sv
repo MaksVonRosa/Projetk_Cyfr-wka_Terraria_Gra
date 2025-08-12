@@ -19,6 +19,8 @@ module top_vga (
         input  logic stepleft,
         input  logic stepright,
         input  logic stepjump,
+        inout  logic ps2_clk,
+        inout  logic ps2_data,
         output logic vs,
         output logic hs,
         output logic [3:0] r,
@@ -47,6 +49,9 @@ module top_vga (
     // VGA signals from platform
     vga_if vga_plat();
 
+    // Signals from Mouse
+    //vga_if vga_if_MouseCtl();
+
     /**
      * Signals assignments
      */
@@ -57,7 +62,9 @@ module top_vga (
     assign char_x = u_char.u_ctrl.pos_x;
     assign char_y = u_char.u_ctrl.pos_y;
     
-
+    logic [11:0] xpos_MouseCtl;
+    logic [11:0] ypos_MouseCtl;
+    logic mouse_left;
 
     /**
      * Submodules instances
@@ -72,6 +79,15 @@ module top_vga (
         .hcount (hcount_tim),
         .hsync  (hsync_tim),
         .hblnk  (hblnk_tim)
+    );
+    MouseCtl u_MouseCtl
+    (
+        .clk(clk100MHz),
+        .ps2_clk(ps2_clk),
+        .ps2_data(ps2_data),
+        .xpos(xpos_MouseCtl),
+        .ypos(ypos_MouseCtl),
+        .left(mouse_left)
     );
 
     draw_bg u_draw_bg (

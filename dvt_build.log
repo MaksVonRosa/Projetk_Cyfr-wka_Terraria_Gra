@@ -1,205 +1,227 @@
 *** Start analyzing build configuration ***
-INFO: Auto-config - Scanning: C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra
-INFO: Auto-config - VLOG: C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra
-INFO: Auto-config - VHDL: C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra
+INFO: Auto-config - Scanning: /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra
+INFO: Auto-config - VLOG: /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra
+INFO: Auto-config - VHDL: /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra
 INFO: Auto-config - Wrote:
-    .dvt\default.build.auto.1
+    .dvt/default.build.auto.1
 *** List of included argument files ***
-    Build configuration file:  C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\.dvt\default.build
-    -f c:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\.dvt\default.build.auto.1
+    Build configuration file:  /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/.dvt/default.build
+    -f /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/.dvt/default.build.auto.1
 *** List of invocations ***
-Invocation #1 +dvt_init+dvt in c:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\.dvt\default.build.auto.1 at line 9
-*** Done analyzing build configuration [387 ms] ***
-
+Invocation #1 +dvt_init+dvt in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/.dvt/default.build.auto.1 at line 9
+*** Done analyzing build configuration [194 ms] ***
 *** Start VHDL build ***
-*** Done parsing [235 ms] ***
-*** Total number of lines [0] ***
-Performing post full build step 1 (VHDL - RU) [13 ms] ...
-*** Files summary [0 total, 0 unique] ***
-*** Done VHDL build [249 ms] ***
-
+Total number of lines [0]
+Performing post full build step 1 (VHDL - RU) [7 ms] ...
+*** Done VHDL build [572 ms] ***
 *** Start SystemVerilog build ***
 *** Invocation #1***
-Loading (1) C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\fpga\rtl\top_vga_basys3.sv ...
-Done C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\fpga\rtl\top_vga_basys3.sv [27 ms, 104 lines, SystemVerilog_2012] ...
-Loading (2) C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\char.sv ...
-Done C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\char.sv [3 ms, 36 lines, SystemVerilog_2012] ...
-Loading (3) C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\clk_wiz_0_clk_wiz.v ...
-Done C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\clk_wiz_0_clk_wiz.v [26 ms, 232 lines, Verilog_2001] ...
-Loading (4) C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\top_vga.sv ...
-Done C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\top_vga.sv [4 ms, 96 lines, SystemVerilog_2012] ...
-Loading (5) C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\vga_if.sv ...
-Done C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\vga_if.sv [5 ms, 16 lines, SystemVerilog_2012] ...
-Loading (6) C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\tiff_writer.sv ...
-Done C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\tiff_writer.sv [43 ms, 405 lines, SystemVerilog_2012] ...
-Loading (7) C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\top_fpga\top_fpga_tb.sv ...
-Done C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\top_fpga\top_fpga_tb.sv [5 ms, 106 lines, SystemVerilog_2012] ...
-Loading (8) C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\top_vga\top_vga_tb.sv ...
-Done C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\top_vga\top_vga_tb.sv [4 ms, 104 lines, SystemVerilog_2012] ...
-Loading (9) C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\vga_pkg.sv ...
-Done C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\vga_pkg.sv [2 ms, 33 lines, SystemVerilog_2012] ...
-Loading (10) C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\vga_timing\vga_timing_tb.sv ...
-Done C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\vga_timing\vga_timing_tb.sv [10 ms, 121 lines, SystemVerilog_2012] ...
-Loading (11) C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\vga_timing.sv ...
-Done C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\vga_timing.sv [5 ms, 96 lines, SystemVerilog_2012] ...
-Loading (12) C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\draw_bg.sv ...
-Done C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\draw_bg.sv [14 ms, 154 lines, SystemVerilog_2012] ...
-Loading (13) C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\char_draw.sv ...
-Done C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\char_draw.sv [4 ms, 58 lines, SystemVerilog_2012] ...
-Loading (14) C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\char_ctrl.sv ...
-Done C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\char_ctrl.sv [5 ms, 79 lines, SystemVerilog_2012] ...
-Loading (15) C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v ...
-Done C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v [4 ms, 85 lines, Verilog_2001] ...
-*** Done invocation #1 [168 ms] ***
-*** Done parsing [LT 95 ms, PT 168 ms] ***
-*** Total number of lines [1 725] ***
+Loading (1) /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv ...
+Done /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv [228 ms, 104 lines, SystemVerilog_2012] ...
+Loading (2) /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/attack.sv ...
+Done /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/attack.sv [1 ms, 10 lines, SystemVerilog_2012] ...
+Loading (3) /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv ...
+Done /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv [3 ms, 41 lines, SystemVerilog_2012] ...
+Loading (4) /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v ...
+Done /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v [26 ms, 232 lines, Verilog_2001] ...
+Loading (5) /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv ...
+Done /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv [5 ms, 114 lines, SystemVerilog_2012] ...
+Loading (6) /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga_if.sv ...
+Done /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga_if.sv [6 ms, 16 lines, SystemVerilog_2012] ...
+Loading (7) /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/tiff_writer.sv ...
+Done /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/tiff_writer.sv [55 ms, 405 lines, SystemVerilog_2012] ...
+Loading (8) /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/top_fpga/top_fpga_tb.sv ...
+Done /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/top_fpga/top_fpga_tb.sv [7 ms, 106 lines, SystemVerilog_2012] ...
+Loading (9) /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/top_vga/top_vga_tb.sv ...
+Done /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/top_vga/top_vga_tb.sv [5 ms, 104 lines, SystemVerilog_2012] ...
+Loading (10) /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga_pkg.sv ...
+Done /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga_pkg.sv [2 ms, 33 lines, SystemVerilog_2012] ...
+Loading (11) /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/vga_timing/vga_timing_tb.sv ...
+Done /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/vga_timing/vga_timing_tb.sv [9 ms, 121 lines, SystemVerilog_2012] ...
+Loading (12) /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga_timing.sv ...
+Done /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga_timing.sv [3 ms, 96 lines, SystemVerilog_2012] ...
+Loading (13) /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv ...
+Done /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv [6 ms, 62 lines, SystemVerilog_2012] ...
+Loading (14) /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/draw_bg.sv ...
+Done /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/draw_bg.sv [10 ms, 154 lines, SystemVerilog_2012] ...
+Loading (15) /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_draw.sv ...
+Done /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_draw.sv [6 ms, 74 lines, SystemVerilog_2012] ...
+Loading (16) /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_ctrl.sv ...
+Done /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_ctrl.sv [5 ms, 87 lines, SystemVerilog_2012] ...
+Loading (17) /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v ...
+Done /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [4 ms, 85 lines, Verilog_2001] ...
+*** Done invocation #1 [178 ms] ***
+*** Total number of lines [1 844] ***
 Performing post full build actions ...
-Performing post full build step 1 (SRI) [1 ms] ...
-Performing post full build step 2 (RI) [0 ms] ...
-Performing post full build step 3 (RCP) [1 ms] ...
-*** Files summary [15 total, 15 unique, 0 optimized] ***
-*** Done SystemVerilog build [346 ms] ***
-
+Performing post full build step 1 (SRI) [0 ms] ...
+Performing post full build step 2 (RI) [3 ms] ...
+Performing post full build step 3 (RCP) [0 ms] ...
+*** Done SystemVerilog build [400 ms] ***
 *** Start mixed mode extension build ***
-Performing mixed post full build step (VHDL - RU) [4 ms] ...
-Performing mixed post full build step (VHDL - RT) [378 ms] ...
+Performing mixed post full build step (VHDL - RU) [5 ms] ...
+Performing mixed post full build step (VHDL - RT) [151 ms] ...
+Performing mixed post full build step (VHDL - RD) [6 ms] ...
+Performing mixed post full build step (VHDL - FSC) [102 ms] ...
 Performing mixed post full build step (VLOG - RI) [1 ms] ...
 *** Warning: UNSPECIFIED_TOP: Please specify a -top module/entity/configuration in the project build file
 *** Top design candidates: work.top_fpga_tb, work.top_vga_tb, work.vga_timing_tb
-Performing mixed post full build step (MIXED - ELAB) [305 ms] ...
-Performing mixed post full build step (MIXED - UNEL) [63 ms] ...
-*** Warning: MISSING_PORT_CONNECTION: Instance 'dut' of module 'top_vga_basys3' is missing port connection to inout 'PS2Clk, PS2Data'
-    at line 59 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\top_fpga\top_fpga_tb.sv:59 [compile index 7]
-*** Warning: MISSING_PORT_CONNECTION: Instance 'dut' of module 'top_vga_basys3' is missing port connection to input 'btnU, btnR, btnL'
-    at line 59 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\top_fpga\top_fpga_tb.sv:59 [compile index 7]
+Performing mixed post full build step (MIXED - ELAB) [300 ms] ...
+Performing mixed post full build step (MIXED - UNEL) [51 ms] ...
 *** Warning: UNDECLARED_MODULE: Module 'IBUF' is not declared
-    at line 80 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\clk_wiz_0_clk_wiz.v:80 [compile index 3]
+    at line 80 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v [compile index 4]
 *** Warning: UNDECLARED_MODULE: Module 'MMCME2_ADV' is not declared
-    at line 127 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\clk_wiz_0_clk_wiz.v:127 [compile index 3]
+    at line 127 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v [compile index 4]
 *** Warning: UNDECLARED_MODULE: Module 'BUFG' is not declared
-    at line 193 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\clk_wiz_0_clk_wiz.v:193 [compile index 3]
+    at line 193 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v [compile index 4]
 *** Warning: UNDECLARED_MODULE: Module 'BUFGCE' is not declared
-    at line 203 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\clk_wiz_0_clk_wiz.v:203 [compile index 3]
+    at line 203 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v [compile index 4]
 *** Warning: UNDECLARED_MODULE: Module 'BUFH' is not declared
-    at line 208 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\clk_wiz_0_clk_wiz.v:208 [compile index 3]
+    at line 208 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v [compile index 4]
 *** Warning: UNDECLARED_MODULE: Module 'BUFGCE' is not declared
-    at line 215 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\clk_wiz_0_clk_wiz.v:215 [compile index 3]
+    at line 215 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v [compile index 4]
 *** Warning: UNDECLARED_MODULE: Module 'BUFH' is not declared
-    at line 220 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\clk_wiz_0_clk_wiz.v:220 [compile index 3]
+    at line 220 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v [compile index 4]
 *** Warning: UNDECLARED_MODULE: Module 'ODDR' is not declared
-    at line 74 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\fpga\rtl\top_vga_basys3.sv:74 [compile index 1]
-*** Warning: MISSING_PORT_CONNECTION: Instance 'u_draw' of module 'char_draw' is missing port connection to output 'char_hgt, char_lng'
-    at line 26 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\char.sv:26 [compile index 2]
+    at line 74 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv [compile index 1]
+*** Warning: MISSING_PORT_CONNECTION: Instance 'dut' of module 'top_vga_basys3' is missing port connection to inout 'PS2Clk, PS2Data'
+    at line 59 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/top_fpga/top_fpga_tb.sv [compile index 8]
+*** Warning: MISSING_PORT_CONNECTION: Instance 'dut' of module 'top_vga_basys3' is missing port connection to input 'btnU, btnR, btnL'
+    at line 59 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/top_fpga/top_fpga_tb.sv [compile index 8]
 *** Warning: MISSING_PORT_CONNECTION: Instance 'dut' of module 'top_vga' is missing port connection to input 'clk100MHz, stepleft, stepright, stepjump'
-    at line 58 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\top_vga\top_vga_tb.sv:58 [compile index 8]
-*** Warning: ASSIGNMENT_BLOCKING: Blocking assignment of 'frame_number' in sequential logic (use non-blocking assignment)
-    at line 401 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\tiff_writer.sv:401 [compile index 6]
+    at line 58 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/top_vga/top_vga_tb.sv [compile index 9]
+*** Warning: WIDTH_MISMATCH_PADDING: Assignment to 'char_x' of '12-bit' type from 'char_x' of '1-bit' type
+    at line 105 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv [compile index 5]
+*** Warning: WIDTH_MISMATCH_PADDING: Assignment to 'char_y' of '12-bit' type from 'char_y' of '1-bit' type
+    at line 106 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv [compile index 5]
+*** Warning: WIDTH_MISMATCH_TRUNCATION: Assignment to 'char_x' of '1-bit' type from 'pos_x' of '12-bit' type
+    at line 57 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv [compile index 5]
+*** Warning: WIDTH_MISMATCH_TRUNCATION: Assignment to 'char_y' of '1-bit' type from 'pos_y' of '12-bit' type
+    at line 58 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv [compile index 5]
+*** Warning: MISSING_PORT_CONNECTION: Instance 'u_draw' of module 'char_draw' is missing port connection to output 'char_hgt, char_lng'
+    at line 30 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv [compile index 3]
+*** Warning: UNELABORATED_MODULE: Module 'work.attack' is not elaborated
+    at line 1 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/attack.sv [compile index 2]
 *** Warning: UNELABORATED_MODULE: Module 'work.glbl' is not elaborated
-    at line 6 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:6 [compile index 15]
-Performing mixed post full build step (VHDL - RD) [4 ms] ...
+    at line 6 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
+Performing mixed post full build step (VHDL - ELPC) [0 ms] ...
 Performing mixed post full build step (VHDL - US) [0 ms] ...
-Performing mixed post full build step (VHDL - USBD) [55 ms] ...
-Performing mixed post full build step (VLOG - RD) [4 ms] ...
-Performing mixed post full build step (VLOG - US) [56 ms] ...
+Performing mixed post full build step (VHDL - USBD) [50 ms] ...
+Performing mixed post full build step (VLOG - RD) [6 ms] ...
+Performing mixed post full build step (VLOG - FSC) [51 ms] ...
+Performing mixed post full build step (VLOG - EV) [51 ms] ...
+Performing mixed post full build step (VLOG - ELPC) [1 ms] ...
+Performing mixed post full build step (VLOG - US) [51 ms] ...
 *** Warning: SIGNAL_NEVER_USED: Signal 'PS2Clk' is never used
-    at line 27 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\fpga\rtl\top_vga_basys3.sv:27 [compile index 1]
+    at line 27 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv [compile index 1]
 *** Warning: SIGNAL_NEVER_USED: Signal 'PS2Data' is never used
-    at line 28 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\fpga\rtl\top_vga_basys3.sv:28 [compile index 1]
+    at line 28 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv [compile index 1]
 *** Warning: SIGNAL_NEVER_USED: Signal 'clk_ss' is never used
-    at line 38 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\fpga\rtl\top_vga_basys3.sv:38 [compile index 1]
+    at line 38 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv [compile index 1]
 *** Warning: SIGNAL_NEVER_READ: Signal 'locked' is never read (connected to sub-instance output port)
-    at line 39 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\fpga\rtl\top_vga_basys3.sv:39 [compile index 1]
+    at line 39 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv [compile index 1]
 *** Warning: SIGNAL_NEVER_USED: Signal 'clk_in2_clk_wiz_0' is never used
-    at line 79 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\clk_wiz_0_clk_wiz.v:79 [compile index 3]
+    at line 79 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v [compile index 4]
 *** Warning: SIGNAL_NEVER_USED: Signal 'clk_out3_clk_wiz_0' is never used
-    at line 96 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\clk_wiz_0_clk_wiz.v:96 [compile index 3]
+    at line 96 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v [compile index 4]
 *** Warning: SIGNAL_NEVER_USED: Signal 'clk_out4_clk_wiz_0' is never used
-    at line 97 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\clk_wiz_0_clk_wiz.v:97 [compile index 3]
+    at line 97 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v [compile index 4]
 *** Warning: SIGNAL_NEVER_USED: Signal 'clk_out5_clk_wiz_0' is never used
-    at line 98 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\clk_wiz_0_clk_wiz.v:98 [compile index 3]
+    at line 98 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v [compile index 4]
 *** Warning: SIGNAL_NEVER_USED: Signal 'clk_out6_clk_wiz_0' is never used
-    at line 99 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\clk_wiz_0_clk_wiz.v:99 [compile index 3]
+    at line 99 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v [compile index 4]
 *** Warning: SIGNAL_NEVER_USED: Signal 'clk_out7_clk_wiz_0' is never used
-    at line 100 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\clk_wiz_0_clk_wiz.v:100 [compile index 3]
+    at line 100 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v [compile index 4]
 *** Warning: IMPLICIT_DECLARATION: Implicit declaration of 'clk100MHz_clk_wiz_0_en_clk' using `default_nettype set to wire
-    at line 209 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\clk_wiz_0_clk_wiz.v:209 [compile index 3]
+    at line 209 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v [compile index 4]
 *** Warning: INTERNAL_GENERATED_CLOCK: Clock signal 'clk100MHz_clk_wiz_0_en_clk' is not an input port
-    at line 211 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\clk_wiz_0_clk_wiz.v:211 [compile index 3]
+    at line 211 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v [compile index 4]
 *** Warning: IMPLICIT_DECLARATION: Implicit declaration of 'clk65MHz_clk_wiz_0_en_clk' using `default_nettype set to wire
-    at line 221 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\clk_wiz_0_clk_wiz.v:221 [compile index 3]
+    at line 221 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v [compile index 4]
 *** Warning: INTERNAL_GENERATED_CLOCK: Clock signal 'clk65MHz_clk_wiz_0_en_clk' is not an input port
-    at line 224 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\clk_wiz_0_clk_wiz.v:224 [compile index 3]
+    at line 224 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v [compile index 4]
 *** Warning: SIGNAL_NEVER_USED: Signal 'clk100MHz' is never used
-    at line 17 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\top_vga.sv:17 [compile index 4]
+    at line 17 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv [compile index 5]
+*** Warning: IMPLICIT_DECLARATION: Implicit declaration of 'char_x' using `default_nettype set to wire
+    at line 57 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv [compile index 5]
+*** Warning: IMPLICIT_DECLARATION: Implicit declaration of 'char_y' using `default_nettype set to wire
+    at line 58 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv [compile index 5]
+*** Warning: IMPLICIT_DECLARATION: Implicit declaration of 'on_ground' using `default_nettype set to wire
+    at line 97 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv [compile index 5]
 *** Warning: INTERNAL_GENERATED_RESET: Reset signal 'file_open' is not an input port
-    at line 388 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\tiff_writer.sv:388 [compile index 6]
+    at line 388 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/tiff_writer.sv [compile index 7]
 *** Warning: MULTIPLE_CLOCKS_BLOCK: Procedural block driven by multiple clocks (go_delayed, go)
-    at line 395 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\tiff_writer.sv:395 [compile index 6]
+    at line 395 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/tiff_writer.sv [compile index 7]
 *** Warning: SIGNAL_NEVER_READ: Signal 'hs' is never read (connected to sub-instance output port)
-    at line 41 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\top_fpga\top_fpga_tb.sv:41 [compile index 7]
+    at line 41 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/top_fpga/top_fpga_tb.sv [compile index 8]
 *** Warning: SIGNAL_NEVER_READ: Signal 'hs' is never read (connected to sub-instance output port)
-    at line 40 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\top_vga\top_vga_tb.sv:40 [compile index 8]
+    at line 40 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/top_vga/top_vga_tb.sv [compile index 9]
+*** Warning: SIGNAL_NEVER_USED: Signal 'rst' is never used
+    at line 3 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv [compile index 13]
+*** Warning: SIGNAL_NEVER_WRITTEN: Signal 'char_rom' is never written
+    at line 22 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_draw.sv [compile index 15]
+*** Warning: SIGNAL_NEVER_USED: Signal 'on_ground' is never used
+    at line 7 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_ctrl.sv [compile index 16]
 *** Warning: SIGNAL_RESET_BUT_NOT_DRIVEN: Signal 'jump_peak' is reset but not driven
-    at line 56 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\rtl\char_ctrl.sv:56 [compile index 14]
+    at line 64 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_ctrl.sv [compile index 16]
 *** Warning: SIGNAL_NEVER_READ: Signal 'GSR' is never read
-    at line 14 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:14 [compile index 15]
+    at line 14 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_READ: Signal 'GTS' is never read
-    at line 15 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:15 [compile index 15]
+    at line 15 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_USED: Signal 'GWE' is never used
-    at line 16 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:16 [compile index 15]
+    at line 16 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_READ: Signal 'PRLD' is never read
-    at line 17 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:17 [compile index 15]
+    at line 17 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_READ: Signal 'GRESTORE' is never read
-    at line 18 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:18 [compile index 15]
+    at line 18 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_WRITTEN: Signal 'p_up_tmp' is never written
-    at line 19 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:19 [compile index 15]
+    at line 19 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_READ: Signal 'PLL_LOCKG' is never read
-    at line 20 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:20 [compile index 15]
+    at line 20 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_USED: Signal 'PROGB_GLBL' is never used
-    at line 22 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:22 [compile index 15]
+    at line 22 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_USED: Signal 'CCLKO_GLBL' is never used
-    at line 23 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:23 [compile index 15]
+    at line 23 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_USED: Signal 'FCSBO_GLBL' is never used
-    at line 24 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:24 [compile index 15]
+    at line 24 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_USED: Signal 'DO_GLBL' is never used
-    at line 25 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:25 [compile index 15]
+    at line 25 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_USED: Signal 'DI_GLBL' is never used
-    at line 26 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:26 [compile index 15]
+    at line 26 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_USED: Signal 'JTAG_TDO_GLBL' is never used
-    at line 34 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:34 [compile index 15]
+    at line 34 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_USED: Signal 'JTAG_TCK_GLBL' is never used
-    at line 35 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:35 [compile index 15]
+    at line 35 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_USED: Signal 'JTAG_TDI_GLBL' is never used
-    at line 36 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:36 [compile index 15]
+    at line 36 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_USED: Signal 'JTAG_TMS_GLBL' is never used
-    at line 37 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:37 [compile index 15]
+    at line 37 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_USED: Signal 'JTAG_TRST_GLBL' is never used
-    at line 38 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:38 [compile index 15]
+    at line 38 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_USED: Signal 'JTAG_CAPTURE_GLBL' is never used
-    at line 40 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:40 [compile index 15]
+    at line 40 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_USED: Signal 'JTAG_RESET_GLBL' is never used
-    at line 41 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:41 [compile index 15]
+    at line 41 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_USED: Signal 'JTAG_SHIFT_GLBL' is never used
-    at line 42 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:42 [compile index 15]
+    at line 42 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_USED: Signal 'JTAG_UPDATE_GLBL' is never used
-    at line 43 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:43 [compile index 15]
+    at line 43 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_USED: Signal 'JTAG_RUNTEST_GLBL' is never used
-    at line 44 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:44 [compile index 15]
+    at line 44 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_READ: Signal 'JTAG_SEL1_GLBL' is never read
-    at line 46 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:46 [compile index 15]
+    at line 46 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_READ: Signal 'JTAG_SEL2_GLBL' is never read
-    at line 47 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:47 [compile index 15]
+    at line 47 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_READ: Signal 'JTAG_SEL3_GLBL' is never read
-    at line 48 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:48 [compile index 15]
+    at line 48 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_READ: Signal 'JTAG_SEL4_GLBL' is never read
-    at line 49 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:49 [compile index 15]
+    at line 49 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_READ: Signal 'JTAG_USER_TDO1_GLBL' is never read
-    at line 51 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:51 [compile index 15]
+    at line 51 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_READ: Signal 'JTAG_USER_TDO2_GLBL' is never read
-    at line 52 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:52 [compile index 15]
+    at line 52 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_READ: Signal 'JTAG_USER_TDO3_GLBL' is never read
-    at line 53 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:53 [compile index 15]
+    at line 53 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
 *** Warning: SIGNAL_NEVER_READ: Signal 'JTAG_USER_TDO4_GLBL' is never read
-    at line 54 in C:\Users\maksw\OneDrive\Dokumenty\GitHub\Projetk_Cyfr-wka_Terraria_Gra\sim\common\glbl.v:54 [compile index 15]
-*** Done mixed mode extension build [886 ms] ***
-*** Total build time [1s.893ms] ***
+    at line 54 in /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/sim/common/glbl.v [compile index 17]
+*** Done mixed mode extension build [865 ms] ***
+*** Total build time [2s.040ms] ***

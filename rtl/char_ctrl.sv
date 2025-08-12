@@ -5,6 +5,7 @@ module char_ctrl (
     input  logic stepright,
     input  logic stepjump,
     input  logic on_ground,
+    input  logic mouse_left,
     output logic [11:0] pos_x,
     output logic [11:0] pos_y,
     output logic flip_h
