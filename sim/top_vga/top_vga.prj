@@ -16,6 +16,7 @@ sv work ../../rtl/vga_pkg.sv \
         ../../rtl/char_ctrl.sv \
         ../../rtl/char_draw.sv \
         ../../rtl/platform.sv \
+        ../../rtl/hearts_display.sv \
         ../../rtl/vga_if.sv \
         ../../rtl/top_vga.sv \
         ../common/tiff_writer.sv \

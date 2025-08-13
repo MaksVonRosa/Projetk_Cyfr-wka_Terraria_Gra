@@ -40,6 +40,7 @@ set sv_files {
     ../rtl/boss.sv
     ../rtl/boss_draw.sv
     ../rtl/platform.sv
+    ../rtl/hearts_display.sv
     ../rtl/top_vga.sv
     ../rtl/vga_if.sv
     rtl/top_vga_basys3.sv

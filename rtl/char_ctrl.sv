@@ -5,17 +5,17 @@ module char_ctrl (
     input  logic stepright,
     input  logic stepjump,
     input  logic on_ground,
-    input  logic [11:0] ground_y,
     output logic [11:0] pos_x,
     output logic [11:0] pos_y,
     output logic [11:0] ground_lvl,
+    output logic [3:0] char_hp, 
     output logic flip_h
 );
     import vga_pkg::*;
 
     localparam CHAR_HGT    = 27;
     localparam CHAR_LNG    = 19;
-    localparam HOR_CENTER  = HOR_PIXELS / 2;
+    localparam CHAR_SPAWN  = HOR_PIXELS / 5;
     localparam GROUND_Y    = VER_PIXELS - 52 - CHAR_HGT;
     localparam JUMP_HEIGHT = 300;
     localparam JUMP_SPEED  = 7;
@@ -49,7 +49,8 @@ module char_ctrl (
     // Left/Right
     always_ff @(posedge clk or posedge rst) begin
         if (rst) begin
-            next_x <= HOR_CENTER;
+            next_x <= CHAR_SPAWN;
+            char_hp <= 10; 
         end else if (frame_tick) begin
             if (stepleft && next_x > CHAR_LNG + MOVE_STEP)
                 next_x <= next_x - MOVE_STEP;

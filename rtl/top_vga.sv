@@ -43,6 +43,7 @@ module top_vga (
     wire vsync_tim, hsync_tim;
     wire vblnk_tim, hblnk_tim;
     wire [11:0] pos_x_out, pos_y_out;
+    wire [3:0] char_hp_out;
 
     // VGA signals from background
     vga_if vga_if_bg();
@@ -55,6 +56,9 @@ module top_vga (
 
     // VGA signals from platform
     vga_if vga_plat();
+
+    // VGA signals from hearts
+    vga_if vga_hearts();
 
     /**
      * Signals assignments
@@ -108,12 +112,21 @@ module top_vga (
         .ground_y,
         .on_ground
     );
+
+    hearts_display u_hearts_display (
+    .clk(clk),
+    .rst(rst),
+    .char_hp(char_hp_out),
+    .vga_in(vga_boss.in),
+    .vga_out(vga_hearts.out)
+);
+
     
     boss_draw u_boss_draw (
         .clk     (clk),
         .rst     (rst),
         .char_x(char_x),
-        //.char_y(char_y),
+        .char_y(char_y),
         .vga_in  (vga_plat.in),
         .vga_out (vga_boss.out)
     );
@@ -126,10 +139,10 @@ module top_vga (
         .stepjump,
         .on_ground,
         .ground_lvl,
-        .ground_y,
+        .char_hp_out (char_hp_out),
         .pos_x_out (pos_x_out),
         .pos_y_out (pos_y_out),
-        .vga_char_in (vga_boss.in),
+        .vga_char_in (vga_hearts.in),
         .vga_char_out (vga_if_char.out)
     );
 
