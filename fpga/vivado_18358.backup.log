@@ -2,13 +2,13 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Wed Aug 13 01:02:58 2025
-# Process ID: 13201
+# Start of session at: Wed Aug 13 01:14:23 2025
+# Process ID: 18358
 # Current directory: /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga
 # Command line: vivado -mode tcl -source scripts/generate_bitstream.tcl
 # Log file: /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/vivado.log
 # Journal file: /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/vivado.jou
-# Running On: cadence34, OS: Linux, CPU Frequency: 3444.726 MHz, CPU Physical cores: 4, Host memory: 16720 MB
+# Running On: cadence34, OS: Linux, CPU Frequency: 3560.937 MHz, CPU Physical cores: 4, Host memory: 16720 MB
 #-----------------------------------------------------------
 source scripts/generate_bitstream.tcl
 # source scripts/project_details.tcl
@@ -67,9 +67,9 @@ source scripts/generate_bitstream.tcl
 # create_new_project $project_name $target $top_module
 # generate_bitstream
 WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
-[Wed Aug 13 01:03:13 2025] Launched synth_1...
+[Wed Aug 13 01:14:38 2025] Launched synth_1...
 Run output will be captured here: /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/synth_1/runme.log
-[Wed Aug 13 01:03:13 2025] Waiting for synth_1 to finish...
+[Wed Aug 13 01:14:38 2025] Waiting for synth_1 to finish...
 
 *** Running vivado
     with args -log top_vga_basys3.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_vga_basys3.tcl
@@ -88,9 +88,9 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 13552
+INFO: [Synth 8-7075] Helper process launched with PID 18717
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2717.812 ; gain = 0.000 ; free physical = 2405 ; free virtual = 14779
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2717.812 ; gain = 0.000 ; free physical = 2469 ; free virtual = 14846
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top_vga_basys3' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:15]
 INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0_clk_wiz' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v:66]
@@ -131,24 +131,50 @@ INFO: [Synth 8-6157] synthesizing module 'vga_if' [/home/student/dszczepaniak/ue
 INFO: [Synth 8-6155] done synthesizing module 'vga_if' (7#1) [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga_if.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'vga_if' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga_if.sv:1]
 INFO: [Synth 8-6155] done synthesizing module 'vga_if' (7#1) [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga_if.sv:1]
-ERROR: [Synth 8-6038] cannot resolve hierarchical name for the item 'u_char' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:62]
+INFO: [Synth 8-6157] synthesizing module 'vga_timing' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga_timing.sv:10]
+INFO: [Synth 8-6155] done synthesizing module 'vga_timing' (8#1) [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga_timing.sv:10]
+INFO: [Synth 8-638] synthesizing module 'MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/Mouse_Control/MouseCtl.vhd:207]
+INFO: [Synth 8-3491] module 'Ps2Interface' declared at '/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/Mouse_Control/Ps2Interface.vhd:152' bound to instance 'Inst_Ps2Interface' of component 'Ps2Interface' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/Mouse_Control/MouseCtl.vhd:369]
+INFO: [Synth 8-638] synthesizing module 'Ps2Interface' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/Mouse_Control/Ps2Interface.vhd:180]
+INFO: [Synth 8-256] done synthesizing module 'Ps2Interface' (9#1) [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/Mouse_Control/Ps2Interface.vhd:180]
+WARNING: [Synth 8-6014] Unused sequential element set_x.inc_reg was removed.  [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/Mouse_Control/MouseCtl.vhd:450]
+WARNING: [Synth 8-6014] Unused sequential element set_x.x_inter_reg was removed.  [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/Mouse_Control/MouseCtl.vhd:456]
+WARNING: [Synth 8-6014] Unused sequential element set_y.inc_reg was removed.  [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/Mouse_Control/MouseCtl.vhd:514]
+WARNING: [Synth 8-6014] Unused sequential element set_y.y_inter_reg was removed.  [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/Mouse_Control/MouseCtl.vhd:520]
+INFO: [Synth 8-256] done synthesizing module 'MouseCtl' (10#1) [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/Mouse_Control/MouseCtl.vhd:207]
+WARNING: [Synth 8-7071] port 'rst' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:86]
+WARNING: [Synth 8-7071] port 'zpos' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:86]
+WARNING: [Synth 8-7071] port 'middle' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:86]
+WARNING: [Synth 8-7071] port 'right' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:86]
+WARNING: [Synth 8-7071] port 'new_event' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:86]
+WARNING: [Synth 8-7071] port 'value' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:86]
+WARNING: [Synth 8-7071] port 'setx' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:86]
+WARNING: [Synth 8-7071] port 'sety' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:86]
+WARNING: [Synth 8-7071] port 'setmax_x' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:86]
+WARNING: [Synth 8-7071] port 'setmax_y' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:86]
+WARNING: [Synth 8-7023] instance 'u_MouseCtl' of module 'MouseCtl' has 16 connections declared, but only 6 given [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:86]
+INFO: [Synth 8-6157] synthesizing module 'draw_bg' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/draw_bg.sv:10]
+INFO: [Synth 8-6155] done synthesizing module 'draw_bg' (11#1) [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/draw_bg.sv:10]
+INFO: [Synth 8-6157] synthesizing module 'draw_char' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:1]
+ERROR: [Synth 8-2916] unconnected interface port 'vga_wpn_in' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:110]
+ERROR: [Synth 8-6156] failed synthesizing module 'draw_char' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:1]
 ERROR: [Synth 8-6156] failed synthesizing module 'top_vga' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:15]
 ERROR: [Synth 8-6156] failed synthesizing module 'top_vga_basys3' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:15]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2717.812 ; gain = 0.000 ; free physical = 2296 ; free virtual = 14670
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2717.812 ; gain = 0.000 ; free physical = 2253 ; free virtual = 14631
 ---------------------------------------------------------------------------------
 RTL Elaboration failed
 INFO: [Common 17-83] Releasing license: Synthesis
-28 Infos, 0 Warnings, 0 Critical Warnings and 4 Errors encountered.
+38 Infos, 15 Warnings, 0 Critical Warnings and 5 Errors encountered.
 synth_design failed
 ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
-INFO: [Common 17-206] Exiting Vivado at Wed Aug 13 01:03:33 2025...
-[Wed Aug 13 01:03:43 2025] synth_1 finished
+INFO: [Common 17-206] Exiting Vivado at Wed Aug 13 01:14:57 2025...
+[Wed Aug 13 01:15:07 2025] synth_1 finished
 WARNING: [Vivado 12-8222] Failed run(s) : 'synth_1'
-wait_on_runs: Time (s): cpu = 00:00:24 ; elapsed = 00:00:30 . Memory (MB): peak = 2717.812 ; gain = 0.000 ; free physical = 4143 ; free virtual = 16518
+wait_on_runs: Time (s): cpu = 00:00:24 ; elapsed = 00:00:30 . Memory (MB): peak = 2717.809 ; gain = 0.000 ; free physical = 4093 ; free virtual = 16470
 ERROR: [Common 17-70] Application Exception: Failed to launch run 'impl_1' due to failures in the following run(s):
 synth_1
 These failed run(s) need to be reset prior to launching 'impl_1' again.
 
 exit
-INFO: [Common 17-206] Exiting Vivado at Wed Aug 13 01:03:58 2025...
+INFO: [Common 17-206] Exiting Vivado at Wed Aug 13 01:15:24 2025...

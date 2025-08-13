@@ -2,13 +2,13 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Wed Aug 13 00:28:07 2025
-# Process ID: 29647
+# Start of session at: Wed Aug 13 22:13:59 2025
+# Process ID: 15812
 # Current directory: /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga
 # Command line: vivado -mode tcl -source scripts/generate_bitstream.tcl
 # Log file: /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/vivado.log
 # Journal file: /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/vivado.jou
-# Running On: cadence34, OS: Linux, CPU Frequency: 3805.468 MHz, CPU Physical cores: 4, Host memory: 16720 MB
+# Running On: cadence34, OS: Linux, CPU Frequency: 3502.929 MHz, CPU Physical cores: 4, Host memory: 16720 MB
 #-----------------------------------------------------------
 source scripts/generate_bitstream.tcl
 # source scripts/project_details.tcl
@@ -67,9 +67,9 @@ source scripts/generate_bitstream.tcl
 # create_new_project $project_name $target $top_module
 # generate_bitstream
 WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
-[Wed Aug 13 00:28:22 2025] Launched synth_1...
+[Wed Aug 13 22:14:13 2025] Launched synth_1...
 Run output will be captured here: /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/synth_1/runme.log
-[Wed Aug 13 00:28:22 2025] Waiting for synth_1 to finish...
+[Wed Aug 13 22:14:13 2025] Waiting for synth_1 to finish...
 
 *** Running vivado
     with args -log top_vga_basys3.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_vga_basys3.tcl
@@ -88,9 +88,9 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 30000
+INFO: [Synth 8-7075] Helper process launched with PID 16169
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2717.816 ; gain = 0.000 ; free physical = 2935 ; free virtual = 15289
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2717.816 ; gain = 0.000 ; free physical = 2045 ; free virtual = 14741
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top_vga_basys3' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:15]
 INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0_clk_wiz' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v:66]
@@ -142,20 +142,22 @@ WARNING: [Synth 8-6014] Unused sequential element set_x.x_inter_reg was removed.
 WARNING: [Synth 8-6014] Unused sequential element set_y.inc_reg was removed.  [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/Mouse_Control/MouseCtl.vhd:514]
 WARNING: [Synth 8-6014] Unused sequential element set_y.y_inter_reg was removed.  [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/Mouse_Control/MouseCtl.vhd:520]
 INFO: [Synth 8-256] done synthesizing module 'MouseCtl' (10#1) [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/Mouse_Control/MouseCtl.vhd:207]
-WARNING: [Synth 8-7071] port 'rst' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:83]
-WARNING: [Synth 8-7071] port 'zpos' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:83]
-WARNING: [Synth 8-7071] port 'middle' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:83]
-WARNING: [Synth 8-7071] port 'right' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:83]
-WARNING: [Synth 8-7071] port 'new_event' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:83]
-WARNING: [Synth 8-7071] port 'value' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:83]
-WARNING: [Synth 8-7071] port 'setx' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:83]
-WARNING: [Synth 8-7071] port 'sety' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:83]
-WARNING: [Synth 8-7071] port 'setmax_x' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:83]
-WARNING: [Synth 8-7071] port 'setmax_y' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:83]
-WARNING: [Synth 8-7023] instance 'u_MouseCtl' of module 'MouseCtl' has 16 connections declared, but only 6 given [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:83]
+WARNING: [Synth 8-7071] port 'rst' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:96]
+WARNING: [Synth 8-7071] port 'zpos' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:96]
+WARNING: [Synth 8-7071] port 'middle' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:96]
+WARNING: [Synth 8-7071] port 'right' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:96]
+WARNING: [Synth 8-7071] port 'new_event' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:96]
+WARNING: [Synth 8-7071] port 'value' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:96]
+WARNING: [Synth 8-7071] port 'setx' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:96]
+WARNING: [Synth 8-7071] port 'sety' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:96]
+WARNING: [Synth 8-7071] port 'setmax_x' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:96]
+WARNING: [Synth 8-7071] port 'setmax_y' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:96]
+WARNING: [Synth 8-7023] instance 'u_MouseCtl' of module 'MouseCtl' has 16 connections declared, but only 6 given [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:96]
 INFO: [Synth 8-6157] synthesizing module 'draw_bg' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/draw_bg.sv:10]
 INFO: [Synth 8-6155] done synthesizing module 'draw_bg' (11#1) [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/draw_bg.sv:10]
 INFO: [Synth 8-6157] synthesizing module 'draw_char' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'vga_if' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga_if.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'vga_if' (11#1) [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga_if.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'char_ctrl' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_ctrl.sv:1]
 INFO: [Synth 8-6155] done synthesizing module 'char_ctrl' (12#1) [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_ctrl.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'char_draw' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_draw.sv:1]
@@ -164,31 +166,32 @@ INFO: [Synth 8-6155] done synthesizing module 'char_draw' (13#1) [/home/student/
 INFO: [Synth 8-6157] synthesizing module 'wpn_draw_def' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/wpn_draw_def.sv:1]
 INFO: [Synth 8-3876] $readmem data file '../GameSprites/Melee.dat' is read successfully [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/wpn_draw_def.sv:24]
 INFO: [Synth 8-6155] done synthesizing module 'wpn_draw_def' (14#1) [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/wpn_draw_def.sv:1]
-WARNING: [Synth 8-3848] Net draw_weapon in module/entity draw_char does not have driver. [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:46]
-WARNING: [Synth 8-3848] Net mouse_left in module/entity draw_char does not have driver. [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:28]
 INFO: [Synth 8-6155] done synthesizing module 'draw_char' (15#1) [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'platform' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:1]
 INFO: [Synth 8-6155] done synthesizing module 'platform' (16#1) [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:1]
-WARNING: [Synth 8-689] width (32) of port connection 'char_hgt' does not match port width (12) of module 'platform' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:123]
+WARNING: [Synth 8-689] width (32) of port connection 'char_hgt' does not match port width (12) of module 'platform' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:151]
 INFO: [Synth 8-6155] done synthesizing module 'top_vga' (17#1) [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:15]
 WARNING: [Synth 8-6104] Input port 'PS2Clk' has an internal driver [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:96]
 WARNING: [Synth 8-6104] Input port 'PS2Data' has an internal driver [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:97]
+WARNING: [Synth 8-7071] port 'char_x' of module 'top_vga' is unconnected for instance 'u_top_vga' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
+WARNING: [Synth 8-7071] port 'char_y' of module 'top_vga' is unconnected for instance 'u_top_vga' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
+WARNING: [Synth 8-7023] instance 'u_top_vga' of module 'top_vga' has 15 connections declared, but only 13 given [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
 INFO: [Synth 8-6155] done synthesizing module 'top_vga_basys3' (18#1) [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:15]
 WARNING: [Synth 8-7129] Port rst in module platform is either unconnected or has no load
 WARNING: [Synth 8-7129] Port on_ground in module char_ctrl is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2717.816 ; gain = 0.000 ; free physical = 3492 ; free virtual = 15847
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2717.816 ; gain = 0.000 ; free physical = 2759 ; free virtual = 15457
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2717.816 ; gain = 0.000 ; free physical = 3544 ; free virtual = 15899
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 2717.816 ; gain = 0.000 ; free physical = 2757 ; free virtual = 15455
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2717.816 ; gain = 0.000 ; free physical = 3544 ; free virtual = 15899
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 2717.816 ; gain = 0.000 ; free physical = 2757 ; free virtual = 15455
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2717.816 ; gain = 0.000 ; free physical = 3537 ; free virtual = 15892
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2717.816 ; gain = 0.000 ; free physical = 2749 ; free virtual = 15446
 WARNING: [Netlist 29-345] The value of SIM_DEVICE on instance 'inst/clkout1_buf' of type 'BUFGCE' is 'ULTRASCALE'; it is being changed to match the current FPGA architecture, '7SERIES'. For functional simulation to match hardware behavior, the value of SIM_DEVICE should be changed in the source netlist. 
 WARNING: [Netlist 29-345] The value of SIM_DEVICE on instance 'inst/clkout2_buf' of type 'BUFGCE' is 'ULTRASCALE'; it is being changed to match the current FPGA architecture, '7SERIES'. For functional simulation to match hardware behavior, the value of SIM_DEVICE should be changed in the source netlist. 
 INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
@@ -203,27 +206,27 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_vga_basys3_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2781.727 ; gain = 0.000 ; free physical = 3451 ; free virtual = 15806
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2781.727 ; gain = 0.000 ; free physical = 2663 ; free virtual = 15360
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 2 instances were transformed.
   BUFGCE => BUFGCTRL: 2 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2781.727 ; gain = 0.000 ; free physical = 3451 ; free virtual = 15806
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2781.727 ; gain = 0.000 ; free physical = 2663 ; free virtual = 15360
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 3525 ; free virtual = 15879
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 2736 ; free virtual = 15434
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 3525 ; free virtual = 15879
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 2736 ; free virtual = 15434
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 3525 ; free virtual = 15879
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 2736 ; free virtual = 15434
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'Ps2Interface'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'MouseCtl'
@@ -292,7 +295,7 @@ reset_enable_reporting_wait_ack | 0000000010000000000000000000000000000 |       
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'MouseCtl'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 3500 ; free virtual = 15855
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 2735 ; free virtual = 15434
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -324,7 +327,7 @@ Detailed RTL Component Info :
 	                8 Bit    Registers := 6     
 	                7 Bit    Registers := 1     
 	                4 Bit    Registers := 4     
-	                1 Bit    Registers := 58    
+	                1 Bit    Registers := 60    
 +---Multipliers : 
 	              32x32  Multipliers := 2     
 +---Muxes : 
@@ -335,7 +338,7 @@ Detailed RTL Component Info :
 	   2 Input   21 Bit        Muxes := 1     
 	  17 Input   17 Bit        Muxes := 1     
 	   2 Input   17 Bit        Muxes := 18    
-	   2 Input   12 Bit        Muxes := 20    
+	   2 Input   12 Bit        Muxes := 19    
 	   4 Input   12 Bit        Muxes := 1     
 	   2 Input   11 Bit        Muxes := 4     
 	   4 Input   11 Bit        Muxes := 1     
@@ -401,66 +404,8 @@ DSP Report: operator rgb_nxt5 is absorbed into DSP rgb_nxt5.
 DSP Report: operator rgb_nxt5 is absorbed into DSP rgb_nxt5.
 WARNING: [Synth 8-7129] Port rst in module platform is either unconnected or has no load
 WARNING: [Synth 8-7129] Port on_ground in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/Inst_Ps2Interface/FSM_onehot_state_reg[16]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/Inst_Ps2Interface/FSM_onehot_state_reg[15]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/Inst_Ps2Interface/FSM_onehot_state_reg[14]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/Inst_Ps2Interface/FSM_onehot_state_reg[13]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/Inst_Ps2Interface/FSM_onehot_state_reg[12]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/Inst_Ps2Interface/FSM_onehot_state_reg[11]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/Inst_Ps2Interface/FSM_onehot_state_reg[10]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/Inst_Ps2Interface/FSM_onehot_state_reg[9]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/Inst_Ps2Interface/FSM_onehot_state_reg[8]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/Inst_Ps2Interface/FSM_onehot_state_reg[7]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/Inst_Ps2Interface/FSM_onehot_state_reg[6]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/Inst_Ps2Interface/FSM_onehot_state_reg[5]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/Inst_Ps2Interface/FSM_onehot_state_reg[4]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/Inst_Ps2Interface/FSM_onehot_state_reg[3]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/Inst_Ps2Interface/FSM_onehot_state_reg[2]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/Inst_Ps2Interface/FSM_onehot_state_reg[1]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/Inst_Ps2Interface/FSM_onehot_state_reg[0]) is unused and will be removed from module top_vga_basys3.
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin PS2Clk with 1st driver pin 'u_MouseCtli_0/z' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/Mouse_Control/Ps2Interface.vhd:152]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin PS2Clk with 2nd driver pin 'PS2Clk' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:15]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin PS2Data with 1st driver pin 'u_MouseCtli_1/z' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/Mouse_Control/Ps2Interface.vhd:152]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin PS2Data with 2nd driver pin 'PS2Data' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:15]
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[36]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[35]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[34]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[33]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[32]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[31]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[30]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[29]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[28]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[27]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[26]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[25]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[24]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[23]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[22]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[21]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[20]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[19]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[18]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[17]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[16]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[15]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[14]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[13]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[12]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[11]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[10]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[9]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[8]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[7]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[6]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[5]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[4]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[3]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[2]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[1]) is unused and will be removed from module top_vga_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_vga/u_MouseCtl/FSM_onehot_state_reg[0]) is unused and will be removed from module top_vga_basys3.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 3458 ; free virtual = 15820
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 2690 ; free virtual = 15395
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -502,21 +447,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 3320 ; free virtual = 15682
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 2550 ; free virtual = 15255
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 3320 ; free virtual = 15682
+Finished Timing Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:34 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 2549 ; free virtual = 15254
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-4765] Removing register instance (\u_top_vga/u_char/u_wpn_draw_def/vga_out\.vsync_reg ) from module (top_vga_basys3) as it is equivalent to (\u_top_vga/u_char/u_draw/vga_out\.vsync_reg ) and driving same net [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/wpn_draw_def.sv:64]
-INFO: [Synth 8-4765] Removing register instance (\u_top_vga/u_char/u_wpn_draw_def/vga_out\.hsync_reg ) from module (top_vga_basys3) as it is equivalent to (\u_top_vga/u_char/u_draw/vga_out\.hsync_reg ) and driving same net [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/wpn_draw_def.sv:67]
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 3318 ; free virtual = 15680
+Finished Technology Mapping : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 2547 ; free virtual = 15251
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -534,68 +477,63 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 3317 ; free virtual = 15679
+Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 2548 ; free virtual = 15252
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 3317 ; free virtual = 15679
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 2548 ; free virtual = 15252
 ---------------------------------------------------------------------------------
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin vgaRed_OBUF[3] with 1st driver pin 'u_top_vga/u_char/u_wpn_draw_def/vga_out\.rgb_reg[11]/Q' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/wpn_draw_def.sv:69]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin vgaRed_OBUF[3] with 2nd driver pin 'u_top_vga/u_char/u_draw/vga_out\.rgb_reg[11]/Q' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_draw.sv:67]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin vgaRed_OBUF[2] with 1st driver pin 'u_top_vga/u_char/u_wpn_draw_def/vga_out\.rgb_reg[10]/Q' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/wpn_draw_def.sv:69]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin vgaRed_OBUF[2] with 2nd driver pin 'u_top_vga/u_char/u_draw/vga_out\.rgb_reg[10]/Q' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_draw.sv:67]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin vgaRed_OBUF[1] with 1st driver pin 'u_top_vga/u_char/u_wpn_draw_def/vga_out\.rgb_reg[9]/Q' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/wpn_draw_def.sv:69]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin vgaRed_OBUF[1] with 2nd driver pin 'u_top_vga/u_char/u_draw/vga_out\.rgb_reg[9]/Q' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_draw.sv:67]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin vgaRed_OBUF[0] with 1st driver pin 'u_top_vga/u_char/u_wpn_draw_def/vga_out\.rgb_reg[8]/Q' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/wpn_draw_def.sv:69]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin vgaRed_OBUF[0] with 2nd driver pin 'u_top_vga/u_char/u_draw/vga_out\.rgb_reg[8]/Q' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_draw.sv:67]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin vgaGreen_OBUF[3] with 1st driver pin 'u_top_vga/u_char/u_wpn_draw_def/vga_out\.rgb_reg[7]/Q' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/wpn_draw_def.sv:69]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin vgaGreen_OBUF[3] with 2nd driver pin 'u_top_vga/u_char/u_draw/vga_out\.rgb_reg[7]/Q' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_draw.sv:67]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin vgaGreen_OBUF[2] with 1st driver pin 'u_top_vga/u_char/u_wpn_draw_def/vga_out\.rgb_reg[6]/Q' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/wpn_draw_def.sv:69]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin vgaGreen_OBUF[2] with 2nd driver pin 'u_top_vga/u_char/u_draw/vga_out\.rgb_reg[6]/Q' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_draw.sv:67]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin vgaGreen_OBUF[1] with 1st driver pin 'u_top_vga/u_char/u_wpn_draw_def/vga_out\.rgb_reg[5]/Q' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/wpn_draw_def.sv:69]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin vgaGreen_OBUF[1] with 2nd driver pin 'u_top_vga/u_char/u_draw/vga_out\.rgb_reg[5]/Q' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_draw.sv:67]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin vgaGreen_OBUF[0] with 1st driver pin 'u_top_vga/u_char/u_wpn_draw_def/vga_out\.rgb_reg[4]/Q' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/wpn_draw_def.sv:69]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin vgaGreen_OBUF[0] with 2nd driver pin 'u_top_vga/u_char/u_draw/vga_out\.rgb_reg[4]/Q' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_draw.sv:67]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin vgaBlue_OBUF[3] with 1st driver pin 'u_top_vga/u_char/u_wpn_draw_def/vga_out\.rgb_reg[3]/Q' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/wpn_draw_def.sv:69]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin vgaBlue_OBUF[3] with 2nd driver pin 'u_top_vga/u_char/u_draw/vga_out\.rgb_reg[3]/Q' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_draw.sv:67]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin vgaBlue_OBUF[2] with 1st driver pin 'u_top_vga/u_char/u_wpn_draw_def/vga_out\.rgb_reg[2]/Q' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/wpn_draw_def.sv:69]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin vgaBlue_OBUF[2] with 2nd driver pin 'u_top_vga/u_char/u_draw/vga_out\.rgb_reg[2]/Q' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_draw.sv:67]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin vgaBlue_OBUF[1] with 1st driver pin 'u_top_vga/u_char/u_wpn_draw_def/vga_out\.rgb_reg[1]/Q' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/wpn_draw_def.sv:69]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin vgaBlue_OBUF[1] with 2nd driver pin 'u_top_vga/u_char/u_draw/vga_out\.rgb_reg[1]/Q' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_draw.sv:67]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin vgaBlue_OBUF[0] with 1st driver pin 'u_top_vga/u_char/u_wpn_draw_def/vga_out\.rgb_reg[0]/Q' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/wpn_draw_def.sv:69]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin vgaBlue_OBUF[0] with 2nd driver pin 'u_top_vga/u_char/u_draw/vga_out\.rgb_reg[0]/Q' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_draw.sv:67]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin PS2Data_IBUF with 1st driver pin 'data_inter_i_1/O' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:15]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin PS2Data_IBUF with 2nd driver pin 'PS2Data_IBUF_inst/O' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:15]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin PS2Clk_IBUF with 1st driver pin 'clk_inter_i_1/O' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:15]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin PS2Clk_IBUF with 2nd driver pin 'PS2Clk_IBUF_inst/O' [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:15]
 
 Report Check Netlist: 
 +------+------------------+-------+---------+-------+------------------+
 |      |Item              |Errors |Warnings |Status |Description       |
 +------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|       12|Failed |Multi driven nets |
+|1     |multi_driven_nets |      0|        2|Failed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 3317 ; free virtual = 15679
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 2554 ; free virtual = 15259
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 3317 ; free virtual = 15679
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 2554 ; free virtual = 15259
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 3317 ; free virtual = 15679
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 2554 ; free virtual = 15259
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 3317 ; free virtual = 15679
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 2554 ; free virtual = 15259
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++---------------+-----------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name    | RTL Name                                | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++---------------+-----------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|top_vga_basys3 | u_top_vga/u_platform/vga_out\.vsync_reg | 3      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|top_vga_basys3 | u_top_vga/u_platform/vga_out\.hsync_reg | 3      | 1     | NO           | NO                 | YES               | 1      | 0       | 
++---------------+-----------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -614,58 +552,59 @@ Report Cell Usage:
 |1     |BUFG       |     1|
 |2     |BUFGCE     |     2|
 |3     |BUFH       |     2|
-|4     |CARRY4     |    71|
+|4     |CARRY4     |   122|
 |5     |DSP48E1    |     9|
-|6     |LUT1       |    36|
-|7     |LUT2       |   142|
-|8     |LUT3       |    63|
-|9     |LUT4       |   112|
-|10    |LUT5       |    53|
-|11    |LUT6       |   488|
+|6     |LUT1       |    70|
+|7     |LUT2       |   263|
+|8     |LUT3       |   104|
+|9     |LUT4       |   200|
+|10    |LUT5       |   122|
+|11    |LUT6       |   952|
 |12    |MMCME2_ADV |     1|
-|13    |MUXF7      |   159|
-|14    |MUXF8      |    15|
+|13    |MUXF7      |   337|
+|14    |MUXF8      |    66|
 |15    |ODDR       |     1|
-|16    |FDCE       |    20|
-|17    |FDPE       |     6|
-|18    |FDRE       |   144|
-|19    |FDSE       |     6|
-|20    |IBUF       |     5|
-|21    |OBUF       |    15|
+|16    |SRL16E     |     2|
+|17    |FDCE       |    23|
+|18    |FDPE       |     6|
+|19    |FDRE       |   396|
+|20    |FDSE       |    14|
+|21    |IBUF       |     7|
+|22    |OBUF       |    15|
 +------+-----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 3317 ; free virtual = 15679
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 2554 ; free virtual = 15259
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 28 critical warnings and 57 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 2781.727 ; gain = 0.000 ; free physical = 3375 ; free virtual = 15737
-Synthesis Optimization Complete : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 3375 ; free virtual = 15737
+Synthesis finished with 0 errors, 4 critical warnings and 3 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 2781.727 ; gain = 0.000 ; free physical = 2613 ; free virtual = 15317
+Synthesis Optimization Complete : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 2781.727 ; gain = 63.910 ; free physical = 2613 ; free virtual = 15317
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2781.727 ; gain = 0.000 ; free physical = 3463 ; free virtual = 15825
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2781.727 ; gain = 0.000 ; free physical = 2703 ; free virtual = 15408
 WARNING: [Netlist 29-345] The value of SIM_DEVICE on instance 'inst/clkout1_buf' of type 'BUFGCE' is 'ULTRASCALE'; it is being changed to match the current FPGA architecture, '7SERIES'. For functional simulation to match hardware behavior, the value of SIM_DEVICE should be changed in the source netlist. 
 WARNING: [Netlist 29-345] The value of SIM_DEVICE on instance 'inst/clkout2_buf' of type 'BUFGCE' is 'ULTRASCALE'; it is being changed to match the current FPGA architecture, '7SERIES'. For functional simulation to match hardware behavior, the value of SIM_DEVICE should be changed in the source netlist. 
-INFO: [Netlist 29-17] Analyzing 258 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 538 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2781.727 ; gain = 0.000 ; free physical = 3413 ; free virtual = 15775
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2781.727 ; gain = 0.000 ; free physical = 2641 ; free virtual = 15346
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 2 instances were transformed.
   BUFGCE => BUFGCTRL: 2 instances
 
-Synth Design complete, checksum: ee185ef6
+Synth Design complete, checksum: 64c90e5a
 INFO: [Common 17-83] Releasing license: Synthesis
-68 Infos, 83 Warnings, 28 Critical Warnings and 0 Errors encountered.
+68 Infos, 30 Warnings, 4 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:39 ; elapsed = 00:00:38 . Memory (MB): peak = 2781.727 ; gain = 64.031 ; free physical = 3621 ; free virtual = 15982
+synth_design: Time (s): cpu = 00:00:42 ; elapsed = 00:00:42 . Memory (MB): peak = 2781.727 ; gain = 64.031 ; free physical = 2843 ; free virtual = 15547
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
 INFO: [Common 17-1381] The checkpoint '/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/synth_1/top_vga_basys3.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_vga_basys3_utilization_synth.rpt -pb top_vga_basys3_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Aug 13 00:29:13 2025...
-[Wed Aug 13 00:29:23 2025] synth_1 finished
-wait_on_runs: Time (s): cpu = 00:00:53 ; elapsed = 00:01:01 . Memory (MB): peak = 2717.809 ; gain = 0.000 ; free physical = 4468 ; free virtual = 16823
-[Wed Aug 13 00:29:23 2025] Launched impl_1...
+INFO: [Common 17-206] Exiting Vivado at Wed Aug 13 22:15:08 2025...
+[Wed Aug 13 22:15:18 2025] synth_1 finished
+wait_on_runs: Time (s): cpu = 00:00:56 ; elapsed = 00:01:05 . Memory (MB): peak = 2717.812 ; gain = 0.000 ; free physical = 3693 ; free virtual = 16390
+[Wed Aug 13 22:15:18 2025] Launched impl_1...
 Run output will be captured here: /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/impl_1/runme.log
-[Wed Aug 13 00:29:23 2025] Waiting for impl_1 to finish...
+[Wed Aug 13 22:15:18 2025] Waiting for impl_1 to finish...
 
 *** Running vivado
     with args -log top_vga_basys3.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source top_vga_basys3.tcl -notrace
@@ -681,15 +620,15 @@ Command: link_design -top top_vga_basys3 -part xc7a35tcpg236-1
 Design is defaulting to srcset: sources_1
 Design is defaulting to constrset: constrs_1
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2717.816 ; gain = 0.000 ; free physical = 3910 ; free virtual = 16264
-INFO: [Netlist 29-17] Analyzing 256 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2717.812 ; gain = 0.000 ; free physical = 3126 ; free virtual = 15823
+INFO: [Netlist 29-17] Analyzing 536 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2021.2
 INFO: [Project 1-570] Preparing netlist for logic optimization
 Parsing XDC File [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc]
 Finished Parsing XDC File [/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc]
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2773.727 ; gain = 0.000 ; free physical = 3813 ; free virtual = 16167
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2773.723 ; gain = 0.000 ; free physical = 3030 ; free virtual = 15728
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
@@ -702,31 +641,21 @@ Running DRC as a precondition to command opt_design
 
 Starting DRC Task
 INFO: [DRC 23-27] Running DRC with 8 threads
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net u_top_vga/u_char/u_wpn_draw_def/UNCONN_OUT[0] has multiple drivers: u_top_vga/u_char/u_draw/vga_out\\.rgb_reg[0]/Q, and u_top_vga/u_char/u_wpn_draw_def/vga_out\\.rgb_reg[0]/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net u_top_vga/u_char/u_wpn_draw_def/UNCONN_OUT[10] has multiple drivers: u_top_vga/u_char/u_draw/vga_out\\.rgb_reg[10]/Q, and u_top_vga/u_char/u_wpn_draw_def/vga_out\\.rgb_reg[10]/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net u_top_vga/u_char/u_wpn_draw_def/UNCONN_OUT[11] has multiple drivers: u_top_vga/u_char/u_draw/vga_out\\.rgb_reg[11]/Q, and u_top_vga/u_char/u_wpn_draw_def/vga_out\\.rgb_reg[11]/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net u_top_vga/u_char/u_wpn_draw_def/UNCONN_OUT[1] has multiple drivers: u_top_vga/u_char/u_draw/vga_out\\.rgb_reg[1]/Q, and u_top_vga/u_char/u_wpn_draw_def/vga_out\\.rgb_reg[1]/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net u_top_vga/u_char/u_wpn_draw_def/UNCONN_OUT[2] has multiple drivers: u_top_vga/u_char/u_draw/vga_out\\.rgb_reg[2]/Q, and u_top_vga/u_char/u_wpn_draw_def/vga_out\\.rgb_reg[2]/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net u_top_vga/u_char/u_wpn_draw_def/UNCONN_OUT[3] has multiple drivers: u_top_vga/u_char/u_draw/vga_out\\.rgb_reg[3]/Q, and u_top_vga/u_char/u_wpn_draw_def/vga_out\\.rgb_reg[3]/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net u_top_vga/u_char/u_wpn_draw_def/UNCONN_OUT[4] has multiple drivers: u_top_vga/u_char/u_draw/vga_out\\.rgb_reg[4]/Q, and u_top_vga/u_char/u_wpn_draw_def/vga_out\\.rgb_reg[4]/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net u_top_vga/u_char/u_wpn_draw_def/UNCONN_OUT[5] has multiple drivers: u_top_vga/u_char/u_draw/vga_out\\.rgb_reg[5]/Q, and u_top_vga/u_char/u_wpn_draw_def/vga_out\\.rgb_reg[5]/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net u_top_vga/u_char/u_wpn_draw_def/UNCONN_OUT[6] has multiple drivers: u_top_vga/u_char/u_draw/vga_out\\.rgb_reg[6]/Q, and u_top_vga/u_char/u_wpn_draw_def/vga_out\\.rgb_reg[6]/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net u_top_vga/u_char/u_wpn_draw_def/UNCONN_OUT[7] has multiple drivers: u_top_vga/u_char/u_draw/vga_out\\.rgb_reg[7]/Q, and u_top_vga/u_char/u_wpn_draw_def/vga_out\\.rgb_reg[7]/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net u_top_vga/u_char/u_wpn_draw_def/UNCONN_OUT[8] has multiple drivers: u_top_vga/u_char/u_draw/vga_out\\.rgb_reg[8]/Q, and u_top_vga/u_char/u_wpn_draw_def/vga_out\\.rgb_reg[8]/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net u_top_vga/u_char/u_wpn_draw_def/UNCONN_OUT[9] has multiple drivers: u_top_vga/u_char/u_draw/vga_out\\.rgb_reg[9]/Q, and u_top_vga/u_char/u_wpn_draw_def/vga_out\\.rgb_reg[9]/Q.
-INFO: [Project 1-461] DRC finished with 12 Errors
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net u_top_vga/u_MouseCtl/Inst_Ps2Interface/PS2Clk_IBUF has multiple drivers: u_top_vga/u_MouseCtl/Inst_Ps2Interface/clk_inter_i_1/O, and PS2Clk_IBUF_inst/O.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net u_top_vga/u_MouseCtl/Inst_Ps2Interface/PS2Data_IBUF has multiple drivers: u_top_vga/u_MouseCtl/Inst_Ps2Interface/data_inter_i_1/O, and PS2Data_IBUF_inst/O.
+INFO: [Project 1-461] DRC finished with 2 Errors
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
 ERROR: [Vivado_Tcl 4-78] Error(s) found during DRC. Opt_design not run.
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.80 . Memory (MB): peak = 2837.754 ; gain = 64.027 ; free physical = 3805 ; free virtual = 16160
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2837.750 ; gain = 64.027 ; free physical = 3022 ; free virtual = 15719
 INFO: [Common 17-83] Releasing license: Implementation
-12 Infos, 0 Warnings, 0 Critical Warnings and 13 Errors encountered.
+12 Infos, 0 Warnings, 0 Critical Warnings and 3 Errors encountered.
 opt_design failed
 ERROR: [Common 17-39] 'opt_design' failed due to earlier errors.
 
-INFO: [Common 17-206] Exiting Vivado at Wed Aug 13 00:29:41 2025...
-[Wed Aug 13 00:29:41 2025] impl_1 finished
+INFO: [Common 17-206] Exiting Vivado at Wed Aug 13 22:15:37 2025...
+[Wed Aug 13 22:15:37 2025] impl_1 finished
 WARNING: [Vivado 12-8222] Failed run(s) : 'impl_1'
-wait_on_runs: Time (s): cpu = 00:00:01 ; elapsed = 00:00:18 . Memory (MB): peak = 2717.809 ; gain = 0.000 ; free physical = 3824 ; free virtual = 16179
+wait_on_runs: Time (s): cpu = 00:00:01 ; elapsed = 00:00:19 . Memory (MB): peak = 2717.812 ; gain = 0.000 ; free physical = 3041 ; free virtual = 15738
 # exit
-INFO: [Common 17-206] Exiting Vivado at Wed Aug 13 00:29:41 2025...
+INFO: [Common 17-206] Exiting Vivado at Wed Aug 13 22:15:37 2025...

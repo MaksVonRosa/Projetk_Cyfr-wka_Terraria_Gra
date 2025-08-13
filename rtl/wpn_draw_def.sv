@@ -13,10 +13,10 @@ module wpn_draw_def (
 );
     import vga_pkg::*;
 
-    localparam WPN_HGT   = 26;
-    localparam WPN_LNG   = 19; 
-    localparam IMG_WIDTH  = 39;
-    localparam IMG_HEIGHT = 53;
+    localparam WPN_HGT   = 33;
+    localparam WPN_LNG   = 25; 
+    localparam IMG_WIDTH  = 70;
+    localparam IMG_HEIGHT = 70;
 
     logic [11:0] draw_x, draw_y, rgb_nxt;
 
@@ -30,8 +30,11 @@ module wpn_draw_def (
 
     always_ff @(posedge clk) begin
         if (rst) begin
-            draw_x <= HOR_PIXELS / 2;
-            draw_y <= VER_PIXELS - 20 - WPN_HGT;
+            draw_x <= pos_x;
+            draw_y <= pos_y;
+        
+            // draw_x <= HOR_PIXELS / 2;
+            // draw_y <= VER_PIXELS - 20 - WPN_HGT;
         end else begin
             draw_x <= pos_x;
             draw_y <= pos_y;

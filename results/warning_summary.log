@@ -1,28 +1,43 @@
 Warnings, critical warnings and errors from synthesis and implementation
 
-Created: 2025-08-13 01:15:34
+Created: 2025-08-13 23:11:32
 
 ----SYNTHESIS----
 WARNING: [Synth 8-6014] Unused sequential element set_x.inc_reg was removed.  [rtl/Mouse_Control/MouseCtl.vhd:450]
 WARNING: [Synth 8-6014] Unused sequential element set_x.x_inter_reg was removed.  [rtl/Mouse_Control/MouseCtl.vhd:456]
 WARNING: [Synth 8-6014] Unused sequential element set_y.inc_reg was removed.  [rtl/Mouse_Control/MouseCtl.vhd:514]
 WARNING: [Synth 8-6014] Unused sequential element set_y.y_inter_reg was removed.  [rtl/Mouse_Control/MouseCtl.vhd:520]
-WARNING: [Synth 8-7071] port 'rst' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:86]
-WARNING: [Synth 8-7071] port 'zpos' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:86]
-WARNING: [Synth 8-7071] port 'middle' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:86]
-WARNING: [Synth 8-7071] port 'right' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:86]
-WARNING: [Synth 8-7071] port 'new_event' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:86]
-WARNING: [Synth 8-7071] port 'value' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:86]
-WARNING: [Synth 8-7071] port 'setx' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:86]
-WARNING: [Synth 8-7071] port 'sety' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:86]
-WARNING: [Synth 8-7071] port 'setmax_x' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:86]
-WARNING: [Synth 8-7071] port 'setmax_y' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:86]
-WARNING: [Synth 8-7023] instance 'u_MouseCtl' of module 'MouseCtl' has 16 connections declared, but only 6 given [rtl/top_vga.sv:86]
-ERROR: [Synth 8-2916] unconnected interface port 'vga_wpn_in' [rtl/top_vga.sv:110]
-ERROR: [Synth 8-6156] failed synthesizing module 'draw_char' [rtl/char.sv:1]
-ERROR: [Synth 8-6156] failed synthesizing module 'top_vga' [rtl/top_vga.sv:15]
-ERROR: [Synth 8-6156] failed synthesizing module 'top_vga_basys3' [fpga/rtl/top_vga_basys3.sv:15]
-ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
+WARNING: [Synth 8-7071] port 'rst' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:96]
+WARNING: [Synth 8-7071] port 'zpos' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:96]
+WARNING: [Synth 8-7071] port 'middle' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:96]
+WARNING: [Synth 8-7071] port 'right' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:96]
+WARNING: [Synth 8-7071] port 'new_event' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:96]
+WARNING: [Synth 8-7071] port 'value' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:96]
+WARNING: [Synth 8-7071] port 'setx' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:96]
+WARNING: [Synth 8-7071] port 'sety' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:96]
+WARNING: [Synth 8-7071] port 'setmax_x' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:96]
+WARNING: [Synth 8-7071] port 'setmax_y' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:96]
+WARNING: [Synth 8-7023] instance 'u_MouseCtl' of module 'MouseCtl' has 16 connections declared, but only 6 given [rtl/top_vga.sv:96]
+WARNING: [Synth 8-689] width (32) of port connection 'char_hgt' does not match port width (12) of module 'platform' [rtl/top_vga.sv:151]
+WARNING: [Synth 8-6104] Input port 'PS2Clk' has an internal driver [fpga/rtl/top_vga_basys3.sv:96]
+WARNING: [Synth 8-6104] Input port 'PS2Data' has an internal driver [fpga/rtl/top_vga_basys3.sv:97]
+WARNING: [Synth 8-7071] port 'char_x' of module 'top_vga' is unconnected for instance 'u_top_vga' [fpga/rtl/top_vga_basys3.sv:89]
+WARNING: [Synth 8-7071] port 'char_y' of module 'top_vga' is unconnected for instance 'u_top_vga' [fpga/rtl/top_vga_basys3.sv:89]
+WARNING: [Synth 8-7023] instance 'u_top_vga' of module 'top_vga' has 15 connections declared, but only 13 given [fpga/rtl/top_vga_basys3.sv:89]
+WARNING: [Synth 8-7129] Port rst in module platform is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rst in module wpn_draw_def is either unconnected or has no load
+WARNING: [Synth 8-7129] Port on_ground in module char_ctrl is either unconnected or has no load
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port rst in module platform is either unconnected or has no load
+WARNING: [Synth 8-7129] Port on_ground in module draw_char is either unconnected or has no load
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin PS2Data_IBUF with 1st driver pin 'data_inter_i_1/O' [fpga/rtl/top_vga_basys3.sv:15]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin PS2Data_IBUF with 2nd driver pin 'PS2Data_IBUF_inst/O' [fpga/rtl/top_vga_basys3.sv:15]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin PS2Clk_IBUF with 1st driver pin 'clk_inter_i_1/O' [fpga/rtl/top_vga_basys3.sv:15]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin PS2Clk_IBUF with 2nd driver pin 'PS2Clk_IBUF_inst/O' [fpga/rtl/top_vga_basys3.sv:15]
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
 
 ----IMPLEMENTATION----
-No implementation log file found!
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net u_top_vga/u_MouseCtl/Inst_Ps2Interface/PS2Clk_IBUF has multiple drivers: u_top_vga/u_MouseCtl/Inst_Ps2Interface/clk_inter_i_1/O, and PS2Clk_IBUF_inst/O.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net u_top_vga/u_MouseCtl/Inst_Ps2Interface/PS2Data_IBUF has multiple drivers: u_top_vga/u_MouseCtl/Inst_Ps2Interface/data_inter_i_1/O, and PS2Data_IBUF_inst/O.
+ERROR: [Vivado_Tcl 4-78] Error(s) found during DRC. Opt_design not run.
+ERROR: [Common 17-39] 'opt_design' failed due to earlier errors.

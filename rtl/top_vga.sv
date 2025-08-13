@@ -54,22 +54,27 @@ module top_vga (
 
     // Signals from weapon
     //vga_if vga_if_MouseCtl();
-    vga_if vga_wpn();
+    //vga_if vga_wpn();
 
 
     /**
      * Signals assignments
      */
 
-    assign vs = vga_if_char.vsync;
-    assign hs = vga_if_char.hsync;
-    assign {r,g,b} = vga_if_char.rgb;
+     assign vs = vga_plat.vsync;
+     assign hs = vga_plat.hsync;
+     assign {r,g,b} = vga_plat.rgb;
+
+    // assign vs = vga_if_char.vsync;
+    // assign hs = vga_if_char.hsync;
+    // assign {r,g,b} = vga_if_char.rgb;
     assign char_x = pos_x_out;
     assign char_y = pos_y_out;
     
     logic [11:0] xpos_MouseCtl;
     logic [11:0] ypos_MouseCtl;
     logic mouse_left;
+    logic on_ground;
 
     /**
      * Submodules instances
@@ -85,6 +90,9 @@ module top_vga (
         .hsync  (hsync_tim),
         .hblnk  (hblnk_tim)
     );
+
+    logic mouse_left_raw, mouse_left_sync1, mouse_left_sync2, mouse_left_clk;
+
     MouseCtl u_MouseCtl
     (
         .clk(clk100MHz),
@@ -92,8 +100,20 @@ module top_vga (
         .ps2_data(ps2_data),
         .xpos(xpos_MouseCtl),
         .ypos(ypos_MouseCtl),
-        .left(mouse_left)
+        .left(mouse_left_raw)
     );
+    // rozwiazanie problemu pomiedzy clockami myszy i rysowania postaci 
+    always_ff @(posedge clk or posedge rst) begin
+        if (rst) begin
+            mouse_left_sync1 <= 1'b0;
+            mouse_left_sync2 <= 1'b0;
+        end else begin
+            mouse_left_sync1 <= mouse_left_raw;
+            mouse_left_sync2 <= mouse_left_sync1;
+        end
+        end
+    assign mouse_left_clk = mouse_left_sync2;
+
 
     draw_bg u_draw_bg (
         .clk,
@@ -116,7 +136,7 @@ module top_vga (
         .stepright,
         .stepjump,
         .on_ground(on_ground),
-        .mouse_left(mouse_left),
+        .mouse_left(mouse_left_clk),
         .pos_x_out(pos_x_out),
         .pos_y_out(pos_y_out),
         .vga_char_in (vga_if_bg.in),
@@ -126,8 +146,8 @@ module top_vga (
     platform u_platform (
         .clk(clk),
         .rst(rst),
-        .char_x(char_x),
-        .char_y(char_y),
+        .char_x(pos_x_out),
+        .char_y(pos_y_out),
         .char_hgt(32),
         .vga_in(vga_if_char.in),
         .vga_out(vga_plat.out),
