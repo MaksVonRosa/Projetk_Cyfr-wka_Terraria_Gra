@@ -20,7 +20,7 @@ module char_draw (
     logic [11:0] draw_x, draw_y, rgb_nxt;
 
     logic [11:0] char_rom [0:IMG_WIDTH*IMG_HEIGHT-1];
-    initial $readmemh("../GameSprites/Melee.dat", char_rom);
+    initial $readmemh("../GameSprites/Archer.dat", char_rom);
 
     logic [5:0] rel_x;
     logic [5:0] rel_y;

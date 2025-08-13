@@ -6,7 +6,7 @@
 <Project Version="7" Minor="56" Path="/home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="ab941ddf7ab24faf93e65e83ace53f0e"/>
+    <Option Name="Id" Val="32749e5be27d45dc9636b8ad6af01012"/>
     <Option Name="Part" Val="xc7a35tcpg236-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>

@@ -369,8 +369,8 @@ begin
    Inst_Ps2Interface: Ps2Interface
    PORT MAP
    (
-      ps2_clk        => ps2_clk,
-      ps2_data       => ps2_data,
+      --ps2_clk        => ps2_clk,
+      --ps2_data       => ps2_data,
       clk            => clk,
       rst            => rst,
       tx_data        => tx_data,

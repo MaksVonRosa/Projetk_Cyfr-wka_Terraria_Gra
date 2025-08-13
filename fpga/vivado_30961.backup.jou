@@ -2,12 +2,12 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Wed Aug 13 01:14:23 2025
-# Process ID: 18358
+# Start of session at: Wed Aug 13 23:52:04 2025
+# Process ID: 30961
 # Current directory: /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga
 # Command line: vivado -mode tcl -source scripts/generate_bitstream.tcl
 # Log file: /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/vivado.log
 # Journal file: /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/vivado.jou
-# Running On: cadence34, OS: Linux, CPU Frequency: 3560.937 MHz, CPU Physical cores: 4, Host memory: 16720 MB
+# Running On: cadence34, OS: Linux, CPU Frequency: 3342.968 MHz, CPU Physical cores: 4, Host memory: 16720 MB
 #-----------------------------------------------------------
 source scripts/generate_bitstream.tcl
