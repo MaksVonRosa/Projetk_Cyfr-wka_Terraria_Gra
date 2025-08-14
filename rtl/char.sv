@@ -5,27 +5,9 @@ module draw_char (
     input  logic stepright,
     input  logic stepjump,
     input  logic on_ground,
-<<<<<<< HEAD
-    input  logic mouse_left,
-    output logic [11:0] pos_x_out, pos_y_out,
-
-
-    vga_if.in  vga_char_in,
-    vga_if.out vga_char_out
-
-    // vga_if.in  vga_wpn_in
-    
-    // vga_if.out  vga_wpn_out
-
-    
-);
-
-    logic [11:0] pos_x, pos_y;
-    logic flip_h;
-    vga_if vga_mid();
-    logic draw_weapon;
-=======
     output logic ground_lvl,
+    input  logic mouse_left,
+
     output logic [11:0] pos_x_out,
     output logic [11:0] pos_y_out,
     output logic [3:0] char_hp_out,
@@ -36,11 +18,13 @@ module draw_char (
     logic [11:0] pos_x, pos_y, char_lng, char_hgt;
     logic [3:0] char_hp;
     logic flip_h;
+    vga_if vga_mid();
+    logic draw_weapon;
+
 
     assign pos_x_out = pos_x;
     assign pos_y_out = pos_y;
     assign char_hp_out = char_hp;
->>>>>>> origin/main
 
     // Character Movement
     char_ctrl u_ctrl (
@@ -53,13 +37,10 @@ module draw_char (
         .pos_x(pos_x),
         .pos_y(pos_y),
         .flip_h(flip_h),
-<<<<<<< HEAD
         .draw_weapon(draw_weapon),
-        .mouse_left(mouse_left)
-=======
+        .mouse_left(mouse_left),
         .char_hp(char_hp),
         .ground_lvl
->>>>>>> origin/main
     );
 
     // Character Draw
@@ -68,11 +49,13 @@ module draw_char (
         .rst(rst),
         .pos_x(pos_x),
         .pos_y(pos_y),
-<<<<<<< HEAD
+        .char_hgt(char_hgt),
+        .char_lng(char_lng),
         .flip_h(flip_h),
         .vga_in(vga_char_in),
         .vga_out(vga_mid.out)
     );
+
     wpn_draw_def u_wpn_draw_def (
         .clk(clk),
         .rst(rst),
@@ -84,16 +67,4 @@ module draw_char (
         .vga_out(vga_char_out)
     );
 
-    assign pos_x_out = pos_x;
-    assign pos_y_out = pos_y;
-
-=======
-        .char_hgt(char_hgt),
-        .char_lng(char_lng),
-        .flip_h(flip_h),
-        .vga_in(vga_char_in),
-        .vga_out(vga_char_out)
-    );
-
->>>>>>> origin/main
 endmodule

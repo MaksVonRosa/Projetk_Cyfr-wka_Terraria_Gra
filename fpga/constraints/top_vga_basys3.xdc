@@ -271,21 +271,12 @@ set_property PACKAGE_PIN R19 [get_ports Vsync]
 
 
 ##USB HID (PS/2)
-<<<<<<< HEAD
 set_property PACKAGE_PIN C17 [get_ports PS2Clk]
 	set_property IOSTANDARD LVCMOS33 [get_ports PS2Clk]
 	set_property PULLUP true [get_ports PS2Clk]
 set_property PACKAGE_PIN B17 [get_ports PS2Data]
 	set_property IOSTANDARD LVCMOS33 [get_ports PS2Data]
 	set_property PULLUP true [get_ports PS2Data]
-=======
-#set_property PACKAGE_PIN C17 [get_ports PS2Clk]
-	#set_property IOSTANDARD LVCMOS33 [get_ports PS2Clk]
-	#set_property PULLUP true [get_ports PS2Clk]
-#set_property PACKAGE_PIN B17 [get_ports PS2Data]
-	#set_property IOSTANDARD LVCMOS33 [get_ports PS2Data]
-	#set_property PULLUP true [get_ports PS2Data]
->>>>>>> origin/main
 
 
 ##Quad SPI Flash
