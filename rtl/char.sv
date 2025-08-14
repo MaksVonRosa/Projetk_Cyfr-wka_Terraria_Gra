@@ -5,15 +5,18 @@ module draw_char (
     input  logic stepright,
     input  logic stepjump,
     input  logic on_ground,
+    input  logic [3:0] current_health,
     output logic ground_lvl,
     output logic [11:0] pos_x_out,
     output logic [11:0] pos_y_out,
+    output logic [11:0] char_lng,
+    output logic [11:0] char_hgt,
     output logic [3:0] char_hp_out,
     vga_if.in  vga_char_in,
     vga_if.out vga_char_out
 );
 
-    logic [11:0] pos_x, pos_y, char_lng, char_hgt;
+    logic [11:0] pos_x, pos_y;
     logic [3:0] char_hp;
     logic flip_h;
 
@@ -40,6 +43,7 @@ module draw_char (
     char_draw u_draw (
         .clk(clk),
         .rst(rst),
+        .current_health,
         .pos_x(pos_x),
         .pos_y(pos_y),
         .char_hgt(char_hgt),

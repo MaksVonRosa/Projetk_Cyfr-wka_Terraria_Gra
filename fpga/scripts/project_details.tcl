@@ -37,7 +37,6 @@ set sv_files {
     ../rtl/char.sv
     ../rtl/char_ctrl.sv
     ../rtl/char_draw.sv
-    ../rtl/boss.sv
     ../rtl/boss_draw.sv
     ../rtl/platform.sv
     ../rtl/hearts_display.sv

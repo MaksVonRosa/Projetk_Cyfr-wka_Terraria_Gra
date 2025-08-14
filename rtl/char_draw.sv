@@ -3,10 +3,10 @@ module char_draw (
     input  logic rst,
     input  logic [11:0] pos_x,
     input  logic [11:0] pos_y,
+    input  logic [3:0] current_health,
     input  logic flip_h,
     output logic [11:0] char_hgt,
     output logic [11:0] char_lng,
-
     vga_if.in  vga_in,
     vga_if.out vga_out
 );
@@ -22,12 +22,14 @@ module char_draw (
     logic [11:0] char_rom [0:IMG_WIDTH*IMG_HEIGHT-1];
     initial $readmemh("../GameSprites/Archer.dat", char_rom);
 
-    logic [5:0] rel_x;
+    logic [5:0] rel_x; 
     logic [5:0] rel_y;
     logic [11:0] pixel_color;
     logic [10:0] rom_addr;
 
-    always_ff @(posedge clk) begin
+    logic alive;
+
+    always_ff @(posedge clk or posedge rst) begin
         if (rst) begin
             draw_x <= HOR_PIXELS / 5;
             draw_y <= VER_PIXELS - 50 - CHAR_HGT;
@@ -38,9 +40,12 @@ module char_draw (
     end
 
     always_comb begin
-        rgb_nxt = vga_in.rgb;
+        alive = (current_health > 0);
+    end
 
-        if (!vga_in.vblnk && !vga_in.hblnk &&
+    always_comb begin
+        rgb_nxt = vga_in.rgb;
+        if (alive && !vga_in.vblnk && !vga_in.hblnk &&
             vga_in.hcount >= draw_x - CHAR_LNG &&
             vga_in.hcount <  draw_x + CHAR_LNG &&
             vga_in.vcount >= draw_y - CHAR_HGT &&

@@ -19,6 +19,7 @@ module top_vga (
         input  logic stepleft,
         input  logic stepright,
         input  logic stepjump,
+        input  logic buttondown,
         output logic on_ground,
         output logic vs,
         output logic hs,
@@ -42,8 +43,9 @@ module top_vga (
     wire [10:0] vcount_tim, hcount_tim;
     wire vsync_tim, hsync_tim;
     wire vblnk_tim, hblnk_tim;
-    wire [11:0] pos_x_out, pos_y_out;
-    wire [3:0] char_hp_out;
+    wire [11:0] pos_x_out, pos_y_out, char_hgt, char_lng;
+    wire [11:0] boss_x, boss_y, boss_hgt, boss_lng;
+    wire [3:0] char_hp_out, current_health;
 
     // VGA signals from background
     vga_if vga_if_bg();
@@ -102,8 +104,8 @@ module top_vga (
     );
 
     platform u_platform (
-        .clk(clk),
-        .rst(rst),
+        .clk,
+        .rst,
         .char_x(char_x),
         .char_y(char_y),
         .char_hgt(32),
@@ -114,21 +116,34 @@ module top_vga (
     );
 
     hearts_display u_hearts_display (
-    .clk(clk),
-    .rst(rst),
+    .clk,
+    .rst,
     .char_hp(char_hp_out),
+    .char_x (char_x),
+    .char_y (char_y),
+    .char_lng (char_lng),
+    .char_hgt (char_hgt),
+    .boss_x (boss_x),
+    .boss_y (boss_y),
+    .boss_lng (boss_lng),
+    .boss_hgt (boss_hgt),
+    .current_health (current_health),
     .vga_in(vga_boss.in),
     .vga_out(vga_hearts.out)
 );
 
     
     boss_draw u_boss_draw (
-        .clk     (clk),
-        .rst     (rst),
-        .char_x(char_x),
-        .char_y(char_y),
-        .vga_in  (vga_plat.in),
-        .vga_out (vga_boss.out)
+    .clk,
+    .rst,
+    .buttondown,
+    .char_x (char_x),
+    .boss_x (boss_x),
+    .boss_y (boss_y),
+    .boss_lng (boss_lng),
+    .boss_hgt (boss_hgt),
+    .vga_in  (vga_plat.in),
+    .vga_out (vga_boss.out)
     );
 
     draw_char u_char (
@@ -140,8 +155,11 @@ module top_vga (
         .on_ground,
         .ground_lvl,
         .char_hp_out (char_hp_out),
+        .current_health (current_health),
         .pos_x_out (pos_x_out),
         .pos_y_out (pos_y_out),
+        .char_hgt(char_hgt),
+        .char_lng(char_lng),
         .vga_char_in (vga_hearts.in),
         .vga_char_out (vga_if_char.out)
     );
