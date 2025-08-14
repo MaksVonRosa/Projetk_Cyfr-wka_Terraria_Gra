@@ -1,6 +1,6 @@
 
 *** Running vivado
-    with args -log top_vga.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_vga.tcl
+    with args -log top_vga_basys3.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_vga_basys3.tcl
 
 
 
@@ -8,25 +8,64 @@
   **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
   **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
   **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-  **** Start of session at: Thu Aug 14 18:10:09 2025
+  **** Start of session at: Thu Aug 14 20:28:14 2025
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
-source top_vga.tcl -notrace
-Command: synth_design -top top_vga -part xc7a35tcpg236-1
+source top_vga_basys3.tcl -notrace
+Command: synth_design -top top_vga_basys3 -part xc7a35tcpg236-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 1396
+INFO: [Synth 8-7075] Helper process launched with PID 21348
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 946.898 ; gain = 467.027
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 947.195 ; gain = 467.203
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-10180] variable 'hx_start' must explicitly be declared as automatic or static [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/hearts_display.sv:32]
 WARNING: [Synth 8-10180] variable 'hx_end' must explicitly be declared as automatic or static [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/hearts_display.sv:33]
+INFO: [Synth 8-11241] undeclared symbol 'pos_x', assumed default net type 'wire' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:196]
+INFO: [Synth 8-11241] undeclared symbol 'pos_y', assumed default net type 'wire' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:197]
+INFO: [Synth 8-11241] undeclared symbol 'flip_h', assumed default net type 'wire' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:199]
+INFO: [Synth 8-11241] undeclared symbol 'clk100MHz_clk_wiz_0_en_clk', assumed default net type 'wire' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v:209]
+INFO: [Synth 8-11241] undeclared symbol 'clk65MHz_clk_wiz_0_en_clk', assumed default net type 'wire' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v:221]
+INFO: [Synth 8-6157] synthesizing module 'top_vga_basys3' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:15]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0_clk_wiz' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v:66]
+INFO: [Synth 8-6157] synthesizing module 'IBUF' [C:/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:75825]
+INFO: [Synth 8-6155] done synthesizing module 'IBUF' (0#1) [C:/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:75825]
+INFO: [Synth 8-6157] synthesizing module 'MMCME2_ADV' [C:/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:84588]
+	Parameter BANDWIDTH bound to: OPTIMIZED - type: string 
+	Parameter CLKFBOUT_MULT_F bound to: 9.750000 - type: double 
+	Parameter CLKFBOUT_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKFBOUT_USE_FINE_PS bound to: FALSE - type: string 
+	Parameter CLKIN1_PERIOD bound to: 10.000000 - type: double 
+	Parameter CLKOUT0_DIVIDE_F bound to: 9.750000 - type: double 
+	Parameter CLKOUT0_DUTY_CYCLE bound to: 0.500000 - type: double 
+	Parameter CLKOUT0_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKOUT0_USE_FINE_PS bound to: FALSE - type: string 
+	Parameter CLKOUT1_DIVIDE bound to: 15 - type: integer 
+	Parameter CLKOUT1_DUTY_CYCLE bound to: 0.500000 - type: double 
+	Parameter CLKOUT1_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKOUT1_USE_FINE_PS bound to: FALSE - type: string 
+	Parameter CLKOUT4_CASCADE bound to: FALSE - type: string 
+	Parameter COMPENSATION bound to: ZHOLD - type: string 
+	Parameter DIVCLK_DIVIDE bound to: 1 - type: integer 
+	Parameter STARTUP_WAIT bound to: FALSE - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'MMCME2_ADV' (0#1) [C:/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:84588]
+INFO: [Synth 8-6157] synthesizing module 'BUFG' [C:/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:2676]
+INFO: [Synth 8-6155] done synthesizing module 'BUFG' (0#1) [C:/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:2676]
+INFO: [Synth 8-6157] synthesizing module 'BUFGCE' [C:/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:2686]
+INFO: [Synth 8-6155] done synthesizing module 'BUFGCE' (0#1) [C:/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:2686]
+INFO: [Synth 8-6157] synthesizing module 'BUFH' [C:/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:2924]
+INFO: [Synth 8-6155] done synthesizing module 'BUFH' (0#1) [C:/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:2924]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0_clk_wiz' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v:66]
+INFO: [Synth 8-6157] synthesizing module 'ODDR' [C:/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:103072]
+INFO: [Synth 8-6155] done synthesizing module 'ODDR' (0#1) [C:/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:103072]
 INFO: [Synth 8-6157] synthesizing module 'top_vga' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:15]
+INFO: [Synth 8-6157] synthesizing module 'vga_if' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga_if.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'vga_if' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga_if.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'vga_if' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga_if.sv:1]
 INFO: [Synth 8-6155] done synthesizing module 'vga_if' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga_if.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'vga_if' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga_if.sv:1]
@@ -44,22 +83,22 @@ INFO: [Synth 8-3491] module 'Ps2Interface' declared at 'C:/Users/Damian/Document
 INFO: [Synth 8-638] synthesizing module 'Ps2Interface' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Mouse_Control/Ps2Interface.vhd:180]
 INFO: [Synth 8-256] done synthesizing module 'Ps2Interface' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Mouse_Control/Ps2Interface.vhd:180]
 INFO: [Synth 8-256] done synthesizing module 'MouseCtl' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Mouse_Control/MouseCtl.vhd:207]
-WARNING: [Synth 8-7071] port 'rst' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
-WARNING: [Synth 8-7071] port 'zpos' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
-WARNING: [Synth 8-7071] port 'middle' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
-WARNING: [Synth 8-7071] port 'right' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
-WARNING: [Synth 8-7071] port 'new_event' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
-WARNING: [Synth 8-7071] port 'value' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
-WARNING: [Synth 8-7071] port 'setx' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
-WARNING: [Synth 8-7071] port 'sety' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
-WARNING: [Synth 8-7071] port 'setmax_x' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
-WARNING: [Synth 8-7071] port 'setmax_y' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
-WARNING: [Synth 8-7023] instance 'u_MouseCtl' of module 'MouseCtl' has 16 connections declared, but only 6 given [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
+WARNING: [Synth 8-7071] port 'rst' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:106]
+WARNING: [Synth 8-7071] port 'zpos' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:106]
+WARNING: [Synth 8-7071] port 'middle' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:106]
+WARNING: [Synth 8-7071] port 'right' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:106]
+WARNING: [Synth 8-7071] port 'new_event' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:106]
+WARNING: [Synth 8-7071] port 'value' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:106]
+WARNING: [Synth 8-7071] port 'setx' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:106]
+WARNING: [Synth 8-7071] port 'sety' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:106]
+WARNING: [Synth 8-7071] port 'setmax_x' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:106]
+WARNING: [Synth 8-7071] port 'setmax_y' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:106]
+WARNING: [Synth 8-7023] instance 'u_MouseCtl' of module 'MouseCtl' has 16 connections declared, but only 6 given [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:106]
 INFO: [Synth 8-6157] synthesizing module 'draw_bg' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/draw_bg.sv:10]
 INFO: [Synth 8-6155] done synthesizing module 'draw_bg' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/draw_bg.sv:10]
 INFO: [Synth 8-6157] synthesizing module 'platform' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:1]
 INFO: [Synth 8-6155] done synthesizing module 'platform' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:1]
-WARNING: [Synth 8-689] width (32) of port connection 'char_hgt' does not match port width (12) of module 'platform' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:144]
+WARNING: [Synth 8-689] width (32) of port connection 'char_hgt' does not match port width (12) of module 'platform' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:150]
 INFO: [Synth 8-6157] synthesizing module 'hearts_display' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/hearts_display.sv:1]
 INFO: [Synth 8-3876] $readmem data file '../GameSprites/Heart.dat' is read successfully [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/hearts_display.sv:17]
 INFO: [Synth 8-6155] done synthesizing module 'hearts_display' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/hearts_display.sv:1]
@@ -71,19 +110,78 @@ INFO: [Synth 8-6157] synthesizing module 'vga_if' [C:/Users/Damian/Documents/Git
 INFO: [Synth 8-6155] done synthesizing module 'vga_if' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga_if.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'char_ctrl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_ctrl.sv:1]
 INFO: [Synth 8-6155] done synthesizing module 'char_ctrl' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_ctrl.sv:1]
-WARNING: [Synth 8-689] width (1) of port connection 'ground_lvl' does not match port width (12) of module 'char_ctrl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:43]
+WARNING: [Synth 8-689] width (1) of port connection 'ground_lvl' does not match port width (12) of module 'char_ctrl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:44]
 INFO: [Synth 8-6157] synthesizing module 'char_draw' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_draw.sv:1]
 INFO: [Synth 8-3876] $readmem data file '../GameSprites/Archer.dat' is read successfully [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_draw.sv:23]
 INFO: [Synth 8-6155] done synthesizing module 'char_draw' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_draw.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'draw_char' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'wpn_draw_def' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/wpn_draw_def.sv:1]
 INFO: [Synth 8-3876] $readmem data file '../GameSprites/Melee.dat' is read successfully [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/wpn_draw_def.sv:24]
 INFO: [Synth 8-6155] done synthesizing module 'wpn_draw_def' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/wpn_draw_def.sv:1]
-INFO: [Synth 8-6155] done synthesizing module 'draw_char' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:1]
+WARNING: [Synth 8-689] width (1) of port connection 'wpn_hgt' does not match port width (12) of module 'wpn_draw_def' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:200]
+WARNING: [Synth 8-689] width (1) of port connection 'wpn_lng' does not match port width (12) of module 'wpn_draw_def' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:201]
 INFO: [Synth 8-6155] done synthesizing module 'top_vga' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:15]
+WARNING: [Synth 8-7071] port 'ps2_clk' of module 'top_vga' is unconnected for instance 'u_top_vga' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
+WARNING: [Synth 8-7071] port 'ps2_data' of module 'top_vga' is unconnected for instance 'u_top_vga' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
+WARNING: [Synth 8-7071] port 'char_x' of module 'top_vga' is unconnected for instance 'u_top_vga' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
+WARNING: [Synth 8-7071] port 'char_y' of module 'top_vga' is unconnected for instance 'u_top_vga' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
+WARNING: [Synth 8-7071] port 'on_ground' of module 'top_vga' is unconnected for instance 'u_top_vga' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
+WARNING: [Synth 8-7071] port 'ground_lvl' of module 'top_vga' is unconnected for instance 'u_top_vga' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
+WARNING: [Synth 8-7071] port 'ground_y' of module 'top_vga' is unconnected for instance 'u_top_vga' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
+WARNING: [Synth 8-7023] instance 'u_top_vga' of module 'top_vga' has 18 connections declared, but only 11 given [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
+INFO: [Synth 8-6155] done synthesizing module 'top_vga_basys3' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:15]
 WARNING: [Synth 8-6014] Unused sequential element char_y_prev_reg was removed.  [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:49]
 WARNING: [Synth 8-6014] Unused sequential element char_velocity_y_reg was removed.  [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:50]
 WARNING: [Synth 8-3936] Found unconnected internal register 'vcount_reg_reg' and it is trimmed from '12' to '11' bits. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:87]
 WARNING: [Synth 8-3936] Found unconnected internal register 'hcount_reg_reg' and it is trimmed from '12' to '11' bits. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:90]
+WARNING: [Synth 8-3848] Net vga_char_out\.vcount in module/entity draw_char does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:16]
+WARNING: [Synth 8-3848] Net vga_char_out\.vsync in module/entity draw_char does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:16]
+WARNING: [Synth 8-3848] Net vga_char_out\.vblnk in module/entity draw_char does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:16]
+WARNING: [Synth 8-3848] Net vga_char_out\.hcount in module/entity draw_char does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:16]
+WARNING: [Synth 8-3848] Net vga_char_out\.hsync in module/entity draw_char does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:16]
+WARNING: [Synth 8-3848] Net vga_char_out\.hblnk in module/entity draw_char does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:16]
+WARNING: [Synth 8-3848] Net vga_char_out\.rgb in module/entity draw_char does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:16]
+WARNING: [Synth 8-3848] Net pos_x in module/entity top_vga does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:196]
+WARNING: [Synth 8-3848] Net pos_y in module/entity top_vga does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:197]
+WARNING: [Synth 8-3848] Net flip_h in module/entity top_vga does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:199]
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[10] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[9] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[8] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[7] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[6] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[5] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[4] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[3] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[2] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[1] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[0] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vsync in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vblnk in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[10] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[9] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[8] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[7] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[6] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[5] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[4] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[3] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[2] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[1] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[0] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hsync in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hblnk in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[11] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[10] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[9] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[8] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[7] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[6] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[5] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[4] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[3] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[2] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[1] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[0] in module draw_char is either unconnected or has no load
 WARNING: [Synth 8-7129] Port char_y[11] in module boss_draw is either unconnected or has no load
 WARNING: [Synth 8-7129] Port char_y[10] in module boss_draw is either unconnected or has no load
 WARNING: [Synth 8-7129] Port char_y[9] in module boss_draw is either unconnected or has no load
@@ -100,181 +198,56 @@ WARNING: [Synth 8-7129] Port rst in module hearts_display is either unconnected 
 WARNING: [Synth 8-7129] Port rst in module platform is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ps2_clk in module MouseCtl is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ps2_data in module MouseCtl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PS2Clk in module top_vga_basys3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PS2Data in module top_vga_basys3 is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1105.297 ; gain = 625.426
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1106.867 ; gain = 626.875
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1105.297 ; gain = 625.426
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1106.867 ; gain = 626.875
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1105.297 ; gain = 625.426
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1106.867 ; gain = 626.875
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.032 . Memory (MB): peak = 1105.297 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.041 . Memory (MB): peak = 1106.867 ; gain = 0.000
+WARNING: [Netlist 29-345] The value of SIM_DEVICE on instance 'inst/clkout1_buf' of type 'BUFGCE' is 'ULTRASCALE'; it is being changed to match the current FPGA architecture, '7SERIES'. For functional simulation to match hardware behavior, the value of SIM_DEVICE should be changed in the source netlist. 
+WARNING: [Netlist 29-345] The value of SIM_DEVICE on instance 'inst/clkout2_buf' of type 'BUFGCE' is 'ULTRASCALE'; it is being changed to match the current FPGA architecture, '7SERIES'. For functional simulation to match hardware behavior, the value of SIM_DEVICE should be changed in the source netlist. 
+INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc]
-WARNING: [Vivado 12-584] No ports matched 'btnC'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:111]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:111]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btnC'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:112]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:112]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btnU'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:113]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:113]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btnU'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:114]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:114]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btnL'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:115]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:115]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btnL'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:116]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:116]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btnR'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:117]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:117]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btnR'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:118]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:118]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'JA1'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:126]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:126]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'JA1'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:127]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:127]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaRed[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:236]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:236]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaRed[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:237]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:237]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaRed[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:238]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:238]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaRed[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:239]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:239]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaRed[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:240]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:240]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaRed[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:241]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:241]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaRed[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:242]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:242]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaRed[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:243]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:243]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaBlue[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:244]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:244]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaBlue[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:245]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:245]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaBlue[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:246]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:246]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaBlue[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:247]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:247]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaBlue[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:248]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:248]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaBlue[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:249]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:249]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaBlue[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:250]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:250]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaBlue[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:251]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:251]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaGreen[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:252]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:252]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaGreen[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:253]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:253]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaGreen[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:254]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:254]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaGreen[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:255]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:255]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaGreen[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:256]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:256]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaGreen[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:257]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:257]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaGreen[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:258]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:258]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaGreen[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:259]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:259]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'Hsync'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:260]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:260]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'Hsync'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:261]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:261]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'Vsync'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:262]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:262]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'Vsync'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:263]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:263]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'PS2Clk'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:274]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:274]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'PS2Clk'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:275]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:275]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'PS2Clk'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:276]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:276]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'PS2Data'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:277]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:277]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'PS2Data'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:278]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:278]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'PS2Data'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:279]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:279]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 Finished Parsing XDC File [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_vga_propImpl.xdc].
-Resolution: To avoid this warning, move constraints listed in [.Xil/top_vga_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_vga_basys3_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_vga_basys3_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1199.750 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1200.031 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 2 instances were transformed.
+  BUFGCE => BUFGCTRL: 2 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1199.750 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1200.031 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1199.750 ; gain = 719.879
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1200.031 ; gain = 720.039
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1199.750 ; gain = 719.879
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1200.031 ; gain = 720.039
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1199.750 ; gain = 719.879
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1200.031 ; gain = 720.039
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'Ps2Interface'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'MouseCtl'
@@ -343,7 +316,7 @@ reset_enable_reporting_wait_ack | 0000000010000000000000000000000000000 |       
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'MouseCtl'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1199.750 ; gain = 719.879
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1200.031 ; gain = 720.039
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -373,7 +346,7 @@ Detailed RTL Component Info :
 	               14 Bit    Registers := 1     
 	               12 Bit    Registers := 21    
 	               11 Bit    Registers := 16    
-	                8 Bit    Registers := 5     
+	                8 Bit    Registers := 7     
 	                7 Bit    Registers := 1     
 	                4 Bit    Registers := 5     
 	                1 Bit    Registers := 70    
@@ -451,24 +424,107 @@ DSP Report: operator rgb_nxt5 is absorbed into DSP rgb_nxt5.
 DSP Report: Generating DSP rgb_nxt5, operation Mode is: (PCIN>>17)+A*B.
 DSP Report: operator rgb_nxt5 is absorbed into DSP rgb_nxt5.
 DSP Report: operator rgb_nxt5 is absorbed into DSP rgb_nxt5.
-WARNING: [Synth 8-7129] Port char_y[11] in module boss_draw is either unconnected or has no load
-WARNING: [Synth 8-7129] Port char_y[10] in module boss_draw is either unconnected or has no load
-WARNING: [Synth 8-7129] Port char_y[9] in module boss_draw is either unconnected or has no load
-WARNING: [Synth 8-7129] Port char_y[8] in module boss_draw is either unconnected or has no load
-WARNING: [Synth 8-7129] Port char_y[7] in module boss_draw is either unconnected or has no load
-WARNING: [Synth 8-7129] Port char_y[6] in module boss_draw is either unconnected or has no load
-WARNING: [Synth 8-7129] Port char_y[5] in module boss_draw is either unconnected or has no load
-WARNING: [Synth 8-7129] Port char_y[4] in module boss_draw is either unconnected or has no load
-WARNING: [Synth 8-7129] Port char_y[3] in module boss_draw is either unconnected or has no load
-WARNING: [Synth 8-7129] Port char_y[2] in module boss_draw is either unconnected or has no load
-WARNING: [Synth 8-7129] Port char_y[1] in module boss_draw is either unconnected or has no load
-WARNING: [Synth 8-7129] Port char_y[0] in module boss_draw is either unconnected or has no load
-WARNING: [Synth 8-7129] Port rst in module hearts_display is either unconnected or has no load
-WARNING: [Synth 8-7129] Port rst in module platform is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ps2_clk in module MouseCtl is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ps2_data in module MouseCtl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[10] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[9] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[8] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[7] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[6] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[5] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[4] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[3] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[2] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[1] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[0] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vsync in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vblnk in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[10] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[9] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[8] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[7] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[6] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[5] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[4] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[3] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[2] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[1] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[0] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hsync in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hblnk in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[11] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[10] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[9] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[8] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[7] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[6] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[5] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[4] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[3] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[2] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[1] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[0] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_in\.vsync in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_in\.hsync in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_in\.rgb[11] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_in\.rgb[10] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_in\.rgb[9] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_in\.rgb[8] in module draw_char is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[16]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[15]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[14]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[13]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[12]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[11]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[10]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[9]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[8]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[7]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[6]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[5]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[4]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[3]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[2]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[1]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[0]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[36]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[35]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[34]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[33]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[32]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[31]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[30]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[29]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[28]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[27]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[26]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[25]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[24]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[23]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[22]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[21]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[20]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[19]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[18]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[17]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[16]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[15]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[14]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[13]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[12]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[11]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[10]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[9]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[8]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[7]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[6]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[5]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[4]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[3]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[2]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[1]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[0]) is unused and will be removed from module MouseCtl.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:58 ; elapsed = 00:02:01 . Memory (MB): peak = 2042.871 ; gain = 1563.000
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:35 ; elapsed = 00:01:39 . Memory (MB): peak = 2045.992 ; gain = 1566.000
 ---------------------------------------------------------------------------------
  Sort Area is  rgb_nxt5_0 : 0 0 : 3101 5879 : Used 1 time 0
  Sort Area is  rgb_nxt5_0 : 0 1 : 2778 5879 : Used 1 time 0
@@ -509,9 +565,8 @@ ROM: Preliminary Mapping Report
 |hearts_display | p_0_out    | 128x3         | LUT            | 
 |hearts_display | p_0_out    | 128x3         | LUT            | 
 |hearts_display | p_0_out    | 128x3         | LUT            | 
-|hearts_display | p_0_out    | 128x3         | LUT            | 
 |boss_draw      | p_0_out    | 65536x12      | LUT            | 
-|draw_char      | p_0_out    | 2048x12       | LUT            | 
+|wpn_draw_def   | p_0_out    | 2048x12       | LUT            | 
 +---------------+------------+---------------+----------------+
 
 
@@ -540,19 +595,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:06 ; elapsed = 00:02:09 . Memory (MB): peak = 2042.871 ; gain = 1563.000
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:40 ; elapsed = 00:01:44 . Memory (MB): peak = 2045.992 ; gain = 1566.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:07 ; elapsed = 00:02:10 . Memory (MB): peak = 2042.871 ; gain = 1563.000
+Finished Timing Optimization : Time (s): cpu = 00:01:40 ; elapsed = 00:01:44 . Memory (MB): peak = 2045.992 ; gain = 1566.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:02:09 ; elapsed = 00:02:12 . Memory (MB): peak = 2042.871 ; gain = 1563.000
+Finished Technology Mapping : Time (s): cpu = 00:01:41 ; elapsed = 00:01:44 . Memory (MB): peak = 2045.992 ; gain = 1566.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -570,72 +625,41 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:12 ; elapsed = 00:02:15 . Memory (MB): peak = 2042.871 ; gain = 1563.000
+Finished IO Insertion : Time (s): cpu = 00:01:44 ; elapsed = 00:01:48 . Memory (MB): peak = 2045.992 ; gain = 1566.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:12 ; elapsed = 00:02:15 . Memory (MB): peak = 2042.871 ; gain = 1563.000
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:44 ; elapsed = 00:01:48 . Memory (MB): peak = 2045.992 ; gain = 1566.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:12 ; elapsed = 00:02:15 . Memory (MB): peak = 2042.871 ; gain = 1563.000
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:44 ; elapsed = 00:01:48 . Memory (MB): peak = 2045.992 ; gain = 1566.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:02:12 ; elapsed = 00:02:15 . Memory (MB): peak = 2042.871 ; gain = 1563.000
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:44 ; elapsed = 00:01:48 . Memory (MB): peak = 2045.992 ; gain = 1566.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:13 ; elapsed = 00:02:16 . Memory (MB): peak = 2042.871 ; gain = 1563.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:44 ; elapsed = 00:01:48 . Memory (MB): peak = 2045.992 ; gain = 1566.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:02:13 ; elapsed = 00:02:16 . Memory (MB): peak = 2042.871 ; gain = 1563.000
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP, Shift Register and Retiming Reporting
----------------------------------------------------------------------------------
-
-Static Shift Register Report:
-+------------+------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-|Module Name | RTL Name                                 | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
-+------------+------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-|top_vga     | u_char/u_wpn_draw_def/vga_out\.vsync_reg | 5      | 1     | NO           | NO                 | YES               | 1      | 0       | 
-|top_vga     | u_char/u_wpn_draw_def/vga_out\.hsync_reg | 5      | 1     | NO           | NO                 | YES               | 1      | 0       | 
-+------------+------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:44 ; elapsed = 00:01:48 . Memory (MB): peak = 2045.992 ; gain = 1566.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
-
-DSP Final Report (the ' indicates corresponding REG is set)
-+------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name | DSP Mapping  | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|draw_bg     | A*B          | 15     | 18     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|draw_bg     | A*B          | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|draw_bg     | PCIN>>17+A*B | 30     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|draw_bg     | A*B          | 17     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|draw_bg     | A*B          | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|draw_bg     | PCIN>>17+A*B | 17     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|draw_bg     | A*B          | 17     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|draw_bg     | A*B          | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|draw_bg     | PCIN>>17+A*B | 17     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-+------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-
 
 Report BlackBoxes: 
 +-+--------------+----------+
@@ -644,51 +668,43 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+--------+------+
-|      |Cell    |Count |
-+------+--------+------+
-|1     |BUFG    |     2|
-|2     |CARRY4  |   194|
-|3     |DSP48E1 |     9|
-|4     |LUT1    |    99|
-|5     |LUT2    |   371|
-|6     |LUT3    |   239|
-|7     |LUT4    |   486|
-|8     |LUT5    |   669|
-|9     |LUT6    |  4449|
-|10    |MUXF7   |   833|
-|11    |MUXF8   |   231|
-|12    |SRL16E  |     2|
-|13    |FDCE    |    53|
-|14    |FDPE    |    21|
-|15    |FDRE    |   454|
-|16    |FDSE    |    30|
-|17    |IBUF    |     6|
-|18    |OBUF    |    52|
-+------+--------+------+
++------+-----------+------+
+|      |Cell       |Count |
++------+-----------+------+
+|1     |BUFG       |     1|
+|2     |BUFGCE     |     2|
+|3     |BUFH       |     2|
+|4     |MMCME2_ADV |     1|
+|5     |ODDR       |     1|
+|6     |FDRE       |    16|
+|7     |IBUF       |     1|
+|8     |OBUF       |    15|
++------+-----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:13 ; elapsed = 00:02:16 . Memory (MB): peak = 2042.871 ; gain = 1563.000
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:44 ; elapsed = 00:01:48 . Memory (MB): peak = 2045.992 ; gain = 1566.000
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 17 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:02:04 ; elapsed = 00:02:14 . Memory (MB): peak = 2042.871 ; gain = 1468.547
-Synthesis Optimization Complete : Time (s): cpu = 00:02:13 ; elapsed = 00:02:16 . Memory (MB): peak = 2042.871 ; gain = 1563.000
+Synthesis finished with 0 errors, 0 critical warnings and 125 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:35 ; elapsed = 00:01:46 . Memory (MB): peak = 2045.992 ; gain = 1472.836
+Synthesis Optimization Complete : Time (s): cpu = 00:01:44 ; elapsed = 00:01:48 . Memory (MB): peak = 2045.992 ; gain = 1566.000
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.136 . Memory (MB): peak = 2042.871 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 1267 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2045.992 ; gain = 0.000
+WARNING: [Netlist 29-345] The value of SIM_DEVICE on instance 'inst/clkout1_buf' of type 'BUFGCE' is 'ULTRASCALE'; it is being changed to match the current FPGA architecture, '7SERIES'. For functional simulation to match hardware behavior, the value of SIM_DEVICE should be changed in the source netlist. 
+WARNING: [Netlist 29-345] The value of SIM_DEVICE on instance 'inst/clkout2_buf' of type 'BUFGCE' is 'ULTRASCALE'; it is being changed to match the current FPGA architecture, '7SERIES'. For functional simulation to match hardware behavior, the value of SIM_DEVICE should be changed in the source netlist. 
+INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 2042.871 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2045.992 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 2 instances were transformed.
+  BUFGCE => BUFGCTRL: 2 instances
 
-Synth Design complete | Checksum: 136f16bf
+Synth Design complete | Checksum: b994c492
 INFO: [Common 17-83] Releasing license: Synthesis
-60 Infos, 96 Warnings, 44 Critical Warnings and 0 Errors encountered.
+86 Infos, 198 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:18 ; elapsed = 00:02:31 . Memory (MB): peak = 2042.871 ; gain = 1756.828
-INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 2042.871 ; gain = 0.000
-INFO: [Common 17-1381] The checkpoint 'C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/synth_1/top_vga.dcp' has been generated.
-INFO: [Vivado 12-24828] Executing command : report_utilization -file top_vga_utilization_synth.rpt -pb top_vga_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Aug 14 18:12:45 2025...
+synth_design: Time (s): cpu = 00:01:46 ; elapsed = 00:01:54 . Memory (MB): peak = 2045.992 ; gain = 1761.930
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2045.992 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/synth_1/top_vga_basys3.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file top_vga_basys3_utilization_synth.rpt -pb top_vga_basys3_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Aug 14 20:30:12 2025...

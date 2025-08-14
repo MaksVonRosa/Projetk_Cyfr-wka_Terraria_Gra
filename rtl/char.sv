@@ -11,6 +11,7 @@ module draw_char (
     output logic [11:0] pos_x_out,
     output logic [11:0] pos_y_out,
     output logic [3:0] char_hp_out,
+    output logic draw_weapon,
     vga_if.in  vga_char_in,
     vga_if.out vga_char_out
 );
@@ -19,7 +20,7 @@ module draw_char (
     logic [3:0] char_hp;
     logic flip_h;
     vga_if vga_mid();
-    logic draw_weapon;
+    // logic draw_weapon;
 
 
     assign pos_x_out = pos_x;
@@ -56,15 +57,15 @@ module draw_char (
         .vga_out(vga_mid.out)
     );
 
-    wpn_draw_def u_wpn_draw_def (
-        .clk(clk),
-        .rst(rst),
-        .pos_x(pos_x),
-        .pos_y(pos_y),
-        .draw_enable(draw_weapon),
-        .flip_h(flip_h),
-        .vga_in(vga_mid.in),
-        .vga_out(vga_char_out)
-    );
+    // wpn_draw_def u_wpn_draw_def (
+    //     .clk(clk),
+    //     .rst(rst),
+    //     .pos_x(pos_x),
+    //     .pos_y(pos_y),
+    //     .draw_enable(draw_weapon),
+    //     .flip_h(flip_h),
+    //     .vga_in(vga_mid.in),
+    //     .vga_out(vga_char_out)
+    // );
 
 endmodule

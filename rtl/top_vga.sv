@@ -62,13 +62,16 @@ module top_vga (
     // VGA signals from hearts
     vga_if vga_hearts();
 
+    // VGA signals from weapon
+    vga_if vga_if_wpn();
+
     /**
      * Signals assignments
      */
 
-    assign vs = vga_if_char.vsync;
-    assign hs = vga_if_char.hsync;
-    assign {r,g,b} = vga_if_char.rgb;
+    assign vs = vga_if_wpn.vsync;
+    assign hs = vga_if_wpn.hsync;
+    assign {r,g,b} = vga_if_wpn.rgb;
     assign char_x = pos_x_out;
     assign char_y = pos_y_out;
     
@@ -76,6 +79,9 @@ module top_vga (
     logic [11:0] xpos_MouseCtl;
     logic [11:0] ypos_MouseCtl;
     logic mouse_left;
+    logic draw_weapon;
+    logic wpn_hgt;
+    logic wpn_lng;
     //logic on_ground;
 
 
@@ -177,10 +183,24 @@ module top_vga (
         .char_hp_out (char_hp_out),
         .pos_x_out (pos_x_out),
         .pos_y_out (pos_y_out),
+        .draw_weapon(draw_weapon),
         .vga_char_in (vga_hearts.in),
         .vga_char_out (vga_if_char.out),
         .mouse_left(mouse_left)
 
+    );
+
+    wpn_draw_def u_wpn_draw_def (
+        .clk(clk),
+        .rst(rst),
+        .pos_x(pos_x),
+        .pos_y(pos_y),
+        .draw_enable(draw_weapon),
+        .flip_h(flip_h),
+        .wpn_hgt(wpn_hgt),
+        .wpn_lng(wpn_lng),
+        .vga_in(vga_if_char.in),
+        .vga_out(vga_if_wpn.out)
     );
 
 endmodule

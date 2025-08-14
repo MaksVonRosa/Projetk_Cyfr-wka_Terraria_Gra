@@ -3,8 +3,8 @@
 # SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Thu Aug 14 18:09:57 2025
-# Process ID         : 10328
+# Start of session at: Thu Aug 14 20:28:01 2025
+# Process ID         : 25748
 # Current directory  : C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga
 # Command line       : vivado.exe -mode tcl -source scripts/generate_bitstream.tcl
 # Log file           : C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/vivado.log
@@ -17,9 +17,9 @@
 # CPU Physical cores : 6
 # CPU Logical cores  : 12
 # Host memory        : 34235 MB
-# Swap memory        : 2147 MB
-# Total Virtual      : 36383 MB
-# Available Virtual  : 10464 MB
+# Swap memory        : 3918 MB
+# Total Virtual      : 38154 MB
+# Available Virtual  : 7633 MB
 #-----------------------------------------------------------
 source scripts/generate_bitstream.tcl
 # source scripts/project_details.tcl
@@ -79,16 +79,14 @@ source scripts/generate_bitstream.tcl
 #     wait_on_run impl_1
 # }
 # create_new_project $project_name $target $top_module
-CRITICAL WARNING: [filemgmt 20-742] The top module "top_vga_basys3" specified for this project can not be validated. The current project is using automatic hierarchy update mode, and hence a new suitable replacement top will be automatically selected. If this is not desired, please change the hierarchy update mode to one of the manual compile order modes first, and then set top to any desired value.
-Resolution: To switch to manual update order go to the Sources view, right-click on any node in the hierarchy and in the context menu select: 'Hierarchy Update' option 'No Update' or run the following Tcl Command: set_property source_mgmt_mode None [current_project] (which is the Manual Compile Order mode).
 # generate_bitstream
 WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
-[Thu Aug 14 18:10:05 2025] Launched synth_1...
+[Thu Aug 14 20:28:10 2025] Launched synth_1...
 Run output will be captured here: C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/synth_1/runme.log
-[Thu Aug 14 18:10:05 2025] Waiting for synth_1 to finish...
+[Thu Aug 14 20:28:10 2025] Waiting for synth_1 to finish...
 
 *** Running vivado
-    with args -log top_vga.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_vga.tcl
+    with args -log top_vga_basys3.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_vga_basys3.tcl
 
 
 
@@ -96,25 +94,64 @@ Run output will be captured here: C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-
   **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
   **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
   **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-  **** Start of session at: Thu Aug 14 18:10:09 2025
+  **** Start of session at: Thu Aug 14 20:28:14 2025
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
-source top_vga.tcl -notrace
-Command: synth_design -top top_vga -part xc7a35tcpg236-1
+source top_vga_basys3.tcl -notrace
+Command: synth_design -top top_vga_basys3 -part xc7a35tcpg236-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 1396
+INFO: [Synth 8-7075] Helper process launched with PID 21348
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 946.898 ; gain = 467.027
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 947.195 ; gain = 467.203
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-10180] variable 'hx_start' must explicitly be declared as automatic or static [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/hearts_display.sv:32]
 WARNING: [Synth 8-10180] variable 'hx_end' must explicitly be declared as automatic or static [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/hearts_display.sv:33]
+INFO: [Synth 8-11241] undeclared symbol 'pos_x', assumed default net type 'wire' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:196]
+INFO: [Synth 8-11241] undeclared symbol 'pos_y', assumed default net type 'wire' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:197]
+INFO: [Synth 8-11241] undeclared symbol 'flip_h', assumed default net type 'wire' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:199]
+INFO: [Synth 8-11241] undeclared symbol 'clk100MHz_clk_wiz_0_en_clk', assumed default net type 'wire' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v:209]
+INFO: [Synth 8-11241] undeclared symbol 'clk65MHz_clk_wiz_0_en_clk', assumed default net type 'wire' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v:221]
+INFO: [Synth 8-6157] synthesizing module 'top_vga_basys3' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:15]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0_clk_wiz' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v:66]
+INFO: [Synth 8-6157] synthesizing module 'IBUF' [C:/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:75825]
+INFO: [Synth 8-6155] done synthesizing module 'IBUF' (0#1) [C:/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:75825]
+INFO: [Synth 8-6157] synthesizing module 'MMCME2_ADV' [C:/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:84588]
+	Parameter BANDWIDTH bound to: OPTIMIZED - type: string 
+	Parameter CLKFBOUT_MULT_F bound to: 9.750000 - type: double 
+	Parameter CLKFBOUT_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKFBOUT_USE_FINE_PS bound to: FALSE - type: string 
+	Parameter CLKIN1_PERIOD bound to: 10.000000 - type: double 
+	Parameter CLKOUT0_DIVIDE_F bound to: 9.750000 - type: double 
+	Parameter CLKOUT0_DUTY_CYCLE bound to: 0.500000 - type: double 
+	Parameter CLKOUT0_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKOUT0_USE_FINE_PS bound to: FALSE - type: string 
+	Parameter CLKOUT1_DIVIDE bound to: 15 - type: integer 
+	Parameter CLKOUT1_DUTY_CYCLE bound to: 0.500000 - type: double 
+	Parameter CLKOUT1_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKOUT1_USE_FINE_PS bound to: FALSE - type: string 
+	Parameter CLKOUT4_CASCADE bound to: FALSE - type: string 
+	Parameter COMPENSATION bound to: ZHOLD - type: string 
+	Parameter DIVCLK_DIVIDE bound to: 1 - type: integer 
+	Parameter STARTUP_WAIT bound to: FALSE - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'MMCME2_ADV' (0#1) [C:/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:84588]
+INFO: [Synth 8-6157] synthesizing module 'BUFG' [C:/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:2676]
+INFO: [Synth 8-6155] done synthesizing module 'BUFG' (0#1) [C:/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:2676]
+INFO: [Synth 8-6157] synthesizing module 'BUFGCE' [C:/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:2686]
+INFO: [Synth 8-6155] done synthesizing module 'BUFGCE' (0#1) [C:/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:2686]
+INFO: [Synth 8-6157] synthesizing module 'BUFH' [C:/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:2924]
+INFO: [Synth 8-6155] done synthesizing module 'BUFH' (0#1) [C:/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:2924]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0_clk_wiz' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v:66]
+INFO: [Synth 8-6157] synthesizing module 'ODDR' [C:/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:103072]
+INFO: [Synth 8-6155] done synthesizing module 'ODDR' (0#1) [C:/Xilinx/Vivado/2024.2/scripts/rt/data/unisim_comp.v:103072]
 INFO: [Synth 8-6157] synthesizing module 'top_vga' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:15]
+INFO: [Synth 8-6157] synthesizing module 'vga_if' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga_if.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'vga_if' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga_if.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'vga_if' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga_if.sv:1]
 INFO: [Synth 8-6155] done synthesizing module 'vga_if' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga_if.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'vga_if' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga_if.sv:1]
@@ -132,22 +169,22 @@ INFO: [Synth 8-3491] module 'Ps2Interface' declared at 'C:/Users/Damian/Document
 INFO: [Synth 8-638] synthesizing module 'Ps2Interface' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Mouse_Control/Ps2Interface.vhd:180]
 INFO: [Synth 8-256] done synthesizing module 'Ps2Interface' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Mouse_Control/Ps2Interface.vhd:180]
 INFO: [Synth 8-256] done synthesizing module 'MouseCtl' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Mouse_Control/MouseCtl.vhd:207]
-WARNING: [Synth 8-7071] port 'rst' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
-WARNING: [Synth 8-7071] port 'zpos' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
-WARNING: [Synth 8-7071] port 'middle' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
-WARNING: [Synth 8-7071] port 'right' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
-WARNING: [Synth 8-7071] port 'new_event' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
-WARNING: [Synth 8-7071] port 'value' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
-WARNING: [Synth 8-7071] port 'setx' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
-WARNING: [Synth 8-7071] port 'sety' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
-WARNING: [Synth 8-7071] port 'setmax_x' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
-WARNING: [Synth 8-7071] port 'setmax_y' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
-WARNING: [Synth 8-7023] instance 'u_MouseCtl' of module 'MouseCtl' has 16 connections declared, but only 6 given [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
+WARNING: [Synth 8-7071] port 'rst' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:106]
+WARNING: [Synth 8-7071] port 'zpos' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:106]
+WARNING: [Synth 8-7071] port 'middle' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:106]
+WARNING: [Synth 8-7071] port 'right' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:106]
+WARNING: [Synth 8-7071] port 'new_event' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:106]
+WARNING: [Synth 8-7071] port 'value' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:106]
+WARNING: [Synth 8-7071] port 'setx' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:106]
+WARNING: [Synth 8-7071] port 'sety' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:106]
+WARNING: [Synth 8-7071] port 'setmax_x' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:106]
+WARNING: [Synth 8-7071] port 'setmax_y' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:106]
+WARNING: [Synth 8-7023] instance 'u_MouseCtl' of module 'MouseCtl' has 16 connections declared, but only 6 given [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:106]
 INFO: [Synth 8-6157] synthesizing module 'draw_bg' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/draw_bg.sv:10]
 INFO: [Synth 8-6155] done synthesizing module 'draw_bg' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/draw_bg.sv:10]
 INFO: [Synth 8-6157] synthesizing module 'platform' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:1]
 INFO: [Synth 8-6155] done synthesizing module 'platform' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:1]
-WARNING: [Synth 8-689] width (32) of port connection 'char_hgt' does not match port width (12) of module 'platform' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:144]
+WARNING: [Synth 8-689] width (32) of port connection 'char_hgt' does not match port width (12) of module 'platform' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:150]
 INFO: [Synth 8-6157] synthesizing module 'hearts_display' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/hearts_display.sv:1]
 INFO: [Synth 8-3876] $readmem data file '../GameSprites/Heart.dat' is read successfully [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/hearts_display.sv:17]
 INFO: [Synth 8-6155] done synthesizing module 'hearts_display' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/hearts_display.sv:1]
@@ -159,19 +196,78 @@ INFO: [Synth 8-6157] synthesizing module 'vga_if' [C:/Users/Damian/Documents/Git
 INFO: [Synth 8-6155] done synthesizing module 'vga_if' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga_if.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'char_ctrl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_ctrl.sv:1]
 INFO: [Synth 8-6155] done synthesizing module 'char_ctrl' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_ctrl.sv:1]
-WARNING: [Synth 8-689] width (1) of port connection 'ground_lvl' does not match port width (12) of module 'char_ctrl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:43]
+WARNING: [Synth 8-689] width (1) of port connection 'ground_lvl' does not match port width (12) of module 'char_ctrl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:44]
 INFO: [Synth 8-6157] synthesizing module 'char_draw' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_draw.sv:1]
 INFO: [Synth 8-3876] $readmem data file '../GameSprites/Archer.dat' is read successfully [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_draw.sv:23]
 INFO: [Synth 8-6155] done synthesizing module 'char_draw' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_draw.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'draw_char' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'wpn_draw_def' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/wpn_draw_def.sv:1]
 INFO: [Synth 8-3876] $readmem data file '../GameSprites/Melee.dat' is read successfully [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/wpn_draw_def.sv:24]
 INFO: [Synth 8-6155] done synthesizing module 'wpn_draw_def' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/wpn_draw_def.sv:1]
-INFO: [Synth 8-6155] done synthesizing module 'draw_char' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:1]
+WARNING: [Synth 8-689] width (1) of port connection 'wpn_hgt' does not match port width (12) of module 'wpn_draw_def' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:200]
+WARNING: [Synth 8-689] width (1) of port connection 'wpn_lng' does not match port width (12) of module 'wpn_draw_def' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:201]
 INFO: [Synth 8-6155] done synthesizing module 'top_vga' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:15]
+WARNING: [Synth 8-7071] port 'ps2_clk' of module 'top_vga' is unconnected for instance 'u_top_vga' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
+WARNING: [Synth 8-7071] port 'ps2_data' of module 'top_vga' is unconnected for instance 'u_top_vga' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
+WARNING: [Synth 8-7071] port 'char_x' of module 'top_vga' is unconnected for instance 'u_top_vga' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
+WARNING: [Synth 8-7071] port 'char_y' of module 'top_vga' is unconnected for instance 'u_top_vga' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
+WARNING: [Synth 8-7071] port 'on_ground' of module 'top_vga' is unconnected for instance 'u_top_vga' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
+WARNING: [Synth 8-7071] port 'ground_lvl' of module 'top_vga' is unconnected for instance 'u_top_vga' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
+WARNING: [Synth 8-7071] port 'ground_y' of module 'top_vga' is unconnected for instance 'u_top_vga' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
+WARNING: [Synth 8-7023] instance 'u_top_vga' of module 'top_vga' has 18 connections declared, but only 11 given [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
+INFO: [Synth 8-6155] done synthesizing module 'top_vga_basys3' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:15]
 WARNING: [Synth 8-6014] Unused sequential element char_y_prev_reg was removed.  [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:49]
 WARNING: [Synth 8-6014] Unused sequential element char_velocity_y_reg was removed.  [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:50]
 WARNING: [Synth 8-3936] Found unconnected internal register 'vcount_reg_reg' and it is trimmed from '12' to '11' bits. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:87]
 WARNING: [Synth 8-3936] Found unconnected internal register 'hcount_reg_reg' and it is trimmed from '12' to '11' bits. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:90]
+WARNING: [Synth 8-3848] Net vga_char_out\.vcount in module/entity draw_char does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:16]
+WARNING: [Synth 8-3848] Net vga_char_out\.vsync in module/entity draw_char does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:16]
+WARNING: [Synth 8-3848] Net vga_char_out\.vblnk in module/entity draw_char does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:16]
+WARNING: [Synth 8-3848] Net vga_char_out\.hcount in module/entity draw_char does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:16]
+WARNING: [Synth 8-3848] Net vga_char_out\.hsync in module/entity draw_char does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:16]
+WARNING: [Synth 8-3848] Net vga_char_out\.hblnk in module/entity draw_char does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:16]
+WARNING: [Synth 8-3848] Net vga_char_out\.rgb in module/entity draw_char does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:16]
+WARNING: [Synth 8-3848] Net pos_x in module/entity top_vga does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:196]
+WARNING: [Synth 8-3848] Net pos_y in module/entity top_vga does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:197]
+WARNING: [Synth 8-3848] Net flip_h in module/entity top_vga does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:199]
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[10] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[9] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[8] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[7] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[6] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[5] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[4] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[3] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[2] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[1] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[0] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vsync in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vblnk in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[10] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[9] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[8] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[7] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[6] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[5] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[4] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[3] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[2] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[1] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[0] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hsync in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hblnk in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[11] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[10] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[9] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[8] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[7] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[6] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[5] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[4] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[3] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[2] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[1] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[0] in module draw_char is either unconnected or has no load
 WARNING: [Synth 8-7129] Port char_y[11] in module boss_draw is either unconnected or has no load
 WARNING: [Synth 8-7129] Port char_y[10] in module boss_draw is either unconnected or has no load
 WARNING: [Synth 8-7129] Port char_y[9] in module boss_draw is either unconnected or has no load
@@ -188,181 +284,56 @@ WARNING: [Synth 8-7129] Port rst in module hearts_display is either unconnected 
 WARNING: [Synth 8-7129] Port rst in module platform is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ps2_clk in module MouseCtl is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ps2_data in module MouseCtl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PS2Clk in module top_vga_basys3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PS2Data in module top_vga_basys3 is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1105.297 ; gain = 625.426
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1106.867 ; gain = 626.875
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1105.297 ; gain = 625.426
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1106.867 ; gain = 626.875
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1105.297 ; gain = 625.426
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1106.867 ; gain = 626.875
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.032 . Memory (MB): peak = 1105.297 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.041 . Memory (MB): peak = 1106.867 ; gain = 0.000
+WARNING: [Netlist 29-345] The value of SIM_DEVICE on instance 'inst/clkout1_buf' of type 'BUFGCE' is 'ULTRASCALE'; it is being changed to match the current FPGA architecture, '7SERIES'. For functional simulation to match hardware behavior, the value of SIM_DEVICE should be changed in the source netlist. 
+WARNING: [Netlist 29-345] The value of SIM_DEVICE on instance 'inst/clkout2_buf' of type 'BUFGCE' is 'ULTRASCALE'; it is being changed to match the current FPGA architecture, '7SERIES'. For functional simulation to match hardware behavior, the value of SIM_DEVICE should be changed in the source netlist. 
+INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc]
-WARNING: [Vivado 12-584] No ports matched 'btnC'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:111]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:111]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btnC'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:112]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:112]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btnU'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:113]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:113]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btnU'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:114]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:114]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btnL'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:115]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:115]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btnL'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:116]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:116]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btnR'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:117]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:117]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btnR'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:118]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:118]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'JA1'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:126]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:126]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'JA1'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:127]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:127]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaRed[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:236]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:236]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaRed[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:237]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:237]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaRed[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:238]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:238]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaRed[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:239]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:239]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaRed[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:240]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:240]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaRed[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:241]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:241]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaRed[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:242]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:242]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaRed[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:243]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:243]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaBlue[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:244]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:244]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaBlue[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:245]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:245]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaBlue[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:246]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:246]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaBlue[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:247]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:247]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaBlue[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:248]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:248]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaBlue[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:249]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:249]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaBlue[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:250]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:250]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaBlue[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:251]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:251]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaGreen[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:252]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:252]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaGreen[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:253]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:253]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaGreen[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:254]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:254]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaGreen[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:255]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:255]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaGreen[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:256]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:256]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaGreen[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:257]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:257]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaGreen[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:258]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:258]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaGreen[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:259]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:259]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'Hsync'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:260]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:260]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'Hsync'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:261]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:261]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'Vsync'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:262]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:262]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'Vsync'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:263]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:263]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'PS2Clk'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:274]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:274]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'PS2Clk'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:275]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:275]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'PS2Clk'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:276]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:276]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'PS2Data'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:277]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:277]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'PS2Data'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:278]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:278]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'PS2Data'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:279]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:279]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 Finished Parsing XDC File [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_vga_propImpl.xdc].
-Resolution: To avoid this warning, move constraints listed in [.Xil/top_vga_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_vga_basys3_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_vga_basys3_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1199.750 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1200.031 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 2 instances were transformed.
+  BUFGCE => BUFGCTRL: 2 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1199.750 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1200.031 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1199.750 ; gain = 719.879
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1200.031 ; gain = 720.039
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1199.750 ; gain = 719.879
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1200.031 ; gain = 720.039
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1199.750 ; gain = 719.879
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1200.031 ; gain = 720.039
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'Ps2Interface'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'MouseCtl'
@@ -431,7 +402,7 @@ reset_enable_reporting_wait_ack | 0000000010000000000000000000000000000 |       
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'MouseCtl'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1199.750 ; gain = 719.879
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1200.031 ; gain = 720.039
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -461,7 +432,7 @@ Detailed RTL Component Info :
 	               14 Bit    Registers := 1     
 	               12 Bit    Registers := 21    
 	               11 Bit    Registers := 16    
-	                8 Bit    Registers := 5     
+	                8 Bit    Registers := 7     
 	                7 Bit    Registers := 1     
 	                4 Bit    Registers := 5     
 	                1 Bit    Registers := 70    
@@ -539,24 +510,107 @@ DSP Report: operator rgb_nxt5 is absorbed into DSP rgb_nxt5.
 DSP Report: Generating DSP rgb_nxt5, operation Mode is: (PCIN>>17)+A*B.
 DSP Report: operator rgb_nxt5 is absorbed into DSP rgb_nxt5.
 DSP Report: operator rgb_nxt5 is absorbed into DSP rgb_nxt5.
-WARNING: [Synth 8-7129] Port char_y[11] in module boss_draw is either unconnected or has no load
-WARNING: [Synth 8-7129] Port char_y[10] in module boss_draw is either unconnected or has no load
-WARNING: [Synth 8-7129] Port char_y[9] in module boss_draw is either unconnected or has no load
-WARNING: [Synth 8-7129] Port char_y[8] in module boss_draw is either unconnected or has no load
-WARNING: [Synth 8-7129] Port char_y[7] in module boss_draw is either unconnected or has no load
-WARNING: [Synth 8-7129] Port char_y[6] in module boss_draw is either unconnected or has no load
-WARNING: [Synth 8-7129] Port char_y[5] in module boss_draw is either unconnected or has no load
-WARNING: [Synth 8-7129] Port char_y[4] in module boss_draw is either unconnected or has no load
-WARNING: [Synth 8-7129] Port char_y[3] in module boss_draw is either unconnected or has no load
-WARNING: [Synth 8-7129] Port char_y[2] in module boss_draw is either unconnected or has no load
-WARNING: [Synth 8-7129] Port char_y[1] in module boss_draw is either unconnected or has no load
-WARNING: [Synth 8-7129] Port char_y[0] in module boss_draw is either unconnected or has no load
-WARNING: [Synth 8-7129] Port rst in module hearts_display is either unconnected or has no load
-WARNING: [Synth 8-7129] Port rst in module platform is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ps2_clk in module MouseCtl is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ps2_data in module MouseCtl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[10] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[9] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[8] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[7] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[6] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[5] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[4] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[3] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[2] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[1] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vcount[0] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vsync in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.vblnk in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[10] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[9] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[8] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[7] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[6] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[5] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[4] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[3] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[2] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[1] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hcount[0] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hsync in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.hblnk in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[11] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[10] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[9] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[8] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[7] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[6] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[5] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[4] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[3] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[2] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[1] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_out\.rgb[0] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_in\.vsync in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_in\.hsync in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_in\.rgb[11] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_in\.rgb[10] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_in\.rgb[9] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-7129] Port vga_char_in\.rgb[8] in module draw_char is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[16]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[15]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[14]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[13]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[12]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[11]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[10]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[9]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[8]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[7]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[6]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[5]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[4]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[3]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[2]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[1]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[0]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[36]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[35]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[34]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[33]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[32]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[31]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[30]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[29]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[28]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[27]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[26]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[25]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[24]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[23]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[22]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[21]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[20]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[19]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[18]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[17]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[16]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[15]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[14]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[13]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[12]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[11]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[10]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[9]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[8]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[7]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[6]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[5]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[4]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[3]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[2]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[1]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[0]) is unused and will be removed from module MouseCtl.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:58 ; elapsed = 00:02:01 . Memory (MB): peak = 2042.871 ; gain = 1563.000
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:35 ; elapsed = 00:01:39 . Memory (MB): peak = 2045.992 ; gain = 1566.000
 ---------------------------------------------------------------------------------
  Sort Area is  rgb_nxt5_0 : 0 0 : 3101 5879 : Used 1 time 0
  Sort Area is  rgb_nxt5_0 : 0 1 : 2778 5879 : Used 1 time 0
@@ -597,9 +651,8 @@ ROM: Preliminary Mapping Report
 |hearts_display | p_0_out    | 128x3         | LUT            | 
 |hearts_display | p_0_out    | 128x3         | LUT            | 
 |hearts_display | p_0_out    | 128x3         | LUT            | 
-|hearts_display | p_0_out    | 128x3         | LUT            | 
 |boss_draw      | p_0_out    | 65536x12      | LUT            | 
-|draw_char      | p_0_out    | 2048x12       | LUT            | 
+|wpn_draw_def   | p_0_out    | 2048x12       | LUT            | 
 +---------------+------------+---------------+----------------+
 
 
@@ -628,19 +681,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:06 ; elapsed = 00:02:09 . Memory (MB): peak = 2042.871 ; gain = 1563.000
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:40 ; elapsed = 00:01:44 . Memory (MB): peak = 2045.992 ; gain = 1566.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:07 ; elapsed = 00:02:10 . Memory (MB): peak = 2042.871 ; gain = 1563.000
+Finished Timing Optimization : Time (s): cpu = 00:01:40 ; elapsed = 00:01:44 . Memory (MB): peak = 2045.992 ; gain = 1566.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:02:09 ; elapsed = 00:02:12 . Memory (MB): peak = 2042.871 ; gain = 1563.000
+Finished Technology Mapping : Time (s): cpu = 00:01:41 ; elapsed = 00:01:44 . Memory (MB): peak = 2045.992 ; gain = 1566.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -658,72 +711,41 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:12 ; elapsed = 00:02:15 . Memory (MB): peak = 2042.871 ; gain = 1563.000
+Finished IO Insertion : Time (s): cpu = 00:01:44 ; elapsed = 00:01:48 . Memory (MB): peak = 2045.992 ; gain = 1566.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:12 ; elapsed = 00:02:15 . Memory (MB): peak = 2042.871 ; gain = 1563.000
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:44 ; elapsed = 00:01:48 . Memory (MB): peak = 2045.992 ; gain = 1566.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:12 ; elapsed = 00:02:15 . Memory (MB): peak = 2042.871 ; gain = 1563.000
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:44 ; elapsed = 00:01:48 . Memory (MB): peak = 2045.992 ; gain = 1566.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:02:12 ; elapsed = 00:02:15 . Memory (MB): peak = 2042.871 ; gain = 1563.000
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:44 ; elapsed = 00:01:48 . Memory (MB): peak = 2045.992 ; gain = 1566.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:13 ; elapsed = 00:02:16 . Memory (MB): peak = 2042.871 ; gain = 1563.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:44 ; elapsed = 00:01:48 . Memory (MB): peak = 2045.992 ; gain = 1566.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:02:13 ; elapsed = 00:02:16 . Memory (MB): peak = 2042.871 ; gain = 1563.000
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP, Shift Register and Retiming Reporting
----------------------------------------------------------------------------------
-
-Static Shift Register Report:
-+------------+------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-|Module Name | RTL Name                                 | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
-+------------+------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-|top_vga     | u_char/u_wpn_draw_def/vga_out\.vsync_reg | 5      | 1     | NO           | NO                 | YES               | 1      | 0       | 
-|top_vga     | u_char/u_wpn_draw_def/vga_out\.hsync_reg | 5      | 1     | NO           | NO                 | YES               | 1      | 0       | 
-+------------+------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:44 ; elapsed = 00:01:48 . Memory (MB): peak = 2045.992 ; gain = 1566.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
-
-DSP Final Report (the ' indicates corresponding REG is set)
-+------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name | DSP Mapping  | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|draw_bg     | A*B          | 15     | 18     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|draw_bg     | A*B          | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|draw_bg     | PCIN>>17+A*B | 30     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|draw_bg     | A*B          | 17     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|draw_bg     | A*B          | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|draw_bg     | PCIN>>17+A*B | 17     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|draw_bg     | A*B          | 17     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|draw_bg     | A*B          | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|draw_bg     | PCIN>>17+A*B | 17     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-+------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-
 
 Report BlackBoxes: 
 +-+--------------+----------+
@@ -732,62 +754,54 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+--------+------+
-|      |Cell    |Count |
-+------+--------+------+
-|1     |BUFG    |     2|
-|2     |CARRY4  |   194|
-|3     |DSP48E1 |     9|
-|4     |LUT1    |    99|
-|5     |LUT2    |   371|
-|6     |LUT3    |   239|
-|7     |LUT4    |   486|
-|8     |LUT5    |   669|
-|9     |LUT6    |  4449|
-|10    |MUXF7   |   833|
-|11    |MUXF8   |   231|
-|12    |SRL16E  |     2|
-|13    |FDCE    |    53|
-|14    |FDPE    |    21|
-|15    |FDRE    |   454|
-|16    |FDSE    |    30|
-|17    |IBUF    |     6|
-|18    |OBUF    |    52|
-+------+--------+------+
++------+-----------+------+
+|      |Cell       |Count |
++------+-----------+------+
+|1     |BUFG       |     1|
+|2     |BUFGCE     |     2|
+|3     |BUFH       |     2|
+|4     |MMCME2_ADV |     1|
+|5     |ODDR       |     1|
+|6     |FDRE       |    16|
+|7     |IBUF       |     1|
+|8     |OBUF       |    15|
++------+-----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:13 ; elapsed = 00:02:16 . Memory (MB): peak = 2042.871 ; gain = 1563.000
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:44 ; elapsed = 00:01:48 . Memory (MB): peak = 2045.992 ; gain = 1566.000
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 17 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:02:04 ; elapsed = 00:02:14 . Memory (MB): peak = 2042.871 ; gain = 1468.547
-Synthesis Optimization Complete : Time (s): cpu = 00:02:13 ; elapsed = 00:02:16 . Memory (MB): peak = 2042.871 ; gain = 1563.000
+Synthesis finished with 0 errors, 0 critical warnings and 125 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:35 ; elapsed = 00:01:46 . Memory (MB): peak = 2045.992 ; gain = 1472.836
+Synthesis Optimization Complete : Time (s): cpu = 00:01:44 ; elapsed = 00:01:48 . Memory (MB): peak = 2045.992 ; gain = 1566.000
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.136 . Memory (MB): peak = 2042.871 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 1267 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2045.992 ; gain = 0.000
+WARNING: [Netlist 29-345] The value of SIM_DEVICE on instance 'inst/clkout1_buf' of type 'BUFGCE' is 'ULTRASCALE'; it is being changed to match the current FPGA architecture, '7SERIES'. For functional simulation to match hardware behavior, the value of SIM_DEVICE should be changed in the source netlist. 
+WARNING: [Netlist 29-345] The value of SIM_DEVICE on instance 'inst/clkout2_buf' of type 'BUFGCE' is 'ULTRASCALE'; it is being changed to match the current FPGA architecture, '7SERIES'. For functional simulation to match hardware behavior, the value of SIM_DEVICE should be changed in the source netlist. 
+INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 2042.871 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2045.992 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 2 instances were transformed.
+  BUFGCE => BUFGCTRL: 2 instances
 
-Synth Design complete | Checksum: 136f16bf
+Synth Design complete | Checksum: b994c492
 INFO: [Common 17-83] Releasing license: Synthesis
-60 Infos, 96 Warnings, 44 Critical Warnings and 0 Errors encountered.
+86 Infos, 198 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:18 ; elapsed = 00:02:31 . Memory (MB): peak = 2042.871 ; gain = 1756.828
-INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 2042.871 ; gain = 0.000
-INFO: [Common 17-1381] The checkpoint 'C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/synth_1/top_vga.dcp' has been generated.
-INFO: [Vivado 12-24828] Executing command : report_utilization -file top_vga_utilization_synth.rpt -pb top_vga_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Aug 14 18:12:45 2025...
-[Thu Aug 14 18:12:46 2025] synth_1 finished
-wait_on_runs: Time (s): cpu = 00:00:00 ; elapsed = 00:02:41 . Memory (MB): peak = 291.375 ; gain = 0.000
-[Thu Aug 14 18:12:46 2025] Launched impl_1...
+synth_design: Time (s): cpu = 00:01:46 ; elapsed = 00:01:54 . Memory (MB): peak = 2045.992 ; gain = 1761.930
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2045.992 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/synth_1/top_vga_basys3.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file top_vga_basys3_utilization_synth.rpt -pb top_vga_basys3_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Aug 14 20:30:12 2025...
+[Thu Aug 14 20:30:16 2025] synth_1 finished
+wait_on_runs: Time (s): cpu = 00:00:00 ; elapsed = 00:02:06 . Memory (MB): peak = 290.945 ; gain = 0.000
+[Thu Aug 14 20:30:16 2025] Launched impl_1...
 Run output will be captured here: C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/impl_1/runme.log
-[Thu Aug 14 18:12:46 2025] Waiting for impl_1 to finish...
+[Thu Aug 14 20:30:16 2025] Waiting for impl_1 to finish...
 
 *** Running vivado
-    with args -log top_vga.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source top_vga.tcl -notrace
+    with args -log top_vga_basys3.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source top_vga_basys3.tcl -notrace
 
 
 
@@ -795,162 +809,29 @@ Run output will be captured here: C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-
   **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
   **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
   **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-  **** Start of session at: Thu Aug 14 18:12:54 2025
+  **** Start of session at: Thu Aug 14 20:30:24 2025
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
-source top_vga.tcl -notrace
-Command: link_design -top top_vga -part xc7a35tcpg236-1
+source top_vga_basys3.tcl -notrace
+Command: link_design -top top_vga_basys3 -part xc7a35tcpg236-1
 Design is defaulting to srcset: sources_1
 Design is defaulting to constrset: constrs_1
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.056 . Memory (MB): peak = 493.281 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 1267 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 488.066 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2024.2
 INFO: [Project 1-570] Preparing netlist for logic optimization
 Parsing XDC File [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc]
-WARNING: [Vivado 12-584] No ports matched 'btnC'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:111]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:111]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btnC'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:112]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:112]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btnU'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:113]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:113]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btnU'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:114]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:114]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btnL'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:115]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:115]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btnL'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:116]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:116]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btnR'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:117]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:117]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btnR'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:118]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:118]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'JA1'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:126]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:126]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'JA1'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:127]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:127]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaRed[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:236]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:236]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaRed[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:237]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:237]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaRed[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:238]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:238]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaRed[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:239]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:239]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaRed[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:240]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:240]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaRed[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:241]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:241]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaRed[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:242]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:242]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaRed[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:243]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:243]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaBlue[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:244]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:244]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaBlue[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:245]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:245]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaBlue[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:246]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:246]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaBlue[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:247]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:247]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaBlue[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:248]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:248]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaBlue[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:249]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:249]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaBlue[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:250]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:250]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaBlue[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:251]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:251]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaGreen[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:252]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:252]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaGreen[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:253]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:253]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaGreen[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:254]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:254]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaGreen[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:255]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:255]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaGreen[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:256]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:256]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaGreen[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:257]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:257]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaGreen[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:258]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:258]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'vgaGreen[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:259]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:259]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'Hsync'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:260]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:260]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'Hsync'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:261]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:261]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'Vsync'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:262]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:262]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'Vsync'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:263]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:263]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'PS2Clk'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:274]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:274]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'PS2Clk'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:275]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:275]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'PS2Clk'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:276]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:276]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'PS2Data'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:277]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:277]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'PS2Data'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:278]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:278]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'PS2Data'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:279]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:279]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 Finished Parsing XDC File [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc]
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 623.445 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 608.805 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-7 Infos, 44 Warnings, 44 Critical Warnings and 0 Errors encountered.
+7 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 link_design completed successfully
-link_design: Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 623.445 ; gain = 337.863
 Command: opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
@@ -961,115 +842,114 @@ INFO: [DRC 23-27] Running DRC with 2 threads
 INFO: [Project 1-461] DRC finished with 0 Errors
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 658.785 ; gain = 35.340
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 652.750 ; gain = 38.930
 
 Starting Cache Timing Information Task
 INFO: [Timing 38-35] Done setting XDC timing constraints.
-Ending Cache Timing Information Task | Checksum: 1ce608f44
+Ending Cache Timing Information Task | Checksum: 29771eb3e
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1179.125 ; gain = 520.340
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1155.328 ; gain = 502.578
 
 Starting Logic Optimization Task
 
 Phase 1 Initialization
 
 Phase 1.1 Core Generation And Design Setup
-Phase 1.1 Core Generation And Design Setup | Checksum: 1ce608f44
+Phase 1.1 Core Generation And Design Setup | Checksum: 29771eb3e
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Phase 1.2 Setup Constraints And Sort Netlist
-Phase 1.2 Setup Constraints And Sort Netlist | Checksum: 1ce608f44
+Phase 1.2 Setup Constraints And Sort Netlist | Checksum: 29771eb3e
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Phase 1 Initialization | Checksum: 1ce608f44
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1557.715 ; gain = 0.000
+Phase 1 Initialization | Checksum: 29771eb3e
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Phase 2 Timer Update And Timing Data Collection
 
 Phase 2.1 Timer Update
-Phase 2.1 Timer Update | Checksum: 1ce608f44
+Phase 2.1 Timer Update | Checksum: 29771eb3e
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.100 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Phase 2.2 Timing Data Collection
-Phase 2.2 Timing Data Collection | Checksum: 1ce608f44
+Phase 2.2 Timing Data Collection | Checksum: 29771eb3e
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.116 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Phase 2 Timer Update And Timing Data Collection | Checksum: 1ce608f44
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1557.715 ; gain = 0.000
+Phase 2 Timer Update And Timing Data Collection | Checksum: 29771eb3e
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.117 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Phase 3 Retarget
 INFO: [Opt 31-1851] Number of loadless carry chains removed were: 0
 INFO: [Opt 31-1834] Total Chains To Be Transformed Were: 0 AND Number of Transformed insts Created are: 0
-INFO: [Opt 31-1566] Pulled 3 inverters resulting in an inversion of 27 pins
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Opt 31-49] Retargeted 0 cell(s).
-Phase 3 Retarget | Checksum: 2e7c6dd10
+Phase 3 Retarget | Checksum: 29771eb3e
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.208 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Retarget | Checksum: 2e7c6dd10
-INFO: [Opt 31-389] Phase Retarget created 0 cells and removed 9 cells
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1557.715 ; gain = 0.000
+Retarget | Checksum: 29771eb3e
+INFO: [Opt 31-389] Phase Retarget created 0 cells and removed 0 cells
 
 Phase 4 Constant propagation
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Phase 4 Constant propagation | Checksum: 22644f87d
+Phase 4 Constant propagation | Checksum: 29771eb3e
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.263 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Constant propagation | Checksum: 22644f87d
-INFO: [Opt 31-389] Phase Constant propagation created 2 cells and removed 6 cells
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1557.715 ; gain = 0.000
+Constant propagation | Checksum: 29771eb3e
+INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 0 cells
 
 Phase 5 Sweep
 INFO: [Constraints 18-11670] Building netlist checker database with flags, 0x8
-Done building netlist checker database: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Phase 5 Sweep | Checksum: 2a2077f23
+Done building netlist checker database: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1557.715 ; gain = 0.000
+Phase 5 Sweep | Checksum: 203ac42a7
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.324 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Sweep | Checksum: 2a2077f23
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1557.715 ; gain = 0.000
+Sweep | Checksum: 203ac42a7
 INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 10 cells
 
 Phase 6 BUFG optimization
-Phase 6 BUFG optimization | Checksum: 2a2077f23
+Phase 6 BUFG optimization | Checksum: 258280e14
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.410 . Memory (MB): peak = 1581.430 ; gain = 0.000
-BUFG optimization | Checksum: 2a2077f23
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.044 . Memory (MB): peak = 1557.715 ; gain = 0.000
+BUFG optimization | Checksum: 258280e14
 INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
 
 Phase 7 Shift Register Optimization
 INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
-Phase 7 Shift Register Optimization | Checksum: 2a2077f23
+Phase 7 Shift Register Optimization | Checksum: 258280e14
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.418 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Shift Register Optimization | Checksum: 2a2077f23
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.045 . Memory (MB): peak = 1557.715 ; gain = 0.000
+Shift Register Optimization | Checksum: 258280e14
 INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
 
 Phase 8 Post Processing Netlist
-Phase 8 Post Processing Netlist | Checksum: 2a2077f23
+Phase 8 Post Processing Netlist | Checksum: 203ac42a7
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.430 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Post Processing Netlist | Checksum: 2a2077f23
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.046 . Memory (MB): peak = 1557.715 ; gain = 0.000
+Post Processing Netlist | Checksum: 203ac42a7
 INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
 
 Phase 9 Finalization
 
 Phase 9.1 Finalizing Design Cores and Updating Shapes
-Phase 9.1 Finalizing Design Cores and Updating Shapes | Checksum: 2cd74e01c
+Phase 9.1 Finalizing Design Cores and Updating Shapes | Checksum: 1cf6123e8
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.548 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.048 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Phase 9.2 Verifying Netlist Connectivity
 
 Starting Connectivity Check Task
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Phase 9.2 Verifying Netlist Connectivity | Checksum: 2cd74e01c
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1557.715 ; gain = 0.000
+Phase 9.2 Verifying Netlist Connectivity | Checksum: 1cf6123e8
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.569 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Phase 9 Finalization | Checksum: 2cd74e01c
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.056 . Memory (MB): peak = 1557.715 ; gain = 0.000
+Phase 9 Finalization | Checksum: 1cf6123e8
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.570 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.056 . Memory (MB): peak = 1557.715 ; gain = 0.000
 Opt_design Change Summary
 =========================
 
@@ -1077,8 +957,8 @@ Opt_design Change Summary
 -------------------------------------------------------------------------------------------------------------------------
 |  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
 -------------------------------------------------------------------------------------------------------------------------
-|  Retarget                     |               0  |               9  |                                              0  |
-|  Constant propagation         |               2  |               6  |                                              0  |
+|  Retarget                     |               0  |               0  |                                              0  |
+|  Constant propagation         |               0  |               0  |                                              0  |
 |  Sweep                        |               0  |              10  |                                              0  |
 |  BUFG optimization            |               0  |               0  |                                              0  |
 |  Shift Register Optimization  |               0  |               0  |                                              0  |
@@ -1086,50 +966,50 @@ Opt_design Change Summary
 -------------------------------------------------------------------------------------------------------------------------
 
 
-Ending Logic Optimization Task | Checksum: 2cd74e01c
+Ending Logic Optimization Task | Checksum: 1cf6123e8
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.572 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.057 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Starting Power Optimization Task
 INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
-Ending Power Optimization Task | Checksum: 2cd74e01c
+Ending Power Optimization Task | Checksum: 1cf6123e8
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Starting Final Cleanup Task
-Ending Final Cleanup Task | Checksum: 2cd74e01c
+Ending Final Cleanup Task | Checksum: 1cf6123e8
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Starting Netlist Obfuscation Task
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Ending Netlist Obfuscation Task | Checksum: 2cd74e01c
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1557.715 ; gain = 0.000
+Ending Netlist Obfuscation Task | Checksum: 1cf6123e8
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1557.715 ; gain = 0.000
 INFO: [Common 17-83] Releasing license: Implementation
-28 Infos, 44 Warnings, 44 Critical Warnings and 0 Errors encountered.
+27 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 opt_design completed successfully
-opt_design: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1581.430 ; gain = 957.984
-INFO: [Vivado 12-24828] Executing command : report_drc -file top_vga_drc_opted.rpt -pb top_vga_drc_opted.pb -rpx top_vga_drc_opted.rpx
-Command: report_drc -file top_vga_drc_opted.rpt -pb top_vga_drc_opted.pb -rpx top_vga_drc_opted.rpx
+opt_design: Time (s): cpu = 00:00:11 ; elapsed = 00:00:10 . Memory (MB): peak = 1557.715 ; gain = 943.895
+INFO: [Vivado 12-24828] Executing command : report_drc -file top_vga_basys3_drc_opted.rpt -pb top_vga_basys3_drc_opted.pb -rpx top_vga_basys3_drc_opted.rpx
+Command: report_drc -file top_vga_basys3_drc_opted.rpt -pb top_vga_basys3_drc_opted.pb -rpx top_vga_basys3_drc_opted.rpx
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2024.2/data/ip'.
 INFO: [DRC 23-27] Running DRC with 2 threads
-INFO: [Vivado_Tcl 2-168] The results of DRC are in file C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/impl_1/top_vga_drc_opted.rpt.
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/impl_1/top_vga_basys3_drc_opted.rpt.
 report_drc completed successfully
 INFO: [Timing 38-480] Writing timing data to binary archive.
-Wrote PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1557.715 ; gain = 0.000
+Wrote PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1557.715 ; gain = 0.000
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1557.715 ; gain = 0.000
 Writing XDEF routing.
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 1581.430 ; gain = 0.000
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Wrote RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Write Physdb Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 1581.430 ; gain = 0.000
-INFO: [Common 17-1381] The checkpoint 'C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/impl_1/top_vga_opt.dcp' has been generated.
+Wrote RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1557.715 ; gain = 0.000
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1557.715 ; gain = 0.000
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1557.715 ; gain = 0.000
+Write Physdb Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.030 . Memory (MB): peak = 1557.715 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/impl_1/top_vga_basys3_opt.dcp' has been generated.
 Command: place_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
@@ -1148,113 +1028,113 @@ Starting Placer Task
 Phase 1 Placer Initialization
 
 Phase 1.1 Placer Initialization Netlist Sorting
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 1f0dd03ea
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1557.715 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 1b3dbfe72
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1557.715 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
 INFO: [Timing 38-35] Done setting XDC timing constraints.
-Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 1ef3b6c73
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 199c98d6f
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.668 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.067 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Phase 1.3 Build Placer Netlist Model
-Phase 1.3 Build Placer Netlist Model | Checksum: 22e4cd59f
+Phase 1.3 Build Placer Netlist Model | Checksum: 1b0efa9bc
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.906 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.081 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Phase 1.4 Constrain Clocks/Macros
-Phase 1.4 Constrain Clocks/Macros | Checksum: 22e4cd59f
+Phase 1.4 Constrain Clocks/Macros | Checksum: 1b0efa9bc
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.915 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Phase 1 Placer Initialization | Checksum: 22e4cd59f
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.083 . Memory (MB): peak = 1557.715 ; gain = 0.000
+Phase 1 Placer Initialization | Checksum: 1b0efa9bc
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.924 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.084 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Phase 2 Global Placement
 
 Phase 2.1 Floorplanning
-Phase 2.1 Floorplanning | Checksum: 22e4cd59f
+Phase 2.1 Floorplanning | Checksum: 24cf2860b
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.938 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.086 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Phase 2.2 Update Timing before SLR Path Opt
-Phase 2.2 Update Timing before SLR Path Opt | Checksum: 22e4cd59f
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: 24cf2860b
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.941 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.087 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Phase 2.3 Post-Processing in Floorplanning
-Phase 2.3 Post-Processing in Floorplanning | Checksum: 22e4cd59f
+Phase 2.3 Post-Processing in Floorplanning | Checksum: 24cf2860b
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.943 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.087 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Phase 2.4 Global Place Phase1
-Phase 2.4 Global Place Phase1 | Checksum: 175e7eb87
+Phase 2.4 Global Place Phase1 | Checksum: 1efd17c79
 
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.292 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Phase 2.5 Global Place Phase2
 WARNING: [Place 46-29] Timing had been disabled during Placer and, therefore, physical synthesis in Placer will be skipped.
-Phase 2.5 Global Place Phase2 | Checksum: 1f19c3fed
+Phase 2.5 Global Place Phase2 | Checksum: 2588219af
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Phase 2 Global Placement | Checksum: 1f19c3fed
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.321 . Memory (MB): peak = 1557.715 ; gain = 0.000
+Phase 2 Global Placement | Checksum: 2588219af
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.323 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Phase 3 Detail Placement
 
 Phase 3.1 Commit Multi Column Macros
-Phase 3.1 Commit Multi Column Macros | Checksum: 1f19c3fed
+Phase 3.1 Commit Multi Column Macros | Checksum: 2588219af
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.324 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Phase 3.2 Commit Most Macros & LUTRAMs
-Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 2089990bb
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 27ba180f3
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.326 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Phase 3.3 Area Swap Optimization
-Phase 3.3 Area Swap Optimization | Checksum: 1c24aaa9d
+Phase 3.3 Area Swap Optimization | Checksum: 20adf55e2
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.332 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Phase 3.4 Pipeline Register Optimization
-Phase 3.4 Pipeline Register Optimization | Checksum: 1c24aaa9d
+Phase 3.4 Pipeline Register Optimization | Checksum: 20adf55e2
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.333 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Phase 3.5 Small Shape Detail Placement
-Phase 3.5 Small Shape Detail Placement | Checksum: 2295602c4
+Phase 3.5 Small Shape Detail Placement | Checksum: 24b8f8fb1
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.394 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Phase 3.6 Re-assign LUT pins
-Phase 3.6 Re-assign LUT pins | Checksum: 2295602c4
+Phase 3.6 Re-assign LUT pins | Checksum: 24b8f8fb1
 
-Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.395 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Phase 3.7 Pipeline Register Optimization
-Phase 3.7 Pipeline Register Optimization | Checksum: 2295602c4
+Phase 3.7 Pipeline Register Optimization | Checksum: 24b8f8fb1
 
-Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Phase 3 Detail Placement | Checksum: 2295602c4
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.396 . Memory (MB): peak = 1557.715 ; gain = 0.000
+Phase 3 Detail Placement | Checksum: 24b8f8fb1
 
-Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.396 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Phase 4 Post Placement Optimization and Clean-Up
 
 Phase 4.1 Post Commit Optimization
-Phase 4.1 Post Commit Optimization | Checksum: 2295602c4
+Phase 4.1 Post Commit Optimization | Checksum: 24b8f8fb1
 
-Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.423 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Phase 4.2 Post Placement Cleanup
-Phase 4.2 Post Placement Cleanup | Checksum: 2295602c4
+Phase 4.2 Post Placement Cleanup | Checksum: 24b8f8fb1
 
-Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.426 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Phase 4.3 Placer Reporting
 
@@ -1273,68 +1153,67 @@ INFO: [Place 30-612] Post-Placement Estimated Congestion
 |       West|                1x1|                1x1|
 |___________|___________________|___________________|
 
-Phase 4.3.1 Print Estimated Congestion | Checksum: 2295602c4
+Phase 4.3.1 Print Estimated Congestion | Checksum: 24b8f8fb1
 
-Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Phase 4.3 Placer Reporting | Checksum: 2295602c4
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.427 . Memory (MB): peak = 1557.715 ; gain = 0.000
+Phase 4.3 Placer Reporting | Checksum: 24b8f8fb1
 
-Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.427 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
 Phase 4.4 Final Placement Cleanup
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1557.715 ; gain = 0.000
 
-Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Phase 4 Post Placement Optimization and Clean-Up | Checksum: 21c6af36f
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.428 . Memory (MB): peak = 1557.715 ; gain = 0.000
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 24b8f8fb1
 
-Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Ending Placer Task | Checksum: 1dd81e2d9
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.428 . Memory (MB): peak = 1557.715 ; gain = 0.000
+Ending Placer Task | Checksum: 1c9d0ecda
 
-Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 1581.430 ; gain = 0.000
-47 Infos, 45 Warnings, 44 Critical Warnings and 0 Errors encountered.
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.429 . Memory (MB): peak = 1557.715 ; gain = 0.000
+46 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
 place_design completed successfully
-place_design: Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 1581.430 ; gain = 0.000
 INFO: [Vivado 12-24838] Running report commands "report_control_sets, report_io, report_utilization" in parallel.
 Running report generation with 2 threads.
-INFO: [Vivado 12-24828] Executing command : report_io -file top_vga_io_placed.rpt
-report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.049 . Memory (MB): peak = 1581.430 ; gain = 0.000
-INFO: [Vivado 12-24828] Executing command : report_utilization -file top_vga_utilization_placed.rpt -pb top_vga_utilization_placed.pb
-INFO: [Vivado 12-24828] Executing command : report_control_sets -verbose -file top_vga_control_sets_placed.rpt
-report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1581.430 ; gain = 0.000
+INFO: [Vivado 12-24828] Executing command : report_io -file top_vga_basys3_io_placed.rpt
+report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.038 . Memory (MB): peak = 1557.715 ; gain = 0.000
+INFO: [Vivado 12-24828] Executing command : report_utilization -file top_vga_basys3_utilization_placed.rpt -pb top_vga_basys3_utilization_placed.pb
+INFO: [Vivado 12-24828] Executing command : report_control_sets -verbose -file top_vga_basys3_control_sets_placed.rpt
+report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1557.715 ; gain = 0.000
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1565.973 ; gain = 0.039
 INFO: [Timing 38-480] Writing timing data to binary archive.
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Wrote PlaceDB: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.465 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1581.430 ; gain = 0.000
+Wrote PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1565.973 ; gain = 0.000
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1565.973 ; gain = 0.000
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Wrote RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1581.430 ; gain = 0.000
-Write Physdb Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.514 . Memory (MB): peak = 1581.430 ; gain = 0.000
-INFO: [Common 17-1381] The checkpoint 'C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/impl_1/top_vga_placed.dcp' has been generated.
+Wrote RouteStorage: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1565.973 ; gain = 0.000
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1565.973 ; gain = 0.000
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1565.973 ; gain = 0.000
+Write Physdb Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.028 . Memory (MB): peak = 1565.973 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/impl_1/top_vga_basys3_placed.dcp' has been generated.
 Command: phys_opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
 
 Starting Initial Update Timing Task
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.092 . Memory (MB): peak = 1583.816 ; gain = 2.387
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1580.133 ; gain = 14.160
 INFO: [Vivado_Tcl 4-235] No timing constraint found. The netlist was not modified.
 INFO: [Common 17-83] Releasing license: Implementation
-56 Infos, 45 Warnings, 44 Critical Warnings and 0 Errors encountered.
+55 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
 phys_opt_design completed successfully
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1580.133 ; gain = 0.000
 INFO: [Timing 38-480] Writing timing data to binary archive.
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 1601.656 ; gain = 0.000
-Wrote PlaceDB: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.483 . Memory (MB): peak = 1603.578 ; gain = 1.922
-Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1603.578 ; gain = 0.000
+Wrote PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1580.133 ; gain = 0.000
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1580.133 ; gain = 0.000
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Wrote RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1603.578 ; gain = 0.000
-Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1603.578 ; gain = 0.000
-Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1603.578 ; gain = 0.000
-Write Physdb Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.523 . Memory (MB): peak = 1603.578 ; gain = 1.922
-INFO: [Common 17-1381] The checkpoint 'C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/impl_1/top_vga_physopt.dcp' has been generated.
+Wrote RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1580.133 ; gain = 0.000
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1580.133 ; gain = 0.000
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1580.133 ; gain = 0.000
+Write Physdb Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 1580.133 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/impl_1/top_vga_basys3_physopt.dcp' has been generated.
 Command: route_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
@@ -1344,24 +1223,24 @@ Starting Routing Task
 INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 2 CPUs
 
 Phase 1 Build RT Design
-Checksum: PlaceDB: dd636c47 ConstDB: 0 ShapeSum: 5f9d1a3b RouteDB: a0815c57
-Post Restoration Checksum: NetGraph: 3f9185db | NumContArr: f501cd48 | Constraints: c2a8fa9d | Timing: c2a8fa9d
-Phase 1 Build RT Design | Checksum: 2b9e5485d
+Checksum: PlaceDB: b7ab2980 ConstDB: 0 ShapeSum: 71a46703 RouteDB: a0815c57
+Post Restoration Checksum: NetGraph: 5b456132 | NumContArr: 8094efb5 | Constraints: c2a8fa9d | Timing: c2a8fa9d
+Phase 1 Build RT Design | Checksum: 2612c4621
 
-Time (s): cpu = 00:00:18 ; elapsed = 00:00:16 . Memory (MB): peak = 1706.250 ; gain = 102.672
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 1674.879 ; gain = 94.699
 
 Phase 2 Router Initialization
 INFO: [Route 35-64] No timing constraints were detected. The router will operate in resource-optimization mode.
 
 Phase 2.1 Fix Topology Constraints
-Phase 2.1 Fix Topology Constraints | Checksum: 2b9e5485d
+Phase 2.1 Fix Topology Constraints | Checksum: 2612c4621
 
-Time (s): cpu = 00:00:18 ; elapsed = 00:00:16 . Memory (MB): peak = 1712.910 ; gain = 109.332
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 1680.926 ; gain = 100.746
 
 Phase 2.2 Pre Route Cleanup
-Phase 2.2 Pre Route Cleanup | Checksum: 2b9e5485d
+Phase 2.2 Pre Route Cleanup | Checksum: 2612c4621
 
-Time (s): cpu = 00:00:18 ; elapsed = 00:00:16 . Memory (MB): peak = 1712.910 ; gain = 109.332
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 1680.926 ; gain = 100.746
  Number of Nodes with overlaps = 0
 
 Router Utilization Summary
@@ -1370,64 +1249,62 @@ Router Utilization Summary
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
-  Number of Failed Nets               = 5775
+  Number of Failed Nets               = 10
     (Failed Nets is the sum of unrouted and partially routed nets)
-  Number of Unrouted Nets             = 5775
+  Number of Unrouted Nets             = 10
   Number of Partially Routed Nets     = 0
   Number of Node Overlaps             = 0
 
-Phase 2 Router Initialization | Checksum: 2acd0e1ab
+Phase 2 Router Initialization | Checksum: 300c9ea0b
 
-Time (s): cpu = 00:00:19 ; elapsed = 00:00:17 . Memory (MB): peak = 1734.660 ; gain = 131.082
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 1697.734 ; gain = 117.555
 
 Phase 3 Global Routing
-Phase 3 Global Routing | Checksum: 2acd0e1ab
+Phase 3 Global Routing | Checksum: 300c9ea0b
 
-Time (s): cpu = 00:00:19 ; elapsed = 00:00:17 . Memory (MB): peak = 1734.660 ; gain = 131.082
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 1697.734 ; gain = 117.555
 
 Phase 4 Initial Routing
 
 Phase 4.1 Initial Net Routing Pass
-Phase 4.1 Initial Net Routing Pass | Checksum: 2a6c67e17
+ Number of Nodes with overlaps = 0
+Phase 4.1 Initial Net Routing Pass | Checksum: 2529091e5
 
-Time (s): cpu = 00:00:21 ; elapsed = 00:00:18 . Memory (MB): peak = 1750.758 ; gain = 147.180
-Phase 4 Initial Routing | Checksum: 2a6c67e17
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:17 . Memory (MB): peak = 1697.734 ; gain = 117.555
+Phase 4 Initial Routing | Checksum: 2529091e5
 
-Time (s): cpu = 00:00:21 ; elapsed = 00:00:18 . Memory (MB): peak = 1750.758 ; gain = 147.180
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:17 . Memory (MB): peak = 1697.734 ; gain = 117.555
 
 Phase 5 Rip-up And Reroute
 
 Phase 5.1 Global Iteration 0
- Number of Nodes with overlaps = 2130
- Number of Nodes with overlaps = 1
- Number of Nodes with overlaps = 0
-Phase 5.1 Global Iteration 0 | Checksum: 190cc9e26
+Phase 5.1 Global Iteration 0 | Checksum: 2529091e5
 
-Time (s): cpu = 00:00:22 ; elapsed = 00:00:19 . Memory (MB): peak = 1750.758 ; gain = 147.180
-Phase 5 Rip-up And Reroute | Checksum: 190cc9e26
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:17 . Memory (MB): peak = 1697.734 ; gain = 117.555
+Phase 5 Rip-up And Reroute | Checksum: 2529091e5
 
-Time (s): cpu = 00:00:22 ; elapsed = 00:00:19 . Memory (MB): peak = 1750.758 ; gain = 147.180
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:17 . Memory (MB): peak = 1697.734 ; gain = 117.555
 
 Phase 6 Delay and Skew Optimization
-Phase 6 Delay and Skew Optimization | Checksum: 190cc9e26
+Phase 6 Delay and Skew Optimization | Checksum: 2529091e5
 
-Time (s): cpu = 00:00:22 ; elapsed = 00:00:19 . Memory (MB): peak = 1750.758 ; gain = 147.180
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:17 . Memory (MB): peak = 1697.734 ; gain = 117.555
 
 Phase 7 Post Hold Fix
 
 Phase 7.1 Hold Fix Iter
-Phase 7.1 Hold Fix Iter | Checksum: 190cc9e26
+Phase 7.1 Hold Fix Iter | Checksum: 2529091e5
 
-Time (s): cpu = 00:00:22 ; elapsed = 00:00:19 . Memory (MB): peak = 1750.758 ; gain = 147.180
-Phase 7 Post Hold Fix | Checksum: 190cc9e26
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:17 . Memory (MB): peak = 1697.734 ; gain = 117.555
+Phase 7 Post Hold Fix | Checksum: 2529091e5
 
-Time (s): cpu = 00:00:22 ; elapsed = 00:00:19 . Memory (MB): peak = 1750.758 ; gain = 147.180
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:17 . Memory (MB): peak = 1697.734 ; gain = 117.555
 
 Phase 8 Route finalize
 
 Router Utilization Summary
-  Global Vertical Routing Utilization    = 1.92793 %
-  Global Horizontal Routing Utilization  = 2.19287 %
+  Global Vertical Routing Utilization    = 0.00390656 %
+  Global Horizontal Routing Utilization  = 0.00325351 %
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
@@ -1441,10 +1318,10 @@ Router Utilization Summary
 --GLOBAL Congestion:
 Utilization threshold used for congestion level computation: 0.85
 Congestion Report
-North Dir 1x1 Area, Max Cong = 46.8468%, No Congested Regions.
-South Dir 1x1 Area, Max Cong = 40.5405%, No Congested Regions.
-East Dir 1x1 Area, Max Cong = 47.0588%, No Congested Regions.
-West Dir 1x1 Area, Max Cong = 38.2353%, No Congested Regions.
+North Dir 1x1 Area, Max Cong = 1.8018%, No Congested Regions.
+South Dir 1x1 Area, Max Cong = 5.40541%, No Congested Regions.
+East Dir 1x1 Area, Max Cong = 1.47059%, No Congested Regions.
+West Dir 1x1 Area, Max Cong = 5.88235%, No Congested Regions.
 
 ------------------------------
 Reporting congestion hotspots
@@ -1466,117 +1343,120 @@ Direction: West
 Congested clusters found at Level 0
 Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
 
-Phase 8 Route finalize | Checksum: 190cc9e26
+Phase 8 Route finalize | Checksum: 2529091e5
 
-Time (s): cpu = 00:00:22 ; elapsed = 00:00:19 . Memory (MB): peak = 1750.758 ; gain = 147.180
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:17 . Memory (MB): peak = 1697.734 ; gain = 117.555
 
 Phase 9 Verifying routed nets
 
  Verification completed successfully
-Phase 9 Verifying routed nets | Checksum: 190cc9e26
+Phase 9 Verifying routed nets | Checksum: 2529091e5
 
-Time (s): cpu = 00:00:22 ; elapsed = 00:00:19 . Memory (MB): peak = 1750.758 ; gain = 147.180
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:17 . Memory (MB): peak = 1697.734 ; gain = 117.555
 
 Phase 10 Depositing Routes
-Phase 10 Depositing Routes | Checksum: 26acb77ff
+Phase 10 Depositing Routes | Checksum: 2529091e5
 
-Time (s): cpu = 00:00:23 ; elapsed = 00:00:20 . Memory (MB): peak = 1750.758 ; gain = 147.180
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:17 . Memory (MB): peak = 1697.734 ; gain = 117.555
 
 Phase 11 Post Process Routing
-Phase 11 Post Process Routing | Checksum: 26acb77ff
+Phase 11 Post Process Routing | Checksum: 2529091e5
 
-Time (s): cpu = 00:00:23 ; elapsed = 00:00:20 . Memory (MB): peak = 1750.758 ; gain = 147.180
-Total Elapsed time in route_design: 19.816 secs
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:17 . Memory (MB): peak = 1697.734 ; gain = 117.555
+Total Elapsed time in route_design: 17.134 secs
 
 Phase 12 Post-Route Event Processing
-Phase 12 Post-Route Event Processing | Checksum: 218498fba
+Phase 12 Post-Route Event Processing | Checksum: 1a5eddcf0
 
-Time (s): cpu = 00:00:23 ; elapsed = 00:00:20 . Memory (MB): peak = 1750.758 ; gain = 147.180
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:17 . Memory (MB): peak = 1697.734 ; gain = 117.555
 INFO: [Route 35-16] Router Completed Successfully
-Ending Routing Task | Checksum: 218498fba
+Ending Routing Task | Checksum: 1a5eddcf0
 
-Time (s): cpu = 00:00:23 ; elapsed = 00:00:20 . Memory (MB): peak = 1750.758 ; gain = 147.180
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:17 . Memory (MB): peak = 1697.734 ; gain = 117.555
 
 Routing Is Done.
 INFO: [Common 17-83] Releasing license: Implementation
-63 Infos, 45 Warnings, 44 Critical Warnings and 0 Errors encountered.
+62 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
 route_design completed successfully
-route_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:20 . Memory (MB): peak = 1750.758 ; gain = 147.180
-INFO: [Vivado 12-24828] Executing command : report_drc -file top_vga_drc_routed.rpt -pb top_vga_drc_routed.pb -rpx top_vga_drc_routed.rpx
-Command: report_drc -file top_vga_drc_routed.rpt -pb top_vga_drc_routed.pb -rpx top_vga_drc_routed.rpx
+route_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:17 . Memory (MB): peak = 1697.734 ; gain = 117.602
+INFO: [Vivado 12-24828] Executing command : report_drc -file top_vga_basys3_drc_routed.rpt -pb top_vga_basys3_drc_routed.pb -rpx top_vga_basys3_drc_routed.rpx
+Command: report_drc -file top_vga_basys3_drc_routed.rpt -pb top_vga_basys3_drc_routed.pb -rpx top_vga_basys3_drc_routed.rpx
 INFO: [IP_Flow 19-1839] IP Catalog is up to date.
 INFO: [DRC 23-27] Running DRC with 2 threads
-INFO: [Vivado_Tcl 2-168] The results of DRC are in file C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/impl_1/top_vga_drc_routed.rpt.
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/impl_1/top_vga_basys3_drc_routed.rpt.
 report_drc completed successfully
-INFO: [Vivado 12-24828] Executing command : report_methodology -file top_vga_methodology_drc_routed.rpt -pb top_vga_methodology_drc_routed.pb -rpx top_vga_methodology_drc_routed.rpx
-Command: report_methodology -file top_vga_methodology_drc_routed.rpt -pb top_vga_methodology_drc_routed.pb -rpx top_vga_methodology_drc_routed.rpx
+INFO: [Vivado 12-24828] Executing command : report_methodology -file top_vga_basys3_methodology_drc_routed.rpt -pb top_vga_basys3_methodology_drc_routed.pb -rpx top_vga_basys3_methodology_drc_routed.rpx
+Command: report_methodology -file top_vga_basys3_methodology_drc_routed.rpt -pb top_vga_basys3_methodology_drc_routed.pb -rpx top_vga_basys3_methodology_drc_routed.rpx
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [DRC 23-133] Running Methodology with 2 threads
-INFO: [Vivado_Tcl 2-1520] The results of Report Methodology are in file C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/impl_1/top_vga_methodology_drc_routed.rpt.
+INFO: [Vivado_Tcl 2-1520] The results of Report Methodology are in file C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/impl_1/top_vga_basys3_methodology_drc_routed.rpt.
 report_methodology completed successfully
-INFO: [Vivado 12-24828] Executing command : report_timing_summary -max_paths 10 -report_unconstrained -file top_vga_timing_summary_routed.rpt -pb top_vga_timing_summary_routed.pb -rpx top_vga_timing_summary_routed.rpx -warn_on_violation 
+INFO: [Vivado 12-24828] Executing command : report_timing_summary -max_paths 10 -report_unconstrained -file top_vga_basys3_timing_summary_routed.rpt -pb top_vga_basys3_timing_summary_routed.pb -rpx top_vga_basys3_timing_summary_routed.rpx -warn_on_violation 
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
 INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
 WARNING: [Timing 38-313] There are no user specified timing constraints. Timing constraints are needed for proper timing analysis.
 INFO: [Vivado 12-24838] Running report commands "report_incremental_reuse, report_route_status" in parallel.
 Running report generation with 2 threads.
-INFO: [Vivado 12-24828] Executing command : report_route_status -file top_vga_route_status.rpt -pb top_vga_route_status.pb
-INFO: [Vivado 12-24828] Executing command : report_incremental_reuse -file top_vga_incremental_reuse_routed.rpt
+INFO: [Vivado 12-24828] Executing command : report_route_status -file top_vga_basys3_route_status.rpt -pb top_vga_basys3_route_status.pb
+INFO: [Vivado 12-24828] Executing command : report_incremental_reuse -file top_vga_basys3_incremental_reuse_routed.rpt
 INFO: [Vivado_Tcl 4-1062] Incremental flow is disabled. No incremental reuse Info to report.
-INFO: [Vivado 12-24828] Executing command : report_power -file top_vga_power_routed.rpt -pb top_vga_power_summary_routed.pb -rpx top_vga_power_routed.rpx
-Command: report_power -file top_vga_power_routed.rpt -pb top_vga_power_summary_routed.pb -rpx top_vga_power_routed.rpx
+INFO: [Vivado 12-24828] Executing command : report_power -file top_vga_basys3_power_routed.rpt -pb top_vga_basys3_power_summary_routed.pb -rpx top_vga_basys3_power_routed.rpx
+Command: report_power -file top_vga_basys3_power_routed.rpt -pb top_vga_basys3_power_summary_routed.pb -rpx top_vga_basys3_power_routed.rpx
 WARNING: [Power 33-232] No user defined clocks were found in the design! Power estimation will be inaccurate until this is corrected.
 Resolution: Please specify clocks using create_clock/create_generated_clock for sequential elements. For pure combinatorial circuits, please specify a virtual clock, otherwise the vectorless estimation might be inaccurate
 Running Vector-less Activity Propagation...
+WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout2_buf. Out of range!
+Resolution: Please refer to Clocking Resources User Guide for valid input clock frequency.
+WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout2_buf. Out of range!
+Resolution: Please refer to Clocking Resources User Guide for valid input clock frequency.
+WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout2_buf. Out of range!
+Resolution: Please refer to Clocking Resources User Guide for valid input clock frequency.
 
 Finished Running Vector-less Activity Propagation
-80 Infos, 47 Warnings, 44 Critical Warnings and 0 Errors encountered.
+79 Infos, 6 Warnings, 0 Critical Warnings and 0 Errors encountered.
 report_power completed successfully
-INFO: [Vivado 12-24828] Executing command : report_clock_utilization -file top_vga_clock_utilization_routed.rpt
-INFO: [Vivado 12-24828] Executing command : report_bus_skew -warn_on_violation -file top_vga_bus_skew_routed.rpt -pb top_vga_bus_skew_routed.pb -rpx top_vga_bus_skew_routed.rpx
+INFO: [Vivado 12-24828] Executing command : report_clock_utilization -file top_vga_basys3_clock_utilization_routed.rpt
+INFO: [Vivado 12-24828] Executing command : report_bus_skew -warn_on_violation -file top_vga_basys3_bus_skew_routed.rpt -pb top_vga_basys3_bus_skew_routed.pb -rpx top_vga_basys3_bus_skew_routed.rpx
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
 INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
-generate_parallel_reports: Time (s): cpu = 00:00:16 ; elapsed = 00:00:09 . Memory (MB): peak = 1830.730 ; gain = 79.973
+generate_parallel_reports: Time (s): cpu = 00:00:09 ; elapsed = 00:00:05 . Memory (MB): peak = 1762.043 ; gain = 64.309
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1764.145 ; gain = 0.000
 INFO: [Timing 38-480] Writing timing data to binary archive.
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 1844.602 ; gain = 0.000
-Wrote PlaceDB: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.474 . Memory (MB): peak = 1849.230 ; gain = 4.629
-Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1849.230 ; gain = 0.000
+Wrote PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1764.145 ; gain = 0.000
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1764.145 ; gain = 0.000
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Wrote RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.066 . Memory (MB): peak = 1849.230 ; gain = 0.000
-Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1849.230 ; gain = 0.000
-Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1849.230 ; gain = 0.000
-Write Physdb Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.574 . Memory (MB): peak = 1849.230 ; gain = 4.629
-INFO: [Common 17-1381] The checkpoint 'C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/impl_1/top_vga_routed.dcp' has been generated.
-Command: write_bitstream -force top_vga.bit
+Wrote RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 1764.145 ; gain = 0.000
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1764.145 ; gain = 0.000
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1764.145 ; gain = 0.000
+Write Physdb Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.030 . Memory (MB): peak = 1764.145 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/impl_1/top_vga_basys3_routed.dcp' has been generated.
+Command: write_bitstream -force top_vga_basys3.bit
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
 Running DRC as a precondition to command write_bitstream
 INFO: [IP_Flow 19-1839] IP Catalog is up to date.
 INFO: [DRC 23-27] Running DRC with 2 threads
-ERROR: [DRC NSTD-1] Unspecified I/O Standard: 57 out of 58 logical ports use I/O standard (IOSTANDARD) value 'DEFAULT', instead of a user assigned specific value. This may cause I/O contention or incompatibility with the board power or connectivity affecting performance, signal integrity or in extreme cases cause damage to the device or the components to which it is connected. To correct this violation, specify all I/O standards. This design will fail to generate a bitstream unless all logical ports have a user specified I/O standard value defined. To allow bitstream creation with unspecified I/O standard values (not recommended), use this command: set_property SEVERITY {Warning} [get_drc_checks NSTD-1].  NOTE: When using the Vivado Runs infrastructure (e.g. launch_runs Tcl command), add this command to a .tcl file and add that file as a pre-hook for write_bitstream step for the implementation run. Problem ports: b[3:0], char_x[11:0], char_y[11:0], g[3:0], ground_y[11:0], r[3:0], clk100MHz, ground_lvl, hs, on_ground, rst, stepjump, stepleft, stepright, and vs.
-ERROR: [DRC UCIO-1] Unconstrained Logical Port: 57 out of 58 logical ports have no user assigned specific location constraint (LOC). This may cause I/O contention or incompatibility with the board power or connectivity affecting performance, signal integrity or in extreme cases cause damage to the device or the components to which it is connected. To correct this violation, specify all pin locations. This design will fail to generate a bitstream unless all logical ports have a user specified site LOC constraint defined.  To allow bitstream creation with unspecified pin locations (not recommended), use this command: set_property SEVERITY {Warning} [get_drc_checks UCIO-1].  NOTE: When using the Vivado Runs infrastructure (e.g. launch_runs Tcl command), add this command to a .tcl file and add that file as a pre-hook for write_bitstream step for the implementation run.  Problem ports: b[3:0], char_x[11:0], char_y[11:0], g[3:0], ground_y[11:0], r[3:0], clk100MHz, ground_lvl, hs, on_ground, rst, stepjump, stepleft, stepright, and vs.
-INFO: [Vivado 12-3199] DRC finished with 2 Errors
+INFO: [Vivado 12-3199] DRC finished with 0 Errors
 INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
-ERROR: [Vivado 12-1345] Error(s) found during DRC. Bitgen not run.
+INFO: [Designutils 20-2272] Running write_bitstream with 2 threads.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Writing bitstream ./top_vga_basys3.bit...
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Project 1-1876] WebTalk data collection is mandatory when using a ULT device. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
 INFO: [Common 17-83] Releasing license: Implementation
-92 Infos, 47 Warnings, 44 Critical Warnings and 3 Errors encountered.
-write_bitstream failed
-ERROR: [Common 17-39] 'write_bitstream' failed due to earlier errors.
-
-INFO: [Common 17-206] Exiting Vivado at Thu Aug 14 18:14:01 2025...
-[Thu Aug 14 18:14:02 2025] impl_1 finished
-ERROR: [Vivado 12-13638] Failed runs(s) : 'impl_1'
-wait_on_runs: Time (s): cpu = 00:00:01 ; elapsed = 00:01:16 . Memory (MB): peak = 291.375 ; gain = 0.000
-ERROR: [Common 17-39] 'wait_on_runs' failed due to earlier errors.
-
-    while executing
-"wait_on_run impl_1"
-    (procedure "generate_bitstream" line 9)
-    invoked from within
-"generate_bitstream"
-    (file "scripts/generate_bitstream.tcl" line 46)
-q
-INFO: [Common 17-206] Exiting Vivado at Thu Aug 14 18:15:06 2025...
+94 Infos, 6 Warnings, 0 Critical Warnings and 0 Errors encountered.
+write_bitstream completed successfully
+write_bitstream: Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 2247.074 ; gain = 482.930
+INFO: [Common 17-206] Exiting Vivado at Thu Aug 14 20:31:21 2025...
+[Thu Aug 14 20:31:22 2025] impl_1 finished
+wait_on_runs: Time (s): cpu = 00:00:00 ; elapsed = 00:01:06 . Memory (MB): peak = 290.945 ; gain = 0.000
+# exit
+INFO: [Common 17-206] Exiting Vivado at Thu Aug 14 20:31:22 2025...
