@@ -76,6 +76,7 @@ read_verilog -library xil_defaultlib -sv {
   C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_ctrl.sv
   C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char_draw.sv
   C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/draw_bg.sv
+  C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Mouse_Control/draw_mouse.sv
   C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/draw_wpn_ctrl.sv
   C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/hearts_display.sv
   C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv
@@ -88,6 +89,7 @@ read_verilog -library xil_defaultlib -sv {
 read_verilog -library xil_defaultlib C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v
 read_vhdl -library xil_defaultlib {
   C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Mouse_Control/MouseCtl.vhd
+  C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Mouse_Control/MouseDisplay.vhd
   C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Mouse_Control/Ps2Interface.vhd
 }
 OPTRACE "Adding files" END { }

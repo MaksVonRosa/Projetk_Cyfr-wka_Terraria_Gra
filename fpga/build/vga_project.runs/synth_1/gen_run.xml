@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1755198869">
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1755214874">
   <File Type="PA-TCL" Name="top_vga_basys3.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="top_vga_basys3_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="top_vga_basys3_reports.tcl"/>
@@ -54,6 +54,13 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../rtl/draw_bg.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../rtl/Mouse_Control/draw_mouse.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -115,6 +122,12 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../../rtl/Mouse_Control/MouseDisplay.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../../rtl/Mouse_Control/Ps2Interface.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -141,13 +154,6 @@
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../../rtl/Mouse_Control/MouseDisplay.vhd">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>

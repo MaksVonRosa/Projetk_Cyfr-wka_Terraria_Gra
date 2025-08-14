@@ -46,6 +46,7 @@ set sv_files {
     ../rtl/top_vga.sv
     ../rtl/vga_if.sv
     ../rtl/draw_wpn_ctrl.sv
+    ../rtl/Mouse_Control/draw_mouse.sv 
     rtl/top_vga_basys3.sv
 }
 

@@ -65,13 +65,16 @@ module top_vga (
     // VGA signals from weapon
     vga_if vga_if_wpn();
 
+    // VGA signals from mouse
+    vga_if vga_if_mouse();
+
     /**
      * Signals assignments
      */
 
-    assign vs = vga_if_wpn.vsync;
-    assign hs = vga_if_wpn.hsync;
-    assign {r,g,b} = vga_if_wpn.rgb;
+    assign vs = vga_if_mouse.vsync;
+    assign hs = vga_if_mouse.hsync;
+    assign {r,g,b} = vga_if_mouse.rgb;
     assign char_x = pos_x_out;
     assign char_y = pos_y_out;
     
@@ -114,6 +117,15 @@ module top_vga (
         //.left(mouse_left_raw)
     );
 
+    draw_mouse u_draw_mouse (
+        .clk,
+        .rst,
+        .vga_in_mouse(vga_if_wpn.in),
+        .vga_out_mouse(vga_if_mouse.out),
+        .xpos(xpos_MouseCtl),
+        .ypos(ypos_MouseCtl)
+
+    );
     /*
     // rozwiazanie problemu pomiedzy clockami myszy i rysowania postaci 
     always_ff @(posedge clk or posedge rst) begin
@@ -128,6 +140,7 @@ module top_vga (
     assign mouse_left_clk = mouse_left_sync2;
 
 */
+
     draw_bg u_draw_bg (
         .clk,
         .rst,
@@ -187,7 +200,6 @@ module top_vga (
         .vga_char_in (vga_hearts.in),
         .vga_char_out (vga_if_char.out)
         //.mouse_left(mouse_left)
-
     );
 
     draw_wpn_ctrl u_draw_wpn_ctrl (

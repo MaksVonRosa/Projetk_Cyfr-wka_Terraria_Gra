@@ -220,6 +220,7 @@ begin
          if(enable_mouse_display = '1') then
             -- white pixel of cursor
             if(mousepixel = "01") then
+               -- rgb_nxt <= "1111" & "0000" & "0000";
                rgb_nxt <= (others => '1');
             -- black pixel of cursor
             elsif(mousepixel = "00") then
