@@ -19,6 +19,7 @@ module top_vga (
         input  logic stepleft,
         input  logic stepright,
         input  logic stepjump,
+<<<<<<< HEAD
         inout  logic ps2_clk,
         inout  logic ps2_data,
         output logic vs,
@@ -28,6 +29,18 @@ module top_vga (
         output logic [3:0] b,
         output logic [11:0] char_x, char_y
 
+=======
+        output logic on_ground,
+        output logic vs,
+        output logic hs,
+        output logic ground_lvl,
+        output logic [11:0] ground_y,
+        output logic [11:0] char_x,
+        output logic [11:0] char_y,
+        output logic [3:0] r,
+        output logic [3:0] g,
+        output logic [3:0] b
+>>>>>>> origin/main
     );
 
     timeunit 1ns;
@@ -42,6 +55,10 @@ module top_vga (
     wire vsync_tim, hsync_tim;
     wire vblnk_tim, hblnk_tim;
     wire [11:0] pos_x_out, pos_y_out;
+<<<<<<< HEAD
+=======
+    wire [3:0] char_hp_out;
+>>>>>>> origin/main
 
     // VGA signals from background
     vga_if vga_if_bg();
@@ -49,6 +66,7 @@ module top_vga (
     // VGA signals from character
     vga_if vga_if_char();
 
+<<<<<<< HEAD
     // VGA signals from platform
     vga_if vga_plat();
 
@@ -56,11 +74,22 @@ module top_vga (
     //vga_if vga_if_MouseCtl();
     //vga_if vga_wpn();
 
+=======
+     // VGA signals from character
+    vga_if vga_boss();
+
+    // VGA signals from platform
+    vga_if vga_plat();
+
+    // VGA signals from hearts
+    vga_if vga_hearts();
+>>>>>>> origin/main
 
     /**
      * Signals assignments
      */
 
+<<<<<<< HEAD
      assign vs = vga_plat.vsync;
      assign hs = vga_plat.hsync;
      assign {r,g,b} = vga_plat.rgb;
@@ -75,6 +104,15 @@ module top_vga (
     logic [11:0] ypos_MouseCtl;
     logic mouse_left;
     logic on_ground;
+=======
+    assign vs = vga_if_char.vsync;
+    assign hs = vga_if_char.hsync;
+    assign {r,g,b} = vga_if_char.rgb;
+    assign char_x = pos_x_out;
+    assign char_y = pos_y_out;
+    
+
+>>>>>>> origin/main
 
     /**
      * Submodules instances
@@ -91,6 +129,7 @@ module top_vga (
         .hblnk  (hblnk_tim)
     );
 
+<<<<<<< HEAD
     logic mouse_left_raw, mouse_left_sync1, mouse_left_sync2, mouse_left_clk;
 
     MouseCtl u_MouseCtl
@@ -115,6 +154,8 @@ module top_vga (
     assign mouse_left_clk = mouse_left_sync2;
 
 
+=======
+>>>>>>> origin/main
     draw_bg u_draw_bg (
         .clk,
         .rst,
@@ -129,12 +170,46 @@ module top_vga (
         .vga_bg_out (vga_if_bg.out)
     );
 
+<<<<<<< HEAD
+=======
+    platform u_platform (
+        .clk(clk),
+        .rst(rst),
+        .char_x(char_x),
+        .char_y(char_y),
+        .char_hgt(32),
+        .vga_in(vga_if_bg.in),
+        .vga_out(vga_plat.out),
+        .ground_y,
+        .on_ground
+    );
+
+    hearts_display u_hearts_display (
+    .clk(clk),
+    .rst(rst),
+    .char_hp(char_hp_out),
+    .vga_in(vga_boss.in),
+    .vga_out(vga_hearts.out)
+);
+
+    
+    boss_draw u_boss_draw (
+        .clk     (clk),
+        .rst     (rst),
+        .char_x(char_x),
+        .char_y(char_y),
+        .vga_in  (vga_plat.in),
+        .vga_out (vga_boss.out)
+    );
+
+>>>>>>> origin/main
     draw_char u_char (
         .clk,
         .rst,
         .stepleft,
         .stepright,
         .stepjump,
+<<<<<<< HEAD
         .on_ground(on_ground),
         .mouse_left(mouse_left_clk),
         .pos_x_out(pos_x_out),
@@ -154,4 +229,15 @@ module top_vga (
         .on_ground(on_ground)
     );
 
+=======
+        .on_ground,
+        .ground_lvl,
+        .char_hp_out (char_hp_out),
+        .pos_x_out (pos_x_out),
+        .pos_y_out (pos_y_out),
+        .vga_char_in (vga_hearts.in),
+        .vga_char_out (vga_if_char.out)
+    );
+
+>>>>>>> origin/main
 endmodule

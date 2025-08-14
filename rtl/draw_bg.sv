@@ -64,6 +64,7 @@ module draw_bg (
     end else begin
         // Floor
         if (vcount_in >= (5*VER_PIXELS)/6) begin
+<<<<<<< HEAD
             rgb_nxt = 12'h642; // wood base
             if ((vcount_in % 8) < 2)
                 rgb_nxt = 12'h420; // plank line
@@ -103,6 +104,44 @@ module draw_bg (
                 )
             )
                 rgb_nxt = 12'h6cf; // left window
+=======
+            rgb_nxt = 12'h642;
+            if ((vcount_in % 8) < 2)
+                rgb_nxt = 12'h420;
+            
+            //carpet
+            if (vcount_in >= (5*VER_PIXELS)/6 + 5 && vcount_in <= (5*VER_PIXELS)/6 + 45) begin
+                rgb_nxt = 12'h80a;
+                
+                if (vcount_in == (5*VER_PIXELS)/6 + 5 || vcount_in == (5*VER_PIXELS)/6 + 45)
+                    rgb_nxt = 12'hff0;
+
+                if ((hcount_in >= 10 && hcount_in <= 12) ||
+                    (hcount_in >= HOR_PIXELS - 12 && hcount_in <= HOR_PIXELS - 10))
+                    rgb_nxt = 12'hff0;
+            end
+        end
+        else begin
+            rgb_nxt = 12'h666;
+            
+            if ((((vcount_in / 16) % 2 == 1 ? (hcount_in + 16) : hcount_in) % 32) < 2 ||
+                (((vcount_in / 16) % 2 == 1 ? (hcount_in + 16) : hcount_in) % 32) > 29)
+                rgb_nxt = 12'h444;
+            
+            else if ((vcount_in % 16) < 2)
+                rgb_nxt = 12'h444;
+            
+            // Two big arched windows
+            if (
+                (hcount_in > HOR_PIXELS/3 - 32 && hcount_in < HOR_PIXELS/3 + 32) &&
+                (vcount_in > VER_PIXELS/3 && vcount_in < VER_PIXELS/3 + 96) &&
+                (
+                    (vcount_in >= VER_PIXELS/3 + 20) ||
+                    (((hcount_in - HOR_PIXELS/3)*(hcount_in - HOR_PIXELS/3) + (vcount_in - (VER_PIXELS/3 + 20))*(vcount_in - (VER_PIXELS/3 + 20))) <= 32*32)
+                )
+            )
+                rgb_nxt = 12'h6cf;
+>>>>>>> origin/main
             
             else if (
                 (hcount_in > (2*HOR_PIXELS)/3 - 32 && hcount_in < (2*HOR_PIXELS)/3 + 32) &&
@@ -112,27 +151,41 @@ module draw_bg (
                     (((hcount_in - (2*HOR_PIXELS)/3)*(hcount_in - (2*HOR_PIXELS)/3) + (vcount_in - (VER_PIXELS/3 + 20))*(vcount_in - (VER_PIXELS/3 + 20))) <= 32*32)
                 )
             )
+<<<<<<< HEAD
                 rgb_nxt = 12'h6cf; // right window
             
             // Columns positions: 1/6, 1/2, 5/6 screen width, width 30 px
+=======
+                rgb_nxt = 12'h6cf;
+            
+            // Columns
+>>>>>>> origin/main
             if (
                 (hcount_in > HOR_PIXELS/6 - 15 && hcount_in < HOR_PIXELS/6 + 15) ||
                 (hcount_in > HOR_PIXELS/2 - 15 && hcount_in < HOR_PIXELS/2 + 15) ||
                 (hcount_in > (5*HOR_PIXELS)/6 - 15 && hcount_in < (5*HOR_PIXELS)/6 + 15)
             ) begin
+<<<<<<< HEAD
                 // 3D shading: lighter left 5 px, darker right 5 px, middle base color
+=======
+>>>>>>> origin/main
                 if (
                     ( (hcount_in > (HOR_PIXELS/6 - 15) && hcount_in <= (HOR_PIXELS/6 - 10)) ||
                       (hcount_in > (HOR_PIXELS/2 - 15) && hcount_in <= (HOR_PIXELS/2 - 10)) ||
                       (hcount_in > ((5*HOR_PIXELS)/6 - 15) && hcount_in <= ((5*HOR_PIXELS)/6 - 10)) )
                 )
+<<<<<<< HEAD
                     rgb_nxt = 12'h666; // lighter edge
+=======
+                    rgb_nxt = 12'h666;
+>>>>>>> origin/main
                 
                 else if (
                     ( (hcount_in >= (HOR_PIXELS/6 + 10) && hcount_in < (HOR_PIXELS/6 + 15)) ||
                       (hcount_in >= (HOR_PIXELS/2 + 10) && hcount_in < (HOR_PIXELS/2 + 15)) ||
                       (hcount_in >= ((5*HOR_PIXELS)/6 + 10) && hcount_in < ((5*HOR_PIXELS)/6 + 15)) )
                 )
+<<<<<<< HEAD
                     rgb_nxt = 12'h222; // darker edge
                 
                 else
@@ -143,6 +196,17 @@ module draw_bg (
                     ((hcount_in - (HOR_PIXELS/2 - 15)) % 4 == 1) ||
                     ((hcount_in - ((5*HOR_PIXELS)/6 - 15)) % 4 == 1))
                     rgb_nxt = 12'h222; // stripe
+=======
+                    rgb_nxt = 12'h222; 
+                
+                else
+                    rgb_nxt = 12'h444;
+                
+                if (((hcount_in - (HOR_PIXELS/6 - 15)) % 4 == 1) ||
+                    ((hcount_in - (HOR_PIXELS/2 - 15)) % 4 == 1) ||
+                    ((hcount_in - ((5*HOR_PIXELS)/6 - 15)) % 4 == 1))
+                    rgb_nxt = 12'h222;
+>>>>>>> origin/main
             end
         end
     end

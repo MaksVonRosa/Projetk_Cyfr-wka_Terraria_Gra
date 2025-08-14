@@ -16,12 +16,19 @@ sv work ../../rtl/vga_pkg.sv \
         ../../rtl/char_ctrl.sv \
         ../../rtl/char_draw.sv \
         ../../rtl/platform.sv \
+<<<<<<< HEAD
+=======
+        ../../rtl/hearts_display.sv \
+>>>>>>> origin/main
         ../../rtl/vga_if.sv \
         ../../rtl/top_vga.sv \
         ../../fpga/rtl/top_vga_basys3.sv \
         ../common/tiff_writer.sv \
+<<<<<<< HEAD
         ../../rtl/wpn_draw_att.sv \
         ../../rtl/wpn_draw_def.sv \
+=======
+>>>>>>> origin/main
         top_fpga_tb.sv
 
 # compile glbl module - required for IP simulation

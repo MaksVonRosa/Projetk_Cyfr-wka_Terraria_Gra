@@ -29,8 +29,13 @@ module char_draw (
 
     always_ff @(posedge clk) begin
         if (rst) begin
+<<<<<<< HEAD
             draw_x <= HOR_PIXELS / 2;
             draw_y <= VER_PIXELS - 20 - CHAR_HGT;
+=======
+            draw_x <= HOR_PIXELS / 5;
+            draw_y <= VER_PIXELS - 50 - CHAR_HGT;
+>>>>>>> origin/main
         end else begin
             draw_x <= pos_x;
             draw_y <= pos_y;
@@ -47,7 +52,12 @@ module char_draw (
             vga_in.vcount <  draw_y + CHAR_HGT) begin
 
             rel_y = vga_in.vcount - (draw_y - CHAR_HGT);
+<<<<<<< HEAD
             rel_x = flip_h ? (IMG_WIDTH - 1) - (vga_in.hcount - (draw_x - CHAR_LNG)) : (vga_in.hcount - (draw_x - CHAR_LNG));
+=======
+            rel_x = flip_h ? (IMG_WIDTH - 1) - (vga_in.hcount - (draw_x - CHAR_LNG)) : 
+                            (vga_in.hcount - (draw_x - CHAR_LNG));
+>>>>>>> origin/main
 
             if (rel_x < IMG_WIDTH && rel_y < IMG_HEIGHT) begin
                 rom_addr = rel_y * IMG_WIDTH + rel_x;
@@ -70,4 +80,8 @@ module char_draw (
         char_lng <= CHAR_LNG;
     end
 
+<<<<<<< HEAD
 endmodule
+=======
+endmodule
+>>>>>>> origin/main

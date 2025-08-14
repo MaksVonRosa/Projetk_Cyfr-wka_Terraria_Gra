@@ -37,11 +37,20 @@ set sv_files {
     ../rtl/char.sv
     ../rtl/char_ctrl.sv
     ../rtl/char_draw.sv
+<<<<<<< HEAD
     ../rtl/platform.sv
     ../rtl/top_vga.sv
     ../rtl/vga_if.sv
     ../rtl/wpn_draw_att.sv
     ../rtl/wpn_draw_def.sv
+=======
+    ../rtl/boss.sv
+    ../rtl/boss_draw.sv
+    ../rtl/platform.sv
+    ../rtl/hearts_display.sv
+    ../rtl/top_vga.sv
+    ../rtl/vga_if.sv
+>>>>>>> origin/main
     rtl/top_vga_basys3.sv
 }
 
@@ -51,11 +60,17 @@ set sv_files {
  }
 
 # Specify VHDL design files location            -- EDIT
+<<<<<<< HEAD
 set vhdl_files {
     ../rtl/Mouse_Control/MouseCtl.vhd \
     ../rtl/Mouse_Control/Ps2Interface.vhd \
     ../rtl/Mouse_Control/MouseDisplay.vhd \
 }
+=======
+# set vhdl_files {
+#    path/to/file.vhd
+# }
+>>>>>>> origin/main
 
 # Specify files for a memory initialization     -- EDIT
 # set mem_files {
