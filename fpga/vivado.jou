@@ -3,8 +3,8 @@
 # SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Thu Aug 14 20:28:01 2025
-# Process ID         : 25748
+# Start of session at: Thu Aug 14 21:06:32 2025
+# Process ID         : 9944
 # Current directory  : C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga
 # Command line       : vivado.exe -mode tcl -source scripts/generate_bitstream.tcl
 # Log file           : C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/vivado.log
@@ -17,8 +17,8 @@
 # CPU Physical cores : 6
 # CPU Logical cores  : 12
 # Host memory        : 34235 MB
-# Swap memory        : 3918 MB
-# Total Virtual      : 38154 MB
-# Available Virtual  : 7633 MB
+# Swap memory        : 3519 MB
+# Total Virtual      : 37755 MB
+# Available Virtual  : 7517 MB
 #-----------------------------------------------------------
 source scripts/generate_bitstream.tcl

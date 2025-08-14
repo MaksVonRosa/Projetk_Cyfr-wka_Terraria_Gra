@@ -183,9 +183,17 @@ module top_vga (
         .char_hp_out (char_hp_out),
         .pos_x_out (pos_x_out),
         .pos_y_out (pos_y_out),
-        .draw_weapon(draw_weapon),
+        //.draw_weapon(draw_weapon),
         .vga_char_in (vga_hearts.in),
-        .vga_char_out (vga_if_char.out),
+        .vga_char_out (vga_if_char.out)
+        //.mouse_left(mouse_left)
+
+    );
+
+    draw_wpn_ctrl u_draw_wpn_ctrl (
+        .clk,
+        .rst,
+        .draw_weapon(draw_weapon),
         .mouse_left(mouse_left)
 
     );

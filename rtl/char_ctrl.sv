@@ -5,8 +5,8 @@ module char_ctrl (
     input  logic stepright,
     input  logic stepjump,
     input  logic on_ground,
-    input  logic mouse_left,
-    output logic draw_weapon,
+    //input  logic mouse_left,
+    //output logic draw_weapon,
     output logic [11:0] pos_x,
     output logic [11:0] pos_y,
     output logic [11:0] ground_lvl,
@@ -89,15 +89,15 @@ end
     end
 
     //Interacting with mouse
-    always_ff @(posedge clk or posedge rst) begin
-        if (rst) begin
-            draw_weapon <= 0;
-        end else if (mouse_left) begin
-            draw_weapon <= 1;
-        end else begin
-            draw_weapon <= 0;
-        end
-    end
+    // always_ff @(posedge clk or posedge rst) begin
+    //     if (rst) begin
+    //         draw_weapon <= 0;
+    //     end else if (mouse_left) begin
+    //         draw_weapon <= 1;
+    //     end else begin
+    //         draw_weapon <= 0;
+    //     end
+    // end
 
     assign pos_x = next_x;
     assign pos_y = next_y;

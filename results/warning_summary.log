@@ -1,6 +1,6 @@
 Warnings, critical warnings and errors from synthesis and implementation
 
-Created: 2025-08-14 20:31:22
+Created: 2025-08-14 21:10:48
 
 ----SYNTHESIS----
 WARNING: [Synth 8-10180] variable 'hx_start' must explicitly be declared as automatic or static [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/hearts_display.sv:32]
@@ -18,8 +18,8 @@ WARNING: [Synth 8-7071] port 'setmax_y' of module 'MouseCtl' is unconnected for 
 WARNING: [Synth 8-7023] instance 'u_MouseCtl' of module 'MouseCtl' has 16 connections declared, but only 6 given [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:106]
 WARNING: [Synth 8-689] width (32) of port connection 'char_hgt' does not match port width (12) of module 'platform' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:150]
 WARNING: [Synth 8-689] width (1) of port connection 'ground_lvl' does not match port width (12) of module 'char_ctrl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:44]
-WARNING: [Synth 8-689] width (1) of port connection 'wpn_hgt' does not match port width (12) of module 'wpn_draw_def' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:200]
-WARNING: [Synth 8-689] width (1) of port connection 'wpn_lng' does not match port width (12) of module 'wpn_draw_def' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:201]
+WARNING: [Synth 8-689] width (1) of port connection 'wpn_hgt' does not match port width (12) of module 'wpn_draw_def' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:208]
+WARNING: [Synth 8-689] width (1) of port connection 'wpn_lng' does not match port width (12) of module 'wpn_draw_def' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:209]
 WARNING: [Synth 8-7071] port 'ps2_clk' of module 'top_vga' is unconnected for instance 'u_top_vga' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
 WARNING: [Synth 8-7071] port 'ps2_data' of module 'top_vga' is unconnected for instance 'u_top_vga' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
 WARNING: [Synth 8-7071] port 'char_x' of module 'top_vga' is unconnected for instance 'u_top_vga' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
@@ -32,54 +32,9 @@ WARNING: [Synth 8-6014] Unused sequential element char_y_prev_reg was removed.  
 WARNING: [Synth 8-6014] Unused sequential element char_velocity_y_reg was removed.  [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:50]
 WARNING: [Synth 8-3936] Found unconnected internal register 'vcount_reg_reg' and it is trimmed from '12' to '11' bits. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:87]
 WARNING: [Synth 8-3936] Found unconnected internal register 'hcount_reg_reg' and it is trimmed from '12' to '11' bits. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:90]
-WARNING: [Synth 8-3848] Net vga_char_out\.vcount in module/entity draw_char does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:16]
-WARNING: [Synth 8-3848] Net vga_char_out\.vsync in module/entity draw_char does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:16]
-WARNING: [Synth 8-3848] Net vga_char_out\.vblnk in module/entity draw_char does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:16]
-WARNING: [Synth 8-3848] Net vga_char_out\.hcount in module/entity draw_char does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:16]
-WARNING: [Synth 8-3848] Net vga_char_out\.hsync in module/entity draw_char does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:16]
-WARNING: [Synth 8-3848] Net vga_char_out\.hblnk in module/entity draw_char does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:16]
-WARNING: [Synth 8-3848] Net vga_char_out\.rgb in module/entity draw_char does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:16]
-WARNING: [Synth 8-3848] Net pos_x in module/entity top_vga does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:196]
-WARNING: [Synth 8-3848] Net pos_y in module/entity top_vga does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:197]
-WARNING: [Synth 8-3848] Net flip_h in module/entity top_vga does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:199]
-WARNING: [Synth 8-7129] Port vga_char_out\.vcount[10] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.vcount[9] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.vcount[8] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.vcount[7] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.vcount[6] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.vcount[5] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.vcount[4] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.vcount[3] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.vcount[2] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.vcount[1] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.vcount[0] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.vsync in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.vblnk in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.hcount[10] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.hcount[9] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.hcount[8] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.hcount[7] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.hcount[6] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.hcount[5] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.hcount[4] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.hcount[3] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.hcount[2] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.hcount[1] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.hcount[0] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.hsync in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.hblnk in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.rgb[11] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.rgb[10] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.rgb[9] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.rgb[8] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.rgb[7] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.rgb[6] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.rgb[5] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.rgb[4] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.rgb[3] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.rgb[2] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.rgb[1] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.rgb[0] in module draw_char is either unconnected or has no load
+WARNING: [Synth 8-3848] Net pos_x in module/entity top_vga does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:204]
+WARNING: [Synth 8-3848] Net pos_y in module/entity top_vga does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:205]
+WARNING: [Synth 8-3848] Net flip_h in module/entity top_vga does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:207]
 WARNING: [Synth 8-7129] Port char_y[11] in module boss_draw is either unconnected or has no load
 WARNING: [Synth 8-7129] Port char_y[10] in module boss_draw is either unconnected or has no load
 WARNING: [Synth 8-7129] Port char_y[9] in module boss_draw is either unconnected or has no load
@@ -99,109 +54,32 @@ WARNING: [Synth 8-7129] Port ps2_data in module MouseCtl is either unconnected o
 WARNING: [Synth 8-7129] Port PS2Clk in module top_vga_basys3 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port PS2Data in module top_vga_basys3 is either unconnected or has no load
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-WARNING: [Synth 8-7129] Port vga_char_out\.vcount[10] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.vcount[9] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.vcount[8] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.vcount[7] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.vcount[6] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.vcount[5] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.vcount[4] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.vcount[3] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.vcount[2] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.vcount[1] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.vcount[0] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.vsync in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.vblnk in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.hcount[10] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.hcount[9] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.hcount[8] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.hcount[7] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.hcount[6] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.hcount[5] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.hcount[4] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.hcount[3] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.hcount[2] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.hcount[1] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.hcount[0] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.hsync in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.hblnk in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.rgb[11] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.rgb[10] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.rgb[9] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.rgb[8] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.rgb[7] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.rgb[6] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.rgb[5] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.rgb[4] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.rgb[3] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.rgb[2] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.rgb[1] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_out\.rgb[0] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_in\.vsync in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_in\.hsync in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_in\.rgb[11] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_in\.rgb[10] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_in\.rgb[9] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-7129] Port vga_char_in\.rgb[8] in module draw_char is either unconnected or has no load
-WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[16]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[15]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[14]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[13]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[12]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[11]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[10]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[9]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[8]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[7]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[6]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[5]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[4]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[3]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[2]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[1]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (Inst_Ps2Interface/FSM_onehot_state_reg[0]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[36]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[35]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[34]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[33]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[32]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[31]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[30]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[29]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[28]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[27]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[26]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[25]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[24]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[23]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[22]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[21]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[20]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[19]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[18]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[17]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[16]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[15]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[14]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[13]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[12]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[11]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[10]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[9]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[8]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[7]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[6]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[5]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[4]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[3]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[2]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[1]) is unused and will be removed from module MouseCtl.
-WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[0]) is unused and will be removed from module MouseCtl.
+WARNING: [Synth 8-7129] Port char_y[11] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[10] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[9] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[8] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[7] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[6] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[5] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[4] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[3] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[2] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[1] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[0] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rst in module hearts_display is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rst in module platform is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ps2_clk in module MouseCtl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ps2_data in module MouseCtl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PS2Clk in module top_vga_basys3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PS2Data in module top_vga_basys3 is either unconnected or has no load
 
 ----IMPLEMENTATION----
 WARNING: [Place 46-29] Timing had been disabled during Placer and, therefore, physical synthesis in Placer will be skipped.
 WARNING: [Timing 38-313] There are no user specified timing constraints. Timing constraints are needed for proper timing analysis.
 WARNING: [Power 33-232] No user defined clocks were found in the design! Power estimation will be inaccurate until this is corrected.
+WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout1_buf. Out of range!
 WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout2_buf. Out of range!
+WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout1_buf. Out of range!
 WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout2_buf. Out of range!
+WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout1_buf. Out of range!
 WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout2_buf. Out of range!

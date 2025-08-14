@@ -45,6 +45,7 @@ set sv_files {
     ../rtl/hearts_display.sv
     ../rtl/top_vga.sv
     ../rtl/vga_if.sv
+    ../rtl/draw_wpn_ctrl.sv
     rtl/top_vga_basys3.sv
 }
 
