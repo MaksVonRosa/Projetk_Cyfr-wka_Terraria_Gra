@@ -1,13 +1,24 @@
 #-----------------------------------------------------------
-# Vivado v2021.2 (64-bit)
-# SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
-# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Thu Aug 14 00:17:15 2025
-# Process ID: 16443
-# Current directory: /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/impl_1
-# Command line: vivado -log top_vga_basys3.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source top_vga_basys3.tcl -notrace
-# Log file: /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/impl_1/top_vga_basys3.vdi
-# Journal file: /home/student/dszczepaniak/uec2/PROJEKT/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/impl_1/vivado.jou
-# Running On: cadence34, OS: Linux, CPU Frequency: 3559.960 MHz, CPU Physical cores: 4, Host memory: 16720 MB
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Thu Aug 14 18:12:54 2025
+# Process ID         : 23304
+# Current directory  : C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/impl_1
+# Command line       : vivado.exe -log top_vga.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source top_vga.tcl -notrace
+# Log file           : C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/impl_1/top_vga.vdi
+# Journal file       : C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/impl_1\vivado.jou
+# Running On         : DESKTOP-97OSCKL
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 19045
+# Processor Detail   : 11th Gen Intel(R) Core(TM) i5-11400F @ 2.60GHz
+# CPU Frequency      : 2592 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 34235 MB
+# Swap memory        : 2147 MB
+# Total Virtual      : 36383 MB
+# Available Virtual  : 9745 MB
 #-----------------------------------------------------------
-source top_vga_basys3.tcl -notrace
+source top_vga.tcl -notrace

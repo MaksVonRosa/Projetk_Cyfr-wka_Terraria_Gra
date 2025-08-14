@@ -1,82 +1,243 @@
 Warnings, critical warnings and errors from synthesis and implementation
 
-Created: 2025-08-14 00:18:36
+Created: 2025-08-14 18:15:06
 
 ----SYNTHESIS----
-WARNING: [Synth 8-6014] Unused sequential element set_x.inc_reg was removed.  [rtl/Mouse_Control/MouseCtl.vhd:450]
-WARNING: [Synth 8-6014] Unused sequential element set_x.x_inter_reg was removed.  [rtl/Mouse_Control/MouseCtl.vhd:456]
-WARNING: [Synth 8-6014] Unused sequential element set_y.inc_reg was removed.  [rtl/Mouse_Control/MouseCtl.vhd:514]
-WARNING: [Synth 8-6014] Unused sequential element set_y.y_inter_reg was removed.  [rtl/Mouse_Control/MouseCtl.vhd:520]
-WARNING: [Synth 8-7071] port 'rst' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:96]
-WARNING: [Synth 8-7071] port 'zpos' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:96]
-WARNING: [Synth 8-7071] port 'middle' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:96]
-WARNING: [Synth 8-7071] port 'right' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:96]
-WARNING: [Synth 8-7071] port 'new_event' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:96]
-WARNING: [Synth 8-7071] port 'value' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:96]
-WARNING: [Synth 8-7071] port 'setx' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:96]
-WARNING: [Synth 8-7071] port 'sety' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:96]
-WARNING: [Synth 8-7071] port 'setmax_x' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:96]
-WARNING: [Synth 8-7071] port 'setmax_y' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [rtl/top_vga.sv:96]
-WARNING: [Synth 8-7023] instance 'u_MouseCtl' of module 'MouseCtl' has 16 connections declared, but only 6 given [rtl/top_vga.sv:96]
-WARNING: [Synth 8-689] width (32) of port connection 'char_hgt' does not match port width (12) of module 'platform' [rtl/top_vga.sv:151]
-WARNING: [Synth 8-6104] Input port 'PS2Clk' has an internal driver [fpga/rtl/top_vga_basys3.sv:96]
-WARNING: [Synth 8-6104] Input port 'PS2Data' has an internal driver [fpga/rtl/top_vga_basys3.sv:97]
-WARNING: [Synth 8-7071] port 'char_x' of module 'top_vga' is unconnected for instance 'u_top_vga' [fpga/rtl/top_vga_basys3.sv:89]
-WARNING: [Synth 8-7071] port 'char_y' of module 'top_vga' is unconnected for instance 'u_top_vga' [fpga/rtl/top_vga_basys3.sv:89]
-WARNING: [Synth 8-7023] instance 'u_top_vga' of module 'top_vga' has 15 connections declared, but only 13 given [fpga/rtl/top_vga_basys3.sv:89]
+WARNING: [Synth 8-10180] variable 'hx_start' must explicitly be declared as automatic or static [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/hearts_display.sv:32]
+WARNING: [Synth 8-10180] variable 'hx_end' must explicitly be declared as automatic or static [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/hearts_display.sv:33]
+WARNING: [Synth 8-7071] port 'rst' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
+WARNING: [Synth 8-7071] port 'zpos' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
+WARNING: [Synth 8-7071] port 'middle' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
+WARNING: [Synth 8-7071] port 'right' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
+WARNING: [Synth 8-7071] port 'new_event' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
+WARNING: [Synth 8-7071] port 'value' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
+WARNING: [Synth 8-7071] port 'setx' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
+WARNING: [Synth 8-7071] port 'sety' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
+WARNING: [Synth 8-7071] port 'setmax_x' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
+WARNING: [Synth 8-7071] port 'setmax_y' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
+WARNING: [Synth 8-7023] instance 'u_MouseCtl' of module 'MouseCtl' has 16 connections declared, but only 6 given [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:100]
+WARNING: [Synth 8-689] width (32) of port connection 'char_hgt' does not match port width (12) of module 'platform' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:144]
+WARNING: [Synth 8-689] width (1) of port connection 'ground_lvl' does not match port width (12) of module 'char_ctrl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:43]
+WARNING: [Synth 8-6014] Unused sequential element char_y_prev_reg was removed.  [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:49]
+WARNING: [Synth 8-6014] Unused sequential element char_velocity_y_reg was removed.  [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:50]
+WARNING: [Synth 8-3936] Found unconnected internal register 'vcount_reg_reg' and it is trimmed from '12' to '11' bits. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:87]
+WARNING: [Synth 8-3936] Found unconnected internal register 'hcount_reg_reg' and it is trimmed from '12' to '11' bits. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:90]
+WARNING: [Synth 8-7129] Port char_y[11] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[10] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[9] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[8] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[7] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[6] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[5] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[4] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[3] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[2] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[1] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[0] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rst in module hearts_display is either unconnected or has no load
 WARNING: [Synth 8-7129] Port rst in module platform is either unconnected or has no load
-WARNING: [Synth 8-7129] Port on_ground in module char_ctrl is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ps2_clk in module MouseCtl is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ps2_data in module MouseCtl is either unconnected or has no load
+WARNING: [Vivado 12-584] No ports matched 'btnC'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:111]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:111]
+WARNING: [Vivado 12-584] No ports matched 'btnC'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:112]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:112]
+WARNING: [Vivado 12-584] No ports matched 'btnU'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:113]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:113]
+WARNING: [Vivado 12-584] No ports matched 'btnU'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:114]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:114]
+WARNING: [Vivado 12-584] No ports matched 'btnL'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:115]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:115]
+WARNING: [Vivado 12-584] No ports matched 'btnL'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:116]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:116]
+WARNING: [Vivado 12-584] No ports matched 'btnR'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:117]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:117]
+WARNING: [Vivado 12-584] No ports matched 'btnR'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:118]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:118]
+WARNING: [Vivado 12-584] No ports matched 'JA1'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:126]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:126]
+WARNING: [Vivado 12-584] No ports matched 'JA1'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:127]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:127]
+WARNING: [Vivado 12-584] No ports matched 'vgaRed[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:236]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:236]
+WARNING: [Vivado 12-584] No ports matched 'vgaRed[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:237]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:237]
+WARNING: [Vivado 12-584] No ports matched 'vgaRed[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:238]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:238]
+WARNING: [Vivado 12-584] No ports matched 'vgaRed[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:239]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:239]
+WARNING: [Vivado 12-584] No ports matched 'vgaRed[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:240]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:240]
+WARNING: [Vivado 12-584] No ports matched 'vgaRed[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:241]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:241]
+WARNING: [Vivado 12-584] No ports matched 'vgaRed[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:242]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:242]
+WARNING: [Vivado 12-584] No ports matched 'vgaRed[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:243]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:243]
+WARNING: [Vivado 12-584] No ports matched 'vgaBlue[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:244]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:244]
+WARNING: [Vivado 12-584] No ports matched 'vgaBlue[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:245]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:245]
+WARNING: [Vivado 12-584] No ports matched 'vgaBlue[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:246]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:246]
+WARNING: [Vivado 12-584] No ports matched 'vgaBlue[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:247]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:247]
+WARNING: [Vivado 12-584] No ports matched 'vgaBlue[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:248]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:248]
+WARNING: [Vivado 12-584] No ports matched 'vgaBlue[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:249]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:249]
+WARNING: [Vivado 12-584] No ports matched 'vgaBlue[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:250]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:250]
+WARNING: [Vivado 12-584] No ports matched 'vgaBlue[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:251]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:251]
+WARNING: [Vivado 12-584] No ports matched 'vgaGreen[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:252]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:252]
+WARNING: [Vivado 12-584] No ports matched 'vgaGreen[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:253]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:253]
+WARNING: [Vivado 12-584] No ports matched 'vgaGreen[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:254]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:254]
+WARNING: [Vivado 12-584] No ports matched 'vgaGreen[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:255]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:255]
+WARNING: [Vivado 12-584] No ports matched 'vgaGreen[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:256]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:256]
+WARNING: [Vivado 12-584] No ports matched 'vgaGreen[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:257]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:257]
+WARNING: [Vivado 12-584] No ports matched 'vgaGreen[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:258]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:258]
+WARNING: [Vivado 12-584] No ports matched 'vgaGreen[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:259]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:259]
+WARNING: [Vivado 12-584] No ports matched 'Hsync'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:260]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:260]
+WARNING: [Vivado 12-584] No ports matched 'Hsync'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:261]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:261]
+WARNING: [Vivado 12-584] No ports matched 'Vsync'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:262]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:262]
+WARNING: [Vivado 12-584] No ports matched 'Vsync'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:263]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:263]
+WARNING: [Vivado 12-584] No ports matched 'PS2Clk'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:274]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:274]
+WARNING: [Vivado 12-584] No ports matched 'PS2Clk'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:275]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:275]
+WARNING: [Vivado 12-584] No ports matched 'PS2Clk'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:276]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:276]
+WARNING: [Vivado 12-584] No ports matched 'PS2Data'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:277]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:277]
+WARNING: [Vivado 12-584] No ports matched 'PS2Data'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:278]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:278]
+WARNING: [Vivado 12-584] No ports matched 'PS2Data'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:279]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:279]
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port char_y[11] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[10] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[9] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[8] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[7] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[6] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[5] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[4] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[3] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[2] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[1] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[0] in module boss_draw is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rst in module hearts_display is either unconnected or has no load
 WARNING: [Synth 8-7129] Port rst in module platform is either unconnected or has no load
-WARNING: [Synth 8-7129] Port on_ground in module draw_char is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ps2_clk in module MouseCtl is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ps2_data in module MouseCtl is either unconnected or has no load
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
 
 ----IMPLEMENTATION----
-WARNING: [Place 46-29] place_design is not in timing mode. Skip physical synthesis in placer
-WARNING: [Power 33-232] No user defined clocks were found in the design! Power estimation will be inaccurate until this is corrected.
-WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout1_buf. Out of range!
-WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout2_buf. Out of range!
-WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout1_buf. Out of range!
-WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout2_buf. Out of range!
-WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout1_buf. Out of range!
-WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout2_buf. Out of range!
+WARNING: [Vivado 12-584] No ports matched 'btnC'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:111]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:111]
+WARNING: [Vivado 12-584] No ports matched 'btnC'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:112]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:112]
+WARNING: [Vivado 12-584] No ports matched 'btnU'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:113]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:113]
+WARNING: [Vivado 12-584] No ports matched 'btnU'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:114]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:114]
+WARNING: [Vivado 12-584] No ports matched 'btnL'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:115]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:115]
+WARNING: [Vivado 12-584] No ports matched 'btnL'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:116]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:116]
+WARNING: [Vivado 12-584] No ports matched 'btnR'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:117]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:117]
+WARNING: [Vivado 12-584] No ports matched 'btnR'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:118]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:118]
+WARNING: [Vivado 12-584] No ports matched 'JA1'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:126]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:126]
+WARNING: [Vivado 12-584] No ports matched 'JA1'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:127]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:127]
+WARNING: [Vivado 12-584] No ports matched 'vgaRed[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:236]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:236]
+WARNING: [Vivado 12-584] No ports matched 'vgaRed[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:237]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:237]
+WARNING: [Vivado 12-584] No ports matched 'vgaRed[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:238]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:238]
+WARNING: [Vivado 12-584] No ports matched 'vgaRed[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:239]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:239]
+WARNING: [Vivado 12-584] No ports matched 'vgaRed[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:240]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:240]
+WARNING: [Vivado 12-584] No ports matched 'vgaRed[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:241]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:241]
+WARNING: [Vivado 12-584] No ports matched 'vgaRed[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:242]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:242]
+WARNING: [Vivado 12-584] No ports matched 'vgaRed[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:243]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:243]
+WARNING: [Vivado 12-584] No ports matched 'vgaBlue[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:244]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:244]
+WARNING: [Vivado 12-584] No ports matched 'vgaBlue[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:245]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:245]
+WARNING: [Vivado 12-584] No ports matched 'vgaBlue[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:246]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:246]
+WARNING: [Vivado 12-584] No ports matched 'vgaBlue[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:247]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:247]
+WARNING: [Vivado 12-584] No ports matched 'vgaBlue[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:248]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:248]
+WARNING: [Vivado 12-584] No ports matched 'vgaBlue[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:249]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:249]
+WARNING: [Vivado 12-584] No ports matched 'vgaBlue[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:250]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:250]
+WARNING: [Vivado 12-584] No ports matched 'vgaBlue[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:251]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:251]
+WARNING: [Vivado 12-584] No ports matched 'vgaGreen[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:252]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:252]
+WARNING: [Vivado 12-584] No ports matched 'vgaGreen[0]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:253]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:253]
+WARNING: [Vivado 12-584] No ports matched 'vgaGreen[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:254]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:254]
+WARNING: [Vivado 12-584] No ports matched 'vgaGreen[1]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:255]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:255]
+WARNING: [Vivado 12-584] No ports matched 'vgaGreen[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:256]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:256]
+WARNING: [Vivado 12-584] No ports matched 'vgaGreen[2]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:257]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:257]
+WARNING: [Vivado 12-584] No ports matched 'vgaGreen[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:258]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:258]
+WARNING: [Vivado 12-584] No ports matched 'vgaGreen[3]'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:259]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:259]
+WARNING: [Vivado 12-584] No ports matched 'Hsync'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:260]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:260]
+WARNING: [Vivado 12-584] No ports matched 'Hsync'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:261]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:261]
+WARNING: [Vivado 12-584] No ports matched 'Vsync'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:262]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:262]
+WARNING: [Vivado 12-584] No ports matched 'Vsync'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:263]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:263]
+WARNING: [Vivado 12-584] No ports matched 'PS2Clk'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:274]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:274]
+WARNING: [Vivado 12-584] No ports matched 'PS2Clk'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:275]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:275]
+WARNING: [Vivado 12-584] No ports matched 'PS2Clk'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:276]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:276]
+WARNING: [Vivado 12-584] No ports matched 'PS2Data'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:277]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:277]
+WARNING: [Vivado 12-584] No ports matched 'PS2Data'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:278]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:278]
+WARNING: [Vivado 12-584] No ports matched 'PS2Data'. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:279]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/constraints/top_vga_basys3.xdc:279]
+WARNING: [Place 46-29] Timing had been disabled during Placer and, therefore, physical synthesis in Placer will be skipped.
 WARNING: [Timing 38-313] There are no user specified timing constraints. Timing constraints are needed for proper timing analysis.
-WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5 input u_top_vga/u_draw_bg/rgb_nxt5/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5 input u_top_vga/u_draw_bg/rgb_nxt5/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__0 input u_top_vga/u_draw_bg/rgb_nxt5__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__0 input u_top_vga/u_draw_bg/rgb_nxt5__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__1 input u_top_vga/u_draw_bg/rgb_nxt5__1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__1 input u_top_vga/u_draw_bg/rgb_nxt5__1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__2 input u_top_vga/u_draw_bg/rgb_nxt5__2/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__2 input u_top_vga/u_draw_bg/rgb_nxt5__2/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__3 input u_top_vga/u_draw_bg/rgb_nxt5__3/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__3 input u_top_vga/u_draw_bg/rgb_nxt5__3/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__4 input u_top_vga/u_draw_bg/rgb_nxt5__4/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__4 input u_top_vga/u_draw_bg/rgb_nxt5__4/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__5 input u_top_vga/u_draw_bg/rgb_nxt5__5/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__5 input u_top_vga/u_draw_bg/rgb_nxt5__5/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__6 input u_top_vga/u_draw_bg/rgb_nxt5__6/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__6 input u_top_vga/u_draw_bg/rgb_nxt5__6/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__7 input u_top_vga/u_draw_bg/rgb_nxt5__7/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__7 input u_top_vga/u_draw_bg/rgb_nxt5__7/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC DPOP-1] PREG Output pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5 output u_top_vga/u_draw_bg/rgb_nxt5/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-WARNING: [DRC DPOP-1] PREG Output pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__0 output u_top_vga/u_draw_bg/rgb_nxt5__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-WARNING: [DRC DPOP-1] PREG Output pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__1 output u_top_vga/u_draw_bg/rgb_nxt5__1/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-WARNING: [DRC DPOP-1] PREG Output pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__2 output u_top_vga/u_draw_bg/rgb_nxt5__2/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-WARNING: [DRC DPOP-1] PREG Output pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__3 output u_top_vga/u_draw_bg/rgb_nxt5__3/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-WARNING: [DRC DPOP-1] PREG Output pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__4 output u_top_vga/u_draw_bg/rgb_nxt5__4/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-WARNING: [DRC DPOP-1] PREG Output pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__5 output u_top_vga/u_draw_bg/rgb_nxt5__5/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-WARNING: [DRC DPOP-1] PREG Output pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__6 output u_top_vga/u_draw_bg/rgb_nxt5__6/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-WARNING: [DRC DPOP-1] PREG Output pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__7 output u_top_vga/u_draw_bg/rgb_nxt5__7/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
-WARNING: [DRC DPOP-2] MREG Output pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5 multiplier stage u_top_vga/u_draw_bg/rgb_nxt5/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-WARNING: [DRC DPOP-2] MREG Output pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__0 multiplier stage u_top_vga/u_draw_bg/rgb_nxt5__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-WARNING: [DRC DPOP-2] MREG Output pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__1 multiplier stage u_top_vga/u_draw_bg/rgb_nxt5__1/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-WARNING: [DRC DPOP-2] MREG Output pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__2 multiplier stage u_top_vga/u_draw_bg/rgb_nxt5__2/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-WARNING: [DRC DPOP-2] MREG Output pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__3 multiplier stage u_top_vga/u_draw_bg/rgb_nxt5__3/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-WARNING: [DRC DPOP-2] MREG Output pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__4 multiplier stage u_top_vga/u_draw_bg/rgb_nxt5__4/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-WARNING: [DRC DPOP-2] MREG Output pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__5 multiplier stage u_top_vga/u_draw_bg/rgb_nxt5__5/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-WARNING: [DRC DPOP-2] MREG Output pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__6 multiplier stage u_top_vga/u_draw_bg/rgb_nxt5__6/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-WARNING: [DRC DPOP-2] MREG Output pipelining: DSP u_top_vga/u_draw_bg/rgb_nxt5__7 multiplier stage u_top_vga/u_draw_bg/rgb_nxt5__7/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+WARNING: [Power 33-232] No user defined clocks were found in the design! Power estimation will be inaccurate until this is corrected.
+ERROR: [DRC NSTD-1] Unspecified I/O Standard: 57 out of 58 logical ports use I/O standard (IOSTANDARD) value 'DEFAULT', instead of a user assigned specific value. This may cause I/O contention or incompatibility with the board power or connectivity affecting performance, signal integrity or in extreme cases cause damage to the device or the components to which it is connected. To correct this violation, specify all I/O standards. This design will fail to generate a bitstream unless all logical ports have a user specified I/O standard value defined. To allow bitstream creation with unspecified I/O standard values (not recommended), use this command: set_property SEVERITY {Warning} [get_drc_checks NSTD-1].  NOTE: When using the Vivado Runs infrastructure (e.g. launch_runs Tcl command), add this command to a .tcl file and add that file as a pre-hook for write_bitstream step for the implementation run. Problem ports: b[3:0], char_x[11:0], char_y[11:0], g[3:0], ground_y[11:0], r[3:0], clk100MHz, ground_lvl, hs, on_ground, rst, stepjump, stepleft, stepright, and vs.
+ERROR: [DRC UCIO-1] Unconstrained Logical Port: 57 out of 58 logical ports have no user assigned specific location constraint (LOC). This may cause I/O contention or incompatibility with the board power or connectivity affecting performance, signal integrity or in extreme cases cause damage to the device or the components to which it is connected. To correct this violation, specify all pin locations. This design will fail to generate a bitstream unless all logical ports have a user specified site LOC constraint defined.  To allow bitstream creation with unspecified pin locations (not recommended), use this command: set_property SEVERITY {Warning} [get_drc_checks UCIO-1].  NOTE: When using the Vivado Runs infrastructure (e.g. launch_runs Tcl command), add this command to a .tcl file and add that file as a pre-hook for write_bitstream step for the implementation run.  Problem ports: b[3:0], char_x[11:0], char_y[11:0], g[3:0], ground_y[11:0], r[3:0], clk100MHz, ground_lvl, hs, on_ground, rst, stepjump, stepleft, stepright, and vs.
+ERROR: [Vivado 12-1345] Error(s) found during DRC. Bitgen not run.
+ERROR: [Common 17-39] 'write_bitstream' failed due to earlier errors.
