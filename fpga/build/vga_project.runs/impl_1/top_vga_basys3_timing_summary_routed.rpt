@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
-| Date         : Fri Aug 15 01:45:08 2025
+| Date         : Sat Aug 16 01:32:34 2025
 | Host         : DESKTOP-97OSCKL running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -report_unconstrained -file top_vga_basys3_timing_summary_routed.rpt -pb top_vga_basys3_timing_summary_routed.pb -rpx top_vga_basys3_timing_summary_routed.rpx -warn_on_violation
 | Design       : top_vga_basys3
@@ -43,7 +43,7 @@ Timing Summary Report
 
 Rule       Severity          Description                  Violations  
 ---------  ----------------  ---------------------------  ----------  
-TIMING-17  Critical Warning  Non-clocked sequential cell  687         
+TIMING-17  Critical Warning  Non-clocked sequential cell  786         
 SYNTH-10   Warning           Wide multiplier              9           
 
 Note: This report is based on the most recent report_methodology run and may not be up-to-date. Run report_methodology on the current design for the latest report.
@@ -54,10 +54,10 @@ check_timing report
 
 Table of Contents
 -----------------
-1. checking no_clock (685)
+1. checking no_clock (784)
 2. checking constant_clock (0)
 3. checking pulse_width_clock (0)
-4. checking unconstrained_internal_endpoints (1161)
+4. checking unconstrained_internal_endpoints (1393)
 5. checking no_input_delay (6)
 6. checking no_output_delay (17)
 7. checking multiple_clock (0)
@@ -67,9 +67,9 @@ Table of Contents
 11. checking partial_output_delay (0)
 12. checking latch_loops (0)
 
-1. checking no_clock (685)
+1. checking no_clock (784)
 --------------------------
- There are 685 register/latch pins with no clock driven by root clock pin: clk (HIGH)
+ There are 784 register/latch pins with no clock driven by root clock pin: clk (HIGH)
 
 
 2. checking constant_clock (0)
@@ -82,9 +82,9 @@ Table of Contents
  There are 0 register/latch pins which need pulse_width check
 
 
-4. checking unconstrained_internal_endpoints (1161)
+4. checking unconstrained_internal_endpoints (1393)
 ---------------------------------------------------
- There are 1161 pins that are not constrained for maximum delay. (HIGH)
+ There are 1393 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
@@ -143,7 +143,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-        inf        0.000                      0                 1177          inf        0.000                      0                 1177           NA           NA                      NA                    NA  
+        inf        0.000                      0                 1409          inf        0.000                      0                 1409           NA           NA                      NA                    NA  
 
 
 There are no user specified timing constraints.
@@ -212,391 +212,471 @@ Path Group:  (none)
 From Clock:  
   To Clock:  
 
-Max Delay          1177 Endpoints
-Min Delay          1177 Endpoints
+Max Delay          1409 Endpoints
+Min Delay          1409 Endpoints
 --------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
 Slack:                    inf
-  Source:                 u_top_vga/u_boss_draw/boss_x_pos_reg[1]/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            u_top_vga/u_boss_draw/vga_out\\.rgb_reg[0]/D
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        36.878ns  (logic 2.046ns (5.548%)  route 34.832ns (94.452%))
-  Logic Levels:           11  (CARRY4=1 FDCE=1 LUT4=2 LUT5=1 LUT6=6)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X8Y17          FDCE                         0.000     0.000 r  u_top_vga/u_boss_draw/boss_x_pos_reg[1]/C
-    SLICE_X8Y17          FDCE (Prop_fdce_C_Q)         0.518     0.518 r  u_top_vga/u_boss_draw/boss_x_pos_reg[1]/Q
-                         net (fo=10, routed)          1.486     2.004    u_top_vga/u_boss_draw/boss_x_pos_reg[1]
-    SLICE_X8Y14          LUT4 (Prop_lut4_I3_O)        0.124     2.128 r  u_top_vga/u_boss_draw/vga_out\\.rgb[11]_i_146/O
-                         net (fo=1, routed)           0.000     2.128    u_top_vga/u_platform/p_0_out_inferred__4/vga_out\\.rgb[0]_i_417[0]
-    SLICE_X8Y14          CARRY4 (Prop_carry4_S[1]_O[1])
-                                                      0.230     2.358 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_47/O[1]
-                         net (fo=2670, routed)       24.975    27.332    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb_reg[0]_i_227_0[1]
-    SLICE_X45Y39         LUT6 (Prop_lut6_I1_O)        0.306    27.638 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_292/O
-                         net (fo=1, routed)           1.029    28.667    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_292_n_0
-    SLICE_X45Y39         LUT5 (Prop_lut5_I0_O)        0.124    28.791 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_128/O
-                         net (fo=1, routed)           0.801    29.592    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_128_n_0
-    SLICE_X44Y39         LUT6 (Prop_lut6_I3_O)        0.124    29.716 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_46/O
-                         net (fo=1, routed)           1.217    30.933    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_46_n_0
-    SLICE_X44Y20         LUT6 (Prop_lut6_I1_O)        0.124    31.057 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_18/O
-                         net (fo=1, routed)           1.507    32.564    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_18_n_0
-    SLICE_X41Y4          LUT6 (Prop_lut6_I0_O)        0.124    32.688 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_7/O
-                         net (fo=1, routed)           1.229    33.917    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_7_n_0
-    SLICE_X38Y18         LUT6 (Prop_lut6_I5_O)        0.124    34.041 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_2/O
-                         net (fo=2, routed)           1.415    35.456    u_top_vga/u_platform/vga_out\\.rgb_reg[8]
-    SLICE_X15Y19         LUT4 (Prop_lut4_I2_O)        0.124    35.580 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_3__0/O
-                         net (fo=12, routed)          1.175    36.754    u_top_vga/u_platform/vga_out\\.rgb[11]_i_3__0_n_0
-    SLICE_X11Y20         LUT6 (Prop_lut6_I1_O)        0.124    36.878 r  u_top_vga/u_platform/vga_out\\.rgb[0]_i_1/O
-                         net (fo=1, routed)           0.000    36.878    u_top_vga/u_boss_draw/vga_out\\.rgb_reg[11]_0[0]
-    SLICE_X11Y20         FDRE                                         r  u_top_vga/u_boss_draw/vga_out\\.rgb_reg[0]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 u_top_vga/u_boss_draw/boss_x_pos_reg[1]/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            u_top_vga/u_boss_draw/vga_out\\.rgb_reg[9]/D
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        36.731ns  (logic 2.046ns (5.570%)  route 34.685ns (94.430%))
-  Logic Levels:           11  (CARRY4=1 FDCE=1 LUT4=2 LUT5=1 LUT6=6)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X8Y17          FDCE                         0.000     0.000 r  u_top_vga/u_boss_draw/boss_x_pos_reg[1]/C
-    SLICE_X8Y17          FDCE (Prop_fdce_C_Q)         0.518     0.518 r  u_top_vga/u_boss_draw/boss_x_pos_reg[1]/Q
-                         net (fo=10, routed)          1.486     2.004    u_top_vga/u_boss_draw/boss_x_pos_reg[1]
-    SLICE_X8Y14          LUT4 (Prop_lut4_I3_O)        0.124     2.128 r  u_top_vga/u_boss_draw/vga_out\\.rgb[11]_i_146/O
-                         net (fo=1, routed)           0.000     2.128    u_top_vga/u_platform/p_0_out_inferred__4/vga_out\\.rgb[0]_i_417[0]
-    SLICE_X8Y14          CARRY4 (Prop_carry4_S[1]_O[1])
-                                                      0.230     2.358 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_47/O[1]
-                         net (fo=2670, routed)       24.975    27.332    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb_reg[0]_i_227_0[1]
-    SLICE_X45Y39         LUT6 (Prop_lut6_I1_O)        0.306    27.638 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_292/O
-                         net (fo=1, routed)           1.029    28.667    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_292_n_0
-    SLICE_X45Y39         LUT5 (Prop_lut5_I0_O)        0.124    28.791 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_128/O
-                         net (fo=1, routed)           0.801    29.592    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_128_n_0
-    SLICE_X44Y39         LUT6 (Prop_lut6_I3_O)        0.124    29.716 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_46/O
-                         net (fo=1, routed)           1.217    30.933    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_46_n_0
-    SLICE_X44Y20         LUT6 (Prop_lut6_I1_O)        0.124    31.057 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_18/O
-                         net (fo=1, routed)           1.507    32.564    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_18_n_0
-    SLICE_X41Y4          LUT6 (Prop_lut6_I0_O)        0.124    32.688 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_7/O
-                         net (fo=1, routed)           1.229    33.917    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_7_n_0
-    SLICE_X38Y18         LUT6 (Prop_lut6_I5_O)        0.124    34.041 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_2/O
-                         net (fo=2, routed)           1.415    35.456    u_top_vga/u_platform/vga_out\\.rgb_reg[8]
-    SLICE_X15Y19         LUT4 (Prop_lut4_I2_O)        0.124    35.580 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_3__0/O
-                         net (fo=12, routed)          1.028    36.607    u_top_vga/u_platform/vga_out\\.rgb[11]_i_3__0_n_0
-    SLICE_X11Y19         LUT6 (Prop_lut6_I1_O)        0.124    36.731 r  u_top_vga/u_platform/vga_out\\.rgb[9]_i_1/O
-                         net (fo=1, routed)           0.000    36.731    u_top_vga/u_boss_draw/vga_out\\.rgb_reg[11]_0[9]
-    SLICE_X11Y19         FDRE                                         r  u_top_vga/u_boss_draw/vga_out\\.rgb_reg[9]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 u_top_vga/u_boss_draw/boss_x_pos_reg[1]/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            u_top_vga/u_boss_draw/vga_out\\.rgb_reg[7]/D
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        36.553ns  (logic 2.046ns (5.597%)  route 34.507ns (94.403%))
-  Logic Levels:           11  (CARRY4=1 FDCE=1 LUT4=2 LUT5=1 LUT6=6)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X8Y17          FDCE                         0.000     0.000 r  u_top_vga/u_boss_draw/boss_x_pos_reg[1]/C
-    SLICE_X8Y17          FDCE (Prop_fdce_C_Q)         0.518     0.518 r  u_top_vga/u_boss_draw/boss_x_pos_reg[1]/Q
-                         net (fo=10, routed)          1.486     2.004    u_top_vga/u_boss_draw/boss_x_pos_reg[1]
-    SLICE_X8Y14          LUT4 (Prop_lut4_I3_O)        0.124     2.128 r  u_top_vga/u_boss_draw/vga_out\\.rgb[11]_i_146/O
-                         net (fo=1, routed)           0.000     2.128    u_top_vga/u_platform/p_0_out_inferred__4/vga_out\\.rgb[0]_i_417[0]
-    SLICE_X8Y14          CARRY4 (Prop_carry4_S[1]_O[1])
-                                                      0.230     2.358 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_47/O[1]
-                         net (fo=2670, routed)       24.975    27.332    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb_reg[0]_i_227_0[1]
-    SLICE_X45Y39         LUT6 (Prop_lut6_I1_O)        0.306    27.638 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_292/O
-                         net (fo=1, routed)           1.029    28.667    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_292_n_0
-    SLICE_X45Y39         LUT5 (Prop_lut5_I0_O)        0.124    28.791 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_128/O
-                         net (fo=1, routed)           0.801    29.592    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_128_n_0
-    SLICE_X44Y39         LUT6 (Prop_lut6_I3_O)        0.124    29.716 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_46/O
-                         net (fo=1, routed)           1.217    30.933    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_46_n_0
-    SLICE_X44Y20         LUT6 (Prop_lut6_I1_O)        0.124    31.057 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_18/O
-                         net (fo=1, routed)           1.507    32.564    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_18_n_0
-    SLICE_X41Y4          LUT6 (Prop_lut6_I0_O)        0.124    32.688 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_7/O
-                         net (fo=1, routed)           1.229    33.917    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_7_n_0
-    SLICE_X38Y18         LUT6 (Prop_lut6_I5_O)        0.124    34.041 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_2/O
-                         net (fo=2, routed)           1.415    35.456    u_top_vga/u_platform/vga_out\\.rgb_reg[8]
-    SLICE_X15Y19         LUT4 (Prop_lut4_I2_O)        0.124    35.580 f  u_top_vga/u_platform/vga_out\\.rgb[11]_i_3__0/O
-                         net (fo=12, routed)          0.849    36.429    u_top_vga/u_platform/vga_out\\.rgb[11]_i_3__0_n_0
-    SLICE_X13Y19         LUT6 (Prop_lut6_I0_O)        0.124    36.553 r  u_top_vga/u_platform/vga_out\\.rgb[7]_i_1/O
-                         net (fo=1, routed)           0.000    36.553    u_top_vga/u_boss_draw/vga_out\\.rgb_reg[11]_0[7]
-    SLICE_X13Y19         FDRE                                         r  u_top_vga/u_boss_draw/vga_out\\.rgb_reg[7]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 u_top_vga/u_boss_draw/boss_x_pos_reg[1]/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            u_top_vga/u_boss_draw/vga_out\\.rgb_reg[6]/D
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        36.552ns  (logic 2.046ns (5.598%)  route 34.506ns (94.402%))
-  Logic Levels:           11  (CARRY4=1 FDCE=1 LUT4=2 LUT5=1 LUT6=6)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X8Y17          FDCE                         0.000     0.000 r  u_top_vga/u_boss_draw/boss_x_pos_reg[1]/C
-    SLICE_X8Y17          FDCE (Prop_fdce_C_Q)         0.518     0.518 r  u_top_vga/u_boss_draw/boss_x_pos_reg[1]/Q
-                         net (fo=10, routed)          1.486     2.004    u_top_vga/u_boss_draw/boss_x_pos_reg[1]
-    SLICE_X8Y14          LUT4 (Prop_lut4_I3_O)        0.124     2.128 r  u_top_vga/u_boss_draw/vga_out\\.rgb[11]_i_146/O
-                         net (fo=1, routed)           0.000     2.128    u_top_vga/u_platform/p_0_out_inferred__4/vga_out\\.rgb[0]_i_417[0]
-    SLICE_X8Y14          CARRY4 (Prop_carry4_S[1]_O[1])
-                                                      0.230     2.358 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_47/O[1]
-                         net (fo=2670, routed)       24.975    27.332    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb_reg[0]_i_227_0[1]
-    SLICE_X45Y39         LUT6 (Prop_lut6_I1_O)        0.306    27.638 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_292/O
-                         net (fo=1, routed)           1.029    28.667    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_292_n_0
-    SLICE_X45Y39         LUT5 (Prop_lut5_I0_O)        0.124    28.791 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_128/O
-                         net (fo=1, routed)           0.801    29.592    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_128_n_0
-    SLICE_X44Y39         LUT6 (Prop_lut6_I3_O)        0.124    29.716 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_46/O
-                         net (fo=1, routed)           1.217    30.933    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_46_n_0
-    SLICE_X44Y20         LUT6 (Prop_lut6_I1_O)        0.124    31.057 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_18/O
-                         net (fo=1, routed)           1.507    32.564    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_18_n_0
-    SLICE_X41Y4          LUT6 (Prop_lut6_I0_O)        0.124    32.688 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_7/O
-                         net (fo=1, routed)           1.229    33.917    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_7_n_0
-    SLICE_X38Y18         LUT6 (Prop_lut6_I5_O)        0.124    34.041 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_2/O
-                         net (fo=2, routed)           1.415    35.456    u_top_vga/u_platform/vga_out\\.rgb_reg[8]
-    SLICE_X15Y19         LUT4 (Prop_lut4_I2_O)        0.124    35.580 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_3__0/O
-                         net (fo=12, routed)          0.848    36.428    u_top_vga/u_platform/vga_out\\.rgb[11]_i_3__0_n_0
-    SLICE_X13Y19         LUT6 (Prop_lut6_I1_O)        0.124    36.552 r  u_top_vga/u_platform/vga_out\\.rgb[6]_i_1/O
-                         net (fo=1, routed)           0.000    36.552    u_top_vga/u_boss_draw/vga_out\\.rgb_reg[11]_0[6]
-    SLICE_X13Y19         FDRE                                         r  u_top_vga/u_boss_draw/vga_out\\.rgb_reg[6]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 u_top_vga/u_boss_draw/boss_x_pos_reg[1]/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            u_top_vga/u_boss_draw/vga_out\\.rgb_reg[3]/D
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        36.485ns  (logic 2.046ns (5.608%)  route 34.439ns (94.392%))
-  Logic Levels:           11  (CARRY4=1 FDCE=1 LUT4=2 LUT5=1 LUT6=6)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X8Y17          FDCE                         0.000     0.000 r  u_top_vga/u_boss_draw/boss_x_pos_reg[1]/C
-    SLICE_X8Y17          FDCE (Prop_fdce_C_Q)         0.518     0.518 r  u_top_vga/u_boss_draw/boss_x_pos_reg[1]/Q
-                         net (fo=10, routed)          1.486     2.004    u_top_vga/u_boss_draw/boss_x_pos_reg[1]
-    SLICE_X8Y14          LUT4 (Prop_lut4_I3_O)        0.124     2.128 r  u_top_vga/u_boss_draw/vga_out\\.rgb[11]_i_146/O
-                         net (fo=1, routed)           0.000     2.128    u_top_vga/u_platform/p_0_out_inferred__4/vga_out\\.rgb[0]_i_417[0]
-    SLICE_X8Y14          CARRY4 (Prop_carry4_S[1]_O[1])
-                                                      0.230     2.358 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_47/O[1]
-                         net (fo=2670, routed)       24.975    27.332    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb_reg[0]_i_227_0[1]
-    SLICE_X45Y39         LUT6 (Prop_lut6_I1_O)        0.306    27.638 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_292/O
-                         net (fo=1, routed)           1.029    28.667    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_292_n_0
-    SLICE_X45Y39         LUT5 (Prop_lut5_I0_O)        0.124    28.791 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_128/O
-                         net (fo=1, routed)           0.801    29.592    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_128_n_0
-    SLICE_X44Y39         LUT6 (Prop_lut6_I3_O)        0.124    29.716 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_46/O
-                         net (fo=1, routed)           1.217    30.933    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_46_n_0
-    SLICE_X44Y20         LUT6 (Prop_lut6_I1_O)        0.124    31.057 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_18/O
-                         net (fo=1, routed)           1.507    32.564    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_18_n_0
-    SLICE_X41Y4          LUT6 (Prop_lut6_I0_O)        0.124    32.688 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_7/O
-                         net (fo=1, routed)           1.229    33.917    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_7_n_0
-    SLICE_X38Y18         LUT6 (Prop_lut6_I5_O)        0.124    34.041 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_2/O
-                         net (fo=2, routed)           1.415    35.456    u_top_vga/u_platform/vga_out\\.rgb_reg[8]
-    SLICE_X15Y19         LUT4 (Prop_lut4_I2_O)        0.124    35.580 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_3__0/O
-                         net (fo=12, routed)          0.781    36.361    u_top_vga/u_platform/vga_out\\.rgb[11]_i_3__0_n_0
-    SLICE_X13Y20         LUT6 (Prop_lut6_I1_O)        0.124    36.485 r  u_top_vga/u_platform/vga_out\\.rgb[3]_i_1/O
-                         net (fo=1, routed)           0.000    36.485    u_top_vga/u_boss_draw/vga_out\\.rgb_reg[11]_0[3]
-    SLICE_X13Y20         FDRE                                         r  u_top_vga/u_boss_draw/vga_out\\.rgb_reg[3]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 u_top_vga/u_boss_draw/boss_x_pos_reg[1]/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            u_top_vga/u_boss_draw/vga_out\\.rgb_reg[1]/D
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        36.479ns  (logic 2.046ns (5.609%)  route 34.433ns (94.391%))
-  Logic Levels:           11  (CARRY4=1 FDCE=1 LUT4=2 LUT5=1 LUT6=6)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X8Y17          FDCE                         0.000     0.000 r  u_top_vga/u_boss_draw/boss_x_pos_reg[1]/C
-    SLICE_X8Y17          FDCE (Prop_fdce_C_Q)         0.518     0.518 r  u_top_vga/u_boss_draw/boss_x_pos_reg[1]/Q
-                         net (fo=10, routed)          1.486     2.004    u_top_vga/u_boss_draw/boss_x_pos_reg[1]
-    SLICE_X8Y14          LUT4 (Prop_lut4_I3_O)        0.124     2.128 r  u_top_vga/u_boss_draw/vga_out\\.rgb[11]_i_146/O
-                         net (fo=1, routed)           0.000     2.128    u_top_vga/u_platform/p_0_out_inferred__4/vga_out\\.rgb[0]_i_417[0]
-    SLICE_X8Y14          CARRY4 (Prop_carry4_S[1]_O[1])
-                                                      0.230     2.358 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_47/O[1]
-                         net (fo=2670, routed)       24.975    27.332    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb_reg[0]_i_227_0[1]
-    SLICE_X45Y39         LUT6 (Prop_lut6_I1_O)        0.306    27.638 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_292/O
-                         net (fo=1, routed)           1.029    28.667    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_292_n_0
-    SLICE_X45Y39         LUT5 (Prop_lut5_I0_O)        0.124    28.791 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_128/O
-                         net (fo=1, routed)           0.801    29.592    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_128_n_0
-    SLICE_X44Y39         LUT6 (Prop_lut6_I3_O)        0.124    29.716 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_46/O
-                         net (fo=1, routed)           1.217    30.933    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_46_n_0
-    SLICE_X44Y20         LUT6 (Prop_lut6_I1_O)        0.124    31.057 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_18/O
-                         net (fo=1, routed)           1.507    32.564    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_18_n_0
-    SLICE_X41Y4          LUT6 (Prop_lut6_I0_O)        0.124    32.688 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_7/O
-                         net (fo=1, routed)           1.229    33.917    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_7_n_0
-    SLICE_X38Y18         LUT6 (Prop_lut6_I5_O)        0.124    34.041 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_2/O
-                         net (fo=2, routed)           1.415    35.456    u_top_vga/u_platform/vga_out\\.rgb_reg[8]
-    SLICE_X15Y19         LUT4 (Prop_lut4_I2_O)        0.124    35.580 f  u_top_vga/u_platform/vga_out\\.rgb[11]_i_3__0/O
-                         net (fo=12, routed)          0.776    36.355    u_top_vga/u_platform/vga_out\\.rgb[11]_i_3__0_n_0
-    SLICE_X11Y20         LUT6 (Prop_lut6_I0_O)        0.124    36.479 r  u_top_vga/u_platform/vga_out\\.rgb[1]_i_1/O
-                         net (fo=1, routed)           0.000    36.479    u_top_vga/u_boss_draw/vga_out\\.rgb_reg[11]_0[1]
-    SLICE_X11Y20         FDRE                                         r  u_top_vga/u_boss_draw/vga_out\\.rgb_reg[1]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 u_top_vga/u_boss_draw/boss_x_pos_reg[1]/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            u_top_vga/u_boss_draw/vga_out\\.rgb_reg[2]/D
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        36.476ns  (logic 2.046ns (5.609%)  route 34.430ns (94.391%))
-  Logic Levels:           11  (CARRY4=1 FDCE=1 LUT4=2 LUT5=1 LUT6=6)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X8Y17          FDCE                         0.000     0.000 r  u_top_vga/u_boss_draw/boss_x_pos_reg[1]/C
-    SLICE_X8Y17          FDCE (Prop_fdce_C_Q)         0.518     0.518 r  u_top_vga/u_boss_draw/boss_x_pos_reg[1]/Q
-                         net (fo=10, routed)          1.486     2.004    u_top_vga/u_boss_draw/boss_x_pos_reg[1]
-    SLICE_X8Y14          LUT4 (Prop_lut4_I3_O)        0.124     2.128 r  u_top_vga/u_boss_draw/vga_out\\.rgb[11]_i_146/O
-                         net (fo=1, routed)           0.000     2.128    u_top_vga/u_platform/p_0_out_inferred__4/vga_out\\.rgb[0]_i_417[0]
-    SLICE_X8Y14          CARRY4 (Prop_carry4_S[1]_O[1])
-                                                      0.230     2.358 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_47/O[1]
-                         net (fo=2670, routed)       24.975    27.332    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb_reg[0]_i_227_0[1]
-    SLICE_X45Y39         LUT6 (Prop_lut6_I1_O)        0.306    27.638 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_292/O
-                         net (fo=1, routed)           1.029    28.667    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_292_n_0
-    SLICE_X45Y39         LUT5 (Prop_lut5_I0_O)        0.124    28.791 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_128/O
-                         net (fo=1, routed)           0.801    29.592    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_128_n_0
-    SLICE_X44Y39         LUT6 (Prop_lut6_I3_O)        0.124    29.716 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_46/O
-                         net (fo=1, routed)           1.217    30.933    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_46_n_0
-    SLICE_X44Y20         LUT6 (Prop_lut6_I1_O)        0.124    31.057 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_18/O
-                         net (fo=1, routed)           1.507    32.564    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_18_n_0
-    SLICE_X41Y4          LUT6 (Prop_lut6_I0_O)        0.124    32.688 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_7/O
-                         net (fo=1, routed)           1.229    33.917    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_7_n_0
-    SLICE_X38Y18         LUT6 (Prop_lut6_I5_O)        0.124    34.041 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_2/O
-                         net (fo=2, routed)           1.415    35.456    u_top_vga/u_platform/vga_out\\.rgb_reg[8]
-    SLICE_X15Y19         LUT4 (Prop_lut4_I2_O)        0.124    35.580 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_3__0/O
-                         net (fo=12, routed)          0.773    36.352    u_top_vga/u_platform/vga_out\\.rgb[11]_i_3__0_n_0
-    SLICE_X11Y20         LUT6 (Prop_lut6_I1_O)        0.124    36.476 r  u_top_vga/u_platform/vga_out\\.rgb[2]_i_1/O
-                         net (fo=1, routed)           0.000    36.476    u_top_vga/u_boss_draw/vga_out\\.rgb_reg[11]_0[2]
-    SLICE_X11Y20         FDRE                                         r  u_top_vga/u_boss_draw/vga_out\\.rgb_reg[2]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 u_top_vga/u_boss_draw/boss_x_pos_reg[1]/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            u_top_vga/u_boss_draw/vga_out\\.rgb_reg[11]/D
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        36.347ns  (logic 2.046ns (5.629%)  route 34.301ns (94.371%))
-  Logic Levels:           11  (CARRY4=1 FDCE=1 LUT4=2 LUT5=1 LUT6=6)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X8Y17          FDCE                         0.000     0.000 r  u_top_vga/u_boss_draw/boss_x_pos_reg[1]/C
-    SLICE_X8Y17          FDCE (Prop_fdce_C_Q)         0.518     0.518 r  u_top_vga/u_boss_draw/boss_x_pos_reg[1]/Q
-                         net (fo=10, routed)          1.486     2.004    u_top_vga/u_boss_draw/boss_x_pos_reg[1]
-    SLICE_X8Y14          LUT4 (Prop_lut4_I3_O)        0.124     2.128 r  u_top_vga/u_boss_draw/vga_out\\.rgb[11]_i_146/O
-                         net (fo=1, routed)           0.000     2.128    u_top_vga/u_platform/p_0_out_inferred__4/vga_out\\.rgb[0]_i_417[0]
-    SLICE_X8Y14          CARRY4 (Prop_carry4_S[1]_O[1])
-                                                      0.230     2.358 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_47/O[1]
-                         net (fo=2670, routed)       24.975    27.332    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb_reg[0]_i_227_0[1]
-    SLICE_X45Y39         LUT6 (Prop_lut6_I1_O)        0.306    27.638 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_292/O
-                         net (fo=1, routed)           1.029    28.667    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_292_n_0
-    SLICE_X45Y39         LUT5 (Prop_lut5_I0_O)        0.124    28.791 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_128/O
-                         net (fo=1, routed)           0.801    29.592    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_128_n_0
-    SLICE_X44Y39         LUT6 (Prop_lut6_I3_O)        0.124    29.716 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_46/O
-                         net (fo=1, routed)           1.217    30.933    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_46_n_0
-    SLICE_X44Y20         LUT6 (Prop_lut6_I1_O)        0.124    31.057 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_18/O
-                         net (fo=1, routed)           1.507    32.564    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_18_n_0
-    SLICE_X41Y4          LUT6 (Prop_lut6_I0_O)        0.124    32.688 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_7/O
-                         net (fo=1, routed)           1.229    33.917    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_7_n_0
-    SLICE_X38Y18         LUT6 (Prop_lut6_I5_O)        0.124    34.041 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_2/O
-                         net (fo=2, routed)           1.415    35.456    u_top_vga/u_platform/vga_out\\.rgb_reg[8]
-    SLICE_X15Y19         LUT4 (Prop_lut4_I2_O)        0.124    35.580 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_3__0/O
-                         net (fo=12, routed)          0.644    36.223    u_top_vga/u_platform/vga_out\\.rgb[11]_i_3__0_n_0
-    SLICE_X13Y19         LUT6 (Prop_lut6_I1_O)        0.124    36.347 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_1/O
-                         net (fo=1, routed)           0.000    36.347    u_top_vga/u_boss_draw/vga_out\\.rgb_reg[11]_0[11]
-    SLICE_X13Y19         FDRE                                         r  u_top_vga/u_boss_draw/vga_out\\.rgb_reg[11]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 u_top_vga/u_boss_draw/boss_x_pos_reg[1]/C
-                            (rising edge-triggered cell FDCE)
-  Destination:            u_top_vga/u_boss_draw/vga_out\\.rgb_reg[10]/D
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        36.315ns  (logic 2.046ns (5.634%)  route 34.269ns (94.366%))
-  Logic Levels:           11  (CARRY4=1 FDCE=1 LUT4=2 LUT5=1 LUT6=6)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X8Y17          FDCE                         0.000     0.000 r  u_top_vga/u_boss_draw/boss_x_pos_reg[1]/C
-    SLICE_X8Y17          FDCE (Prop_fdce_C_Q)         0.518     0.518 r  u_top_vga/u_boss_draw/boss_x_pos_reg[1]/Q
-                         net (fo=10, routed)          1.486     2.004    u_top_vga/u_boss_draw/boss_x_pos_reg[1]
-    SLICE_X8Y14          LUT4 (Prop_lut4_I3_O)        0.124     2.128 r  u_top_vga/u_boss_draw/vga_out\\.rgb[11]_i_146/O
-                         net (fo=1, routed)           0.000     2.128    u_top_vga/u_platform/p_0_out_inferred__4/vga_out\\.rgb[0]_i_417[0]
-    SLICE_X8Y14          CARRY4 (Prop_carry4_S[1]_O[1])
-                                                      0.230     2.358 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_47/O[1]
-                         net (fo=2670, routed)       24.975    27.332    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb_reg[0]_i_227_0[1]
-    SLICE_X45Y39         LUT6 (Prop_lut6_I1_O)        0.306    27.638 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_292/O
-                         net (fo=1, routed)           1.029    28.667    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_292_n_0
-    SLICE_X45Y39         LUT5 (Prop_lut5_I0_O)        0.124    28.791 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_128/O
-                         net (fo=1, routed)           0.801    29.592    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_128_n_0
-    SLICE_X44Y39         LUT6 (Prop_lut6_I3_O)        0.124    29.716 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_46/O
-                         net (fo=1, routed)           1.217    30.933    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_46_n_0
-    SLICE_X44Y20         LUT6 (Prop_lut6_I1_O)        0.124    31.057 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_18/O
-                         net (fo=1, routed)           1.507    32.564    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_18_n_0
-    SLICE_X41Y4          LUT6 (Prop_lut6_I0_O)        0.124    32.688 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_7/O
-                         net (fo=1, routed)           1.229    33.917    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_7_n_0
-    SLICE_X38Y18         LUT6 (Prop_lut6_I5_O)        0.124    34.041 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_2/O
-                         net (fo=2, routed)           1.415    35.456    u_top_vga/u_platform/vga_out\\.rgb_reg[8]
-    SLICE_X15Y19         LUT4 (Prop_lut4_I2_O)        0.124    35.580 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_3__0/O
-                         net (fo=12, routed)          0.611    36.191    u_top_vga/u_platform/vga_out\\.rgb[11]_i_3__0_n_0
-    SLICE_X13Y20         LUT6 (Prop_lut6_I1_O)        0.124    36.315 r  u_top_vga/u_platform/vga_out\\.rgb[10]_i_1/O
-                         net (fo=1, routed)           0.000    36.315    u_top_vga/u_boss_draw/vga_out\\.rgb_reg[11]_0[10]
-    SLICE_X13Y20         FDRE                                         r  u_top_vga/u_boss_draw/vga_out\\.rgb_reg[10]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 u_top_vga/u_boss_draw/boss_x_pos_reg[1]/C
-                            (rising edge-triggered cell FDCE)
+  Source:                 u_top_vga/u_boss_draw/boss_y_pos_reg[0]/C
+                            (rising edge-triggered cell FDPE)
   Destination:            u_top_vga/u_boss_draw/vga_out\\.rgb_reg[5]/D
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        36.203ns  (logic 2.046ns (5.651%)  route 34.157ns (94.349%))
-  Logic Levels:           11  (CARRY4=1 FDCE=1 LUT4=2 LUT5=1 LUT6=6)
+  Data Path Delay:        36.704ns  (logic 3.486ns (9.498%)  route 33.218ns (90.502%))
+  Logic Levels:           14  (CARRY4=3 FDPE=1 LUT2=2 LUT4=1 LUT5=1 LUT6=6)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X8Y17          FDCE                         0.000     0.000 r  u_top_vga/u_boss_draw/boss_x_pos_reg[1]/C
-    SLICE_X8Y17          FDCE (Prop_fdce_C_Q)         0.518     0.518 r  u_top_vga/u_boss_draw/boss_x_pos_reg[1]/Q
-                         net (fo=10, routed)          1.486     2.004    u_top_vga/u_boss_draw/boss_x_pos_reg[1]
-    SLICE_X8Y14          LUT4 (Prop_lut4_I3_O)        0.124     2.128 r  u_top_vga/u_boss_draw/vga_out\\.rgb[11]_i_146/O
-                         net (fo=1, routed)           0.000     2.128    u_top_vga/u_platform/p_0_out_inferred__4/vga_out\\.rgb[0]_i_417[0]
-    SLICE_X8Y14          CARRY4 (Prop_carry4_S[1]_O[1])
-                                                      0.230     2.358 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_47/O[1]
-                         net (fo=2670, routed)       24.975    27.332    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb_reg[0]_i_227_0[1]
-    SLICE_X45Y39         LUT6 (Prop_lut6_I1_O)        0.306    27.638 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_292/O
-                         net (fo=1, routed)           1.029    28.667    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_292_n_0
-    SLICE_X45Y39         LUT5 (Prop_lut5_I0_O)        0.124    28.791 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_128/O
-                         net (fo=1, routed)           0.801    29.592    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_128_n_0
-    SLICE_X44Y39         LUT6 (Prop_lut6_I3_O)        0.124    29.716 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_46/O
-                         net (fo=1, routed)           1.217    30.933    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_46_n_0
-    SLICE_X44Y20         LUT6 (Prop_lut6_I1_O)        0.124    31.057 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_18/O
-                         net (fo=1, routed)           1.507    32.564    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_18_n_0
-    SLICE_X41Y4          LUT6 (Prop_lut6_I0_O)        0.124    32.688 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_7/O
-                         net (fo=1, routed)           1.229    33.917    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_7_n_0
-    SLICE_X38Y18         LUT6 (Prop_lut6_I5_O)        0.124    34.041 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[8]_i_2/O
-                         net (fo=2, routed)           1.415    35.456    u_top_vga/u_platform/vga_out\\.rgb_reg[8]
-    SLICE_X15Y19         LUT4 (Prop_lut4_I2_O)        0.124    35.580 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_3__0/O
-                         net (fo=12, routed)          0.499    36.079    u_top_vga/u_platform/vga_out\\.rgb[11]_i_3__0_n_0
-    SLICE_X13Y20         LUT6 (Prop_lut6_I1_O)        0.124    36.203 r  u_top_vga/u_platform/vga_out\\.rgb[5]_i_1/O
-                         net (fo=1, routed)           0.000    36.203    u_top_vga/u_boss_draw/vga_out\\.rgb_reg[11]_0[5]
-    SLICE_X13Y20         FDRE                                         r  u_top_vga/u_boss_draw/vga_out\\.rgb_reg[5]/D
+    SLICE_X35Y15         FDPE                         0.000     0.000 r  u_top_vga/u_boss_draw/boss_y_pos_reg[0]/C
+    SLICE_X35Y15         FDPE (Prop_fdpe_C_Q)         0.456     0.456 r  u_top_vga/u_boss_draw/boss_y_pos_reg[0]/Q
+                         net (fo=13, routed)          0.814     1.270    u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_130[0]
+    SLICE_X30Y17         LUT2 (Prop_lut2_I1_O)        0.124     1.394 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_151/O
+                         net (fo=1, routed)           0.000     1.394    u_top_vga/u_platform/vga_out\\.rgb[11]_i_151_n_0
+    SLICE_X30Y17         CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.427     1.821 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_48/O[1]
+                         net (fo=8, routed)           0.911     2.733    u_top_vga/u_platform/vcount_reg_reg[3]_0[0]
+    SLICE_X30Y29         CARRY4 (Prop_carry4_S[0]_O[0])
+                                                      0.558     3.291 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_32/O[0]
+                         net (fo=2, routed)           0.706     3.997    u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_32_n_7
+    SLICE_X31Y29         LUT2 (Prop_lut2_I0_O)        0.295     4.292 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_94/O
+                         net (fo=1, routed)           0.000     4.292    u_top_vga/u_platform/vga_out\\.rgb[11]_i_94_n_0
+    SLICE_X31Y29         CARRY4 (Prop_carry4_S[1]_O[1])
+                                                      0.227     4.519 f  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_30/O[1]
+                         net (fo=2881, routed)       20.602    25.121    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[1]_i_7_0[1]
+    SLICE_X32Y62         LUT5 (Prop_lut5_I0_O)        0.329    25.450 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_243/O
+                         net (fo=11, routed)          3.691    29.141    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_243_n_0
+    SLICE_X53Y73         LUT6 (Prop_lut6_I4_O)        0.326    29.467 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_128/O
+                         net (fo=1, routed)           0.902    30.368    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_128_n_0
+    SLICE_X50Y78         LUT6 (Prop_lut6_I1_O)        0.124    30.492 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_42/O
+                         net (fo=1, routed)           1.277    31.770    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_42_n_0
+    SLICE_X53Y68         LUT6 (Prop_lut6_I3_O)        0.124    31.894 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_16/O
+                         net (fo=1, routed)           0.667    32.561    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_16_n_0
+    SLICE_X52Y66         LUT6 (Prop_lut6_I1_O)        0.124    32.685 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_6/O
+                         net (fo=1, routed)           0.965    33.649    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_6_n_0
+    SLICE_X39Y58         LUT6 (Prop_lut6_I5_O)        0.124    33.773 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_2/O
+                         net (fo=2, routed)           1.614    35.387    u_top_vga/u_platform/vga_out\\.rgb_reg[4]_0
+    SLICE_X33Y32         LUT4 (Prop_lut4_I1_O)        0.124    35.511 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_4/O
+                         net (fo=12, routed)          1.069    36.580    u_top_vga/u_platform/vga_out\\.rgb[11]_i_4_n_0
+    SLICE_X32Y31         LUT6 (Prop_lut6_I2_O)        0.124    36.704 r  u_top_vga/u_platform/vga_out\\.rgb[5]_i_1/O
+                         net (fo=1, routed)           0.000    36.704    u_top_vga/u_boss_draw/vga_out\\.rgb_reg[11]_0[5]
+    SLICE_X32Y31         FDRE                                         r  u_top_vga/u_boss_draw/vga_out\\.rgb_reg[5]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_top_vga/u_boss_draw/boss_y_pos_reg[0]/C
+                            (rising edge-triggered cell FDPE)
+  Destination:            u_top_vga/u_boss_draw/vga_out\\.rgb_reg[6]/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        36.699ns  (logic 3.486ns (9.499%)  route 33.213ns (90.501%))
+  Logic Levels:           14  (CARRY4=3 FDPE=1 LUT2=2 LUT4=1 LUT5=1 LUT6=6)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X35Y15         FDPE                         0.000     0.000 r  u_top_vga/u_boss_draw/boss_y_pos_reg[0]/C
+    SLICE_X35Y15         FDPE (Prop_fdpe_C_Q)         0.456     0.456 r  u_top_vga/u_boss_draw/boss_y_pos_reg[0]/Q
+                         net (fo=13, routed)          0.814     1.270    u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_130[0]
+    SLICE_X30Y17         LUT2 (Prop_lut2_I1_O)        0.124     1.394 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_151/O
+                         net (fo=1, routed)           0.000     1.394    u_top_vga/u_platform/vga_out\\.rgb[11]_i_151_n_0
+    SLICE_X30Y17         CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.427     1.821 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_48/O[1]
+                         net (fo=8, routed)           0.911     2.733    u_top_vga/u_platform/vcount_reg_reg[3]_0[0]
+    SLICE_X30Y29         CARRY4 (Prop_carry4_S[0]_O[0])
+                                                      0.558     3.291 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_32/O[0]
+                         net (fo=2, routed)           0.706     3.997    u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_32_n_7
+    SLICE_X31Y29         LUT2 (Prop_lut2_I0_O)        0.295     4.292 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_94/O
+                         net (fo=1, routed)           0.000     4.292    u_top_vga/u_platform/vga_out\\.rgb[11]_i_94_n_0
+    SLICE_X31Y29         CARRY4 (Prop_carry4_S[1]_O[1])
+                                                      0.227     4.519 f  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_30/O[1]
+                         net (fo=2881, routed)       20.602    25.121    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[1]_i_7_0[1]
+    SLICE_X32Y62         LUT5 (Prop_lut5_I0_O)        0.329    25.450 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_243/O
+                         net (fo=11, routed)          3.691    29.141    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_243_n_0
+    SLICE_X53Y73         LUT6 (Prop_lut6_I4_O)        0.326    29.467 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_128/O
+                         net (fo=1, routed)           0.902    30.368    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_128_n_0
+    SLICE_X50Y78         LUT6 (Prop_lut6_I1_O)        0.124    30.492 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_42/O
+                         net (fo=1, routed)           1.277    31.770    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_42_n_0
+    SLICE_X53Y68         LUT6 (Prop_lut6_I3_O)        0.124    31.894 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_16/O
+                         net (fo=1, routed)           0.667    32.561    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_16_n_0
+    SLICE_X52Y66         LUT6 (Prop_lut6_I1_O)        0.124    32.685 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_6/O
+                         net (fo=1, routed)           0.965    33.649    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_6_n_0
+    SLICE_X39Y58         LUT6 (Prop_lut6_I5_O)        0.124    33.773 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_2/O
+                         net (fo=2, routed)           1.614    35.387    u_top_vga/u_platform/vga_out\\.rgb_reg[4]_0
+    SLICE_X33Y32         LUT4 (Prop_lut4_I1_O)        0.124    35.511 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_4/O
+                         net (fo=12, routed)          1.063    36.575    u_top_vga/u_platform/vga_out\\.rgb[11]_i_4_n_0
+    SLICE_X32Y31         LUT6 (Prop_lut6_I2_O)        0.124    36.699 r  u_top_vga/u_platform/vga_out\\.rgb[6]_i_1/O
+                         net (fo=1, routed)           0.000    36.699    u_top_vga/u_boss_draw/vga_out\\.rgb_reg[11]_0[6]
+    SLICE_X32Y31         FDRE                                         r  u_top_vga/u_boss_draw/vga_out\\.rgb_reg[6]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_top_vga/u_boss_draw/boss_y_pos_reg[0]/C
+                            (rising edge-triggered cell FDPE)
+  Destination:            u_top_vga/u_boss_draw/vga_out\\.rgb_reg[11]/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        36.666ns  (logic 3.486ns (9.507%)  route 33.180ns (90.493%))
+  Logic Levels:           14  (CARRY4=3 FDPE=1 LUT2=2 LUT4=1 LUT5=2 LUT6=5)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X35Y15         FDPE                         0.000     0.000 r  u_top_vga/u_boss_draw/boss_y_pos_reg[0]/C
+    SLICE_X35Y15         FDPE (Prop_fdpe_C_Q)         0.456     0.456 r  u_top_vga/u_boss_draw/boss_y_pos_reg[0]/Q
+                         net (fo=13, routed)          0.814     1.270    u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_130[0]
+    SLICE_X30Y17         LUT2 (Prop_lut2_I1_O)        0.124     1.394 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_151/O
+                         net (fo=1, routed)           0.000     1.394    u_top_vga/u_platform/vga_out\\.rgb[11]_i_151_n_0
+    SLICE_X30Y17         CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.427     1.821 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_48/O[1]
+                         net (fo=8, routed)           0.911     2.733    u_top_vga/u_platform/vcount_reg_reg[3]_0[0]
+    SLICE_X30Y29         CARRY4 (Prop_carry4_S[0]_O[0])
+                                                      0.558     3.291 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_32/O[0]
+                         net (fo=2, routed)           0.706     3.997    u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_32_n_7
+    SLICE_X31Y29         LUT2 (Prop_lut2_I0_O)        0.295     4.292 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_94/O
+                         net (fo=1, routed)           0.000     4.292    u_top_vga/u_platform/vga_out\\.rgb[11]_i_94_n_0
+    SLICE_X31Y29         CARRY4 (Prop_carry4_S[1]_O[1])
+                                                      0.227     4.519 f  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_30/O[1]
+                         net (fo=2881, routed)       20.602    25.121    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[1]_i_7_0[1]
+    SLICE_X32Y62         LUT5 (Prop_lut5_I0_O)        0.329    25.450 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_243/O
+                         net (fo=11, routed)          2.645    28.094    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_243_n_0
+    SLICE_X56Y68         LUT6 (Prop_lut6_I2_O)        0.326    28.420 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_111/O
+                         net (fo=1, routed)           0.738    29.158    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_111_n_0
+    SLICE_X55Y69         LUT6 (Prop_lut6_I0_O)        0.124    29.282 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_40/O
+                         net (fo=1, routed)           1.111    30.393    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_40_n_0
+    SLICE_X46Y69         LUT6 (Prop_lut6_I1_O)        0.124    30.517 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_14/O
+                         net (fo=1, routed)           1.379    31.896    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_14_n_0
+    SLICE_X57Y69         LUT6 (Prop_lut6_I0_O)        0.124    32.020 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_6/O
+                         net (fo=1, routed)           1.490    33.511    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_6_n_0
+    SLICE_X38Y63         LUT5 (Prop_lut5_I4_O)        0.124    33.635 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_2/O
+                         net (fo=2, routed)           1.743    35.378    u_top_vga/u_platform/vga_out\\.rgb_reg[5]
+    SLICE_X32Y32         LUT4 (Prop_lut4_I3_O)        0.124    35.502 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_5__0/O
+                         net (fo=12, routed)          1.040    36.542    u_top_vga/u_platform/vga_out\\.rgb[11]_i_5__0_n_0
+    SLICE_X32Y30         LUT6 (Prop_lut6_I3_O)        0.124    36.666 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_1/O
+                         net (fo=1, routed)           0.000    36.666    u_top_vga/u_boss_draw/vga_out\\.rgb_reg[11]_0[11]
+    SLICE_X32Y30         FDRE                                         r  u_top_vga/u_boss_draw/vga_out\\.rgb_reg[11]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_top_vga/u_boss_draw/boss_y_pos_reg[0]/C
+                            (rising edge-triggered cell FDPE)
+  Destination:            u_top_vga/u_boss_draw/vga_out\\.rgb_reg[8]/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        36.511ns  (logic 3.486ns (9.548%)  route 33.025ns (90.452%))
+  Logic Levels:           14  (CARRY4=3 FDPE=1 LUT2=2 LUT4=1 LUT5=1 LUT6=6)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X35Y15         FDPE                         0.000     0.000 r  u_top_vga/u_boss_draw/boss_y_pos_reg[0]/C
+    SLICE_X35Y15         FDPE (Prop_fdpe_C_Q)         0.456     0.456 r  u_top_vga/u_boss_draw/boss_y_pos_reg[0]/Q
+                         net (fo=13, routed)          0.814     1.270    u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_130[0]
+    SLICE_X30Y17         LUT2 (Prop_lut2_I1_O)        0.124     1.394 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_151/O
+                         net (fo=1, routed)           0.000     1.394    u_top_vga/u_platform/vga_out\\.rgb[11]_i_151_n_0
+    SLICE_X30Y17         CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.427     1.821 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_48/O[1]
+                         net (fo=8, routed)           0.911     2.733    u_top_vga/u_platform/vcount_reg_reg[3]_0[0]
+    SLICE_X30Y29         CARRY4 (Prop_carry4_S[0]_O[0])
+                                                      0.558     3.291 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_32/O[0]
+                         net (fo=2, routed)           0.706     3.997    u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_32_n_7
+    SLICE_X31Y29         LUT2 (Prop_lut2_I0_O)        0.295     4.292 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_94/O
+                         net (fo=1, routed)           0.000     4.292    u_top_vga/u_platform/vga_out\\.rgb[11]_i_94_n_0
+    SLICE_X31Y29         CARRY4 (Prop_carry4_S[1]_O[1])
+                                                      0.227     4.519 f  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_30/O[1]
+                         net (fo=2881, routed)       20.602    25.121    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[1]_i_7_0[1]
+    SLICE_X32Y62         LUT5 (Prop_lut5_I0_O)        0.329    25.450 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_243/O
+                         net (fo=11, routed)          3.691    29.141    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_243_n_0
+    SLICE_X53Y73         LUT6 (Prop_lut6_I4_O)        0.326    29.467 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_128/O
+                         net (fo=1, routed)           0.902    30.368    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_128_n_0
+    SLICE_X50Y78         LUT6 (Prop_lut6_I1_O)        0.124    30.492 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_42/O
+                         net (fo=1, routed)           1.277    31.770    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_42_n_0
+    SLICE_X53Y68         LUT6 (Prop_lut6_I3_O)        0.124    31.894 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_16/O
+                         net (fo=1, routed)           0.667    32.561    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_16_n_0
+    SLICE_X52Y66         LUT6 (Prop_lut6_I1_O)        0.124    32.685 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_6/O
+                         net (fo=1, routed)           0.965    33.649    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_6_n_0
+    SLICE_X39Y58         LUT6 (Prop_lut6_I5_O)        0.124    33.773 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_2/O
+                         net (fo=2, routed)           1.614    35.387    u_top_vga/u_platform/vga_out\\.rgb_reg[4]_0
+    SLICE_X33Y32         LUT4 (Prop_lut4_I1_O)        0.124    35.511 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_4/O
+                         net (fo=12, routed)          0.875    36.387    u_top_vga/u_platform/vga_out\\.rgb[11]_i_4_n_0
+    SLICE_X33Y31         LUT6 (Prop_lut6_I2_O)        0.124    36.511 r  u_top_vga/u_platform/vga_out\\.rgb[8]_i_1/O
+                         net (fo=1, routed)           0.000    36.511    u_top_vga/u_boss_draw/vga_out\\.rgb_reg[11]_0[8]
+    SLICE_X33Y31         FDRE                                         r  u_top_vga/u_boss_draw/vga_out\\.rgb_reg[8]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_top_vga/u_boss_draw/boss_y_pos_reg[0]/C
+                            (rising edge-triggered cell FDPE)
+  Destination:            u_top_vga/u_boss_draw/vga_out\\.rgb_reg[4]/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        36.506ns  (logic 3.486ns (9.549%)  route 33.020ns (90.451%))
+  Logic Levels:           14  (CARRY4=3 FDPE=1 LUT2=2 LUT4=1 LUT5=1 LUT6=6)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X35Y15         FDPE                         0.000     0.000 r  u_top_vga/u_boss_draw/boss_y_pos_reg[0]/C
+    SLICE_X35Y15         FDPE (Prop_fdpe_C_Q)         0.456     0.456 r  u_top_vga/u_boss_draw/boss_y_pos_reg[0]/Q
+                         net (fo=13, routed)          0.814     1.270    u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_130[0]
+    SLICE_X30Y17         LUT2 (Prop_lut2_I1_O)        0.124     1.394 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_151/O
+                         net (fo=1, routed)           0.000     1.394    u_top_vga/u_platform/vga_out\\.rgb[11]_i_151_n_0
+    SLICE_X30Y17         CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.427     1.821 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_48/O[1]
+                         net (fo=8, routed)           0.911     2.733    u_top_vga/u_platform/vcount_reg_reg[3]_0[0]
+    SLICE_X30Y29         CARRY4 (Prop_carry4_S[0]_O[0])
+                                                      0.558     3.291 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_32/O[0]
+                         net (fo=2, routed)           0.706     3.997    u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_32_n_7
+    SLICE_X31Y29         LUT2 (Prop_lut2_I0_O)        0.295     4.292 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_94/O
+                         net (fo=1, routed)           0.000     4.292    u_top_vga/u_platform/vga_out\\.rgb[11]_i_94_n_0
+    SLICE_X31Y29         CARRY4 (Prop_carry4_S[1]_O[1])
+                                                      0.227     4.519 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_30/O[1]
+                         net (fo=2881, routed)       20.602    25.121    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[1]_i_7_0[1]
+    SLICE_X32Y62         LUT5 (Prop_lut5_I0_O)        0.329    25.450 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_243/O
+                         net (fo=11, routed)          3.691    29.141    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_243_n_0
+    SLICE_X53Y73         LUT6 (Prop_lut6_I4_O)        0.326    29.467 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_128/O
+                         net (fo=1, routed)           0.902    30.368    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_128_n_0
+    SLICE_X50Y78         LUT6 (Prop_lut6_I1_O)        0.124    30.492 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_42/O
+                         net (fo=1, routed)           1.277    31.770    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_42_n_0
+    SLICE_X53Y68         LUT6 (Prop_lut6_I3_O)        0.124    31.894 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_16/O
+                         net (fo=1, routed)           0.667    32.561    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_16_n_0
+    SLICE_X52Y66         LUT6 (Prop_lut6_I1_O)        0.124    32.685 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_6/O
+                         net (fo=1, routed)           0.965    33.649    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_6_n_0
+    SLICE_X39Y58         LUT6 (Prop_lut6_I5_O)        0.124    33.773 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_2/O
+                         net (fo=2, routed)           1.614    35.387    u_top_vga/u_platform/vga_out\\.rgb_reg[4]_0
+    SLICE_X33Y32         LUT4 (Prop_lut4_I1_O)        0.124    35.511 f  u_top_vga/u_platform/vga_out\\.rgb[11]_i_4/O
+                         net (fo=12, routed)          0.870    36.382    u_top_vga/u_platform/vga_out\\.rgb[11]_i_4_n_0
+    SLICE_X33Y31         LUT6 (Prop_lut6_I1_O)        0.124    36.506 r  u_top_vga/u_platform/vga_out\\.rgb[4]_i_1/O
+                         net (fo=1, routed)           0.000    36.506    u_top_vga/u_boss_draw/vga_out\\.rgb_reg[11]_0[4]
+    SLICE_X33Y31         FDRE                                         r  u_top_vga/u_boss_draw/vga_out\\.rgb_reg[4]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_top_vga/u_boss_draw/boss_y_pos_reg[0]/C
+                            (rising edge-triggered cell FDPE)
+  Destination:            u_top_vga/u_boss_draw/vga_out\\.rgb_reg[3]/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        36.499ns  (logic 3.486ns (9.551%)  route 33.013ns (90.449%))
+  Logic Levels:           14  (CARRY4=3 FDPE=1 LUT2=2 LUT4=1 LUT5=2 LUT6=5)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X35Y15         FDPE                         0.000     0.000 r  u_top_vga/u_boss_draw/boss_y_pos_reg[0]/C
+    SLICE_X35Y15         FDPE (Prop_fdpe_C_Q)         0.456     0.456 r  u_top_vga/u_boss_draw/boss_y_pos_reg[0]/Q
+                         net (fo=13, routed)          0.814     1.270    u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_130[0]
+    SLICE_X30Y17         LUT2 (Prop_lut2_I1_O)        0.124     1.394 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_151/O
+                         net (fo=1, routed)           0.000     1.394    u_top_vga/u_platform/vga_out\\.rgb[11]_i_151_n_0
+    SLICE_X30Y17         CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.427     1.821 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_48/O[1]
+                         net (fo=8, routed)           0.911     2.733    u_top_vga/u_platform/vcount_reg_reg[3]_0[0]
+    SLICE_X30Y29         CARRY4 (Prop_carry4_S[0]_O[0])
+                                                      0.558     3.291 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_32/O[0]
+                         net (fo=2, routed)           0.706     3.997    u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_32_n_7
+    SLICE_X31Y29         LUT2 (Prop_lut2_I0_O)        0.295     4.292 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_94/O
+                         net (fo=1, routed)           0.000     4.292    u_top_vga/u_platform/vga_out\\.rgb[11]_i_94_n_0
+    SLICE_X31Y29         CARRY4 (Prop_carry4_S[1]_O[1])
+                                                      0.227     4.519 f  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_30/O[1]
+                         net (fo=2881, routed)       20.602    25.121    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[1]_i_7_0[1]
+    SLICE_X32Y62         LUT5 (Prop_lut5_I0_O)        0.329    25.450 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_243/O
+                         net (fo=11, routed)          2.645    28.094    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_243_n_0
+    SLICE_X56Y68         LUT6 (Prop_lut6_I2_O)        0.326    28.420 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_111/O
+                         net (fo=1, routed)           0.738    29.158    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_111_n_0
+    SLICE_X55Y69         LUT6 (Prop_lut6_I0_O)        0.124    29.282 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_40/O
+                         net (fo=1, routed)           1.111    30.393    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_40_n_0
+    SLICE_X46Y69         LUT6 (Prop_lut6_I1_O)        0.124    30.517 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_14/O
+                         net (fo=1, routed)           1.379    31.896    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_14_n_0
+    SLICE_X57Y69         LUT6 (Prop_lut6_I0_O)        0.124    32.020 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_6/O
+                         net (fo=1, routed)           1.490    33.511    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_6_n_0
+    SLICE_X38Y63         LUT5 (Prop_lut5_I4_O)        0.124    33.635 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_2/O
+                         net (fo=2, routed)           1.743    35.378    u_top_vga/u_platform/vga_out\\.rgb_reg[5]
+    SLICE_X32Y32         LUT4 (Prop_lut4_I3_O)        0.124    35.502 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_5__0/O
+                         net (fo=12, routed)          0.873    36.375    u_top_vga/u_platform/vga_out\\.rgb[11]_i_5__0_n_0
+    SLICE_X32Y31         LUT6 (Prop_lut6_I3_O)        0.124    36.499 r  u_top_vga/u_platform/vga_out\\.rgb[3]_i_1/O
+                         net (fo=1, routed)           0.000    36.499    u_top_vga/u_boss_draw/vga_out\\.rgb_reg[11]_0[3]
+    SLICE_X32Y31         FDRE                                         r  u_top_vga/u_boss_draw/vga_out\\.rgb_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_top_vga/u_boss_draw/boss_y_pos_reg[0]/C
+                            (rising edge-triggered cell FDPE)
+  Destination:            u_top_vga/u_boss_draw/vga_out\\.rgb_reg[10]/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        36.451ns  (logic 3.486ns (9.563%)  route 32.965ns (90.437%))
+  Logic Levels:           14  (CARRY4=3 FDPE=1 LUT2=2 LUT4=1 LUT5=2 LUT6=5)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X35Y15         FDPE                         0.000     0.000 r  u_top_vga/u_boss_draw/boss_y_pos_reg[0]/C
+    SLICE_X35Y15         FDPE (Prop_fdpe_C_Q)         0.456     0.456 r  u_top_vga/u_boss_draw/boss_y_pos_reg[0]/Q
+                         net (fo=13, routed)          0.814     1.270    u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_130[0]
+    SLICE_X30Y17         LUT2 (Prop_lut2_I1_O)        0.124     1.394 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_151/O
+                         net (fo=1, routed)           0.000     1.394    u_top_vga/u_platform/vga_out\\.rgb[11]_i_151_n_0
+    SLICE_X30Y17         CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.427     1.821 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_48/O[1]
+                         net (fo=8, routed)           0.911     2.733    u_top_vga/u_platform/vcount_reg_reg[3]_0[0]
+    SLICE_X30Y29         CARRY4 (Prop_carry4_S[0]_O[0])
+                                                      0.558     3.291 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_32/O[0]
+                         net (fo=2, routed)           0.706     3.997    u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_32_n_7
+    SLICE_X31Y29         LUT2 (Prop_lut2_I0_O)        0.295     4.292 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_94/O
+                         net (fo=1, routed)           0.000     4.292    u_top_vga/u_platform/vga_out\\.rgb[11]_i_94_n_0
+    SLICE_X31Y29         CARRY4 (Prop_carry4_S[1]_O[1])
+                                                      0.227     4.519 f  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_30/O[1]
+                         net (fo=2881, routed)       20.602    25.121    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[1]_i_7_0[1]
+    SLICE_X32Y62         LUT5 (Prop_lut5_I0_O)        0.329    25.450 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_243/O
+                         net (fo=11, routed)          2.645    28.094    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_243_n_0
+    SLICE_X56Y68         LUT6 (Prop_lut6_I2_O)        0.326    28.420 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_111/O
+                         net (fo=1, routed)           0.738    29.158    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_111_n_0
+    SLICE_X55Y69         LUT6 (Prop_lut6_I0_O)        0.124    29.282 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_40/O
+                         net (fo=1, routed)           1.111    30.393    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_40_n_0
+    SLICE_X46Y69         LUT6 (Prop_lut6_I1_O)        0.124    30.517 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_14/O
+                         net (fo=1, routed)           1.379    31.896    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_14_n_0
+    SLICE_X57Y69         LUT6 (Prop_lut6_I0_O)        0.124    32.020 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_6/O
+                         net (fo=1, routed)           1.490    33.511    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_6_n_0
+    SLICE_X38Y63         LUT5 (Prop_lut5_I4_O)        0.124    33.635 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_2/O
+                         net (fo=2, routed)           1.743    35.378    u_top_vga/u_platform/vga_out\\.rgb_reg[5]
+    SLICE_X32Y32         LUT4 (Prop_lut4_I3_O)        0.124    35.502 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_5__0/O
+                         net (fo=12, routed)          0.825    36.327    u_top_vga/u_platform/vga_out\\.rgb[11]_i_5__0_n_0
+    SLICE_X32Y30         LUT6 (Prop_lut6_I3_O)        0.124    36.451 r  u_top_vga/u_platform/vga_out\\.rgb[10]_i_1/O
+                         net (fo=1, routed)           0.000    36.451    u_top_vga/u_boss_draw/vga_out\\.rgb_reg[11]_0[10]
+    SLICE_X32Y30         FDRE                                         r  u_top_vga/u_boss_draw/vga_out\\.rgb_reg[10]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_top_vga/u_boss_draw/boss_y_pos_reg[0]/C
+                            (rising edge-triggered cell FDPE)
+  Destination:            u_top_vga/u_boss_draw/vga_out\\.rgb_reg[7]/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        36.445ns  (logic 3.486ns (9.565%)  route 32.959ns (90.435%))
+  Logic Levels:           14  (CARRY4=3 FDPE=1 LUT2=2 LUT4=1 LUT5=1 LUT6=6)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X35Y15         FDPE                         0.000     0.000 r  u_top_vga/u_boss_draw/boss_y_pos_reg[0]/C
+    SLICE_X35Y15         FDPE (Prop_fdpe_C_Q)         0.456     0.456 r  u_top_vga/u_boss_draw/boss_y_pos_reg[0]/Q
+                         net (fo=13, routed)          0.814     1.270    u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_130[0]
+    SLICE_X30Y17         LUT2 (Prop_lut2_I1_O)        0.124     1.394 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_151/O
+                         net (fo=1, routed)           0.000     1.394    u_top_vga/u_platform/vga_out\\.rgb[11]_i_151_n_0
+    SLICE_X30Y17         CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.427     1.821 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_48/O[1]
+                         net (fo=8, routed)           0.911     2.733    u_top_vga/u_platform/vcount_reg_reg[3]_0[0]
+    SLICE_X30Y29         CARRY4 (Prop_carry4_S[0]_O[0])
+                                                      0.558     3.291 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_32/O[0]
+                         net (fo=2, routed)           0.706     3.997    u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_32_n_7
+    SLICE_X31Y29         LUT2 (Prop_lut2_I0_O)        0.295     4.292 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_94/O
+                         net (fo=1, routed)           0.000     4.292    u_top_vga/u_platform/vga_out\\.rgb[11]_i_94_n_0
+    SLICE_X31Y29         CARRY4 (Prop_carry4_S[1]_O[1])
+                                                      0.227     4.519 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_30/O[1]
+                         net (fo=2881, routed)       20.602    25.121    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[1]_i_7_0[1]
+    SLICE_X32Y62         LUT5 (Prop_lut5_I0_O)        0.329    25.450 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_243/O
+                         net (fo=11, routed)          3.691    29.141    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_243_n_0
+    SLICE_X53Y73         LUT6 (Prop_lut6_I4_O)        0.326    29.467 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_128/O
+                         net (fo=1, routed)           0.902    30.368    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_128_n_0
+    SLICE_X50Y78         LUT6 (Prop_lut6_I1_O)        0.124    30.492 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_42/O
+                         net (fo=1, routed)           1.277    31.770    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_42_n_0
+    SLICE_X53Y68         LUT6 (Prop_lut6_I3_O)        0.124    31.894 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_16/O
+                         net (fo=1, routed)           0.667    32.561    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_16_n_0
+    SLICE_X52Y66         LUT6 (Prop_lut6_I1_O)        0.124    32.685 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_6/O
+                         net (fo=1, routed)           0.965    33.649    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_6_n_0
+    SLICE_X39Y58         LUT6 (Prop_lut6_I5_O)        0.124    33.773 f  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_2/O
+                         net (fo=2, routed)           1.614    35.387    u_top_vga/u_platform/vga_out\\.rgb_reg[4]_0
+    SLICE_X33Y32         LUT4 (Prop_lut4_I1_O)        0.124    35.511 f  u_top_vga/u_platform/vga_out\\.rgb[11]_i_4/O
+                         net (fo=12, routed)          0.810    36.321    u_top_vga/u_platform/vga_out\\.rgb[11]_i_4_n_0
+    SLICE_X32Y30         LUT6 (Prop_lut6_I1_O)        0.124    36.445 r  u_top_vga/u_platform/vga_out\\.rgb[7]_i_1/O
+                         net (fo=1, routed)           0.000    36.445    u_top_vga/u_boss_draw/vga_out\\.rgb_reg[11]_0[7]
+    SLICE_X32Y30         FDRE                                         r  u_top_vga/u_boss_draw/vga_out\\.rgb_reg[7]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_top_vga/u_boss_draw/boss_y_pos_reg[0]/C
+                            (rising edge-triggered cell FDPE)
+  Destination:            u_top_vga/u_boss_draw/vga_out\\.rgb_reg[9]/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        36.441ns  (logic 3.486ns (9.566%)  route 32.955ns (90.434%))
+  Logic Levels:           14  (CARRY4=3 FDPE=1 LUT2=2 LUT4=1 LUT5=1 LUT6=6)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X35Y15         FDPE                         0.000     0.000 r  u_top_vga/u_boss_draw/boss_y_pos_reg[0]/C
+    SLICE_X35Y15         FDPE (Prop_fdpe_C_Q)         0.456     0.456 r  u_top_vga/u_boss_draw/boss_y_pos_reg[0]/Q
+                         net (fo=13, routed)          0.814     1.270    u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_130[0]
+    SLICE_X30Y17         LUT2 (Prop_lut2_I1_O)        0.124     1.394 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_151/O
+                         net (fo=1, routed)           0.000     1.394    u_top_vga/u_platform/vga_out\\.rgb[11]_i_151_n_0
+    SLICE_X30Y17         CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.427     1.821 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_48/O[1]
+                         net (fo=8, routed)           0.911     2.733    u_top_vga/u_platform/vcount_reg_reg[3]_0[0]
+    SLICE_X30Y29         CARRY4 (Prop_carry4_S[0]_O[0])
+                                                      0.558     3.291 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_32/O[0]
+                         net (fo=2, routed)           0.706     3.997    u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_32_n_7
+    SLICE_X31Y29         LUT2 (Prop_lut2_I0_O)        0.295     4.292 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_94/O
+                         net (fo=1, routed)           0.000     4.292    u_top_vga/u_platform/vga_out\\.rgb[11]_i_94_n_0
+    SLICE_X31Y29         CARRY4 (Prop_carry4_S[1]_O[1])
+                                                      0.227     4.519 f  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_30/O[1]
+                         net (fo=2881, routed)       20.602    25.121    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[1]_i_7_0[1]
+    SLICE_X32Y62         LUT5 (Prop_lut5_I0_O)        0.329    25.450 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_243/O
+                         net (fo=11, routed)          3.691    29.141    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_243_n_0
+    SLICE_X53Y73         LUT6 (Prop_lut6_I4_O)        0.326    29.467 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_128/O
+                         net (fo=1, routed)           0.902    30.368    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_128_n_0
+    SLICE_X50Y78         LUT6 (Prop_lut6_I1_O)        0.124    30.492 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_42/O
+                         net (fo=1, routed)           1.277    31.770    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_42_n_0
+    SLICE_X53Y68         LUT6 (Prop_lut6_I3_O)        0.124    31.894 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_16/O
+                         net (fo=1, routed)           0.667    32.561    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_16_n_0
+    SLICE_X52Y66         LUT6 (Prop_lut6_I1_O)        0.124    32.685 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_6/O
+                         net (fo=1, routed)           0.965    33.649    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_6_n_0
+    SLICE_X39Y58         LUT6 (Prop_lut6_I5_O)        0.124    33.773 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_2/O
+                         net (fo=2, routed)           1.614    35.387    u_top_vga/u_platform/vga_out\\.rgb_reg[4]_0
+    SLICE_X33Y32         LUT4 (Prop_lut4_I1_O)        0.124    35.511 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_4/O
+                         net (fo=12, routed)          0.805    36.317    u_top_vga/u_platform/vga_out\\.rgb[11]_i_4_n_0
+    SLICE_X32Y30         LUT6 (Prop_lut6_I2_O)        0.124    36.441 r  u_top_vga/u_platform/vga_out\\.rgb[9]_i_1/O
+                         net (fo=1, routed)           0.000    36.441    u_top_vga/u_boss_draw/vga_out\\.rgb_reg[11]_0[9]
+    SLICE_X32Y30         FDRE                                         r  u_top_vga/u_boss_draw/vga_out\\.rgb_reg[9]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 u_top_vga/u_boss_draw/boss_y_pos_reg[0]/C
+                            (rising edge-triggered cell FDPE)
+  Destination:            u_top_vga/u_boss_draw/vga_out\\.rgb_reg[0]/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        36.346ns  (logic 3.486ns (9.591%)  route 32.860ns (90.409%))
+  Logic Levels:           14  (CARRY4=3 FDPE=1 LUT2=2 LUT4=1 LUT5=1 LUT6=6)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X35Y15         FDPE                         0.000     0.000 r  u_top_vga/u_boss_draw/boss_y_pos_reg[0]/C
+    SLICE_X35Y15         FDPE (Prop_fdpe_C_Q)         0.456     0.456 r  u_top_vga/u_boss_draw/boss_y_pos_reg[0]/Q
+                         net (fo=13, routed)          0.814     1.270    u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_130[0]
+    SLICE_X30Y17         LUT2 (Prop_lut2_I1_O)        0.124     1.394 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_151/O
+                         net (fo=1, routed)           0.000     1.394    u_top_vga/u_platform/vga_out\\.rgb[11]_i_151_n_0
+    SLICE_X30Y17         CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.427     1.821 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_48/O[1]
+                         net (fo=8, routed)           0.911     2.733    u_top_vga/u_platform/vcount_reg_reg[3]_0[0]
+    SLICE_X30Y29         CARRY4 (Prop_carry4_S[0]_O[0])
+                                                      0.558     3.291 r  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_32/O[0]
+                         net (fo=2, routed)           0.706     3.997    u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_32_n_7
+    SLICE_X31Y29         LUT2 (Prop_lut2_I0_O)        0.295     4.292 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_94/O
+                         net (fo=1, routed)           0.000     4.292    u_top_vga/u_platform/vga_out\\.rgb[11]_i_94_n_0
+    SLICE_X31Y29         CARRY4 (Prop_carry4_S[1]_O[1])
+                                                      0.227     4.519 f  u_top_vga/u_platform/vga_out\\.rgb_reg[11]_i_30/O[1]
+                         net (fo=2881, routed)       20.602    25.121    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[1]_i_7_0[1]
+    SLICE_X32Y62         LUT5 (Prop_lut5_I0_O)        0.329    25.450 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_243/O
+                         net (fo=11, routed)          3.691    29.141    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[5]_i_243_n_0
+    SLICE_X53Y73         LUT6 (Prop_lut6_I4_O)        0.326    29.467 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_128/O
+                         net (fo=1, routed)           0.902    30.368    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_128_n_0
+    SLICE_X50Y78         LUT6 (Prop_lut6_I1_O)        0.124    30.492 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_42/O
+                         net (fo=1, routed)           1.277    31.770    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_42_n_0
+    SLICE_X53Y68         LUT6 (Prop_lut6_I3_O)        0.124    31.894 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_16/O
+                         net (fo=1, routed)           0.667    32.561    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_16_n_0
+    SLICE_X52Y66         LUT6 (Prop_lut6_I1_O)        0.124    32.685 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_6/O
+                         net (fo=1, routed)           0.965    33.649    u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_6_n_0
+    SLICE_X39Y58         LUT6 (Prop_lut6_I5_O)        0.124    33.773 r  u_top_vga/u_boss_draw/p_0_out_inferred__4/vga_out\\.rgb[4]_i_2/O
+                         net (fo=2, routed)           1.614    35.387    u_top_vga/u_platform/vga_out\\.rgb_reg[4]_0
+    SLICE_X33Y32         LUT4 (Prop_lut4_I1_O)        0.124    35.511 r  u_top_vga/u_platform/vga_out\\.rgb[11]_i_4/O
+                         net (fo=12, routed)          0.710    36.222    u_top_vga/u_platform/vga_out\\.rgb[11]_i_4_n_0
+    SLICE_X32Y31         LUT6 (Prop_lut6_I2_O)        0.124    36.346 r  u_top_vga/u_platform/vga_out\\.rgb[0]_i_1/O
+                         net (fo=1, routed)           0.000    36.346    u_top_vga/u_boss_draw/vga_out\\.rgb_reg[11]_0[0]
+    SLICE_X32Y31         FDRE                                         r  u_top_vga/u_boss_draw/vga_out\\.rgb_reg[0]/D
   -------------------------------------------------------------------    -------------------
 
 
@@ -629,6 +709,23 @@ Slack:                    inf
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
+  Source:                 inst/seq_reg1_reg[6]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            inst/seq_reg1_reg[7]/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.183ns  (logic 0.128ns (69.867%)  route 0.055ns (30.133%))
+  Logic Levels:           1  (FDRE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X35Y45         FDRE                         0.000     0.000 r  inst/seq_reg1_reg[6]/C
+    SLICE_X35Y45         FDRE (Prop_fdre_C_Q)         0.128     0.128 r  inst/seq_reg1_reg[6]/Q
+                         net (fo=1, routed)           0.055     0.183    inst/seq_reg1[6]
+    SLICE_X35Y45         FDRE                                         r  inst/seq_reg1_reg[7]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
   Source:                 inst/seq_reg2_reg[6]/C
                             (rising edge-triggered cell FDRE)
   Destination:            inst/seq_reg2_reg[7]/D
@@ -643,6 +740,23 @@ Slack:                    inf
     SLICE_X35Y46         FDRE (Prop_fdre_C_Q)         0.128     0.128 r  inst/seq_reg2_reg[6]/Q
                          net (fo=1, routed)           0.055     0.183    inst/seq_reg2[6]
     SLICE_X35Y46         FDRE                                         r  inst/seq_reg2_reg[7]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 inst/seq_reg1_reg[0]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            inst/seq_reg1_reg[1]/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.197ns  (logic 0.141ns (71.611%)  route 0.056ns (28.389%))
+  Logic Levels:           1  (FDRE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X35Y45         FDRE                         0.000     0.000 r  inst/seq_reg1_reg[0]/C
+    SLICE_X35Y45         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  inst/seq_reg1_reg[0]/Q
+                         net (fo=1, routed)           0.056     0.197    inst/seq_reg1[0]
+    SLICE_X35Y45         FDRE                                         r  inst/seq_reg1_reg[1]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
@@ -663,71 +777,37 @@ Slack:                    inf
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 inst/seq_reg1_reg[6]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            inst/seq_reg1_reg[7]/D
+  Source:                 u_top_vga/u_draw_mouse/inst/rgb_out_reg[1]/C
+                            (rising edge-triggered cell FDSE)
+  Destination:            u_top_vga/u_draw_mouse/vga_out_mouse\\.rgb_reg[1]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.203ns  (logic 0.148ns (72.742%)  route 0.055ns (27.258%))
-  Logic Levels:           1  (FDRE=1)
+  Data Path Delay:        0.247ns  (logic 0.141ns (57.117%)  route 0.106ns (42.883%))
+  Logic Levels:           1  (FDSE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X34Y46         FDRE                         0.000     0.000 r  inst/seq_reg1_reg[6]/C
-    SLICE_X34Y46         FDRE (Prop_fdre_C_Q)         0.148     0.148 r  inst/seq_reg1_reg[6]/Q
-                         net (fo=1, routed)           0.055     0.203    inst/seq_reg1[6]
-    SLICE_X34Y46         FDRE                                         r  inst/seq_reg1_reg[7]/D
+    SLICE_X3Y33          FDSE                         0.000     0.000 r  u_top_vga/u_draw_mouse/inst/rgb_out_reg[1]/C
+    SLICE_X3Y33          FDSE (Prop_fdse_C_Q)         0.141     0.141 r  u_top_vga/u_draw_mouse/inst/rgb_out_reg[1]/Q
+                         net (fo=1, routed)           0.106     0.247    u_top_vga/u_draw_mouse/rgb_out[1]
+    SLICE_X0Y33          FDRE                                         r  u_top_vga/u_draw_mouse/vga_out_mouse\\.rgb_reg[1]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 inst/seq_reg1_reg[0]/C
+  Source:                 inst/seq_reg1_reg[1]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            inst/seq_reg1_reg[1]/D
+  Destination:            inst/seq_reg1_reg[2]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.220ns  (logic 0.164ns (74.580%)  route 0.056ns (25.420%))
+  Data Path Delay:        0.247ns  (logic 0.128ns (51.736%)  route 0.119ns (48.264%))
   Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X34Y46         FDRE                         0.000     0.000 r  inst/seq_reg1_reg[0]/C
-    SLICE_X34Y46         FDRE (Prop_fdre_C_Q)         0.164     0.164 r  inst/seq_reg1_reg[0]/Q
-                         net (fo=1, routed)           0.056     0.220    inst/seq_reg1[0]
-    SLICE_X34Y46         FDRE                                         r  inst/seq_reg1_reg[1]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 u_top_vga/u_vga_timing/hsync_reg/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            u_top_vga/u_draw_bg/vga_bg_out\\.hsync_reg/D
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.220ns  (logic 0.164ns (74.580%)  route 0.056ns (25.420%))
-  Logic Levels:           1  (FDRE=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X6Y9           FDRE                         0.000     0.000 r  u_top_vga/u_vga_timing/hsync_reg/C
-    SLICE_X6Y9           FDRE (Prop_fdre_C_Q)         0.164     0.164 r  u_top_vga/u_vga_timing/hsync_reg/Q
-                         net (fo=1, routed)           0.056     0.220    u_top_vga/u_draw_bg/hsync
-    SLICE_X6Y9           FDRE                                         r  u_top_vga/u_draw_bg/vga_bg_out\\.hsync_reg/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 u_top_vga/u_MouseCtl/Inst_Ps2Interface/FSM_onehot_state_reg[5]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            u_top_vga/u_MouseCtl/Inst_Ps2Interface/read_data_reg/D
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.223ns  (logic 0.148ns (66.471%)  route 0.075ns (33.529%))
-  Logic Levels:           1  (FDRE=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X2Y48          FDRE                         0.000     0.000 r  u_top_vga/u_MouseCtl/Inst_Ps2Interface/FSM_onehot_state_reg[5]/C
-    SLICE_X2Y48          FDRE (Prop_fdre_C_Q)         0.148     0.148 r  u_top_vga/u_MouseCtl/Inst_Ps2Interface/FSM_onehot_state_reg[5]/Q
-                         net (fo=3, routed)           0.075     0.223    u_top_vga/u_MouseCtl/Inst_Ps2Interface/FSM_onehot_state_reg_n_0_[5]
-    SLICE_X3Y48          FDRE                                         r  u_top_vga/u_MouseCtl/Inst_Ps2Interface/read_data_reg/D
+    SLICE_X35Y45         FDRE                         0.000     0.000 r  inst/seq_reg1_reg[1]/C
+    SLICE_X35Y45         FDRE (Prop_fdre_C_Q)         0.128     0.128 r  inst/seq_reg1_reg[1]/Q
+                         net (fo=1, routed)           0.119     0.247    inst/seq_reg1[1]
+    SLICE_X35Y45         FDRE                                         r  inst/seq_reg1_reg[2]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
@@ -748,39 +828,37 @@ Slack:                    inf
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 u_top_vga/u_vga_timing/vsync_reg/C
+  Source:                 u_top_vga/u_wpn_draw_def/vcount_s1_reg[7]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            u_top_vga/u_draw_bg/vga_bg_out\\.vsync_reg/D
+  Destination:            u_top_vga/u_wpn_draw_def/vcount_s2_reg[7]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.249ns  (logic 0.128ns (51.354%)  route 0.121ns (48.646%))
+  Data Path Delay:        0.247ns  (logic 0.128ns (51.736%)  route 0.119ns (48.264%))
   Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X4Y12          FDRE                         0.000     0.000 r  u_top_vga/u_vga_timing/vsync_reg/C
-    SLICE_X4Y12          FDRE (Prop_fdre_C_Q)         0.128     0.128 r  u_top_vga/u_vga_timing/vsync_reg/Q
-                         net (fo=1, routed)           0.121     0.249    u_top_vga/u_draw_bg/vsync
-    SLICE_X4Y11          FDRE                                         r  u_top_vga/u_draw_bg/vga_bg_out\\.vsync_reg/D
+    SLICE_X11Y31         FDRE                         0.000     0.000 r  u_top_vga/u_wpn_draw_def/vcount_s1_reg[7]/C
+    SLICE_X11Y31         FDRE (Prop_fdre_C_Q)         0.128     0.128 r  u_top_vga/u_wpn_draw_def/vcount_s1_reg[7]/Q
+                         net (fo=1, routed)           0.119     0.247    u_top_vga/u_wpn_draw_def/vcount_s1[7]
+    SLICE_X11Y31         FDRE                                         r  u_top_vga/u_wpn_draw_def/vcount_s2_reg[7]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 u_top_vga/u_MouseCtl/Inst_Ps2Interface/frame_reg[6]/C
+  Source:                 u_top_vga/u_wpn_draw_def/rgb_s1_reg[11]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            u_top_vga/u_MouseCtl/Inst_Ps2Interface/rx_parity_reg/D
+  Destination:            u_top_vga/u_wpn_draw_def/rgb_s2_reg[11]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.251ns  (logic 0.186ns (74.077%)  route 0.065ns (25.923%))
-  Logic Levels:           2  (FDRE=1 LUT4=1)
+  Data Path Delay:        0.251ns  (logic 0.141ns (56.174%)  route 0.110ns (43.826%))
+  Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X0Y48          FDRE                         0.000     0.000 r  u_top_vga/u_MouseCtl/Inst_Ps2Interface/frame_reg[6]/C
-    SLICE_X0Y48          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  u_top_vga/u_MouseCtl/Inst_Ps2Interface/frame_reg[6]/Q
-                         net (fo=3, routed)           0.065     0.206    u_top_vga/u_MouseCtl/Inst_Ps2Interface/CONV_INTEGER[5]
-    SLICE_X1Y48          LUT4 (Prop_lut4_I2_O)        0.045     0.251 r  u_top_vga/u_MouseCtl/Inst_Ps2Interface/rx_parity_i_1/O
-                         net (fo=1, routed)           0.000     0.251    u_top_vga/u_MouseCtl/Inst_Ps2Interface/rx_parity_i_1_n_0
-    SLICE_X1Y48          FDRE                                         r  u_top_vga/u_MouseCtl/Inst_Ps2Interface/rx_parity_reg/D
+    SLICE_X11Y31         FDRE                         0.000     0.000 r  u_top_vga/u_wpn_draw_def/rgb_s1_reg[11]/C
+    SLICE_X11Y31         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  u_top_vga/u_wpn_draw_def/rgb_s1_reg[11]/Q
+                         net (fo=1, routed)           0.110     0.251    u_top_vga/u_wpn_draw_def/rgb_s1[11]
+    SLICE_X10Y31         FDRE                                         r  u_top_vga/u_wpn_draw_def/rgb_s2_reg[11]/D
   -------------------------------------------------------------------    -------------------
 
 

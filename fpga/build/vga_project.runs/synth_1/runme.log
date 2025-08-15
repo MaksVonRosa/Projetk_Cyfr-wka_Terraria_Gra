@@ -8,7 +8,7 @@
   **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
   **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
   **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-  **** Start of session at: Fri Aug 15 01:41:17 2025
+  **** Start of session at: Sat Aug 16 01:28:40 2025
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
@@ -20,15 +20,13 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 26828
+INFO: [Synth 8-7075] Helper process launched with PID 13352
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 947.488 ; gain = 467.121
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 945.613 ; gain = 465.375
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-10180] variable 'hx_start' must explicitly be declared as automatic or static [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/hearts_display.sv:32]
 WARNING: [Synth 8-10180] variable 'hx_end' must explicitly be declared as automatic or static [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/hearts_display.sv:33]
-INFO: [Synth 8-11241] undeclared symbol 'pos_x', assumed default net type 'wire' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:216]
-INFO: [Synth 8-11241] undeclared symbol 'pos_y', assumed default net type 'wire' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:217]
-INFO: [Synth 8-11241] undeclared symbol 'flip_h', assumed default net type 'wire' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:219]
+INFO: [Synth 8-11241] undeclared symbol 'flip_h', assumed default net type 'wire' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:204]
 INFO: [Synth 8-11241] undeclared symbol 'clk100MHz_clk_wiz_0_en_clk', assumed default net type 'wire' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v:209]
 INFO: [Synth 8-11241] undeclared symbol 'clk65MHz_clk_wiz_0_en_clk', assumed default net type 'wire' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/clk_wiz_0_clk_wiz.v:221]
 INFO: [Synth 8-6157] synthesizing module 'top_vga_basys3' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:15]
@@ -104,7 +102,7 @@ INFO: [Synth 8-6157] synthesizing module 'draw_bg' [C:/Users/Damian/Documents/Gi
 INFO: [Synth 8-6155] done synthesizing module 'draw_bg' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/draw_bg.sv:10]
 INFO: [Synth 8-6157] synthesizing module 'platform' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:1]
 INFO: [Synth 8-6155] done synthesizing module 'platform' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:1]
-WARNING: [Synth 8-689] width (32) of port connection 'char_hgt' does not match port width (12) of module 'platform' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:163]
+WARNING: [Synth 8-689] width (32) of port connection 'char_hgt' does not match port width (12) of module 'platform' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:150]
 INFO: [Synth 8-6157] synthesizing module 'hearts_display' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/hearts_display.sv:1]
 INFO: [Synth 8-3876] $readmem data file '../GameSprites/Heart.dat' is read successfully [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/hearts_display.sv:17]
 INFO: [Synth 8-6155] done synthesizing module 'hearts_display' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/hearts_display.sv:1]
@@ -126,8 +124,8 @@ INFO: [Synth 8-6155] done synthesizing module 'draw_wpn_ctrl' (0#1) [C:/Users/Da
 INFO: [Synth 8-6157] synthesizing module 'wpn_draw_def' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/wpn_draw_def.sv:1]
 INFO: [Synth 8-3876] $readmem data file '../GameSprites/Melee.dat' is read successfully [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/wpn_draw_def.sv:24]
 INFO: [Synth 8-6155] done synthesizing module 'wpn_draw_def' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/wpn_draw_def.sv:1]
-WARNING: [Synth 8-689] width (1) of port connection 'wpn_hgt' does not match port width (12) of module 'wpn_draw_def' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:220]
-WARNING: [Synth 8-689] width (1) of port connection 'wpn_lng' does not match port width (12) of module 'wpn_draw_def' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:221]
+WARNING: [Synth 8-689] width (1) of port connection 'wpn_hgt' does not match port width (12) of module 'wpn_draw_def' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:205]
+WARNING: [Synth 8-689] width (1) of port connection 'wpn_lng' does not match port width (12) of module 'wpn_draw_def' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:206]
 INFO: [Synth 8-6155] done synthesizing module 'top_vga' (0#1) [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:15]
 WARNING: [Synth 8-7071] port 'char_x' of module 'top_vga' is unconnected for instance 'u_top_vga' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
 WARNING: [Synth 8-7071] port 'char_y' of module 'top_vga' is unconnected for instance 'u_top_vga' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
@@ -140,9 +138,7 @@ WARNING: [Synth 8-6014] Unused sequential element char_y_prev_reg was removed.  
 WARNING: [Synth 8-6014] Unused sequential element char_velocity_y_reg was removed.  [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:50]
 WARNING: [Synth 8-3936] Found unconnected internal register 'vcount_reg_reg' and it is trimmed from '12' to '11' bits. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:87]
 WARNING: [Synth 8-3936] Found unconnected internal register 'hcount_reg_reg' and it is trimmed from '12' to '11' bits. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:90]
-WARNING: [Synth 8-3848] Net pos_x in module/entity top_vga does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:216]
-WARNING: [Synth 8-3848] Net pos_y in module/entity top_vga does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:217]
-WARNING: [Synth 8-3848] Net flip_h in module/entity top_vga does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:219]
+WARNING: [Synth 8-3848] Net flip_h in module/entity top_vga does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:204]
 WARNING: [Synth 8-7129] Port char_y[11] in module boss_draw is either unconnected or has no load
 WARNING: [Synth 8-7129] Port char_y[10] in module boss_draw is either unconnected or has no load
 WARNING: [Synth 8-7129] Port char_y[9] in module boss_draw is either unconnected or has no load
@@ -158,18 +154,18 @@ WARNING: [Synth 8-7129] Port char_y[0] in module boss_draw is either unconnected
 WARNING: [Synth 8-7129] Port rst in module hearts_display is either unconnected or has no load
 WARNING: [Synth 8-7129] Port rst in module platform is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1108.809 ; gain = 628.441
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1110.492 ; gain = 630.254
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1108.809 ; gain = 628.441
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1110.492 ; gain = 630.254
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1108.809 ; gain = 628.441
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1110.492 ; gain = 630.254
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.036 . Memory (MB): peak = 1108.809 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 1110.492 ; gain = 0.000
 WARNING: [Netlist 29-345] The value of SIM_DEVICE on instance 'inst/clkout1_buf' of type 'BUFGCE' is 'ULTRASCALE'; it is being changed to match the current FPGA architecture, '7SERIES'. For functional simulation to match hardware behavior, the value of SIM_DEVICE should be changed in the source netlist. 
 WARNING: [Netlist 29-345] The value of SIM_DEVICE on instance 'inst/clkout2_buf' of type 'BUFGCE' is 'ULTRASCALE'; it is being changed to match the current FPGA architecture, '7SERIES'. For functional simulation to match hardware behavior, the value of SIM_DEVICE should be changed in the source netlist. 
 INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
@@ -184,27 +180,27 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_vga_basys3_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1204.484 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1201.977 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 2 instances were transformed.
   BUFGCE => BUFGCTRL: 2 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1204.484 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1201.977 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1204.484 ; gain = 724.117
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1201.977 ; gain = 721.738
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1204.484 ; gain = 724.117
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1201.977 ; gain = 721.738
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1204.484 ; gain = 724.117
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1201.977 ; gain = 721.738
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'Ps2Interface'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'MouseCtl'
@@ -273,7 +269,7 @@ reset_enable_reporting_wait_ack | 0000000010000000000000000000000000000 |       
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'MouseCtl'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1204.484 ; gain = 724.117
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1201.977 ; gain = 721.738
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -303,12 +299,12 @@ Detailed RTL Component Info :
 	               24 Bit    Registers := 1     
 	               21 Bit    Registers := 2     
 	               14 Bit    Registers := 1     
-	               12 Bit    Registers := 23    
-	               11 Bit    Registers := 18    
+	               12 Bit    Registers := 25    
+	               11 Bit    Registers := 22    
 	                8 Bit    Registers := 7     
 	                7 Bit    Registers := 1     
 	                4 Bit    Registers := 5     
-	                1 Bit    Registers := 75    
+	                1 Bit    Registers := 83    
 +---Multipliers : 
 	              32x32  Multipliers := 2     
 +---Muxes : 
@@ -317,7 +313,7 @@ Detailed RTL Component Info :
 	  17 Input   17 Bit        Muxes := 1     
 	   2 Input   17 Bit        Muxes := 18    
 	   2 Input   14 Bit        Muxes := 2     
-	   2 Input   12 Bit        Muxes := 58    
+	   2 Input   12 Bit        Muxes := 60    
 	   4 Input   12 Bit        Muxes := 1     
 	   2 Input   11 Bit        Muxes := 4     
 	   4 Input   11 Bit        Muxes := 1     
@@ -397,7 +393,7 @@ WARNING: [Synth 8-7129] Port char_y[0] in module boss_draw is either unconnected
 WARNING: [Synth 8-7129] Port rst in module hearts_display is either unconnected or has no load
 WARNING: [Synth 8-7129] Port rst in module platform is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:05 ; elapsed = 00:02:07 . Memory (MB): peak = 2055.109 ; gain = 1574.742
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:11 ; elapsed = 00:02:13 . Memory (MB): peak = 2057.730 ; gain = 1577.492
 ---------------------------------------------------------------------------------
  Sort Area is  rgb_nxt5_0 : 0 0 : 3101 5879 : Used 1 time 0
  Sort Area is  rgb_nxt5_0 : 0 1 : 2778 5879 : Used 1 time 0
@@ -431,8 +427,9 @@ ROM: Preliminary Mapping Report
 |hearts_display | heart_rom        | 128x3         | LUT            | 
 |boss_draw      | boss_rom         | 65536x12      | LUT            | 
 |char_draw      | char_rom         | 2048x12       | LUT            | 
-|wpn_draw_def   | wpn_rom          | 2048x12       | LUT            | 
+|wpn_draw_def   | wpn_rom          | 4096x12       | LUT            | 
 |draw_mouse     | inst/mouserom[0] | 256x2         | LUT            | 
+|hearts_display | p_0_out          | 128x3         | LUT            | 
 |hearts_display | p_0_out          | 128x3         | LUT            | 
 |hearts_display | p_0_out          | 128x3         | LUT            | 
 |hearts_display | p_0_out          | 128x3         | LUT            | 
@@ -443,7 +440,7 @@ ROM: Preliminary Mapping Report
 |hearts_display | p_0_out          | 128x3         | LUT            | 
 |boss_draw      | p_0_out          | 65536x12      | LUT            | 
 |draw_char      | p_0_out          | 2048x12       | LUT            | 
-|wpn_draw_def   | p_0_out          | 2048x12       | LUT            | 
+|wpn_draw_def   | p_0_out          | 4096x12       | LUT            | 
 +---------------+------------------+---------------+----------------+
 
 
@@ -472,19 +469,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:13 ; elapsed = 00:02:15 . Memory (MB): peak = 2055.109 ; gain = 1574.742
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:19 ; elapsed = 00:02:21 . Memory (MB): peak = 2057.730 ; gain = 1577.492
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:14 ; elapsed = 00:02:16 . Memory (MB): peak = 2055.109 ; gain = 1574.742
+Finished Timing Optimization : Time (s): cpu = 00:02:20 ; elapsed = 00:02:22 . Memory (MB): peak = 2057.730 ; gain = 1577.492
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:02:17 ; elapsed = 00:02:19 . Memory (MB): peak = 2055.109 ; gain = 1574.742
+Finished Technology Mapping : Time (s): cpu = 00:02:23 ; elapsed = 00:02:25 . Memory (MB): peak = 2057.730 ; gain = 1577.492
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -502,49 +499,51 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:20 ; elapsed = 00:02:22 . Memory (MB): peak = 2055.109 ; gain = 1574.742
+Finished IO Insertion : Time (s): cpu = 00:02:26 ; elapsed = 00:02:28 . Memory (MB): peak = 2057.730 ; gain = 1577.492
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:20 ; elapsed = 00:02:23 . Memory (MB): peak = 2055.109 ; gain = 1574.742
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:26 ; elapsed = 00:02:29 . Memory (MB): peak = 2057.730 ; gain = 1577.492
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:20 ; elapsed = 00:02:23 . Memory (MB): peak = 2055.109 ; gain = 1574.742
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:27 ; elapsed = 00:02:29 . Memory (MB): peak = 2057.730 ; gain = 1577.492
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:02:20 ; elapsed = 00:02:23 . Memory (MB): peak = 2055.109 ; gain = 1574.742
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:27 ; elapsed = 00:02:29 . Memory (MB): peak = 2057.730 ; gain = 1577.492
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:21 ; elapsed = 00:02:23 . Memory (MB): peak = 2055.109 ; gain = 1574.742
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:27 ; elapsed = 00:02:29 . Memory (MB): peak = 2057.730 ; gain = 1577.492
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:02:21 ; elapsed = 00:02:23 . Memory (MB): peak = 2055.109 ; gain = 1574.742
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:27 ; elapsed = 00:02:29 . Memory (MB): peak = 2057.730 ; gain = 1577.492
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 
 Static Shift Register Report:
-+---------------+---------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-|Module Name    | RTL Name                                    | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
-+---------------+---------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-|top_vga_basys3 | u_top_vga/u_wpn_draw_def/vga_out\.vsync_reg | 5      | 1     | NO           | NO                 | NO                | 1      | 0       | 
-|top_vga_basys3 | u_top_vga/u_wpn_draw_def/vga_out\.hsync_reg | 5      | 1     | NO           | NO                 | NO                | 1      | 0       | 
-+---------------+---------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
++---------------+-------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name    | RTL Name                                        | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++---------------+-------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|top_vga_basys3 | u_top_vga/u_char/u_draw/vga_out\.vsync_reg      | 4      | 1     | NO           | NO                 | NO                | 1      | 0       | 
+|top_vga_basys3 | u_top_vga/u_char/u_draw/vga_out\.hsync_reg      | 4      | 1     | NO           | NO                 | NO                | 1      | 0       | 
+|top_vga_basys3 | u_top_vga/u_draw_mouse/vga_out_mouse\.vsync_reg | 4      | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|top_vga_basys3 | u_top_vga/u_draw_mouse/vga_out_mouse\.hsync_reg | 4      | 1     | YES          | NO                 | YES               | 1      | 0       | 
++---------------+-------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
 
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -582,53 +581,53 @@ Report Cell Usage:
 |1     |BUFG       |     1|
 |2     |BUFGCE     |     2|
 |3     |BUFH       |     2|
-|4     |CARRY4     |   223|
+|4     |CARRY4     |   226|
 |5     |DSP48E1    |     9|
-|6     |LUT1       |    98|
-|7     |LUT2       |   411|
-|8     |LUT3       |   298|
-|9     |LUT4       |   492|
-|10    |LUT5       |   679|
-|11    |LUT6       |  4871|
+|6     |LUT1       |   105|
+|7     |LUT2       |   416|
+|8     |LUT3       |   312|
+|9     |LUT4       |   532|
+|10    |LUT5       |   708|
+|11    |LUT6       |  5192|
 |12    |MMCME2_ADV |     1|
-|13    |MUXF7      |  1014|
-|14    |MUXF8      |   292|
+|13    |MUXF7      |  1099|
+|14    |MUXF8      |   277|
 |15    |ODDR       |     1|
-|16    |SRL16E     |     2|
+|16    |SRL16E     |     4|
 |17    |FDCE       |    53|
 |18    |FDPE       |    21|
-|19    |FDRE       |   569|
-|20    |FDSE       |    39|
+|19    |FDRE       |   662|
+|20    |FDSE       |    45|
 |21    |IBUF       |     5|
 |22    |IOBUF      |     2|
 |23    |OBUF       |    15|
 +------+-----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:21 ; elapsed = 00:02:23 . Memory (MB): peak = 2055.109 ; gain = 1574.742
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:27 ; elapsed = 00:02:29 . Memory (MB): peak = 2057.730 ; gain = 1577.492
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 15 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:02:12 ; elapsed = 00:02:21 . Memory (MB): peak = 2055.109 ; gain = 1479.066
-Synthesis Optimization Complete : Time (s): cpu = 00:02:21 ; elapsed = 00:02:23 . Memory (MB): peak = 2055.109 ; gain = 1574.742
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:18 ; elapsed = 00:02:27 . Memory (MB): peak = 2057.730 ; gain = 1486.008
+Synthesis Optimization Complete : Time (s): cpu = 00:02:27 ; elapsed = 00:02:29 . Memory (MB): peak = 2057.730 ; gain = 1577.492
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.118 . Memory (MB): peak = 2055.109 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.145 . Memory (MB): peak = 2057.730 ; gain = 0.000
 WARNING: [Netlist 29-345] The value of SIM_DEVICE on instance 'inst/clkout1_buf' of type 'BUFGCE' is 'ULTRASCALE'; it is being changed to match the current FPGA architecture, '7SERIES'. For functional simulation to match hardware behavior, the value of SIM_DEVICE should be changed in the source netlist. 
 WARNING: [Netlist 29-345] The value of SIM_DEVICE on instance 'inst/clkout2_buf' of type 'BUFGCE' is 'ULTRASCALE'; it is being changed to match the current FPGA architecture, '7SERIES'. For functional simulation to match hardware behavior, the value of SIM_DEVICE should be changed in the source netlist. 
-INFO: [Netlist 29-17] Analyzing 1544 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 1617 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2055.109 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 2057.730 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 4 instances were transformed.
   BUFGCE => BUFGCTRL: 2 instances
   IOBUF => IOBUF (IBUF, OBUFT): 2 instances
 
-Synth Design complete | Checksum: 427f242a
+Synth Design complete | Checksum: 9bf6d023
 INFO: [Common 17-83] Releasing license: Synthesis
-93 Infos, 63 Warnings, 0 Critical Warnings and 0 Errors encountered.
+91 Infos, 61 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:25 ; elapsed = 00:02:30 . Memory (MB): peak = 2055.109 ; gain = 1767.836
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 2055.109 ; gain = 0.000
+synth_design: Time (s): cpu = 00:02:32 ; elapsed = 00:02:37 . Memory (MB): peak = 2057.730 ; gain = 1771.086
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 2057.730 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/build/vga_project.runs/synth_1/top_vga_basys3.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file top_vga_basys3_utilization_synth.rpt -pb top_vga_basys3_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Aug 15 01:43:53 2025...
+INFO: [Common 17-206] Exiting Vivado at Sat Aug 16 01:31:21 2025...

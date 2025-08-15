@@ -1,6 +1,6 @@
 Warnings, critical warnings and errors from synthesis and implementation
 
-Created: 2025-08-15 01:45:27
+Created: 2025-08-16 01:32:54
 
 ----SYNTHESIS----
 WARNING: [Synth 8-10180] variable 'hx_start' must explicitly be declared as automatic or static [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/hearts_display.sv:32]
@@ -16,10 +16,10 @@ WARNING: [Synth 8-7071] port 'sety' of module 'MouseCtl' is unconnected for inst
 WARNING: [Synth 8-7071] port 'setmax_x' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:109]
 WARNING: [Synth 8-7071] port 'setmax_y' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:109]
 WARNING: [Synth 8-7023] instance 'u_MouseCtl' of module 'MouseCtl' has 16 connections declared, but only 6 given [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:109]
-WARNING: [Synth 8-689] width (32) of port connection 'char_hgt' does not match port width (12) of module 'platform' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:163]
+WARNING: [Synth 8-689] width (32) of port connection 'char_hgt' does not match port width (12) of module 'platform' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:150]
 WARNING: [Synth 8-689] width (1) of port connection 'ground_lvl' does not match port width (12) of module 'char_ctrl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/char.sv:44]
-WARNING: [Synth 8-689] width (1) of port connection 'wpn_hgt' does not match port width (12) of module 'wpn_draw_def' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:220]
-WARNING: [Synth 8-689] width (1) of port connection 'wpn_lng' does not match port width (12) of module 'wpn_draw_def' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:221]
+WARNING: [Synth 8-689] width (1) of port connection 'wpn_hgt' does not match port width (12) of module 'wpn_draw_def' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:205]
+WARNING: [Synth 8-689] width (1) of port connection 'wpn_lng' does not match port width (12) of module 'wpn_draw_def' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:206]
 WARNING: [Synth 8-7071] port 'char_x' of module 'top_vga' is unconnected for instance 'u_top_vga' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
 WARNING: [Synth 8-7071] port 'char_y' of module 'top_vga' is unconnected for instance 'u_top_vga' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
 WARNING: [Synth 8-7071] port 'on_ground' of module 'top_vga' is unconnected for instance 'u_top_vga' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/fpga/rtl/top_vga_basys3.sv:89]
@@ -30,9 +30,7 @@ WARNING: [Synth 8-6014] Unused sequential element char_y_prev_reg was removed.  
 WARNING: [Synth 8-6014] Unused sequential element char_velocity_y_reg was removed.  [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:50]
 WARNING: [Synth 8-3936] Found unconnected internal register 'vcount_reg_reg' and it is trimmed from '12' to '11' bits. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:87]
 WARNING: [Synth 8-3936] Found unconnected internal register 'hcount_reg_reg' and it is trimmed from '12' to '11' bits. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/platform.sv:90]
-WARNING: [Synth 8-3848] Net pos_x in module/entity top_vga does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:216]
-WARNING: [Synth 8-3848] Net pos_y in module/entity top_vga does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:217]
-WARNING: [Synth 8-3848] Net flip_h in module/entity top_vga does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:219]
+WARNING: [Synth 8-3848] Net flip_h in module/entity top_vga does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/top_vga.sv:204]
 WARNING: [Synth 8-7129] Port char_y[11] in module boss_draw is either unconnected or has no load
 WARNING: [Synth 8-7129] Port char_y[10] in module boss_draw is either unconnected or has no load
 WARNING: [Synth 8-7129] Port char_y[9] in module boss_draw is either unconnected or has no load
@@ -67,9 +65,9 @@ WARNING: [Synth 8-7129] Port rst in module platform is either unconnected or has
 WARNING: [Place 46-29] Timing had been disabled during Placer and, therefore, physical synthesis in Placer will be skipped.
 WARNING: [Timing 38-313] There are no user specified timing constraints. Timing constraints are needed for proper timing analysis.
 WARNING: [Power 33-232] No user defined clocks were found in the design! Power estimation will be inaccurate until this is corrected.
-WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout1_buf. Out of range!
 WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout2_buf. Out of range!
 WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout1_buf. Out of range!
 WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout2_buf. Out of range!
 WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout1_buf. Out of range!
 WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout2_buf. Out of range!
+WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout1_buf. Out of range!

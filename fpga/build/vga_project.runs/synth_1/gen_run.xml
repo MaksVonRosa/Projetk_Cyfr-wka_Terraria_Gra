@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1755214874">
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1755300516">
   <File Type="PA-TCL" Name="top_vga_basys3.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="top_vga_basys3_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="top_vga_basys3_reports.tcl"/>

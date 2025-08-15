@@ -35,6 +35,7 @@ import vga_pkg::*;
 
 logic [11:0] rgb_mouse;
 logic enable_mouse;
+logic [11:0] xpos_mouse_limit, ypos_mouse_limit;
 
 /**
  * Internal logic
@@ -42,8 +43,8 @@ logic enable_mouse;
 MouseDisplay inst(
     .pixel_clk(clk),
 
-    .xpos(xpos),
-    .ypos(ypos),
+    .xpos(xpos_mouse_limit),
+    .ypos(ypos_mouse_limit),
 
     .vcount(vga_in_mouse.vcount),
     .hcount(vga_in_mouse.hcount),
@@ -81,6 +82,20 @@ always_ff @(posedge clk) begin : rect_ff_blk
 
 
     end
+end
+
+
+
+always_comb begin
+    if (xpos > HOR_PIXELS - 1)
+        xpos_mouse_limit = HOR_PIXELS - 1;
+    else
+        xpos_mouse_limit = xpos;
+
+    if (ypos > VER_PIXELS - 1)
+        ypos_mouse_limit = VER_PIXELS - 1;
+    else
+        ypos_mouse_limit = ypos;
 end
 
 

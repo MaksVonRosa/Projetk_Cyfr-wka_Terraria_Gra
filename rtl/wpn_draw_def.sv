@@ -15,8 +15,8 @@ module wpn_draw_def (
 
     localparam WPN_HGT   = 26;
     localparam WPN_LNG   = 19; 
-    localparam IMG_WIDTH  = 39;
-    localparam IMG_HEIGHT = 53;
+    localparam IMG_WIDTH  = 50;
+    localparam IMG_HEIGHT = 68;
 
     logic [11:0] draw_x, draw_y, rgb_nxt;
 
@@ -26,25 +26,84 @@ module wpn_draw_def (
     logic [5:0] rel_x;
     logic [5:0] rel_y;
     logic [11:0] pixel_color;
-    logic [10:0] rom_addr;
+    logic [15:0] rom_addr; 
+
+    // pipeline s1
+    logic [11:0] rgb_s1;
+    logic [10:0] vcount_s1, hcount_s1;
+    logic vsync_s1, hsync_s1, vblnk_s1, hblnk_s1;
+
+    // pipeline s2
+    logic [11:0] rgb_s2;
+    logic [10:0] vcount_s2, hcount_s2;
+    logic vsync_s2, hsync_s2, vblnk_s2, hblnk_s2;
 
     always_ff @(posedge clk) begin
         if (rst) begin
-            // draw_x <= pos_x;
-            // draw_y <= pos_y;
-        
             draw_x <= HOR_PIXELS / 2;
             draw_y <= VER_PIXELS - 20 - WPN_HGT;
+
+            rgb_s1    <= '0;
+            vcount_s1 <= '0;
+            hcount_s1 <= '0;
+            vsync_s1  <= '0;
+            hsync_s1  <= '0;
+            vblnk_s1  <= '0;
+            hblnk_s1  <= '0;
+
+            rgb_s2    <= '0;
+            vcount_s2 <= '0;
+            hcount_s2 <= '0;
+            vsync_s2  <= '0;
+            hsync_s2  <= '0;
+            vblnk_s2  <= '0;
+            hblnk_s2  <= '0;
+
+            vga_out.vcount <= '0;
+            vga_out.hcount <= '0;
+            vga_out.vsync  <= '0;
+            vga_out.hsync  <= '0;
+            vga_out.vblnk  <= '0;
+            vga_out.hblnk  <= '0;
+            vga_out.rgb    <= '0;
         end else begin
             draw_x <= pos_x;
             draw_y <= pos_y;
+
+            rgb_s1    <= rgb_nxt;
+            vcount_s1 <= vga_in.vcount;
+            hcount_s1 <= vga_in.hcount;
+            vsync_s1  <= vga_in.vsync;
+            hsync_s1  <= vga_in.hsync;
+            vblnk_s1  <= vga_in.vblnk;
+            hblnk_s1  <= vga_in.hblnk;
+
+            rgb_s2    <= rgb_s1;
+            vcount_s2 <= vcount_s1;
+            hcount_s2 <= hcount_s1;
+            vsync_s2  <= vsync_s1;
+            hsync_s2  <= hsync_s1;
+            vblnk_s2  <= vblnk_s1;
+            hblnk_s2  <= hblnk_s1;
+
+            vga_out.vcount <= vcount_s2;
+            vga_out.hcount <= hcount_s2;
+            vga_out.vsync  <= vsync_s2;
+            vga_out.hsync  <= hsync_s2;
+            vga_out.vblnk  <= vblnk_s2;
+            vga_out.hblnk  <= hblnk_s2;
+            vga_out.rgb    <= rgb_s2;
+
+            wpn_hgt <= WPN_HGT;
+            wpn_lng <= WPN_LNG;
         end
     end
 
+    // logika sprite (jak wcześniej)
     always_comb begin
         rgb_nxt = vga_in.rgb;
 
-        if (draw_enable && 
+        if (draw_enable &&
             !vga_in.vblnk && !vga_in.hblnk &&
             vga_in.hcount >= draw_x - WPN_LNG &&
             vga_in.hcount <  draw_x + WPN_LNG &&
@@ -52,7 +111,8 @@ module wpn_draw_def (
             vga_in.vcount <  draw_y + WPN_HGT) begin
 
             rel_y = vga_in.vcount - (draw_y - WPN_HGT);
-            rel_x = flip_h ? (IMG_WIDTH - 1) - (vga_in.hcount - (draw_x - WPN_LNG)) : (vga_in.hcount - (draw_x - WPN_LNG));
+            rel_x = flip_h ? (IMG_WIDTH - 1) - (vga_in.hcount - (draw_x - WPN_LNG)) : 
+                            (vga_in.hcount - (draw_x - WPN_LNG));
 
             if (rel_x < IMG_WIDTH && rel_y < IMG_HEIGHT) begin
                 rom_addr = rel_y * IMG_WIDTH + rel_x;
@@ -60,19 +120,6 @@ module wpn_draw_def (
                 if (pixel_color != 12'hF00) rgb_nxt = pixel_color;
             end
         end
-    end
-
-    always_ff @(posedge clk) begin
-        vga_out.vcount <= vga_in.vcount;
-        vga_out.vsync  <= vga_in.vsync;
-        vga_out.vblnk  <= vga_in.vblnk;
-        vga_out.hcount <= vga_in.hcount;
-        vga_out.hsync  <= vga_in.hsync;
-        vga_out.hblnk  <= vga_in.hblnk;
-        vga_out.rgb    <= rgb_nxt;
-
-        wpn_hgt <= WPN_HGT;
-        wpn_lng <= WPN_LNG;
     end
 
 endmodule

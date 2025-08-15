@@ -126,20 +126,7 @@ module top_vga (
         .ypos(ypos_MouseCtl)
 
     );
-    /*
-    // rozwiazanie problemu pomiedzy clockami myszy i rysowania postaci 
-    always_ff @(posedge clk or posedge rst) begin
-        if (rst) begin
-            mouse_left_sync1 <= 1'b0;
-            mouse_left_sync2 <= 1'b0;
-        end else begin
-            mouse_left_sync1 <= mouse_left_raw;
-            mouse_left_sync2 <= mouse_left_sync1;
-        end
-        end
-    assign mouse_left_clk = mouse_left_sync2;
-
-*/
+    
 
     draw_bg u_draw_bg (
         .clk,
@@ -196,10 +183,8 @@ module top_vga (
         .char_hp_out (char_hp_out),
         .pos_x_out (pos_x_out),
         .pos_y_out (pos_y_out),
-        //.draw_weapon(draw_weapon),
         .vga_char_in (vga_hearts.in),
         .vga_char_out (vga_if_char.out)
-        //.mouse_left(mouse_left)
     );
 
     draw_wpn_ctrl u_draw_wpn_ctrl (
@@ -213,8 +198,8 @@ module top_vga (
     wpn_draw_def u_wpn_draw_def (
         .clk(clk),
         .rst(rst),
-        .pos_x(pos_x),
-        .pos_y(pos_y),
+        .pos_x(xpos_MouseCtl),
+        .pos_y(ypos_MouseCtl),
         .draw_enable(draw_weapon),
         .flip_h(flip_h),
         .wpn_hgt(wpn_hgt),
