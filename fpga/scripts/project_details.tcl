@@ -31,17 +31,21 @@ set xdc_files {
 
 # Specify SystemVerilog design files location   -- EDIT
 set sv_files {
-    ../rtl/vga_pkg.sv
-    ../rtl/vga_timing.sv
+    ../rtl/vga/vga_pkg.sv
+    ../rtl/vga/vga_timing.sv
     ../rtl/draw_bg.sv
-    ../rtl/char.sv
-    ../rtl/char_ctrl.sv
-    ../rtl/char_draw.sv
-    ../rtl/boss_draw.sv
+    ../rtl/Character/char.sv
+    ../rtl/Character/char_ctrl.sv
+    ../rtl/Character/char_draw.sv
+    ../rtl/Boss/boss_hp.sv
+    ../rtl/Boss/boss_move.sv
+    ../rtl/Boss/boss_render.sv
+    ../rtl/Boss/boss_top.sv
     ../rtl/platform.sv
-    ../rtl/hearts_display.sv
-    ../rtl/top_vga.sv
-    ../rtl/vga_if.sv
+    ../rtl/game_screen.sv
+    ../rtl/Character/hearts_display.sv
+    ../rtl/vga/top_vga.sv
+    ../rtl/vga/vga_if.sv
     rtl/top_vga_basys3.sv
 }
 

@@ -17,6 +17,7 @@ module hearts_display #(
     input  logic [11:0] char_lng,
     input  logic [11:0] boss_hgt,
     input  logic [11:0] boss_lng,
+    input  logic [1:0] game_active,
     output logic [3:0] current_health,
     vga_if.in  vga_in,
     vga_if.out vga_out
@@ -24,12 +25,11 @@ module hearts_display #(
     import vga_pkg::*;
 
     logic [11:0] heart_rom [0:HEART_W*HEART_H-1];
-    initial $readmemh("../GameSprites/Heart.dat", heart_rom);
+    initial $readmemh("../../GameSprites/Heart.dat", heart_rom);
 
     localparam integer FRAME_TICKS = 65_000_000 / 60;
     logic [20:0] tick_count;
     logic frame_tick;
-
     logic [7:0] damage_cooldown;
 
     logic [11:0] rgb_nxt;
@@ -55,26 +55,30 @@ module hearts_display #(
         if (rst) begin
             current_health <= char_hp;
             damage_cooldown <= 0;
-        end else if (frame_tick) begin
+        end else if (frame_tick && game_active == 1) begin
             if (damage_cooldown > 0)
                 damage_cooldown <= damage_cooldown - 1;
 
             if (damage_cooldown == 0 &&
-                char_x < boss_x + boss_lng &&
-                char_x + char_lng > boss_x &&
-                char_y < boss_y + boss_hgt - 20 &&
-                char_y + char_hgt > boss_y) begin
-                if (current_health > 0) begin
-                    current_health <= current_health - 1;
-                    damage_cooldown <= COOLDOWN_TICKS;
-                end
+            char_x + char_lng > boss_x &&
+            char_x < boss_x + boss_lng &&
+            char_y + char_hgt > boss_y &&
+            char_y < boss_y + boss_hgt) begin
+            if (current_health > 0) begin
+                current_health <= current_health - 1;
+                damage_cooldown <= COOLDOWN_TICKS;
             end
+            else begin
+                current_health <= 0;
+            end
+    end
+
         end
     end
 
     always_comb begin
         rgb_nxt = vga_in.rgb;
-        if (!vga_in.vblnk && !vga_in.hblnk) begin
+        if (game_active == 1 && !vga_in.vblnk && !vga_in.hblnk) begin
             if (vga_in.vcount >= PADDING && vga_in.vcount < PADDING + HEART_H) begin
                 for (int i = 0; i < MAX_HP; i++) begin
                     if (i < current_health) begin
@@ -102,5 +106,4 @@ module hearts_display #(
         vga_out.hblnk  <= vga_in.hblnk;
         vga_out.rgb    <= rgb_nxt;
     end
-
 endmodule
