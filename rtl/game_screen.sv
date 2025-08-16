@@ -26,7 +26,7 @@ module game_screen (
         if ((game_active == 0 || game_active == 2) && in_rect)
             rgb_nxt = BLACK;
 
-        if (game_active == 0 && in_rect) begin
+        if (game_active == 0) begin
             // S
             if ((vga_in.hcount>=RECT_X+20 && vga_in.hcount<RECT_X+50 && vga_in.vcount>=RECT_Y+20 && vga_in.vcount<RECT_Y+30) ||
                 (vga_in.hcount>=RECT_X+20 && vga_in.hcount<RECT_X+30 && vga_in.vcount>=RECT_Y+30 && vga_in.vcount<RECT_Y+60) ||
@@ -51,7 +51,7 @@ module game_screen (
                 rgb_nxt = YELLOW;
         end
 
-        if (game_active == 2 && in_rect) begin
+        if (game_active == 2) begin
             // E
             if ((vga_in.hcount>=RECT_X+30 && vga_in.hcount<RECT_X+40 && vga_in.vcount>=RECT_Y+30 && vga_in.vcount<RECT_Y+100) ||
                 (vga_in.hcount>=RECT_X+30 && vga_in.hcount<RECT_X+70 && vga_in.vcount>=RECT_Y+30 && vga_in.vcount<RECT_Y+40) ||

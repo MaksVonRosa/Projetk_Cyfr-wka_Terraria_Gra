@@ -60,10 +60,10 @@ module hearts_display #(
                 damage_cooldown <= damage_cooldown - 1;
 
             if (damage_cooldown == 0 &&
-            char_x + char_lng > boss_x &&
             char_x < boss_x + boss_lng &&
-            char_y + char_hgt > boss_y &&
-            char_y < boss_y + boss_hgt) begin
+            char_x + char_lng > boss_x &&
+            char_y < boss_y + boss_hgt &&
+            char_y + char_hgt > boss_y) begin
             if (current_health > 0) begin
                 current_health <= current_health - 1;
                 damage_cooldown <= COOLDOWN_TICKS;

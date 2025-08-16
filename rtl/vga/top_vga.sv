@@ -25,7 +25,7 @@ module top_vga (
     wire vblnk_tim, hblnk_tim;
     wire [11:0] pos_x_out, pos_y_out, char_hgt, char_lng;
     wire [11:0] boss_x, boss_y, boss_hgt, boss_lng;
-    wire [3:0] char_hp_out, current_health;
+    wire [3:0] current_health;
     wire [6:0] boss_hp;
 
     vga_if vga_if_bg();
@@ -48,27 +48,14 @@ module top_vga (
 
     game_state_t game_state;
 
-    logic [3:0] char_hp_reg;
-    logic [6:0] boss_hp_reg;
-
-    always_ff @(posedge clk or posedge rst) begin
-        if (rst) begin
-            char_hp_reg <= 4'd5;
-            boss_hp_reg <= 7'd100;
-        end else begin
-            char_hp_reg <= char_hp_out;
-            boss_hp_reg <= boss_hp;
-        end
-    end
-
     always_ff @(posedge clk or posedge rst) begin
         if (rst)
             game_state <= MENU;
         else begin
             case (game_state)
                 MENU: if (buttondown) game_state <= GAME;
-                GAME: if (char_hp_reg == 0 || boss_hp_reg == 0) game_state <= END_SCREEN;
-                END_SCREEN: if (stepjump) game_state <= MENU;
+                GAME: if (current_health == 0 || boss_hp == 0) game_state <= END_SCREEN;
+                END_SCREEN: if (buttondown) game_state <= MENU;
             endcase
         end
     end
@@ -154,7 +141,6 @@ module top_vga (
         .pos_y_out(pos_y_out),
         .char_hgt(char_hgt),
         .char_lng(char_lng),
-        .char_hp_out(char_hp_out),
         .ground_lvl(ground_lvl),
         .vga_char_in(vga_boss.in),
         .vga_char_out(vga_if_char.out),
