@@ -91,6 +91,8 @@ module top_vga_basys3 (
         .clk(clk65MHz),
         .clk100MHz(clk100MHz),
         .rst(btnC),
+        .ps2_clk(PS2Clk),
+        .ps2_data(PS2Data),
         .stepleft(btnL),
         .stepright(btnR),
         .stepjump(btnU),

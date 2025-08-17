@@ -15,7 +15,9 @@ module top_vga (
     output logic [11:0] char_y,
     output logic [3:0] r,
     output logic [3:0] g,
-    output logic [3:0] b
+    output logic [3:0] b,
+    inout  logic ps2_clk,
+    inout  logic ps2_data
 );
     timeunit 1ns;
     timeprecision 1ps;
@@ -30,13 +32,14 @@ module top_vga (
 
     vga_if vga_if_bg();
     vga_if vga_if_char();
-    vga_if vga_boss();
-    vga_if vga_plat();
-    vga_if vga_menu();
+    vga_if vga_if_boss();
+    vga_if vga_if_plat();
+    vga_if vga_if_menu();
+    vga_if vga_if_mouse();
 
-    assign vs = vga_if_char.vsync;
-    assign hs = vga_if_char.hsync;
-    assign {r,g,b} = vga_if_char.rgb;
+    assign vs = vga_if_mouse.vsync;
+    assign hs = vga_if_mouse.hsync;
+    assign {r,g,b} = vga_if_mouse.rgb;
     assign char_x = pos_x_out;
     assign char_y = pos_y_out;
 
@@ -94,7 +97,7 @@ module top_vga (
         .rst(rst),
         .game_active(game_active),
         .vga_in(vga_if_bg.in),
-        .vga_out(vga_menu.out)
+        .vga_out(vga_if_menu.out)
     );
 
     platform u_platform (
@@ -103,8 +106,8 @@ module top_vga (
         .char_x(char_x),
         .char_y(char_y),
         .char_hgt(32),
-        .vga_in(vga_menu.in),
-        .vga_out(vga_plat.out),
+        .vga_in(vga_if_menu.in),
+        .vga_out(vga_if_plat.out),
         .ground_y(ground_y),
         .on_ground(on_ground),
         .game_active(game_active)
@@ -115,8 +118,8 @@ module top_vga (
         .rst(rst),
         .buttondown(buttondown),
         .char_x(char_x),
-        .vga_in(vga_plat.in),
-        .vga_out(vga_boss.out),
+        .vga_in(vga_if_plat.in),
+        .vga_out(vga_if_boss.out),
         .boss_x(boss_x),
         .boss_y(boss_y),
         .boss_hgt(boss_hgt),
@@ -142,9 +145,29 @@ module top_vga (
         .char_hgt(char_hgt),
         .char_lng(char_lng),
         .ground_lvl(ground_lvl),
-        .vga_char_in(vga_boss.in),
+        .vga_char_in(vga_if_boss.in),
         .vga_char_out(vga_if_char.out),
         .game_active(game_active)
+    );
+
+    MouseCtl u_MouseCtl
+    (
+        .clk(clk100MHz),
+        .ps2_clk(ps2_clk),
+        .ps2_data(ps2_data),
+        .xpos(xpos_MouseCtl),
+        .ypos(ypos_MouseCtl),
+        .left(mouse_left)
+    );
+
+    draw_mouse u_draw_mouse (
+        .clk,
+        .rst,
+        .vga_in_mouse(vga_if_char.in),
+        .vga_out_mouse(vga_if_mouse.out),
+        .xpos(xpos_MouseCtl),
+        .ypos(ypos_MouseCtl)
+
     );
 
 endmodule
