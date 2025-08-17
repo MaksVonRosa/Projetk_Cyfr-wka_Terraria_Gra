@@ -5,6 +5,7 @@ module wpn_draw_melee_def (
     input  logic [11:0] pos_y,
     input  logic flip_h,
     input  logic mouse_clicked,
+    input  logic angle,
     output logic [11:0] wpn_hgt,
     output logic [11:0] wpn_lng,
 
@@ -17,6 +18,7 @@ module wpn_draw_melee_def (
     localparam WPN_LNG   = 19; 
     localparam IMG_WIDTH  = 28;
     localparam IMG_HEIGHT = 54;
+
 
     logic [11:0] draw_x, draw_y, rgb_nxt;
 
@@ -38,6 +40,44 @@ module wpn_draw_melee_def (
     logic [11:0] rgb_d2;
     logic [10:0] vcount_d2, hcount_d2;
     logic vsync_d2, hsync_d2, vblnk_d2, hblnk_d2;
+
+        // deklaracje (na górze modułu)
+    logic signed [15:0] dx, dy;
+    logic signed [15:0] x_sprite, y_sprite;
+    logic signed [15:0] cos_val, sin_val; 
+
+    localparam FP = 10; // fixed point fractional bits
+    localparam SCALE = 1 << FP;
+function automatic signed [15:0] cos_lut(input logic [8:0] angle_deg);
+    case (angle_deg)
+        0   : cos_lut =  1*SCALE; // 1.0
+        30  : cos_lut =  0.866*SCALE;
+        45  : cos_lut =  0.707*SCALE;
+        60  : cos_lut =  0.5*SCALE;
+        90  : cos_lut =  0;
+        120 : cos_lut = -0.5*SCALE;
+        135 : cos_lut = -0.707*SCALE;
+        150 : cos_lut = -0.866*SCALE;
+        180 : cos_lut = -1*SCALE;
+        default: cos_lut = 0;
+    endcase
+endfunction
+
+function automatic signed [15:0] sin_lut(input logic [8:0] angle_deg);
+    case (angle_deg)
+        0   : sin_lut =  0;
+        30  : sin_lut =  0.5*SCALE;
+        45  : sin_lut =  0.707*SCALE;
+        60  : sin_lut =  0.866*SCALE;
+        90  : sin_lut =  1*SCALE;
+        120 : sin_lut =  0.866*SCALE;
+        135 : sin_lut =  0.707*SCALE;
+        150 : sin_lut =  0.5*SCALE;
+        180 : sin_lut =  0;
+        default: sin_lut = 0;
+    endcase
+endfunction
+
 
     always_ff @(posedge clk) begin
         if (rst) begin
@@ -111,9 +151,24 @@ module wpn_draw_melee_def (
             vga_in.vcount >= draw_y - WPN_HGT &&
             vga_in.vcount <  draw_y + WPN_HGT) begin
 
-            rel_y = vga_in.vcount - (draw_y - WPN_HGT);
-            rel_x = flip_h ? (IMG_WIDTH - 1) - (vga_in.hcount - (draw_x - WPN_LNG)) : 
-                            (vga_in.hcount - (draw_x - WPN_LNG));
+            dx = vga_in.hcount - draw_x;
+            dy = vga_in.vcount - draw_y;
+
+            // pobranie wartości z tablic LUT
+            cos_val = cos_lut(angle); 
+            sin_val = sin_lut(angle);
+
+            // obliczenia obrotu w przestrzeni sprite'a
+            x_sprite = (dx * cos_val + dy * sin_val) >>> FP;
+            y_sprite = (-dx * sin_val + dy * cos_val) >>> FP;
+
+            rel_x = x_sprite + IMG_WIDTH/2;
+            rel_y = IMG_HEIGHT + y_sprite; 
+
+
+            // rel_y = vga_in.vcount - (draw_y - WPN_HGT);
+            // rel_x = flip_h ? (IMG_WIDTH - 1) - (vga_in.hcount - (draw_x - WPN_LNG)) : 
+            //                 (vga_in.hcount - (draw_x - WPN_LNG));
 
             if (rel_x < IMG_WIDTH && rel_y < IMG_HEIGHT) begin
                 rom_addr = rel_y * IMG_WIDTH + rel_x;

@@ -53,6 +53,7 @@ module top_vga (
     logic draw_weapon;
     logic wpn_hgt;
     logic wpn_lng;
+    logic [15:0] angle;
 
 
     typedef enum logic [1:0] {
@@ -165,7 +166,8 @@ module top_vga (
         .clk,
         .rst,
         .draw_weapon(draw_weapon),
-        .mouse_clicked(mouse_clicked)
+        .mouse_clicked(mouse_clicked),
+        .angle(angle)
     );
 
     wpn_draw_melee_def u_wpn_draw_melee_def (
@@ -178,7 +180,8 @@ module top_vga (
         .wpn_hgt(wpn_hgt),
         .wpn_lng(wpn_lng),
         .vga_in(vga_if_char.in),
-        .vga_out(vga_if_wpn.out)
+        .vga_out(vga_if_wpn.out),
+        .angle(angle)
     );
   
     MouseCtl u_MouseCtl
