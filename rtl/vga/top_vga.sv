@@ -25,7 +25,9 @@ module top_vga (
     wire [10:0] vcount_tim, hcount_tim;
     wire vsync_tim, hsync_tim;
     wire vblnk_tim, hblnk_tim;
-    wire [11:0] pos_x_out, pos_y_out, char_hgt, char_lng;
+    wire [11:0] char_hgt, char_lng;
+    wire [11:0] pos_x_out, pos_y_out; 
+    wire [11:0] pos_x_wpn, pos_y_wpn;
     wire [11:0] boss_x, boss_y, boss_hgt, boss_lng;
     wire [3:0] current_health;
     wire [6:0] boss_hp;
@@ -47,10 +49,11 @@ module top_vga (
     assign char_y = pos_y_out;
     logic [11:0] xpos_MouseCtl;
     logic [11:0] ypos_MouseCtl;
-    logic mouse_left;
+    logic mouse_clicked;
     logic draw_weapon;
     logic wpn_hgt;
     logic wpn_lng;
+
 
     typedef enum logic [1:0] {
         MENU       = 2'd0,
@@ -59,7 +62,7 @@ module top_vga (
     } game_state_t;
 
     game_state_t game_state;
-    always_ff @(posedge clk or posedge rst) begin
+    always_ff @(posedge clk) begin
         if (rst)
             game_state <= MENU;
         else begin
@@ -162,15 +165,15 @@ module top_vga (
         .clk,
         .rst,
         .draw_weapon(draw_weapon),
-        .mouse_left(mouse_left)
+        .mouse_clicked(mouse_clicked)
     );
 
-    wpn_draw_def u_wpn_draw_def (
+    wpn_draw_melee_def u_wpn_draw_melee_def (
         .clk(clk),
         .rst(rst),
         .pos_x(xpos_MouseCtl),
         .pos_y(ypos_MouseCtl),
-        .draw_enable(draw_weapon),
+        .mouse_clicked(draw_weapon),
         .flip_h(flip_h),
         .wpn_hgt(wpn_hgt),
         .wpn_lng(wpn_lng),
@@ -185,7 +188,7 @@ module top_vga (
         .ps2_data(ps2_data),
         .xpos(xpos_MouseCtl),
         .ypos(ypos_MouseCtl),
-        .left(mouse_left)
+        .left(mouse_clicked)
     );
 
     draw_mouse u_draw_mouse (
