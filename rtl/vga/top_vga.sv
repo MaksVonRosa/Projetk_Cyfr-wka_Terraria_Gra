@@ -27,17 +27,17 @@ module top_vga (
     wire vblnk_tim, hblnk_tim;
     wire [11:0] pos_x_out, pos_y_out, char_hgt, char_lng;
     wire [11:0] boss_x, boss_y, boss_hgt, boss_lng;
-    wire [3:0] char_hp_out, current_health;
+    wire [3:0] current_health;
     wire [6:0] boss_hp;
 
     vga_if vga_if_bg();
     vga_if vga_if_char();
-    vga_if vga_boss();
-    vga_if vga_plat();
-    vga_if vga_menu();
-    vga_if vga_if_wpn();
+    vga_if vga_if_boss();
+    vga_if vga_if_plat();
+    vga_if vga_if_menu();
     vga_if vga_if_mouse();
-    vga_if vga_hearts();
+    vga_if vga_if_wpn();
+
 
 
     assign vs = vga_if_mouse.vsync;
@@ -45,7 +45,6 @@ module top_vga (
     assign {r,g,b} = vga_if_mouse.rgb;
     assign char_x = pos_x_out;
     assign char_y = pos_y_out;
-
     logic [11:0] xpos_MouseCtl;
     logic [11:0] ypos_MouseCtl;
     logic mouse_left;
@@ -60,28 +59,14 @@ module top_vga (
     } game_state_t;
 
     game_state_t game_state;
-
-    logic [3:0] char_hp_reg;
-    logic [6:0] boss_hp_reg;
-
-    always_ff @(posedge clk or posedge rst) begin
-        if (rst) begin
-            char_hp_reg <= 4'd5;
-            boss_hp_reg <= 7'd100;
-        end else begin
-            char_hp_reg <= char_hp_out;
-            boss_hp_reg <= boss_hp;
-        end
-    end
-
     always_ff @(posedge clk or posedge rst) begin
         if (rst)
             game_state <= MENU;
         else begin
             case (game_state)
                 MENU: if (buttondown) game_state <= GAME;
-                GAME: if (char_hp_reg == 0 || boss_hp_reg == 0) game_state <= END_SCREEN;
-                END_SCREEN: if (stepjump) game_state <= MENU;
+                GAME: if (current_health == 0 || boss_hp == 0) game_state <= END_SCREEN;
+                END_SCREEN: if (buttondown) game_state <= MENU;
             endcase
         end
     end
@@ -120,7 +105,7 @@ module top_vga (
         .rst(rst),
         .game_active(game_active),
         .vga_in(vga_if_bg.in),
-        .vga_out(vga_menu.out)
+        .vga_out(vga_if_menu.out)
     );
 
     platform u_platform (
@@ -129,8 +114,8 @@ module top_vga (
         .char_x(char_x),
         .char_y(char_y),
         .char_hgt(32),
-        .vga_in(vga_menu.in),
-        .vga_out(vga_plat.out),
+        .vga_in(vga_if_menu.in),
+        .vga_out(vga_if_plat.out),
         .ground_y(ground_y),
         .on_ground(on_ground),
         .game_active(game_active)
@@ -141,8 +126,8 @@ module top_vga (
         .rst(rst),
         .buttondown(buttondown),
         .char_x(char_x),
-        .vga_in(vga_plat.in),
-        .vga_out(vga_boss.out),
+        .vga_in(vga_if_plat.in),
+        .vga_out(vga_if_boss.out),
         .boss_x(boss_x),
         .boss_y(boss_y),
         .boss_hgt(boss_hgt),
@@ -167,9 +152,8 @@ module top_vga (
         .pos_y_out(pos_y_out),
         .char_hgt(char_hgt),
         .char_lng(char_lng),
-        .char_hp_out(char_hp_out),
         .ground_lvl(ground_lvl),
-        .vga_char_in(vga_boss.in),
+        .vga_char_in(vga_if_boss.in),
         .vga_char_out(vga_if_char.out),
         .game_active(game_active)
     );
@@ -193,7 +177,7 @@ module top_vga (
         .vga_in(vga_if_char.in),
         .vga_out(vga_if_wpn.out)
     );
-    
+  
     MouseCtl u_MouseCtl
     (
         .clk(clk100MHz),

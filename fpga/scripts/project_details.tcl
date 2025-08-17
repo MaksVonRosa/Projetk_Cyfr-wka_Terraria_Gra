@@ -33,8 +33,6 @@ set xdc_files {
 set sv_files {
     ../rtl/wpn_draw_att.sv
     ../rtl/wpn_draw_def.sv
-    ../rtl/boss.sv
-    ../rtl/boss_draw.sv
     ../rtl/draw_wpn_ctrl.sv
     ../rtl/Mouse_Control/draw_mouse.sv 
     ../rtl/vga/vga_pkg.sv
