@@ -31,10 +31,13 @@ set xdc_files {
 
 # Specify SystemVerilog design files location   -- EDIT
 set sv_files {
+    ../rtl/wpn_draw_att.sv
+    ../rtl/wpn_draw_def.sv
+    ../rtl/draw_wpn_ctrl.sv
+    ../rtl/Mouse_Control/draw_mouse.sv 
     ../rtl/vga/vga_pkg.sv
     ../rtl/vga/vga_timing.sv
     ../rtl/draw_bg.sv
-    ../rtl/Mouse_Control/draw_mouse.sv 
     ../rtl/Character/char.sv
     ../rtl/Character/char_ctrl.sv
     ../rtl/Character/char_draw.sv

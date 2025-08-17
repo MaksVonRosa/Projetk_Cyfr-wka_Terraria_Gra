@@ -21,6 +21,8 @@ sv work ../../rtl/vga_pkg.sv \
         ../../rtl/top_vga.sv \
         ../../fpga/rtl/top_vga_basys3.sv \
         ../common/tiff_writer.sv \
+        ../../rtl/wpn_draw_att.sv \
+        ../../rtl/wpn_draw_def.sv \
         top_fpga_tb.sv
 
 # compile glbl module - required for IP simulation

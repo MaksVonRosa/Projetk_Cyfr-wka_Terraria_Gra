@@ -7,6 +7,8 @@ module top_vga (
     input  logic stepjump,
     input  logic buttondown,
     output logic on_ground,
+    inout  logic ps2_clk,
+    inout  logic ps2_data,
     output logic vs,
     output logic hs,
     output logic ground_lvl,
@@ -15,9 +17,7 @@ module top_vga (
     output logic [11:0] char_y,
     output logic [3:0] r,
     output logic [3:0] g,
-    output logic [3:0] b,
-    inout  logic ps2_clk,
-    inout  logic ps2_data
+    output logic [3:0] b
 );
     timeunit 1ns;
     timeprecision 1ps;
@@ -36,12 +36,21 @@ module top_vga (
     vga_if vga_if_plat();
     vga_if vga_if_menu();
     vga_if vga_if_mouse();
+    vga_if vga_if_wpn();
+
+
 
     assign vs = vga_if_mouse.vsync;
     assign hs = vga_if_mouse.hsync;
     assign {r,g,b} = vga_if_mouse.rgb;
     assign char_x = pos_x_out;
     assign char_y = pos_y_out;
+    logic [11:0] xpos_MouseCtl;
+    logic [11:0] ypos_MouseCtl;
+    logic mouse_left;
+    logic draw_weapon;
+    logic wpn_hgt;
+    logic wpn_lng;
 
     typedef enum logic [1:0] {
         MENU       = 2'd0,
@@ -50,7 +59,6 @@ module top_vga (
     } game_state_t;
 
     game_state_t game_state;
-
     always_ff @(posedge clk or posedge rst) begin
         if (rst)
             game_state <= MENU;
@@ -150,6 +158,26 @@ module top_vga (
         .game_active(game_active)
     );
 
+    draw_wpn_ctrl u_draw_wpn_ctrl (
+        .clk,
+        .rst,
+        .draw_weapon(draw_weapon),
+        .mouse_left(mouse_left)
+    );
+
+    wpn_draw_def u_wpn_draw_def (
+        .clk(clk),
+        .rst(rst),
+        .pos_x(xpos_MouseCtl),
+        .pos_y(ypos_MouseCtl),
+        .draw_enable(draw_weapon),
+        .flip_h(flip_h),
+        .wpn_hgt(wpn_hgt),
+        .wpn_lng(wpn_lng),
+        .vga_in(vga_if_char.in),
+        .vga_out(vga_if_wpn.out)
+    );
+  
     MouseCtl u_MouseCtl
     (
         .clk(clk100MHz),
@@ -163,7 +191,7 @@ module top_vga (
     draw_mouse u_draw_mouse (
         .clk,
         .rst,
-        .vga_in_mouse(vga_if_char.in),
+        .vga_in_mouse(vga_if_wpn.in),
         .vga_out_mouse(vga_if_mouse.out),
         .xpos(xpos_MouseCtl),
         .ypos(ypos_MouseCtl)

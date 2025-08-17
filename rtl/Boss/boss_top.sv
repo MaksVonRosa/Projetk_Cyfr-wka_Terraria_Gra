@@ -15,7 +15,6 @@ module boss_top (
     import vga_pkg::*;
     localparam BOSS_HGT = 95;
     localparam BOSS_LNG = 106;
-
     logic [20:0] tick_count;
     logic frame_tick;
 
@@ -60,7 +59,6 @@ module boss_top (
         .vga_in(vga_in),
         .vga_out(vga_out)
     );
-
     assign boss_hgt = BOSS_HGT;
     assign boss_lng = BOSS_LNG;
 endmodule
