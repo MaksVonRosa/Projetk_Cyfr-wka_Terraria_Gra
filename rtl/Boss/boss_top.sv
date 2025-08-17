@@ -2,6 +2,7 @@ module boss_top (
     input  logic clk,
     input  logic rst,
     input  logic game_active,
+    input  logic game_start,
     input  logic buttondown,
     input  logic [11:0] char_x,
     vga_if.in  vga_in,
@@ -46,6 +47,7 @@ module boss_top (
         .rst(rst),
         .frame_tick(frame_tick),
         .game_active(game_active),
+        .game_start(game_start),
         .buttondown(buttondown),
         .boss_hp(boss_hp)
     );

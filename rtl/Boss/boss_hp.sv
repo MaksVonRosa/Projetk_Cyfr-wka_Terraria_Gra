@@ -3,6 +3,7 @@ module boss_hp (
     input  logic rst,
     input  logic frame_tick,
     input  logic game_active,
+    input  logic game_start,
     input  logic buttondown,
     output logic [6:0] boss_hp
 );
@@ -10,6 +11,10 @@ module boss_hp (
 
     always_ff @(posedge clk or posedge rst) begin
         if (rst) begin
+            boss_hp         <= 100;
+            buttondown_sync <= 0;
+            buttondown_prev <= 0;
+        end else if (game_start == 1) begin
             boss_hp         <= 100;
             buttondown_sync <= 0;
             buttondown_prev <= 0;
