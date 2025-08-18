@@ -56,34 +56,30 @@ module top_vga (
     logic [15:0] angle;
 
 
-    typedef enum logic [1:0] {
-        MENU       = 2'd0,
-        GAME       = 2'd1,
-        END_SCREEN = 2'd2
-    } game_state_t;
-
-    game_state_t game_state;
-    always_ff @(posedge clk) begin
-        if (rst)
-            game_state <= MENU;
-        else begin
-            case (game_state)
-                MENU: if (buttondown) game_state <= GAME;
-                GAME: if (current_health == 0 || boss_hp == 0) game_state <= END_SCREEN;
-                END_SCREEN: if (buttondown) game_state <= MENU;
-            endcase
-        end
-    end
-
+    logic [11:0] xpos_MouseCtl;
+    logic [11:0] ypos_MouseCtl;
+    logic game_start;
+    logic back_to_menu;
+    logic [1:0] game_state;
     logic game_active;
-    assign game_active = (game_state == GAME);
-
     logic show_menu_end;
-    assign show_menu_end = (game_state == MENU || game_state == END_SCREEN);
+
+    game_fsm u_game_fsm (
+        .clk(clk),
+        .rst(rst),
+        .game_start(game_start),
+        .back_to_menu(back_to_menu),
+        .boss_hp(boss_hp),
+        .current_health(current_health),
+        .game_state(game_state)
+    );
+
+    assign game_active = (game_state == 2'd1);
+    assign show_menu_end = (game_state == 2'd0 || game_state == 2'd2);
 
     vga_timing u_vga_timing (
-        .clk,
-        .rst,
+        .clk(clk),
+        .rst(rst),
         .vcount(vcount_tim),
         .vsync(vsync_tim),
         .vblnk(vblnk_tim),
@@ -93,8 +89,8 @@ module top_vga (
     );
 
     draw_bg u_draw_bg (
-        .clk,
-        .rst,
+        .clk(clk),
+        .rst(rst),
         .vcount_in(vcount_tim),
         .vsync_in(vsync_tim),
         .vblnk_in(vblnk_tim),
@@ -107,14 +103,19 @@ module top_vga (
     game_screen u_game_screen (
         .clk(clk),
         .rst(rst),
-        .game_active(game_active),
+        .game_active(game_state),
+        .mouse_x(xpos_MouseCtl),
+        .mouse_y(ypos_MouseCtl),
+        .mouse_clicked(mouse_clicked),
+        .game_start(game_start),
+        .back_to_menu(back_to_menu),
         .vga_in(vga_if_bg.in),
         .vga_out(vga_if_menu.out)
     );
 
     platform u_platform (
-        .clk,
-        .rst,
+        .clk(clk),
+        .rst(rst),
         .char_x(char_x),
         .char_y(char_y),
         .char_hgt(32),
@@ -137,16 +138,17 @@ module top_vga (
         .boss_hgt(boss_hgt),
         .boss_lng(boss_lng),
         .boss_hp(boss_hp),
-        .game_active(game_active)
+        .game_active(game_active),
+        .game_start(game_start)
     );
 
     draw_char u_char (
-        .clk,
-        .rst,
-        .stepleft,
-        .stepright,
-        .stepjump,
-        .on_ground,
+        .clk(clk),
+        .rst(rst),
+        .stepleft(stepleft),
+        .stepright(stepright),
+        .stepjump(stepjump),
+        .on_ground(on_ground),
         .boss_x(boss_x),
         .boss_y(boss_y),
         .boss_lng(boss_lng),
@@ -159,7 +161,8 @@ module top_vga (
         .ground_lvl(ground_lvl),
         .vga_char_in(vga_if_boss.in),
         .vga_char_out(vga_if_char.out),
-        .game_active(game_active)
+        .game_active(game_active),
+        .game_start(game_start)
     );
 
     draw_wpn_ctrl u_draw_wpn_ctrl (
@@ -173,8 +176,8 @@ module top_vga (
     wpn_draw_melee_def u_wpn_draw_melee_def (
         .clk(clk),
         .rst(rst),
-        .pos_x(xpos_MouseCtl),
-        .pos_y(ypos_MouseCtl),
+        .pos_x(pos_x_out),
+        .pos_y(pos_y_out),
         .mouse_clicked(draw_weapon),
         .flip_h(flip_h),
         .wpn_hgt(wpn_hgt),
@@ -201,7 +204,6 @@ module top_vga (
         .vga_out_mouse(vga_if_mouse.out),
         .xpos(xpos_MouseCtl),
         .ypos(ypos_MouseCtl)
-
     );
 
 endmodule

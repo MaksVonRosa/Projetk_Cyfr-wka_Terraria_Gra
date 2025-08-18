@@ -46,6 +46,7 @@ set sv_files {
     ../rtl/Boss/boss_render.sv
     ../rtl/Boss/boss_top.sv
     ../rtl/platform.sv
+    ../rtl/game_fsm.sv
     ../rtl/game_screen.sv
     ../rtl/Character/hearts_display.sv
     ../rtl/vga/top_vga.sv

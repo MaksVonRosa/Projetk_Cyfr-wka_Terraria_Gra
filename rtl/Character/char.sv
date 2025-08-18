@@ -10,6 +10,7 @@ module draw_char (
     input  logic [11:0] boss_lng,
     input  logic [11:0] boss_hgt,
     input  logic [1:0] game_active,
+    input  logic game_start,
     output  logic [3:0] current_health,
     output logic [11:0] ground_lvl,
     output logic [11:0] pos_x_out,
@@ -74,6 +75,7 @@ module draw_char (
         .current_health(current_health),
         .vga_in(vga_char_mid.in),
         .vga_out(vga_char_out),
-        .game_active(game_active)
+        .game_active(game_active),
+        .game_start(game_start)
     );
 endmodule

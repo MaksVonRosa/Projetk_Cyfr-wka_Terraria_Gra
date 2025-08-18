@@ -21,25 +21,8 @@ module draw_wpn_ctrl (
 
 //logic signed [15:0] angle;       // kąt w stopniach * np. 256 (fixed-point)
 logic direction;                 // 0 = rośnie, 1 = maleje
-
-// always_ff @(posedge clk) begin
-//     if (rst) begin
-//         angle <= 0;
-//         direction <= 0;
-//     end else if (mouse_clicked) begin
-//         if (!direction) begin
-//             angle <= angle + 16'sd4; // prędkość zmiany kąta
-//             if (angle >= 45*256) direction <= 1; 
-//         end else begin
-//             angle <= angle - 16'sd4;
-//             if (angle <= -45*256) direction <= 0;
-//         end
-//     end else begin
-//         angle <= 0;   // wraca do pionu
-//     end
-// end
-
 logic [19:0] slow_cnt; // licznik dzielący zegar
+
 always_ff @(posedge clk) begin
     if (rst) begin
         slow_cnt <= 0;
@@ -62,6 +45,6 @@ always_ff @(posedge clk) begin
     end
 end
 
-
 //assign angle = angle_out;
+
 endmodule

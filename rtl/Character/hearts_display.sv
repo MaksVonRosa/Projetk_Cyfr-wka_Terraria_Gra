@@ -18,6 +18,7 @@ module hearts_display #(
     input  logic [11:0] boss_hgt,
     input  logic [11:0] boss_lng,
     input  logic [1:0] game_active,
+    input  logic game_start,
     output logic [3:0] current_health,
     vga_if.in  vga_in,
     vga_if.out vga_out
@@ -55,10 +56,12 @@ module hearts_display #(
         if (rst) begin
             current_health <= char_hp;
             damage_cooldown <= 0;
+        end else if (game_start == 1) begin
+            current_health <= char_hp;
+            damage_cooldown <= 0;
         end else if (frame_tick && game_active == 1) begin
             if (damage_cooldown > 0)
                 damage_cooldown <= damage_cooldown - 1;
-
             if (damage_cooldown == 0 &&
             char_x + char_lng > boss_x &&
             char_x < boss_x + boss_lng &&
