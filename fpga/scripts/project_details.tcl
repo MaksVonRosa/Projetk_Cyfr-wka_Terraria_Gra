@@ -45,6 +45,7 @@ set sv_files {
     ../rtl/platform.sv
     ../rtl/game_fsm.sv
     ../rtl/game_screen.sv
+    ../rtl/class_selector.sv
     ../rtl/Character/hearts_display.sv
     ../rtl/vga/top_vga.sv
     ../rtl/vga/vga_if.sv

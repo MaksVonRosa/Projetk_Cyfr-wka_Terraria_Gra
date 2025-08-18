@@ -5,31 +5,30 @@ module draw_char (
     input  logic stepright,
     input  logic stepjump,
     input  logic on_ground,
+    input  logic char_class,
     input  logic [11:0] boss_x,
     input  logic [11:0] boss_y,
     input  logic [11:0] boss_lng,
     input  logic [11:0] boss_hgt,
     input  logic [1:0] game_active,
     input  logic game_start,
-    output  logic [3:0] current_health,
+    input  logic [3:0] char_hp,
+    output logic [3:0] current_health,
     output logic [11:0] ground_lvl,
     output logic [11:0] pos_x_out,
     output logic [11:0] pos_y_out,
     output logic [11:0] char_lng,
     output logic [11:0] char_hgt,
-    output logic [3:0] char_hp_out,
     vga_if.in  vga_char_in,
     vga_if.out vga_char_out
 );
     vga_if vga_char_mid();
 
     logic [11:0] pos_x, pos_y;
-    logic [3:0] char_hp;
     logic flip_h;
 
     assign pos_x_out = pos_x;
     assign pos_y_out = pos_y;
-    assign char_hp_out = char_hp;
 
     char_ctrl u_ctrl (
         .clk(clk),
@@ -41,9 +40,9 @@ module draw_char (
         .pos_x(pos_x),
         .pos_y(pos_y),
         .flip_h(flip_h),
-        .char_hp(char_hp),
         .ground_lvl(ground_lvl),
-        .game_active(game_active)
+        .game_active(game_active),
+        .game_start(game_start)
     );
 
     char_draw u_draw (
@@ -57,7 +56,8 @@ module draw_char (
         .flip_h(flip_h),
         .vga_in(vga_char_in),
         .vga_out(vga_char_mid.out),
-        .game_active(game_active)
+        .game_active(game_active),
+        .char_class
     );
 
     hearts_display u_hearts_display (

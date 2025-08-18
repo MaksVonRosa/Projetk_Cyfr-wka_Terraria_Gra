@@ -20,15 +20,14 @@ module game_screen (
     localparam integer CLICK_COOLDOWN = 20;
 
     logic [11:0] rgb_nxt;
-    logic [11:0] start_rom [0:RECT_W*RECT_H-1];
-    logic [11:0] back_rom  [0:RECT_W*RECT_H-1];
+    logic [13:0] rom_addr;
+    logic [11:0] start_rom [0:9374];
+    logic [11:0] back_rom  [0:9374];
     logic [11:0] pixel_color;
     logic [11:0] rel_x, rel_y;
-    logic [10:0] rom_addr;
     logic in_rect;
 
-    logic [5:0] start_counter;
-    logic [5:0] back_counter;
+    logic [31:0] wait_counter;
 
     initial begin
         $readmemh("../GameSprites/START_BUTTON.dat", start_rom);
@@ -43,7 +42,7 @@ module game_screen (
         if (in_rect) begin
             rel_x = vga_in.hcount - RECT_X;
             rel_y = vga_in.vcount - RECT_Y;
-            rom_addr = rel_y * RECT_W + rel_x;
+            rom_addr = rel_y * 125 + rel_x;
             if (game_active == 0)
                 pixel_color = start_rom[rom_addr];
             else if (game_active == 2)
@@ -51,7 +50,7 @@ module game_screen (
             else
                 pixel_color = rgb_nxt;
 
-            if (pixel_color != 12'h00F)
+            if (pixel_color != 12'h000)
                 rgb_nxt = pixel_color;
         end
     end
@@ -60,26 +59,24 @@ module game_screen (
         if (rst) begin
             game_start   <= 0;
             back_to_menu <= 0;
-            start_counter <= 0;
-            back_counter  <= 0;
+            wait_counter <= 0;
         end else begin
             game_start   <= 0;
             back_to_menu <= 0;
-            if (start_counter > 0) start_counter <= start_counter - 1;
-            if (back_counter  > 0) back_counter  <= back_counter  - 1;
+            if (wait_counter > 0) wait_counter <= wait_counter - 1;
 
             if (mouse_left) begin
-                if (game_active == 0 && start_counter == 0 &&
+                if (game_active == 0 && wait_counter == 0 &&
                     mouse_x >= RECT_X && mouse_x < RECT_X+RECT_W &&
                     mouse_y >= RECT_Y && mouse_y < RECT_Y+RECT_H) begin
                     game_start   <= 1;
-                    start_counter <= CLICK_COOLDOWN;
+                    wait_counter <= CLICK_COOLDOWN;
                 end
-                if (game_active == 2 && back_counter == 0 &&
+                if (game_active == 2 && wait_counter == 0 &&
                     mouse_x >= RECT_X && mouse_x < RECT_X+RECT_W &&
                     mouse_y >= RECT_Y && mouse_y < RECT_Y+RECT_H) begin
                     back_to_menu <= 1;
-                    back_counter  <= CLICK_COOLDOWN;
+                    wait_counter  <= CLICK_COOLDOWN;
                 end
             end
         end
