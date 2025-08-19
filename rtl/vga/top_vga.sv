@@ -53,17 +53,18 @@ module top_vga (
     logic draw_weapon;
     logic wpn_hgt;
     logic wpn_lng;
+    logic [11:0] pos_x_wpn_offset;
+    logic [11:0] pos_y_wpn_offset;
+    logic flip_mouse_left_right;
     logic [15:0] angle;
 
 
-    logic [11:0] xpos_MouseCtl;
-    logic [11:0] ypos_MouseCtl;
     logic game_start;
     logic back_to_menu;
     logic [1:0] game_state;
     logic game_active;
     logic show_menu_end;
-
+    logic flip_h;
     game_fsm u_game_fsm (
         .clk(clk),
         .rst(rst),
@@ -159,6 +160,7 @@ module top_vga (
         .char_hgt(char_hgt),
         .char_lng(char_lng),
         .ground_lvl(ground_lvl),
+        .flip_h_out(flip_h),
         .vga_char_in(vga_if_boss.in),
         .vga_char_out(vga_if_char.out),
         .game_active(game_active),
@@ -170,21 +172,33 @@ module top_vga (
         .rst,
         .draw_weapon(draw_weapon),
         .mouse_clicked(mouse_clicked),
-        .angle(angle)
-    );
-
-    wpn_draw_melee_def u_wpn_draw_melee_def (
-        .clk(clk),
-        .rst(rst),
         .pos_x(pos_x_out),
         .pos_y(pos_y_out),
+        .flip_mouse_left_right(flip_mouse_left_right),
+        .flip_h(flip_h),
+        .pos_x_wpn_offset(pos_x_wpn_offset),
+        .pos_y_wpn_offset(pos_y_wpn_offset),
+        .stepleft(stepleft),
+        .stepright(stepright),
+        .game_active(game_active)
+
+        
+    );
+
+    wpn_draw_melee u_wpn_draw_melee (
+        .clk(clk),
+        .rst(rst),
+        .pos_x_wpn(pos_x_out),
+        .pos_y_wpn(pos_y_out),
+        .pos_x_wpn_offset(pos_x_wpn_offset),
+        .pos_y_wpn_offset(pos_y_wpn_offset),
         .mouse_clicked(draw_weapon),
+        .flip_mouse_left_right(flip_mouse_left_right),
         .flip_h(flip_h),
         .wpn_hgt(wpn_hgt),
         .wpn_lng(wpn_lng),
         .vga_in(vga_if_char.in),
-        .vga_out(vga_if_wpn.out),
-        .angle(angle)
+        .vga_out(vga_if_wpn.out)
     );
   
     MouseCtl u_MouseCtl

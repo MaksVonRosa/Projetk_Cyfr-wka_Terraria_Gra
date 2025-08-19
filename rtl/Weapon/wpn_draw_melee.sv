@@ -1,11 +1,14 @@
-module wpn_draw_melee_def (
+module wpn_draw_melee (
     input  logic clk,
     input  logic rst,
-    input  logic [11:0] pos_x,
-    input  logic [11:0] pos_y,
+    input  logic [11:0] pos_x_wpn,
+    input  logic [11:0] pos_x_wpn_offset,
+    input  logic [11:0] pos_y_wpn,
+    input  logic [11:0] pos_y_wpn_offset,
+    input  logic flip_mouse_left_right,
     input  logic flip_h,
     input  logic mouse_clicked,
-    input  logic angle,
+    
     output logic [11:0] wpn_hgt,
     output logic [11:0] wpn_lng,
 
@@ -15,12 +18,20 @@ module wpn_draw_melee_def (
     import vga_pkg::*;
 
     localparam WPN_HGT   = 26;
-    localparam WPN_LNG   = 19; 
-    localparam IMG_WIDTH  = 28;
-    localparam IMG_HEIGHT = 54;
+    localparam IMG_WIDTH  = 54;
+    localparam IMG_HEIGHT = 28;
+    
+    localparam WPN_LNG   = IMG_WIDTH/2; 
 
 
-    logic [11:0] draw_x, draw_y, rgb_nxt;
+    logic [11:0] draw_y,draw_x, rgb_nxt;
+
+    typedef enum logic [1:0] {IDLE, SWING_FWD, SWING_BACK} anim_state_t;
+    anim_state_t anim_state;
+
+    logic [4:0] anim_counter;   // licznik kroków animacji
+    logic signed [11:0] anim_x_offset; // przesunięcie X broni w animacji
+
 
     logic [11:0] wpn_rom [0:IMG_WIDTH*IMG_HEIGHT-1];
 
@@ -31,58 +42,20 @@ module wpn_draw_melee_def (
     logic [11:0] pixel_color;
     logic [15:0] rom_addr; 
 
-    // pipeline d1
     logic [11:0] rgb_d1;
     logic [10:0] vcount_d1, hcount_d1;
     logic vsync_d1, hsync_d1, vblnk_d1, hblnk_d1;
 
-    // pipeline d2
+    
     logic [11:0] rgb_d2;
     logic [10:0] vcount_d2, hcount_d2;
     logic vsync_d2, hsync_d2, vblnk_d2, hblnk_d2;
 
-        // deklaracje (na górze modułu)
-    logic signed [15:0] dx, dy;
-    logic signed [15:0] x_sprite, y_sprite;
-    logic signed [15:0] cos_val, sin_val; 
-
-    localparam FP = 10; // fixed point fractional bits
-    localparam SCALE = 1 << FP;
-function automatic signed [15:0] cos_lut(input logic [8:0] angle_deg);
-    case (angle_deg)
-        0   : cos_lut =  1*SCALE; // 1.0
-        30  : cos_lut =  0.866*SCALE;
-        45  : cos_lut =  0.707*SCALE;
-        60  : cos_lut =  0.5*SCALE;
-        90  : cos_lut =  0;
-        120 : cos_lut = -0.5*SCALE;
-        135 : cos_lut = -0.707*SCALE;
-        150 : cos_lut = -0.866*SCALE;
-        180 : cos_lut = -1*SCALE;
-        default: cos_lut = 0;
-    endcase
-endfunction
-
-function automatic signed [15:0] sin_lut(input logic [8:0] angle_deg);
-    case (angle_deg)
-        0   : sin_lut =  0;
-        30  : sin_lut =  0.5*SCALE;
-        45  : sin_lut =  0.707*SCALE;
-        60  : sin_lut =  0.866*SCALE;
-        90  : sin_lut =  1*SCALE;
-        120 : sin_lut =  0.866*SCALE;
-        135 : sin_lut =  0.707*SCALE;
-        150 : sin_lut =  0.5*SCALE;
-        180 : sin_lut =  0;
-        default: sin_lut = 0;
-    endcase
-endfunction
-
 
     always_ff @(posedge clk) begin
         if (rst) begin
-            draw_x <= HOR_PIXELS / 2;
-            draw_y <= VER_PIXELS - 20 - WPN_HGT;
+            // draw_x <= HOR_PIXELS / 2;
+            // draw_y <= VER_PIXELS - 20 - WPN_HGT;
 
             rgb_d1    <= '0;
             vcount_d1 <= '0;
@@ -108,8 +81,10 @@ endfunction
             vga_out.hblnk  <= '0;
             vga_out.rgb    <= '0;
         end else begin
-            draw_x <= pos_x;
-            draw_y <= pos_y;
+            // draw_x <= pos_x_wpn;
+            // draw_y <= pos_y_wpn;
+
+        
 
             rgb_d1    <= rgb_nxt;
             vcount_d1 <= vga_in.vcount;
@@ -140,35 +115,78 @@ endfunction
         end
     end
 
-    // logika sprite (jak wcześniej)
+    // always_ff @(posedge clk) begin
+    //     if (rst) begin
+    //         anim_state    <= IDLE;
+    //         anim_counter      <= 0;
+    //         anim_x_offset <= 0;
+    //     end else begin
+    //         case (anim_state)
+    //             IDLE: begin
+    //                 anim_x_offset <= 0;
+    //                 if (mouse_clicked) begin
+    //                     anim_state <= SWING_FWD;
+    //                     anim_counter   <= 0;
+    //                 end
+    //             end
+    //             SWING_FWD: begin
+    //                 anim_counter <= anim_counter + 1;
+    //                 anim_x_offset <= anim_counter;  // przesuwanie w prawo (np. +1 px / tick)
+    //                 if (anim_counter == 10) begin   // max wychylenie
+    //                     anim_state <= SWING_BACK;
+    //                     anim_counter   <= 0;
+    //                 end
+    //             end
+    //             SWING_BACK: begin
+    //                 anim_counter <= anim_counter + 1;
+    //                 anim_x_offset <= 10 - anim_counter; // cofanie w lewo
+    //                 if (anim_counter == 10) begin
+    //                     anim_state <= IDLE;
+    //                     anim_counter   <= 0;
+    //                     anim_x_offset <= 0;
+    //                 end
+    //             end
+    //         endcase
+    //     end
+    // end
+
+
     always_comb begin
         rgb_nxt = vga_in.rgb;
 
+        // if (mouse_clicked &&
+        //     !vga_in.vblnk && !vga_in.hblnk &&
+        //     vga_in.hcount >= draw_x - WPN_LNG &&
+        //     vga_in.hcount <  draw_x + WPN_LNG &&
+        //     vga_in.vcount >= draw_y - WPN_HGT &&
+        //     vga_in.vcount <  draw_y + WPN_HGT) begin
+
+        //     rel_y = vga_in.vcount - (draw_y - WPN_HGT);
+        //     rel_x = flip_h ? (IMG_WIDTH - 1) - (vga_in.hcount - (draw_x - WPN_LNG)) : 
+        //                                     (vga_in.hcount - (draw_x - WPN_LNG));
+
+        //     if (rel_x < IMG_WIDTH && rel_y < IMG_HEIGHT) begin
+        //         rom_addr = rel_y * IMG_WIDTH + rel_x;
+        //         pixel_color = wpn_rom[rom_addr];
+        //         if (pixel_color != 12'h02F) rgb_nxt = pixel_color;
+        //     end
+        // end
+
         if (mouse_clicked &&
             !vga_in.vblnk && !vga_in.hblnk &&
-            vga_in.hcount >= draw_x - WPN_LNG &&
-            vga_in.hcount <  draw_x + WPN_LNG &&
-            vga_in.vcount >= draw_y - WPN_HGT &&
-            vga_in.vcount <  draw_y + WPN_HGT) begin
+            vga_in.hcount >= pos_x_wpn_offset - WPN_LNG &&
+            vga_in.hcount <  pos_x_wpn_offset + WPN_LNG &&
+            vga_in.vcount >= pos_y_wpn_offset - WPN_HGT &&
+            vga_in.vcount <  pos_y_wpn_offset + WPN_HGT) begin
 
-            dx = vga_in.hcount - draw_x;
-            dy = vga_in.vcount - draw_y;
-
-            // pobranie wartości z tablic LUT
-            cos_val = cos_lut(angle); 
-            sin_val = sin_lut(angle);
-
-            // obliczenia obrotu w przestrzeni sprite'a
-            x_sprite = (dx * cos_val + dy * sin_val) >>> FP;
-            y_sprite = (-dx * sin_val + dy * cos_val) >>> FP;
-
-            rel_x = x_sprite + IMG_WIDTH/2;
-            rel_y = IMG_HEIGHT + y_sprite; 
+            rel_y = vga_in.vcount - (pos_y_wpn_offset - WPN_HGT);
+            //rel_x = vga_in.hcount - (pos_x_wpn_offset - WPN_LNG);
 
 
-            // rel_y = vga_in.vcount - (draw_y - WPN_HGT);
-            // rel_x = flip_h ? (IMG_WIDTH - 1) - (vga_in.hcount - (draw_x - WPN_LNG)) : 
-            //                 (vga_in.hcount - (draw_x - WPN_LNG));
+            rel_x = flip_h ? (IMG_WIDTH - 1) - (vga_in.hcount - (pos_x_wpn_offset - WPN_LNG)) : 
+                                            (vga_in.hcount - (pos_x_wpn_offset - WPN_LNG));
+            // rel_x = flip_mouse_left_right ? (IMG_WIDTH/2 + (IMG_WIDTH/2 - (vga_in.hcount - (pos_x_wpn_offset - WPN_LNG)))) 
+            //                   : (vga_in.hcount - (pos_x_wpn_offset - WPN_LNG));
 
             if (rel_x < IMG_WIDTH && rel_y < IMG_HEIGHT) begin
                 rom_addr = rel_y * IMG_WIDTH + rel_x;
@@ -176,6 +194,11 @@ endfunction
                 if (pixel_color != 12'h02F) rgb_nxt = pixel_color;
             end
         end
-    end
+
+        
+end
+
+
+    
 
 endmodule

@@ -31,7 +31,7 @@ module char_ctrl (
     logic [20:0] tick_count;
     logic        frame_tick;
 
-    always_ff @(posedge clk or posedge rst) begin
+    always_ff @(posedge clk) begin
         if (rst) flip_h <= 0;
         else if (game_active == 1) begin
             if (stepleft)  flip_h <= 1;
@@ -49,7 +49,7 @@ module char_ctrl (
         end
     end
 
-    always_ff @(posedge clk or posedge rst) begin
+    always_ff @(posedge clk) begin
         if (rst) begin
             next_x <= CHAR_SPAWN;
             char_hp <= 10;
@@ -61,7 +61,7 @@ module char_ctrl (
         end
     end
 
-    always_ff @(posedge clk or posedge rst) begin
+    always_ff @(posedge clk) begin
         if (rst) begin
             next_y     <= GROUND_Y;
             is_jumping <= 0;

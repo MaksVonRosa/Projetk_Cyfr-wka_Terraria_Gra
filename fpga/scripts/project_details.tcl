@@ -34,7 +34,7 @@ set sv_files {
     ../rtl/Weapon/wpn_draw_att.sv
     ../rtl/Weapon/wpn_draw_melee.sv
     ../rtl/Weapon/draw_wpn_ctrl.sv
-    ../rtl/Mouse_Control/draw_mouse.sv 
+    ../rtl/Mouse/draw_mouse.sv 
     ../rtl/vga/vga_pkg.sv
     ../rtl/vga/vga_timing.sv
     ../rtl/draw_bg.sv
@@ -61,9 +61,9 @@ set sv_files {
 
 # Specify VHDL design files location            -- EDIT
 set vhdl_files {
-    ../rtl/Mouse_Control/MouseCtl.vhd \
-    ../rtl/Mouse_Control/Ps2Interface.vhd \
-    ../rtl/Mouse_Control/MouseDisplay.vhd \
+    ../rtl/Mouse/MouseCtl.vhd \
+    ../rtl/Mouse/Ps2Interface.vhd \
+    ../rtl/Mouse/MouseDisplay.vhd \
 }
 
 # Specify files for a memory initialization     -- EDIT

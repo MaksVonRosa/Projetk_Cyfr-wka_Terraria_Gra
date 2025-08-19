@@ -1,15 +1,29 @@
 module draw_wpn_ctrl (
-    input  logic clk,
-    input  logic rst,
-    input  logic mouse_clicked,
-    output logic draw_weapon,
-    output logic signed [15:0] angle
+    input   logic clk,
+    input   logic rst,
+    input   logic mouse_clicked,
+    input   logic [11:0] xpos_MouseCtl,
+    input   logic [11:0] pos_x,
+    input   logic [11:0] pos_y,    
+    input   logic game_active,
+    input   logic flip_h,
+    input  logic stepleft,
+    input  logic stepright,
+    output  logic flip_mouse_left_right,
+    output  logic draw_weapon,
+    output  logic [11:0] pos_x_wpn_offset,
+    output  logic [11:0] pos_y_wpn_offset
+
 
 );
+localparam WPN_X_OFFSET = 45;
+localparam WPN_Y_OFFSET = 10;
 
-    import vga_pkg::*;
-    
-    always_ff @(posedge clk) begin
+//assign pos_x_wpn_offset  = pos_x + WPN_OFFSET;
+assign pos_x_wpn_offset = flip_h ? (pos_x - WPN_X_OFFSET) : (pos_x + WPN_X_OFFSET);
+assign pos_y_wpn_offset = pos_y + WPN_Y_OFFSET;
+
+always_ff @(posedge clk) begin
         if (rst) begin
             draw_weapon <= 0;
         end else if (mouse_clicked) begin
@@ -18,33 +32,45 @@ module draw_wpn_ctrl (
             draw_weapon <= 0;
         end
     end
+// import vga_pkg::*;
+    
+// always_ff @(posedge clk) begin
+//         if (rst) flip_h <= 0;
+//         else if (game_active == 1) begin
+//             if (stepleft)  flip_h <= 1;
+//             else if (stepright) flip_h <= 0;
+//         end
+//     end
+//     always_ff @(posedge clk) begin
+//         if (rst) begin
+//             draw_weapon <= 0;
+//             flip_mouse_left_right <= 0;
+//             pos_x_wpn_offset <= HOR_PIXELS / 2;
+//         end else 
+        
+//         // if (mouse_clicked) begin
+//         //     draw_weapon <= 1;
+//         //     if (xpos_MouseCtl > pos_x)
+//         //             flip_mouse_left_right <= 0; // broń po prawej
+//         //         else
+//         //             flip_mouse_left_right <= 1; // broń po lewej (odbicie)
+//         //     end
 
-//logic signed [15:0] angle;       // kąt w stopniach * np. 256 (fixed-point)
-logic direction;                 // 0 = rośnie, 1 = maleje
-logic [19:0] slow_cnt; // licznik dzielący zegar
+//             if (mouse_clicked) begin
+//                 draw_weapon <= 1;           
+//                 if (xpos_MouseCtl > pos_x) begin
+//                     flip_mouse_left_right  <= 0;// prawa strona
+//                     pos_x_wpn_offset  <= pos_x + WPN_OFFSET; // odsuwamy od postaci
+//                 end else begin
+//                     flip_mouse_left_right  <= 1;                // lewa strona
+//                     pos_x_wpn_offset  <= pos_x - WPN_OFFSET; // odsuwamy w lewo
+//                 end
+//             end
 
-always_ff @(posedge clk) begin
-    if (rst) begin
-        slow_cnt <= 0;
-        angle <= 0;
-        direction <= 0;
-    end else if (mouse_clicked) begin
-        slow_cnt <= slow_cnt + 1;
-        if (slow_cnt == 20'd400000) begin // zmiana kąta co ok. 20ms przy 25MHz
-            slow_cnt <= 0;
-            if (!direction) begin
-                angle <= angle + 16'sd4; // prędkość zmiany kąta
-                if (angle >= 45*256) direction <= 1;
-            end else begin
-                angle <= angle - 16'sd4;
-                if (angle <= -45*256) direction <= 0;
-            end
-        end
-    end else begin
-        angle <= 0;
-    end
-end
-
-//assign angle = angle_out;
+//          else begin
+//             draw_weapon <= 0;
+//         end
+//     end
+                
 
 endmodule
