@@ -16,8 +16,8 @@ module draw_wpn_ctrl (
 
 
 );
-localparam WPN_X_OFFSET = 45;
-localparam WPN_Y_OFFSET = 10;
+localparam WPN_X_OFFSET = 40;
+localparam WPN_Y_OFFSET = 15;
 
 //assign pos_x_wpn_offset  = pos_x + WPN_OFFSET;
 assign pos_x_wpn_offset = flip_h ? (pos_x - WPN_X_OFFSET) : (pos_x + WPN_X_OFFSET);

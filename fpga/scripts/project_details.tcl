@@ -34,6 +34,7 @@ set sv_files {
     ../rtl/Weapon/wpn_draw_att.sv
     ../rtl/Weapon/wpn_draw_melee.sv
     ../rtl/Weapon/draw_wpn_ctrl.sv
+    ../rtl/Weapon/wpn_melee_attack_anim.sv
     ../rtl/Mouse/draw_mouse.sv 
     ../rtl/vga/vga_pkg.sv
     ../rtl/vga/vga_timing.sv

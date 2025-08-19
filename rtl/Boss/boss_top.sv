@@ -11,13 +11,14 @@ module boss_top (
     output logic [11:0] boss_y,
     output logic [11:0] boss_hgt,
     output logic [11:0] boss_lng,
-    output logic [6:0]  boss_hp
+    output logic [6:0]  boss_hp,
+    output logic frame_tick
 );
     import vga_pkg::*;
     localparam BOSS_HGT = 95;
     localparam BOSS_LNG = 106;
     logic [20:0] tick_count;
-    logic frame_tick;
+    // logic frame_tick;
 
     // Frame tick generator
     localparam integer FRAME_TICKS = 65_000_000 / 60;

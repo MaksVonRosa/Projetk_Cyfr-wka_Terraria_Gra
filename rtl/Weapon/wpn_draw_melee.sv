@@ -8,6 +8,7 @@ module wpn_draw_melee (
     input  logic flip_mouse_left_right,
     input  logic flip_h,
     input  logic mouse_clicked,
+    input  logic [11:0] anim_x_offset,
     
     output logic [11:0] wpn_hgt,
     output logic [11:0] wpn_lng,
@@ -22,16 +23,11 @@ module wpn_draw_melee (
     localparam IMG_HEIGHT = 28;
     
     localparam WPN_LNG   = IMG_WIDTH/2; 
+    // logic signed [11:0] anim_x_offset_flip;
+    // assign anim_x_offset_flip = (flip_h ? -anim_x_offset : anim_x_offset);
 
 
     logic [11:0] draw_y,draw_x, rgb_nxt;
-
-    typedef enum logic [1:0] {IDLE, SWING_FWD, SWING_BACK} anim_state_t;
-    anim_state_t anim_state;
-
-    logic [4:0] anim_counter;   // licznik kroków animacji
-    logic signed [11:0] anim_x_offset; // przesunięcie X broni w animacji
-
 
     logic [11:0] wpn_rom [0:IMG_WIDTH*IMG_HEIGHT-1];
 
@@ -115,79 +111,27 @@ module wpn_draw_melee (
         end
     end
 
-    // always_ff @(posedge clk) begin
-    //     if (rst) begin
-    //         anim_state    <= IDLE;
-    //         anim_counter      <= 0;
-    //         anim_x_offset <= 0;
-    //     end else begin
-    //         case (anim_state)
-    //             IDLE: begin
-    //                 anim_x_offset <= 0;
-    //                 if (mouse_clicked) begin
-    //                     anim_state <= SWING_FWD;
-    //                     anim_counter   <= 0;
-    //                 end
-    //             end
-    //             SWING_FWD: begin
-    //                 anim_counter <= anim_counter + 1;
-    //                 anim_x_offset <= anim_counter;  // przesuwanie w prawo (np. +1 px / tick)
-    //                 if (anim_counter == 10) begin   // max wychylenie
-    //                     anim_state <= SWING_BACK;
-    //                     anim_counter   <= 0;
-    //                 end
-    //             end
-    //             SWING_BACK: begin
-    //                 anim_counter <= anim_counter + 1;
-    //                 anim_x_offset <= 10 - anim_counter; // cofanie w lewo
-    //                 if (anim_counter == 10) begin
-    //                     anim_state <= IDLE;
-    //                     anim_counter   <= 0;
-    //                     anim_x_offset <= 0;
-    //                 end
-    //             end
-    //         endcase
-    //     end
-    // end
 
 
     always_comb begin
         rgb_nxt = vga_in.rgb;
-
-        // if (mouse_clicked &&
-        //     !vga_in.vblnk && !vga_in.hblnk &&
-        //     vga_in.hcount >= draw_x - WPN_LNG &&
-        //     vga_in.hcount <  draw_x + WPN_LNG &&
-        //     vga_in.vcount >= draw_y - WPN_HGT &&
-        //     vga_in.vcount <  draw_y + WPN_HGT) begin
-
-        //     rel_y = vga_in.vcount - (draw_y - WPN_HGT);
-        //     rel_x = flip_h ? (IMG_WIDTH - 1) - (vga_in.hcount - (draw_x - WPN_LNG)) : 
-        //                                     (vga_in.hcount - (draw_x - WPN_LNG));
-
-        //     if (rel_x < IMG_WIDTH && rel_y < IMG_HEIGHT) begin
-        //         rom_addr = rel_y * IMG_WIDTH + rel_x;
-        //         pixel_color = wpn_rom[rom_addr];
-        //         if (pixel_color != 12'h02F) rgb_nxt = pixel_color;
-        //     end
-        // end
-
         if (mouse_clicked &&
             !vga_in.vblnk && !vga_in.hblnk &&
-            vga_in.hcount >= pos_x_wpn_offset - WPN_LNG &&
-            vga_in.hcount <  pos_x_wpn_offset + WPN_LNG &&
+            vga_in.hcount >= pos_x_wpn_offset + (flip_h ? -anim_x_offset : anim_x_offset) - WPN_LNG &&
+            vga_in.hcount <  pos_x_wpn_offset + (flip_h ? -anim_x_offset : anim_x_offset) + WPN_LNG &&
             vga_in.vcount >= pos_y_wpn_offset - WPN_HGT &&
             vga_in.vcount <  pos_y_wpn_offset + WPN_HGT) begin
 
             rel_y = vga_in.vcount - (pos_y_wpn_offset - WPN_HGT);
-            //rel_x = vga_in.hcount - (pos_x_wpn_offset - WPN_LNG);
-
-
-            rel_x = flip_h ? (IMG_WIDTH - 1) - (vga_in.hcount - (pos_x_wpn_offset - WPN_LNG)) : 
-                                            (vga_in.hcount - (pos_x_wpn_offset - WPN_LNG));
-            // rel_x = flip_mouse_left_right ? (IMG_WIDTH/2 + (IMG_WIDTH/2 - (vga_in.hcount - (pos_x_wpn_offset - WPN_LNG)))) 
-            //                   : (vga_in.hcount - (pos_x_wpn_offset - WPN_LNG));
-
+            rel_x = (vga_in.hcount - (pos_x_wpn_offset + (flip_h ? -anim_x_offset : anim_x_offset) - WPN_LNG));
+            
+            if (flip_h) begin
+                rel_x = (IMG_WIDTH - 1) - rel_x;
+            end
+            rel_x = vga_in.hcount - (pos_x_wpn_offset + (flip_h ? -anim_x_offset : anim_x_offset) - WPN_LNG);
+            if (flip_h) begin
+                rel_x = (IMG_WIDTH - 1) - rel_x;
+            end
             if (rel_x < IMG_WIDTH && rel_y < IMG_HEIGHT) begin
                 rom_addr = rel_y * IMG_WIDTH + rel_x;
                 pixel_color = wpn_rom[rom_addr];

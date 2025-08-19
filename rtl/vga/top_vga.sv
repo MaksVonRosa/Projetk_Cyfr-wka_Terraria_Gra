@@ -31,6 +31,7 @@ module top_vga (
     wire [11:0] boss_x, boss_y, boss_hgt, boss_lng;
     wire [3:0] current_health;
     wire [6:0] boss_hp;
+    logic frame_tick;
 
     vga_if vga_if_bg();
     vga_if vga_if_char();
@@ -57,6 +58,7 @@ module top_vga (
     logic [11:0] pos_y_wpn_offset;
     logic flip_mouse_left_right;
     logic [15:0] angle;
+    logic [11:0] anim_x_offset;
 
 
     logic game_start;
@@ -140,7 +142,8 @@ module top_vga (
         .boss_lng(boss_lng),
         .boss_hp(boss_hp),
         .game_active(game_active),
-        .game_start(game_start)
+        .game_start(game_start),
+        .frame_tick(frame_tick)
     );
 
     draw_char u_char (
@@ -195,10 +198,20 @@ module top_vga (
         .mouse_clicked(draw_weapon),
         .flip_mouse_left_right(flip_mouse_left_right),
         .flip_h(flip_h),
+        .anim_x_offset(anim_x_offset),
         .wpn_hgt(wpn_hgt),
         .wpn_lng(wpn_lng),
         .vga_in(vga_if_char.in),
         .vga_out(vga_if_wpn.out)
+    );
+
+    wpn_melee_attack_anim u_wpn_melee_attack_anim (
+        .clk(clk),
+        .rst(rst),
+        .frame_tick(frame_tick),       // wolniejszy zegar (np. 60Hz z VGA)
+        .mouse_clicked(mouse_clicked),
+        .flip_h(flip_h),           // kierunek
+        .anim_x_offset(anim_x_offset)
     );
   
     MouseCtl u_MouseCtl
