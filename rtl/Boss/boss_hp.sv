@@ -2,7 +2,7 @@ module boss_hp (
     input  logic clk,
     input  logic rst,
     input  logic frame_tick,
-    input  logic game_active,
+    input  logic [1:0] game_active,
     input  logic game_start,
     input  logic buttondown,
     output logic [6:0] boss_hp

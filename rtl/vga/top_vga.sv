@@ -25,11 +25,11 @@ module top_vga (
     wire [10:0] vcount_tim, hcount_tim;
     wire vsync_tim, hsync_tim;
     wire vblnk_tim, hblnk_tim;
-    wire [11:0] pos_x_out, pos_y_out, char_hgt, char_lng;
+    wire [11:0] pos_x_out, pos_y_out;
     wire [11:0] boss_x, boss_y, boss_hgt, boss_lng;
     wire [3:0] current_health, char_hp;
     wire [6:0] boss_hp;
-    wire char_class;
+    wire [1:0] char_class;
 
     vga_if vga_if_bg();
     vga_if vga_if_char();
@@ -51,7 +51,7 @@ module top_vga (
     logic game_start;
     logic back_to_menu;
     logic [1:0] game_state;
-    logic game_active;
+    logic [1:0] game_active;
     logic show_menu_end;
 
     game_fsm u_game_fsm (
@@ -98,6 +98,7 @@ module top_vga (
         .mouse_y(ypos_MouseCtl),
         .mouse_left(mouse_left),
         .game_start(game_start),
+        .char_class(char_class),
         .back_to_menu(back_to_menu),
         .vga_in(vga_if_bg.in),
         .vga_out(vga_if_menu.out)
@@ -162,8 +163,8 @@ module top_vga (
         .char_class(char_class),
         .pos_x_out(pos_x_out),
         .pos_y_out(pos_y_out),
-        .char_hgt(char_hgt),
-        .char_lng(char_lng),
+        .char_hgt(),
+        .char_lng(),
         .ground_lvl(ground_lvl),
         .vga_char_in(vga_if_boss.in),
         .vga_char_out(vga_if_char.out),

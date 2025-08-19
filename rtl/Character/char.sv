@@ -5,7 +5,7 @@ module draw_char (
     input  logic stepright,
     input  logic stepjump,
     input  logic on_ground,
-    input  logic char_class,
+    input  logic [1:0] char_class,
     input  logic [11:0] boss_x,
     input  logic [11:0] boss_y,
     input  logic [11:0] boss_lng,

@@ -6,7 +6,7 @@ module char_draw (
     input  logic [3:0] current_health,
     input  logic flip_h,
     input  logic [1:0] game_active,
-    input  logic       char_class,   // 0 - melee, 1 - archer
+    input  logic [1:0] char_class,
     output logic [11:0] char_hgt,
     output logic [11:0] char_lng,
     vga_if.in  vga_in,
@@ -62,9 +62,9 @@ module char_draw (
 
             if (rel_x < IMG_WIDTH && rel_y < IMG_HEIGHT) begin
                 rom_addr = rel_y * IMG_WIDTH + rel_x;
-                if (char_class == 1)
+                if (char_class == 2)
                     pixel_color = archer_rom[rom_addr];
-                else
+                else if (char_class == 1)
                     pixel_color = melee_rom[rom_addr];
 
                 if (pixel_color != 12'hF00) 

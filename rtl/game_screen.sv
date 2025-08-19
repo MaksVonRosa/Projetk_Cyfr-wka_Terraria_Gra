@@ -2,6 +2,7 @@ module game_screen (
     input  logic clk,
     input  logic rst,
     input  logic [1:0] game_active,
+    input  logic [1:0] char_class,
     input  logic [11:0] mouse_x,
     input  logic [11:0] mouse_y,
     input  logic        mouse_left,
@@ -67,6 +68,7 @@ module game_screen (
 
             if (mouse_left) begin
                 if (game_active == 0 && wait_counter == 0 &&
+                    char_class != 0 &&
                     mouse_x >= RECT_X && mouse_x < RECT_X+RECT_W &&
                     mouse_y >= RECT_Y && mouse_y < RECT_Y+RECT_H) begin
                     game_start   <= 1;
