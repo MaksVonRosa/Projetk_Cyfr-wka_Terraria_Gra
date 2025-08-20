@@ -35,6 +35,7 @@ set sv_files {
     ../rtl/Weapon/wpn_draw_melee.sv
     ../rtl/Weapon/draw_wpn_ctrl.sv
     ../rtl/Weapon/wpn_melee_attack_anim.sv
+    ../rtl/Weapon/weapon_top.sv
     ../rtl/Mouse/draw_mouse.sv 
     ../rtl/vga/vga_pkg.sv
     ../rtl/vga/vga_timing.sv
@@ -52,6 +53,7 @@ set sv_files {
     ../rtl/Character/hearts_display.sv
     ../rtl/vga/top_vga.sv
     ../rtl/vga/vga_if.sv
+    ../rtl/tick_gen.sv
     rtl/top_vga_basys3.sv
 }
 

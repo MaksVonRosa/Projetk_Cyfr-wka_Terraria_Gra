@@ -32,6 +32,7 @@ module top_vga (
     wire [3:0] current_health;
     wire [6:0] boss_hp;
     logic frame_tick;
+    logic [20:0] tick_count;
 
     vga_if vga_if_bg();
     vga_if vga_if_char();
@@ -51,22 +52,22 @@ module top_vga (
     logic [11:0] xpos_MouseCtl;
     logic [11:0] ypos_MouseCtl;
     logic mouse_clicked;
-    logic draw_weapon;
-    logic wpn_hgt;
-    logic wpn_lng;
-    logic [11:0] pos_x_wpn_offset;
-    logic [11:0] pos_y_wpn_offset;
-    logic flip_mouse_left_right;
-    logic [15:0] angle;
-    logic [11:0] anim_x_offset;
+    // logic draw_weapon;
+    // logic wpn_hgt;
+    // logic wpn_lng;
+    // logic [11:0] pos_x_wpn_offset;
+    // logic [11:0] pos_y_wpn_offset;
+    // logic [15:0] angle;
+    // logic [11:0] anim_x_offset;
 
 
     logic game_start;
     logic back_to_menu;
     logic [1:0] game_state;
-    logic game_active;
+    logic [1:0] game_active;
     logic show_menu_end;
     logic flip_h;
+    logic flip_hor_melee;
     game_fsm u_game_fsm (
         .clk(clk),
         .rst(rst),
@@ -170,49 +171,60 @@ module top_vga (
         .game_start(game_start)
     );
 
-    draw_wpn_ctrl u_draw_wpn_ctrl (
+    weapon_top u_weapon_top (
         .clk,
         .rst,
-        .draw_weapon(draw_weapon),
-        .mouse_clicked(mouse_clicked),
         .pos_x(pos_x_out),
         .pos_y(pos_y_out),
-        .flip_mouse_left_right(flip_mouse_left_right),
-        .flip_h(flip_h),
-        .pos_x_wpn_offset(pos_x_wpn_offset),
-        .pos_y_wpn_offset(pos_y_wpn_offset),
-        .stepleft(stepleft),
-        .stepright(stepright),
-        .game_active(game_active)
-
-        
-    );
-
-    wpn_draw_melee u_wpn_draw_melee (
-        .clk(clk),
-        .rst(rst),
-        .pos_x_wpn(pos_x_out),
-        .pos_y_wpn(pos_y_out),
-        .pos_x_wpn_offset(pos_x_wpn_offset),
-        .pos_y_wpn_offset(pos_y_wpn_offset),
-        .mouse_clicked(draw_weapon),
-        .flip_mouse_left_right(flip_mouse_left_right),
-        .flip_h(flip_h),
-        .anim_x_offset(anim_x_offset),
-        .wpn_hgt(wpn_hgt),
-        .wpn_lng(wpn_lng),
+        .mouse_clicked(mouse_clicked),
+        .xpos_MouseCtl(xpos_MouseCtl),
+        .frame_tick(frame_tick),
         .vga_in(vga_if_char.in),
         .vga_out(vga_if_wpn.out)
-    );
+        
 
-    wpn_melee_attack_anim u_wpn_melee_attack_anim (
-        .clk(clk),
-        .rst(rst),
-        .frame_tick(frame_tick),       // wolniejszy zegar (np. 60Hz z VGA)
-        .mouse_clicked(mouse_clicked),
-        .flip_h(flip_h),           // kierunek
-        .anim_x_offset(anim_x_offset)
+
     );
+    // draw_wpn_ctrl u_draw_wpn_ctrl (
+    //     .clk,
+    //     .rst,
+    //     .draw_weapon(draw_weapon),
+    //     .mouse_clicked(mouse_clicked),
+    //     .pos_x(pos_x_out),
+    //     .pos_y(pos_y_out),
+    //     .xpos_MouseCtl(xpos_MouseCtl),
+    //     .flip_hor_melee(flip_hor_melee),
+    //     .pos_x_wpn_offset(pos_x_wpn_offset),
+    //     .pos_y_wpn_offset(pos_y_wpn_offset)
+
+        
+    // );
+
+    // wpn_draw_melee u_wpn_draw_melee (
+    //     .clk(clk),
+    //     .rst(rst),
+    //     .pos_x_wpn(pos_x_out),
+    //     .pos_y_wpn(pos_y_out),
+    //     .pos_x_wpn_offset(pos_x_wpn_offset),
+    //     .pos_y_wpn_offset(pos_y_wpn_offset),
+    //     .mouse_clicked(draw_weapon),
+    //     .flip_mouse_left_right(flip_mouse_left_right),
+    //     .flip_h(flip_h),
+    //     .flip_hor_mouse(flip_hor_melee),
+    //     .anim_x_offset(anim_x_offset),
+    //     .wpn_hgt(wpn_hgt),
+    //     .wpn_lng(wpn_lng),
+    //     .vga_in(vga_if_char.in),
+    //     .vga_out(vga_if_wpn.out)
+    // );
+
+    // wpn_melee_attack_anim u_wpn_melee_attack_anim (
+    //     .clk(clk),
+    //     .rst(rst),
+    //     .frame_tick(frame_tick),       
+    //     .mouse_clicked(mouse_clicked),
+    //     .anim_x_offset(anim_x_offset)
+    // );
   
     MouseCtl u_MouseCtl
     (
@@ -231,6 +243,14 @@ module top_vga (
         .vga_out_mouse(vga_if_mouse.out),
         .xpos(xpos_MouseCtl),
         .ypos(ypos_MouseCtl)
+    );
+    tick_gen u_tick_gen(
+
+        .clk(clk),
+        .rst(rst),
+        .tick_count(tick_count),
+        .frame_tick(frame_tick)
+
     );
 
 endmodule

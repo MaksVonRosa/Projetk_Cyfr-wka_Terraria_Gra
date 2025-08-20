@@ -1,33 +1,31 @@
 module wpn_draw_melee (
-    input  logic clk,
-    input  logic rst,
-    input  logic [11:0] pos_x_wpn,
+    input  logic        clk,
+    input  logic        rst,
     input  logic [11:0] pos_x_wpn_offset,
-    input  logic [11:0] pos_y_wpn,
     input  logic [11:0] pos_y_wpn_offset,
-    input  logic flip_mouse_left_right,
-    input  logic flip_h,
-    input  logic mouse_clicked,
+    input  logic        flip_hor_melee,
+    input  logic        mouse_clicked,
     input  logic [11:0] anim_x_offset,
     
-    output logic [11:0] wpn_hgt,
-    output logic [11:0] wpn_lng,
+    // output logic [11:0] wpn_hgt,
+    // output logic [11:0] wpn_lng,
 
     vga_if.in  vga_in,
     vga_if.out vga_out
 );
     import vga_pkg::*;
 
-    localparam WPN_HGT   = 26;
+    
+
     localparam IMG_WIDTH  = 54;
     localparam IMG_HEIGHT = 28;
-    
+
+    localparam WPN_HGT   = 26;
     localparam WPN_LNG   = IMG_WIDTH/2; 
-    // logic signed [11:0] anim_x_offset_flip;
-    // assign anim_x_offset_flip = (flip_h ? -anim_x_offset : anim_x_offset);
 
-
-    logic [11:0] draw_y,draw_x, rgb_nxt;
+    // logic [11:0] draw_y,draw_x;
+    
+    logic [11:0] rgb_nxt;
 
     logic [11:0] wpn_rom [0:IMG_WIDTH*IMG_HEIGHT-1];
 
@@ -50,8 +48,6 @@ module wpn_draw_melee (
 
     always_ff @(posedge clk) begin
         if (rst) begin
-            // draw_x <= HOR_PIXELS / 2;
-            // draw_y <= VER_PIXELS - 20 - WPN_HGT;
 
             rgb_d1    <= '0;
             vcount_d1 <= '0;
@@ -77,10 +73,6 @@ module wpn_draw_melee (
             vga_out.hblnk  <= '0;
             vga_out.rgb    <= '0;
         end else begin
-            // draw_x <= pos_x_wpn;
-            // draw_y <= pos_y_wpn;
-
-        
 
             rgb_d1    <= rgb_nxt;
             vcount_d1 <= vga_in.vcount;
@@ -106,8 +98,8 @@ module wpn_draw_melee (
             vga_out.hblnk  <= hblnk_d2;
             vga_out.rgb    <= rgb_d2;
 
-            wpn_hgt <= WPN_HGT;
-            wpn_lng <= WPN_LNG;
+            // wpn_hgt <= WPN_HGT;
+            // wpn_lng <= WPN_LNG;
         end
     end
 
@@ -117,19 +109,15 @@ module wpn_draw_melee (
         rgb_nxt = vga_in.rgb;
         if (mouse_clicked &&
             !vga_in.vblnk && !vga_in.hblnk &&
-            vga_in.hcount >= pos_x_wpn_offset + (flip_h ? -anim_x_offset : anim_x_offset) - WPN_LNG &&
-            vga_in.hcount <  pos_x_wpn_offset + (flip_h ? -anim_x_offset : anim_x_offset) + WPN_LNG &&
+            vga_in.hcount >= pos_x_wpn_offset + (flip_hor_melee ? -anim_x_offset : anim_x_offset) - WPN_LNG &&
+            vga_in.hcount <  pos_x_wpn_offset + (flip_hor_melee ? -anim_x_offset : anim_x_offset) + WPN_LNG &&
             vga_in.vcount >= pos_y_wpn_offset - WPN_HGT &&
             vga_in.vcount <  pos_y_wpn_offset + WPN_HGT) begin
 
             rel_y = vga_in.vcount - (pos_y_wpn_offset - WPN_HGT);
-            rel_x = (vga_in.hcount - (pos_x_wpn_offset + (flip_h ? -anim_x_offset : anim_x_offset) - WPN_LNG));
-            
-            if (flip_h) begin
-                rel_x = (IMG_WIDTH - 1) - rel_x;
-            end
-            rel_x = vga_in.hcount - (pos_x_wpn_offset + (flip_h ? -anim_x_offset : anim_x_offset) - WPN_LNG);
-            if (flip_h) begin
+
+            rel_x = vga_in.hcount - (pos_x_wpn_offset + (flip_hor_melee ? -anim_x_offset : anim_x_offset) - WPN_LNG);
+            if (flip_hor_melee) begin
                 rel_x = (IMG_WIDTH - 1) - rel_x;
             end
             if (rel_x < IMG_WIDTH && rel_y < IMG_HEIGHT) begin
