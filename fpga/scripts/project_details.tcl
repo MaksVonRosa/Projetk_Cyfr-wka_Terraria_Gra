@@ -57,8 +57,12 @@ set sv_files {
  set verilog_files {
     ../rtl/clk_wiz_0_clk_wiz.v 
     ../rtl/uart/list_ch08_01_uart_rx.v
+    ../rtl/uart/list_ch08_02_flag_buf.v
     ../rtl/uart/list_ch08_03_uart_tx.v
     ../rtl/uart/list_ch08_04_uart.v
+    ../rtl/uart/list_ch04_11_mod_m_counter.v
+    ../rtl/uart/list_ch04_20_fifo.v
+
  }
 
 # Specify VHDL design files location            -- EDIT

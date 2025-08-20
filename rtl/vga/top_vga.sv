@@ -13,6 +13,10 @@ module top_vga (
     output logic [11:0] ground_y,
     output logic [11:0] char_x,
     output logic [11:0] char_y,
+    output logic [3:0] current_health,
+    output logic [6:0] boss_hp,
+    output logic [11:0] boss_x,
+    output logic [11:0] boss_y,
     output logic [3:0] r,
     output logic [3:0] g,
     output logic [3:0] b,
@@ -26,9 +30,8 @@ module top_vga (
     wire vsync_tim, hsync_tim;
     wire vblnk_tim, hblnk_tim;
     wire [11:0] pos_x_out, pos_y_out;
-    wire [11:0] boss_x, boss_y, boss_hgt, boss_lng;
-    wire [3:0] current_health, char_hp;
-    wire [6:0] boss_hp;
+    wire [11:0] boss_hgt, boss_lng;
+    wire [3:0] char_hp;
     wire [1:0] char_class;
 
     vga_if vga_if_bg();
