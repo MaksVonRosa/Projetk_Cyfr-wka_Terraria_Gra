@@ -1,4 +1,4 @@
-module draw_wpn_ctrl (
+module melee_wpn_ctl (
     input   logic clk,
     input   logic rst,
     input   logic mouse_clicked,

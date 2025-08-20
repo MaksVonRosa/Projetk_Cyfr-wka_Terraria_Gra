@@ -1,4 +1,4 @@
-module wpn_draw_melee (
+module melee_wpn_draw (
     input  logic        clk,
     input  logic        rst,
     input  logic [11:0] pos_x_wpn_offset,
@@ -7,8 +7,6 @@ module wpn_draw_melee (
     input  logic        mouse_clicked,
     input  logic [11:0] anim_x_offset,
     
-    // output logic [11:0] wpn_hgt,
-    // output logic [11:0] wpn_lng,
 
     vga_if.in  vga_in,
     vga_if.out vga_out
@@ -23,8 +21,6 @@ module wpn_draw_melee (
     localparam WPN_HGT   = 26;
     localparam WPN_LNG   = IMG_WIDTH/2; 
 
-    // logic [11:0] draw_y,draw_x;
-    
     logic [11:0] rgb_nxt;
 
     logic [11:0] wpn_rom [0:IMG_WIDTH*IMG_HEIGHT-1];
@@ -98,8 +94,6 @@ module wpn_draw_melee (
             vga_out.hblnk  <= hblnk_d2;
             vga_out.rgb    <= rgb_d2;
 
-            // wpn_hgt <= WPN_HGT;
-            // wpn_lng <= WPN_LNG;
         end
     end
 

@@ -16,10 +16,12 @@ module weapon_top (
     logic [11:0] pos_x_wpn_offset;
     logic [11:0] pos_y_wpn_offset;
     logic signed [11:0] anim_x_offset;
-    // logic [11:0] wpn_hgt, wpn_lng;
-    // logic anim_active;
 
-    draw_wpn_ctrl u_draw_wpn_ctrl (
+
+/* Melee 
+------------------------------------------------------------------------------
+*/
+    melee_wpn_ctl u_melee_wpn_ctl (
         .clk,
         .rst,
         .mouse_clicked(mouse_clicked),
@@ -32,27 +34,41 @@ module weapon_top (
         .pos_y_wpn_offset(pos_y_wpn_offset)
     );
 
-    wpn_draw_melee u_wpn_draw_melee (
+    melee_wpn_draw u_melee_wpn_draw (
         .clk,
         .rst,
         .pos_x_wpn_offset(pos_x_wpn_offset),
         .pos_y_wpn_offset(pos_y_wpn_offset),
         .flip_hor_melee(flip_hor_melee),
-        .mouse_clicked(draw_weapon),  
-        // .mouse_clicked(anim_active),  
+        .mouse_clicked(draw_weapon),   
         .anim_x_offset(anim_x_offset),
-        // .wpn_hgt(wpn_hgt),
-        // .wpn_lng(wpn_lng),
         .vga_in(vga_in),
         .vga_out(vga_out)
     );
 
-    wpn_melee_attack_anim u_wpn_melee_attack_anim (
+    melee_wpn_animated u_melee_wpn_animated (
         .clk,
         .rst,
         .frame_tick(frame_tick),
         .mouse_clicked(mouse_clicked),
-        // .anim_active(anim_active),
         .anim_x_offset(anim_x_offset)
     );
+
+
+/* Archer 
+------------------------------------------------------------------------------
+*/
+
+archer_wpn_draw u_archer_wpn_draw (
+        .clk,
+        .rst,
+        .pos_x_wpn_offset(pos_x_wpn_offset),
+        .pos_y_wpn_offset(pos_y_wpn_offset),
+        .flip_hor_melee(flip_hor_melee),
+        .mouse_clicked(draw_weapon),   
+        .anim_x_offset(anim_x_offset),
+        .vga_in(vga_in),
+        .vga_out(vga_out)
+    );
+
 endmodule

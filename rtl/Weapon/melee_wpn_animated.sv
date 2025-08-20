@@ -1,10 +1,9 @@
-module wpn_melee_attack_anim 
+module melee_wpn_animated 
 (
     input  logic clk,
     input  logic rst,
     input  logic frame_tick,       
     input  logic mouse_clicked,
-    // output logic anim_active,
     output logic signed [11:0] anim_x_offset
 );
     localparam MAX_SWING = 45;    
@@ -87,10 +86,5 @@ wire mouse_click_pulse = (mouse_clicked && !mouse_clicked_d);
 
         end
     end
-
-// always_comb begin
-//     anim_active = (anim_state != IDLE);
-// end
-
 
 endmodule
