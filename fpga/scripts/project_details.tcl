@@ -52,6 +52,8 @@ set sv_files {
     ../rtl/platform.sv
     ../rtl/game_fsm.sv
     ../rtl/game_screen.sv
+    ../rtl/class_selector.sv
+    ../rtl/uart/uart_game_encoder.sv
     ../rtl/Character/hearts_display.sv
     ../rtl/vga/top_vga.sv
     ../rtl/vga/vga_if.sv
@@ -62,6 +64,9 @@ set sv_files {
  # Specify Verilog design files location         -- EDIT
  set verilog_files {
     ../rtl/clk_wiz_0_clk_wiz.v 
+    ../rtl/uart/list_ch08_01_uart_rx.v
+    ../rtl/uart/list_ch08_03_uart_tx.v
+    ../rtl/uart/list_ch08_04_uart.v
  }
 
 # Specify VHDL design files location            -- EDIT

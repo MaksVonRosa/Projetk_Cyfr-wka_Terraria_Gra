@@ -1,7 +1,7 @@
 module boss_top (
     input  logic clk,
     input  logic rst,
-    input  logic [1:0]game_active,
+    input  logic [1:0] game_active,
     input  logic game_start,
     input  logic buttondown,
     input  logic [11:0] char_x,

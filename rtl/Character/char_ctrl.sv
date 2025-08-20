@@ -6,10 +6,10 @@ module char_ctrl (
     input  logic stepjump,
     input  logic on_ground,
     input  logic [1:0] game_active,
+    input  logic game_start,
     output logic [11:0] pos_x,
     output logic [11:0] pos_y,
     output logic [11:0] ground_lvl,
-    output logic [3:0] char_hp, 
     output logic flip_h
 );
     import vga_pkg::*;
@@ -52,7 +52,8 @@ module char_ctrl (
     always_ff @(posedge clk) begin
         if (rst) begin
             next_x <= CHAR_SPAWN;
-            char_hp <= 10;
+        end else if (game_start == 1) begin
+            next_x <= CHAR_SPAWN;
         end else if (frame_tick && game_active == 1) begin
             if (stepleft && next_x > CHAR_LNG + MOVE_STEP)
                 next_x <= next_x - MOVE_STEP;

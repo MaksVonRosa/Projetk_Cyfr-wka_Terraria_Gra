@@ -26,13 +26,14 @@ module top_vga (
     wire vsync_tim, hsync_tim;
     wire vblnk_tim, hblnk_tim;
     wire [11:0] char_hgt, char_lng;
-    wire [11:0] pos_x_out, pos_y_out; 
     wire [11:0] pos_x_wpn, pos_y_wpn;
+    wire [11:0] pos_x_out, pos_y_out;
     wire [11:0] boss_x, boss_y, boss_hgt, boss_lng;
-    wire [3:0] current_health;
+    wire [3:0] current_health, char_hp;
     wire [6:0] boss_hp;
     logic frame_tick;
-    logic [20:0] tick_count;
+    // logic [20:0] tick_count;
+    wire [1:0] char_class;
 
     vga_if vga_if_bg();
     vga_if vga_if_char();
@@ -41,8 +42,7 @@ module top_vga (
     vga_if vga_if_menu();
     vga_if vga_if_mouse();
     vga_if vga_if_wpn();
-
-
+    vga_if vga_if_selector();
 
     assign vs = vga_if_mouse.vsync;
     assign hs = vga_if_mouse.hsync;
@@ -112,9 +112,24 @@ module top_vga (
         .mouse_y(ypos_MouseCtl),
         .mouse_clicked(mouse_clicked),
         .game_start(game_start),
+        .char_class(char_class),
         .back_to_menu(back_to_menu),
         .vga_in(vga_if_bg.in),
         .vga_out(vga_if_menu.out)
+    );
+
+    class_selector u_class_selector (
+        .clk(clk),
+        .rst(rst),
+        .game_active(game_state),
+        .mouse_x(xpos_MouseCtl),
+        .mouse_y(ypos_MouseCtl),
+        .mouse_clicked(mouse_clicked),
+        .char_class(char_class),
+        .char_hp(char_hp),
+        .wpn_type(),
+        .vga_in(vga_if_menu.in),
+        .vga_out(vga_if_selector.out)
     );
 
     platform u_platform (
@@ -123,7 +138,7 @@ module top_vga (
         .char_x(char_x),
         .char_y(char_y),
         .char_hgt(32),
-        .vga_in(vga_if_menu.in),
+        .vga_in(vga_if_selector.in),
         .vga_out(vga_if_plat.out),
         .ground_y(ground_y),
         .on_ground(on_ground),
@@ -158,11 +173,13 @@ module top_vga (
         .boss_y(boss_y),
         .boss_lng(boss_lng),
         .boss_hgt(boss_hgt),
+        .char_hp (char_hp),
         .current_health(current_health),
+        .char_class(char_class),
         .pos_x_out(pos_x_out),
         .pos_y_out(pos_y_out),
-        .char_hgt(char_hgt),
-        .char_lng(char_lng),
+        .char_hgt(),
+        .char_lng(),
         .ground_lvl(ground_lvl),
         .flip_h_out(flip_h),
         .vga_char_in(vga_if_boss.in),

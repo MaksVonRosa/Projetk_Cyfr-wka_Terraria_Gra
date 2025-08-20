@@ -6,6 +6,7 @@ module char_draw (
     input  logic [3:0] current_health,
     input  logic flip_h,
     input  logic [1:0] game_active,
+    input  logic [1:0] char_class,
     output logic [11:0] char_hgt,
     output logic [11:0] char_lng,
     vga_if.in  vga_in,
@@ -19,8 +20,13 @@ module char_draw (
     localparam IMG_HEIGHT = 53;
 
     logic [11:0] draw_x, draw_y, rgb_nxt;
-    logic [11:0] char_rom [0:IMG_WIDTH*IMG_HEIGHT-1];
-    initial $readmemh("../../GameSprites/Archer.dat", char_rom);
+    logic [11:0] archer_rom [0:IMG_WIDTH*IMG_HEIGHT-1];
+    logic [11:0] melee_rom  [0:IMG_WIDTH*IMG_HEIGHT-1];
+
+    initial begin
+        $readmemh("../../GameSprites/Archer.dat", archer_rom);
+        $readmemh("../../GameSprites/Melee.dat",  melee_rom);
+    end
 
     logic [5:0] rel_x; 
     logic [5:0] rel_y;
@@ -56,8 +62,13 @@ module char_draw (
 
             if (rel_x < IMG_WIDTH && rel_y < IMG_HEIGHT) begin
                 rom_addr = rel_y * IMG_WIDTH + rel_x;
-                pixel_color = char_rom[rom_addr];
-                if (pixel_color != 12'hF00) rgb_nxt = pixel_color;
+                if (char_class == 2)
+                    pixel_color = archer_rom[rom_addr];
+                else if (char_class == 1)
+                    pixel_color = melee_rom[rom_addr];
+
+                if (pixel_color != 12'hF00) 
+                    rgb_nxt = pixel_color;
             end
         end
     end
