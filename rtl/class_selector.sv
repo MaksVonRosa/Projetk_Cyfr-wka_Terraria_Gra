@@ -8,6 +8,7 @@ module class_selector (
     output logic [1:0]  char_class,
     output logic [3:0]  char_hp,
     output logic [1:0]  wpn_type,
+    output logic [3:0]  class_aggro,
     vga_if.in  vga_in,
     vga_if.out vga_out
 );
@@ -40,6 +41,11 @@ module class_selector (
                         (selected_class == 2) ? 4'd8  :   // archer
                                                 4'd0;    // none
     assign wpn_type   = selected_class; // 1 = sword, 2 = gun, 0 = none
+    
+    // Dodane przypisanie dla class_aggro
+    assign class_aggro = (selected_class == 1) ? 4'd3 :
+                         (selected_class == 2) ? 4'd1 :
+                                                 4'd0;
 
     always_comb begin
         rgb_out = vga_in.rgb;

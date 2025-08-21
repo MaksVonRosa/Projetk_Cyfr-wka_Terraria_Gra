@@ -17,6 +17,8 @@ module top_vga (
     output logic [6:0] boss_hp,
     output logic [11:0] boss_x,
     output logic [11:0] boss_y,
+    output logic [3:0] char_aggro,
+    output logic [1:0] char_class,
     output logic [3:0] r,
     output logic [3:0] g,
     output logic [3:0] b,
@@ -32,7 +34,7 @@ module top_vga (
     wire [11:0] pos_x_out, pos_y_out;
     wire [11:0] boss_hgt, boss_lng;
     wire [3:0] char_hp;
-    wire [1:0] char_class;
+    wire [3:0] class_aggro;
 
     vga_if vga_if_bg();
     vga_if vga_if_char();
@@ -116,6 +118,7 @@ module top_vga (
         .mouse_left(mouse_left),
         .char_class(char_class),
         .char_hp(char_hp),
+        .class_aggro(class_aggro),
         .wpn_type(),
         .vga_in(vga_if_menu.in),
         .vga_out(vga_if_selector.out)
@@ -164,6 +167,8 @@ module top_vga (
         .char_hp (char_hp),
         .current_health(current_health),
         .char_class(char_class),
+        .char_aggro(char_aggro),
+        .class_aggro(class_aggro),
         .pos_x_out(pos_x_out),
         .pos_y_out(pos_y_out),
         .char_hgt(),

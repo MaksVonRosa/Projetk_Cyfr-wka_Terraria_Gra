@@ -49,6 +49,7 @@ module top_vga_basys3 (
     wire [11:0] char_x;
     wire [11:0] char_y;
     wire [3:0] current_health;
+    wire [3:0] char_aggro;
     wire [6:0] boss_hp;
     wire [11:0] boss_x;
     wire [11:0] boss_y;
@@ -72,6 +73,7 @@ module top_vga_basys3 (
         .char_x(char_x),
         .char_y(char_y),
         .current_health(current_health),
+        .char_aggro(char_aggro),
         .boss_hp(boss_hp),
         .boss_x(boss_x),
         .boss_y(boss_y),
@@ -83,37 +85,45 @@ module top_vga_basys3 (
     logic       tx_full;
     logic       rx_empty;
     logic [7:0] r_data;
-    
-    // ZASTĄP CAŁY BLOK TESTOWY TYM:
 
-// TEST: Bezpośrednie podłączenie przycisku do uart_wr
-assign uart_wr = btnU;  // Użyj przycisku btnU do ręcznego wysyłania
-assign uart_data = 8'hAA; // Stałe dane testowe
+    uart_game_encoder u_uart_encoder (
+        .clk(clk65MHz),
+        .rst(btnC),
+        .char_x(char_x),
+        .char_y(char_y),
+        .char_hp(current_health),
+        .char_aggro(char_aggro),
+        .boss_hp(boss_hp),
+        .boss_x(boss_x),
+        .boss_y(boss_y),
+        .tx_ready(!tx_full),
+        .tx_full(tx_full),
+        .uart_data(uart_data),
+        .uart_wr(uart_wr)
+    );
 
-// Diody
-assign led[0] = !tx_full;    // TX gotowy
-assign led[1] = uart_wr;     // TX aktywny (btnU)
-assign led[2] = !rx_empty;   // RX ma dane  
-assign led[3] = clk65MHz;    // Clock żyje (szybkie miganie)
+    uart #(
+        .DBIT(8),
+        .SB_TICK(16),
+        .DVSR(35),
+        .DVSR_BIT(6),
+        .FIFO_W(6)
+    ) uart_unit (
+        .clk(clk65MHz),
+        .reset(btnC),
+        .wr_uart(uart_wr),
+        .w_data(uart_data),
+        .tx_full(tx_full),
+        .tx(tx),
+        .rx(rx),
+        .rd_uart(1'b0),
+        .r_data(r_data),
+        .rx_empty(rx_empty)
+    );
 
-// UART z oryginalnymi parametrami
-uart #(
-    .DBIT(8),
-    .SB_TICK(16),
-    .DVSR(424),    // Powrót do oryginalnych parametrów
-    .DVSR_BIT(7),
-    .FIFO_W(8)
-) uart_unit (
-    .clk(clk65MHz),
-    .reset(btnC),
-    .wr_uart(uart_wr),
-    .w_data(uart_data),
-    .tx_full(tx_full),
-    .tx(tx),
-    .rx(1'b1),
-    .rd_uart(1'b0),
-    .r_data(r_data),
-    .rx_empty(rx_empty)
-);
+    assign led[0] = !tx_full;
+    assign led[1] = uart_wr;
+    assign led[2] = !rx_empty;
+    assign led[3] = (char_x != 0) || (char_y != 0);
 
 endmodule
