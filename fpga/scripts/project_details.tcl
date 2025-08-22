@@ -35,9 +35,14 @@ set sv_files {
     ../rtl/Weapon/melee_wpn_animated.sv
     ../rtl/Weapon/melee_wpn_ctl.sv
     ../rtl/Weapon/melee_wpn_draw.sv
-    ../rtl/Weapon/archer_wpn_animated.sv
     ../rtl/Weapon/archer_wpn_ctl.sv
     ../rtl/Weapon/archer_wpn_draw.sv
+    ../rtl/Weapon/wpn_selector.sv
+    ../rtl/Weapon/weapon_draw.sv
+    ../rtl/Weapon/weapon_position.sv
+    ../rtl/Weapon/archer_projectile_draw.sv
+    ../rtl/Weapon/archer_projectile_ctl.sv
+    ../rtl/Weapon/archer_projectile_animated.sv
     ../rtl/Mouse/draw_mouse.sv 
     ../rtl/vga/vga_pkg.sv
     ../rtl/vga/vga_timing.sv

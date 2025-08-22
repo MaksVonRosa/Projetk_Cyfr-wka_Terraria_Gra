@@ -6,14 +6,15 @@ module boss_top (
     input  logic buttondown,
     input  logic [11:0] char_x,
     input  logic frame_tick,
-
+    input  logic attack_hit,
     vga_if.in  vga_in,
     vga_if.out vga_out,
     output logic [11:0] boss_x,
     output logic [11:0] boss_y,
     output logic [11:0] boss_hgt,
     output logic [11:0] boss_lng,
-    output logic [6:0]  boss_hp
+    output logic [6:0]  boss_hp,
+    output logic        boss_alive
     // output logic frame_tick
 );
     import vga_pkg::*;
@@ -49,7 +50,8 @@ module boss_top (
         .frame_tick(frame_tick),
         .game_active(game_active),
         .game_start(game_start),
-        .buttondown(buttondown),
+        // .buttondown(buttondown),
+        .attack_hit(attack_hit),
         .boss_hp(boss_hp)
     );
 
@@ -60,6 +62,7 @@ module boss_top (
         .boss_x(boss_x),
         .boss_y(boss_y),
         .boss_hp(boss_hp),
+        .boss_alive(boss_alive),
         .vga_in(vga_in),
         .vga_out(vga_out)
     );

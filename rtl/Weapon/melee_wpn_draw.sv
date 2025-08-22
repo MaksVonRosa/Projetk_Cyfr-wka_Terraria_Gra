@@ -1,12 +1,14 @@
 module melee_wpn_draw (
     input  logic        clk,
     input  logic        rst,
-    input  logic [11:0] pos_x_wpn_offset,
-    input  logic [11:0] pos_y_wpn_offset,
+    // input  logic [11:0] pos_x_melee_offset,
+    // input  logic [11:0] pos_y_melee_offset,
     input  logic        flip_hor_melee,
     input  logic        mouse_clicked,
     input  logic [11:0] anim_x_offset,
-    
+    input  logic [1:0] game_active,
+    input   logic [11:0] pos_x,
+    input   logic [11:0] pos_y,
 
     vga_if.in  vga_in,
     vga_if.out vga_out
@@ -20,6 +22,16 @@ module melee_wpn_draw (
 
     localparam WPN_HGT   = 26;
     localparam WPN_LNG   = IMG_WIDTH/2; 
+    
+    localparam WPN_X_OFFSET = 40;
+    localparam WPN_Y_OFFSET = 15;
+    
+    logic pos_x_melee_offset;
+    logic pos_y_melee_offset;
+    
+    assign pos_x_melee_offset = flip_hor_melee ? (pos_x - WPN_X_OFFSET) : (pos_x + WPN_X_OFFSET);
+    assign pos_y_melee_offset = pos_y + WPN_Y_OFFSET;            
+
 
     logic [11:0] rgb_nxt;
 
@@ -41,7 +53,7 @@ module melee_wpn_draw (
     logic [10:0] vcount_d2, hcount_d2;
     logic vsync_d2, hsync_d2, vblnk_d2, hblnk_d2;
 
-
+ //delay 2st
     always_ff @(posedge clk) begin
         if (rst) begin
 
@@ -101,16 +113,16 @@ module melee_wpn_draw (
 
     always_comb begin
         rgb_nxt = vga_in.rgb;
-        if (mouse_clicked &&
+        if (mouse_clicked && game_active &&
             !vga_in.vblnk && !vga_in.hblnk &&
-            vga_in.hcount >= pos_x_wpn_offset + (flip_hor_melee ? -anim_x_offset : anim_x_offset) - WPN_LNG &&
-            vga_in.hcount <  pos_x_wpn_offset + (flip_hor_melee ? -anim_x_offset : anim_x_offset) + WPN_LNG &&
-            vga_in.vcount >= pos_y_wpn_offset - WPN_HGT &&
-            vga_in.vcount <  pos_y_wpn_offset + WPN_HGT) begin
+            vga_in.hcount >= pos_x_melee_offset + (flip_hor_melee ? -anim_x_offset : anim_x_offset) - WPN_LNG &&
+            vga_in.hcount <  pos_x_melee_offset + (flip_hor_melee ? -anim_x_offset : anim_x_offset) + WPN_LNG &&
+            vga_in.vcount >= pos_y_melee_offset - WPN_HGT &&
+            vga_in.vcount <  pos_y_melee_offset + WPN_HGT) begin
 
-            rel_y = vga_in.vcount - (pos_y_wpn_offset - WPN_HGT);
+            rel_y = vga_in.vcount - (pos_y_melee_offset - WPN_HGT);
 
-            rel_x = vga_in.hcount - (pos_x_wpn_offset + (flip_hor_melee ? -anim_x_offset : anim_x_offset) - WPN_LNG);
+            rel_x = vga_in.hcount - (pos_x_melee_offset + (flip_hor_melee ? -anim_x_offset : anim_x_offset) - WPN_LNG);
             if (flip_hor_melee) begin
                 rel_x = (IMG_WIDTH - 1) - rel_x;
             end

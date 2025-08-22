@@ -21,7 +21,6 @@ module draw_char (
     output logic [11:0] char_hgt,
     //test
     output logic [3:0] char_hp_out,
-    output logic flip_h_out, 
     //
     vga_if.in  vga_char_in,
     vga_if.out vga_char_out
@@ -36,7 +35,6 @@ module draw_char (
     
     //test
     assign char_hp_out = char_hp;
-    assign flip_h_out = flip_h;
     //
     char_ctrl u_ctrl (
         .clk(clk),

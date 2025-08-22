@@ -39,7 +39,7 @@ module hearts_display #(
     logic [10:0] rom_addr;
     logic [11:0] pixel_color;
 
-    always_ff @(posedge clk or posedge rst) begin
+    always_ff @(posedge clk) begin
         if (rst) begin
             tick_count <= 0;
             frame_tick <= 0;
@@ -52,7 +52,7 @@ module hearts_display #(
         end
     end
 
-    always_ff @(posedge clk or posedge rst) begin
+    always_ff @(posedge clk) begin
         if (rst) begin
             current_health <= char_hp;
             damage_cooldown <= 0;

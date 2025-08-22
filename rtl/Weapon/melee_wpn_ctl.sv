@@ -8,8 +8,8 @@ module melee_wpn_ctl (
 
     output  logic draw_weapon,
     output  logic flip_hor_melee,
-    output  logic [11:0] pos_x_wpn_offset,
-    output  logic [11:0] pos_y_wpn_offset
+    output  logic [11:0] pos_x_melee_offset,
+    output  logic [11:0] pos_y_melee_offset
 
 
 );
@@ -34,7 +34,7 @@ always_ff @(posedge clk) begin
         end
     end
     
-assign pos_x_wpn_offset = flip_hor_melee ? (pos_x - WPN_X_OFFSET) : (pos_x + WPN_X_OFFSET);
-assign pos_y_wpn_offset = pos_y + WPN_Y_OFFSET;            
+assign pos_x_melee_offset = flip_hor_melee ? (pos_x - WPN_X_OFFSET) : (pos_x + WPN_X_OFFSET);
+assign pos_y_melee_offset = pos_y + WPN_Y_OFFSET;            
 
 endmodule

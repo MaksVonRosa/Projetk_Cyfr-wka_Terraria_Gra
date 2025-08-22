@@ -1,10 +1,11 @@
 module boss_render (
     input  logic clk,
     input  logic rst,
-    input  logic game_active,
+    input  logic [1:0] game_active,
     input  logic [11:0] boss_x,
     input  logic [11:0] boss_y,
     input  logic [6:0] boss_hp,
+    output logic boss_alive,
     vga_if.in  vga_in,
     vga_if.out vga_out
 );
@@ -25,6 +26,7 @@ module boss_render (
     logic [15:0] rom_addr;
     logic [11:0] boss_rom [0:IMG_WIDTH*IMG_HEIGHT-1];
     logic [11:0] hp_width; 
+    logic boss_alive_nxt; 
 
     initial $readmemh("../../GameSprites/Boss.dat", boss_rom);
 
@@ -32,6 +34,7 @@ module boss_render (
         rgb_nxt = vga_in.rgb;
 
         if (game_active == 1 && boss_hp > 0) begin
+            boss_alive_nxt = 1;
             if (!vga_in.vblnk && !vga_in.hblnk &&
                 vga_in.hcount >= boss_x - BOSS_LNG &&
                 vga_in.hcount <  boss_x + BOSS_LNG &&
@@ -63,5 +66,6 @@ module boss_render (
         vga_out.hsync  <= vga_in.hsync;
         vga_out.hblnk  <= vga_in.hblnk;
         vga_out.rgb    <= rgb_nxt;
+        boss_alive     <= boss_alive_nxt;
     end
 endmodule

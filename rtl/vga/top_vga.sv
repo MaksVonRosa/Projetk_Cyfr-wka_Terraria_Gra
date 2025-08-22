@@ -32,8 +32,9 @@ module top_vga (
     wire [3:0] current_health, char_hp;
     wire [6:0] boss_hp;
     logic frame_tick;
-    // logic [20:0] tick_count;
-    wire [1:0] char_class;
+    logic [20:0] tick_count;
+    logic [1:0] char_class;
+    logic [1:0]  wpn_type;
 
     vga_if vga_if_bg();
     vga_if vga_if_char();
@@ -52,22 +53,14 @@ module top_vga (
     logic [11:0] xpos_MouseCtl;
     logic [11:0] ypos_MouseCtl;
     logic mouse_clicked;
-    // logic draw_weapon;
-    // logic wpn_hgt;
-    // logic wpn_lng;
-    // logic [11:0] pos_x_wpn_offset;
-    // logic [11:0] pos_y_wpn_offset;
-    // logic [15:0] angle;
-    // logic [11:0] anim_x_offset;
-
+    logic projectile_active;
 
     logic game_start;
     logic back_to_menu;
     logic [1:0] game_state;
     logic [1:0] game_active;
     logic show_menu_end;
-    logic flip_h;
-    logic flip_hor_melee;
+
     game_fsm u_game_fsm (
         .clk(clk),
         .rst(rst),
@@ -127,7 +120,8 @@ module top_vga (
         .mouse_clicked(mouse_clicked),
         .char_class(char_class),
         .char_hp(char_hp),
-        .wpn_type(),
+        .wpn_type(wpn_type),
+        .projectile_active(projectile_active),
         .vga_in(vga_if_menu.in),
         .vga_out(vga_if_selector.out)
     );
@@ -157,8 +151,10 @@ module top_vga (
         .boss_hgt(boss_hgt),
         .boss_lng(boss_lng),
         .boss_hp(boss_hp),
+        .boss_alive(boss_alive),
         .game_active(game_active),
         .game_start(game_start),
+        .attack_hit(attack_hit),
         .frame_tick(frame_tick)
     );
 
@@ -181,7 +177,6 @@ module top_vga (
         .char_hgt(),
         .char_lng(),
         .ground_lvl(ground_lvl),
-        .flip_h_out(flip_h),
         .vga_char_in(vga_if_boss.in),
         .vga_char_out(vga_if_char.out),
         .game_active(game_active),
@@ -195,53 +190,23 @@ module top_vga (
         .pos_y(pos_y_out),
         .mouse_clicked(mouse_clicked),
         .xpos_MouseCtl(xpos_MouseCtl),
+        .ypos_MouseCtl(ypos_MouseCtl),
         .frame_tick(frame_tick),
+        .game_active(game_active),
+        .wpn_type(wpn_type),
+        .char_class(char_class),
+        .projectile_active(projectile_active),
+        .boss_alive(boss_alive),
+        .boss_x(boss_x),
+        .boss_y(boss_y),
+        .attack_hit(attack_hit),
         .vga_in(vga_if_char.in),
         .vga_out(vga_if_wpn.out)
         
 
 
     );
-    // draw_wpn_ctrl u_draw_wpn_ctrl (
-    //     .clk,
-    //     .rst,
-    //     .draw_weapon(draw_weapon),
-    //     .mouse_clicked(mouse_clicked),
-    //     .pos_x(pos_x_out),
-    //     .pos_y(pos_y_out),
-    //     .xpos_MouseCtl(xpos_MouseCtl),
-    //     .flip_hor_melee(flip_hor_melee),
-    //     .pos_x_wpn_offset(pos_x_wpn_offset),
-    //     .pos_y_wpn_offset(pos_y_wpn_offset)
-
-        
-    // );
-
-    // wpn_draw_melee u_wpn_draw_melee (
-    //     .clk(clk),
-    //     .rst(rst),
-    //     .pos_x_wpn(pos_x_out),
-    //     .pos_y_wpn(pos_y_out),
-    //     .pos_x_wpn_offset(pos_x_wpn_offset),
-    //     .pos_y_wpn_offset(pos_y_wpn_offset),
-    //     .mouse_clicked(draw_weapon),
-    //     .flip_mouse_left_right(flip_mouse_left_right),
-    //     .flip_h(flip_h),
-    //     .flip_hor_mouse(flip_hor_melee),
-    //     .anim_x_offset(anim_x_offset),
-    //     .wpn_hgt(wpn_hgt),
-    //     .wpn_lng(wpn_lng),
-    //     .vga_in(vga_if_char.in),
-    //     .vga_out(vga_if_wpn.out)
-    // );
-
-    // wpn_melee_attack_anim u_wpn_melee_attack_anim (
-    //     .clk(clk),
-    //     .rst(rst),
-    //     .frame_tick(frame_tick),       
-    //     .mouse_clicked(mouse_clicked),
-    //     .anim_x_offset(anim_x_offset)
-    // );
+    
   
     MouseCtl u_MouseCtl
     (

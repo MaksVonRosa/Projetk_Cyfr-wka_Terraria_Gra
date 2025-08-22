@@ -8,6 +8,7 @@ module class_selector (
     output logic [1:0]  char_class,
     output logic [3:0]  char_hp,
     output logic [1:0]  wpn_type,
+    output logic projectile_active,
     vga_if.in  vga_in,
     vga_if.out vga_out
 );
@@ -74,9 +75,10 @@ module class_selector (
         end
     end
 
-    always_ff @(posedge clk or posedge rst) begin
+    always_ff @(posedge clk) begin
         if (rst) begin
             selected_class <= 0; // none
+            projectile_active <= 0;
         end else if (game_active == 0) begin
             if (mouse_clicked) begin
                 if (mouse_x >= LEFT_X && mouse_x < LEFT_X+RECT_W &&
@@ -85,6 +87,7 @@ module class_selector (
                 end else if (mouse_x >= RIGHT_X && mouse_x < RIGHT_X+RECT_W &&
                              mouse_y >= TOP_Y && mouse_y < TOP_Y+RECT_H) begin
                     selected_class <= 2; // archer
+                    projectile_active <= 1;
                 end
             end
         end
