@@ -41,8 +41,6 @@ module class_selector (
                         (selected_class == 2) ? 4'd8  :   // archer
                                                 4'd0;    // none
     assign wpn_type   = selected_class; // 1 = sword, 2 = gun, 0 = none
-    
-    // Dodane przypisanie dla class_aggro
     assign class_aggro = (selected_class == 1) ? 4'd3 :
                          (selected_class == 2) ? 4'd1 :
                                                  4'd0;

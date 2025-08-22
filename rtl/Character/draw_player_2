@@ -1,0 +1,83 @@
+module draw_player_2 (
+    input  logic clk,
+    input  logic rst,
+    input  logic [11:0] player_2_x,
+    input  logic [11:0] player_2_y,
+    input  logic        player_2_flip_h,
+    input  logic [1:0]  player_2_class,
+    input  logic        player_2_data_valid,
+    vga_if.in  vga_in,
+    vga_if.out vga_out
+);
+    import vga_pkg::*;
+
+    localparam CHAR_HGT   = 26;
+    localparam CHAR_LNG   = 19; 
+    localparam IMG_WIDTH  = 39;
+    localparam IMG_HEIGHT = 53;
+
+    logic [11:0] draw_x, draw_y, rgb_nxt;
+    logic [11:0] archer_rom [0:IMG_WIDTH*IMG_HEIGHT-1];
+    logic [11:0] melee_rom  [0:IMG_WIDTH*IMG_HEIGHT-1];
+
+    logic force_class_2 = 1'b1; 
+
+    initial begin
+        $readmemh("../../GameSprites/Archer.dat", archer_rom);
+        $readmemh("../../GameSprites/Melee.dat",  melee_rom);
+    end
+
+    logic [5:0] rel_x; 
+    logic [5:0] rel_y;
+    logic [11:0] pixel_color;
+    logic [10:0] rom_addr;
+
+    always_ff @(posedge clk or posedge rst) begin
+        if (rst) begin
+            draw_x <= HOR_PIXELS / 5;
+            draw_y <= VER_PIXELS - 50 - CHAR_HGT;
+        end else if (player_2_data_valid) begin
+            draw_x <= player_2_x;
+            draw_y <= player_2_y;
+        end
+    end
+
+    always_comb begin
+        rgb_nxt = vga_in.rgb;
+        if (player_2_data_valid && !vga_in.vblnk && !vga_in.hblnk &&
+            vga_in.hcount >= draw_x - CHAR_LNG &&
+            vga_in.hcount <  draw_x + CHAR_LNG &&
+            vga_in.vcount >= draw_y - CHAR_HGT &&
+            vga_in.vcount <  draw_y + CHAR_HGT) begin
+
+            rel_y = vga_in.vcount - (draw_y - CHAR_HGT);
+            rel_x = player_2_flip_h ? (IMG_WIDTH - 1) - (vga_in.hcount - (draw_x - CHAR_LNG)) : 
+                                     (vga_in.hcount - (draw_x - CHAR_LNG));
+
+            if (rel_x < IMG_WIDTH && rel_y < IMG_HEIGHT) begin
+                rom_addr = rel_y * IMG_WIDTH + rel_x;
+                
+
+                if (force_class_2 || player_2_class == 2)
+                    pixel_color = archer_rom[rom_addr];
+                else if (player_2_class == 1)
+                    pixel_color = melee_rom[rom_addr];
+                else
+                    pixel_color = 12'hF00;
+
+                if (pixel_color != 12'hF00) 
+                    rgb_nxt = pixel_color;
+            end
+        end
+    end
+
+    always_ff @(posedge clk) begin
+        vga_out.vcount <= vga_in.vcount;
+        vga_out.vsync  <= vga_in.vsync;
+        vga_out.vblnk  <= vga_in.vblnk;
+        vga_out.hcount <= vga_in.hcount;
+        vga_out.hsync  <= vga_in.hsync;
+        vga_out.hblnk  <= vga_in.hblnk;
+        vga_out.rgb    <= rgb_nxt;
+    end
+endmodule

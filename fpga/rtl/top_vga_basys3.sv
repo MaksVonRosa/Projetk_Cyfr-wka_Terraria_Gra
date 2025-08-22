@@ -5,14 +5,14 @@ module top_vga_basys3 (
     input  wire btnR,
     input  wire btnL,
     input  wire btnD,
-    input  logic rx,                
-    output logic tx,
     output wire Vsync,
     output wire Hsync,
     output wire [3:0] vgaRed,
     output wire [3:0] vgaGreen,
     output wire [3:0] vgaBlue,
     output wire JA1,
+    output wire JA2, //TX
+    input  wire JA3, //RX
     output logic [3:0] led,
     inout wire PS2Clk,
     inout wire PS2Data
@@ -45,15 +45,34 @@ module top_vga_basys3 (
         .R(1'b0),
         .S(1'b0)
     );
-
     wire [11:0] char_x;
     wire [11:0] char_y;
     wire [3:0] current_health;
     wire [3:0] char_aggro;
+    wire [1:0] char_class;
+    wire flip_h;
     wire [6:0] boss_hp;
     wire [11:0] boss_x;
     wire [11:0] boss_y;
     wire on_ground;
+    wire [11:0] player_2_x;
+    wire [11:0] player_2_y;
+    wire [3:0]  player_2_hp;
+    wire [3:0]  player_2_aggro;
+    wire        player_2_flip_h;
+    wire [1:0]  player_2_class;
+    wire [11:0] boss_out_x;
+    wire [11:0] boss_out_y;
+    wire [6:0]  boss_out_hp;
+    wire        uart_data_valid;
+
+    // Sygnały UART
+    logic [7:0] uart_data;
+    logic       uart_wr;
+    logic       tx_full;
+    logic       rx_empty;
+    logic [7:0] r_data;
+    logic       uart_rd;
 
     top_vga u_top_vga (
         .clk(clk65MHz),
@@ -74,17 +93,23 @@ module top_vga_basys3 (
         .char_y(char_y),
         .current_health(current_health),
         .char_aggro(char_aggro),
+        .char_class(char_class),
+        .flip_h(flip_h),
         .boss_hp(boss_hp),
         .boss_x(boss_x),
         .boss_y(boss_y),
-        .on_ground(on_ground)
+        .on_ground(on_ground),
+        .player_2_x(player_2_x),
+        .player_2_y(player_2_y),
+        .player_2_hp(player_2_hp),
+        .player_2_aggro(player_2_aggro),
+        .player_2_flip_h(player_2_flip_h),
+        .player_2_class(player_2_class),
+        .boss_out_x(boss_out_x),
+        .boss_out_y(boss_out_y),
+        .boss_out_hp(boss_out_hp),
+        .player_2_data_valid(uart_data_valid)
     );
-
-    logic [7:0] uart_data;
-    logic       uart_wr;
-    logic       tx_full;
-    logic       rx_empty;
-    logic [7:0] r_data;
 
     uart_game_encoder u_uart_encoder (
         .clk(clk65MHz),
@@ -93,6 +118,8 @@ module top_vga_basys3 (
         .char_y(char_y),
         .char_hp(current_health),
         .char_aggro(char_aggro),
+        .char_class(char_class),
+        .flip_h(flip_h),
         .boss_hp(boss_hp),
         .boss_x(boss_x),
         .boss_y(boss_y),
@@ -101,7 +128,6 @@ module top_vga_basys3 (
         .uart_data(uart_data),
         .uart_wr(uart_wr)
     );
-
     uart #(
         .DBIT(8),
         .SB_TICK(16),
@@ -114,16 +140,37 @@ module top_vga_basys3 (
         .wr_uart(uart_wr),
         .w_data(uart_data),
         .tx_full(tx_full),
-        .tx(tx),
-        .rx(rx),
-        .rd_uart(1'b0),
+        .tx(JA2),
+        .rx(JA3),
+        .rd_uart(uart_rd),
         .r_data(r_data),
         .rx_empty(rx_empty)
     );
 
+
+    uart_game_decoder u_uart_decoder (
+        .clk(clk65MHz),
+        .rst(btnC),
+        .uart_data(r_data),
+        .uart_rd(uart_rd),
+        .rx_valid(!rx_empty),
+        .player_2_x(player_2_x),
+        .player_2_y(player_2_y),
+        .player_2_hp(player_2_hp),
+        .player_2_aggro(player_2_aggro),
+        .player_2_flip_h(player_2_flip_h),
+        .player_2_class(player_2_class),
+        .boss_out_x(boss_out_x),
+        .boss_out_y(boss_out_y),
+        .boss_out_hp(boss_out_hp),
+        .data_valid(uart_data_valid)
+    );
+
+    assign uart_rd = !rx_empty;
+
     assign led[0] = !tx_full;
     assign led[1] = uart_wr;
     assign led[2] = !rx_empty;
-    assign led[3] = (char_x != 0) || (char_y != 0);
+    assign led[3] = uart_data_valid;
 
 endmodule

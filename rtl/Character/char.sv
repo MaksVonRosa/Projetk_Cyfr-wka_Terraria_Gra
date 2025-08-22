@@ -14,6 +14,7 @@ module draw_char (
     input  logic game_start,
     input  logic [3:0] char_hp,
     input  logic [3:0] class_aggro,
+    input logic [3:0]  player_2_hp,
     output logic [3:0] char_aggro,
     output logic [3:0] current_health,
     output logic [11:0] ground_lvl,
@@ -21,13 +22,13 @@ module draw_char (
     output logic [11:0] pos_y_out,
     output logic [11:0] char_lng,
     output logic [11:0] char_hgt,
+    output logic flip_h,
     vga_if.in  vga_char_in,
     vga_if.out vga_char_out
 );
     vga_if vga_char_mid();
 
     logic [11:0] pos_x, pos_y;
-    logic flip_h;
 
     assign pos_x_out = pos_x;
     assign pos_y_out = pos_y;
@@ -77,6 +78,7 @@ module draw_char (
         .boss_lng(boss_lng),
         .boss_hgt(boss_hgt),
         .current_health(current_health),
+        .player_2_hp(player_2_hp),
         .vga_in(vga_char_mid.in),
         .vga_out(vga_char_out),
         .game_active(game_active),

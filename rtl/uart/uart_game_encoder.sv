@@ -10,6 +10,8 @@ module uart_game_encoder #(
     input  logic [11:0] boss_x,
     input  logic [11:0] boss_y,
     input  logic [3:0]  char_aggro,
+    input  logic        flip_h,
+    input  logic [1:0]  char_class,
     input  logic tx_ready,
     input  logic tx_full,  
     output logic [DATA_WIDTH-1:0] uart_data,
@@ -24,7 +26,7 @@ module uart_game_encoder #(
 
     state_t current_state, next_state;
 
-    logic [7:0] ascii_buffer [0:41];
+    logic [7:0] ascii_buffer [0:47];
     logic [5:0] buffer_index;
     logic [5:0] send_index;
     logic [23:0] send_timer;
@@ -39,6 +41,8 @@ module uart_game_encoder #(
     logic [6:0]  prev_boss_hp;
     logic [11:0] prev_boss_x, prev_boss_y;
     logic [3:0]  prev_char_aggro;
+    logic        prev_flip_h;
+    logic [1:0]  prev_char_class;
 
     always_ff @(posedge clk or posedge rst) begin
         if (rst) begin
@@ -61,11 +65,15 @@ module uart_game_encoder #(
             prev_char_hp <= '0; prev_boss_hp <= '0;
             prev_boss_x <= '0; prev_boss_y <= '0;
             prev_char_aggro <= '0;
+            prev_flip_h <= '0;
+            prev_char_class <= '0;
         end else begin
             prev_char_x <= char_x; prev_char_y <= char_y;
             prev_char_hp <= char_hp; prev_boss_hp <= boss_hp;
             prev_boss_x <= boss_x; prev_boss_y <= boss_y;
             prev_char_aggro <= char_aggro;
+            prev_flip_h <= flip_h;
+            prev_char_class <= char_class;
         end
     end
 
@@ -77,7 +85,7 @@ module uart_game_encoder #(
             uart_wr <= 0;
             uart_data <= 0;
             
-            for (int i = 0; i < 42; i++) begin
+            for (int i = 0; i < 48; i++) begin
                 ascii_buffer[i] <= 0;
             end
         end else begin
@@ -108,31 +116,38 @@ module uart_game_encoder #(
                     ascii_buffer[16] <= "|"; 
                     ascii_buffer[17] <= "A";
                     ascii_buffer[18] <= ":"; 
-                    // Poprawione odczytanie char_aggro (4-bitowa wartość)
                     ascii_buffer[19] <= to_ascii_dec(char_aggro[3:0]);
                     ascii_buffer[20] <= "|"; 
-                    ascii_buffer[21] <= "B"; 
-                    ascii_buffer[22] <= "X"; 
-                    ascii_buffer[23] <= ":";
-                    ascii_buffer[24] <= to_ascii_dec(boss_x[11:8]);
-                    ascii_buffer[25] <= to_ascii_dec(boss_x[7:4]);
-                    ascii_buffer[26] <= to_ascii_dec(boss_x[3:0]);
-                    ascii_buffer[27] <= ","; 
-                    ascii_buffer[28] <= "Y"; 
-                    ascii_buffer[29] <= ":";
-                    ascii_buffer[30] <= to_ascii_dec(boss_y[11:8]);
-                    ascii_buffer[31] <= to_ascii_dec(boss_y[7:4]);
-                    ascii_buffer[32] <= to_ascii_dec(boss_y[3:0]);
-                    ascii_buffer[33] <= "|"; 
-                    ascii_buffer[34] <= "B"; 
-                    ascii_buffer[35] <= "H"; 
-                    ascii_buffer[36] <= ":";
-                    ascii_buffer[37] <= to_ascii_dec(boss_hp[6:4]);
-                    ascii_buffer[38] <= to_ascii_dec(boss_hp[3:0]); 
-                    ascii_buffer[39] <= 8'h0D;  // CR
-                    ascii_buffer[40] <= 8'h0A;  // LF
+                    ascii_buffer[21] <= "F";
+                    ascii_buffer[22] <= ":";
+                    ascii_buffer[23] <= (flip_h) ? "1" : "0";
+                    ascii_buffer[24] <= "|";
+                    ascii_buffer[25] <= "T";
+                    ascii_buffer[26] <= ":";
+                    ascii_buffer[27] <= to_ascii_dec({2'b0, char_class});
+                    ascii_buffer[28] <= "|"; 
+                    ascii_buffer[29] <= "B"; 
+                    ascii_buffer[30] <= "X"; 
+                    ascii_buffer[31] <= ":";
+                    ascii_buffer[32] <= to_ascii_dec(boss_x[11:8]);
+                    ascii_buffer[33] <= to_ascii_dec(boss_x[7:4]);
+                    ascii_buffer[34] <= to_ascii_dec(boss_x[3:0]);
+                    ascii_buffer[35] <= ","; 
+                    ascii_buffer[36] <= "Y"; 
+                    ascii_buffer[37] <= ":";
+                    ascii_buffer[38] <= to_ascii_dec(boss_y[11:8]);
+                    ascii_buffer[39] <= to_ascii_dec(boss_y[7:4]);
+                    ascii_buffer[40] <= to_ascii_dec(boss_y[3:0]);
+                    ascii_buffer[41] <= "|"; 
+                    ascii_buffer[42] <= "B"; 
+                    ascii_buffer[43] <= "H"; 
+                    ascii_buffer[44] <= ":";
+                    ascii_buffer[45] <= to_ascii_dec(boss_hp[6:4]);
+                    ascii_buffer[46] <= to_ascii_dec(boss_hp[3:0]); 
+                    ascii_buffer[47] <= 8'h0D;
+                    ascii_buffer[48] <= 8'h0A;
                     
-                    buffer_index <= 40;  // Ostatni indeks z danymi
+                    buffer_index <= 48;
                     send_index <= 0;
                 end
                 
@@ -157,7 +172,9 @@ module uart_game_encoder #(
                 if (can_send && (char_x != prev_char_x || char_y != prev_char_y || 
                      char_hp != prev_char_hp || boss_hp != prev_boss_hp ||
                      boss_x != prev_boss_x || boss_y != prev_boss_y ||
-                     char_aggro != prev_char_aggro)) begin
+                     char_aggro != prev_char_aggro ||
+                     flip_h != prev_flip_h ||
+                     char_class != prev_char_class)) begin
                     next_state = PREPARE;
                 end
             end

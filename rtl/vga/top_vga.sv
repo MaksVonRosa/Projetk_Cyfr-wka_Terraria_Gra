@@ -22,8 +22,19 @@ module top_vga (
     output logic [3:0] r,
     output logic [3:0] g,
     output logic [3:0] b,
+    output logic flip_h,
     inout  logic ps2_clk,
-    inout  logic ps2_data
+    inout  logic ps2_data,
+    input logic [11:0] player_2_x,
+    input logic [11:0] player_2_y,
+    input logic [3:0]  player_2_hp,
+    input logic [3:0]  player_2_aggro,
+    input logic        player_2_flip_h,
+    input logic [1:0]  player_2_class,
+    input logic [11:0] boss_out_x,
+    input logic [11:0] boss_out_y,
+    input logic [6:0]  boss_out_hp,
+    input logic        player_2_data_valid
 );
     timeunit 1ns;
     timeprecision 1ps;
@@ -43,6 +54,7 @@ module top_vga (
     vga_if vga_if_menu();
     vga_if vga_if_mouse();
     vga_if vga_if_selector();
+    vga_if vga_if_player2();
 
     assign vs = vga_if_mouse.vsync;
     assign hs = vga_if_mouse.hsync;
@@ -165,6 +177,7 @@ module top_vga (
         .boss_lng(boss_lng),
         .boss_hgt(boss_hgt),
         .char_hp (char_hp),
+        .player_2_hp(player_2_hp),
         .current_health(current_health),
         .char_class(char_class),
         .char_aggro(char_aggro),
@@ -173,12 +186,26 @@ module top_vga (
         .pos_y_out(pos_y_out),
         .char_hgt(),
         .char_lng(),
+        .flip_h (flip_h),
         .ground_lvl(ground_lvl),
         .vga_char_in(vga_if_boss.in),
         .vga_char_out(vga_if_char.out),
         .game_active(game_active),
         .game_start(game_start)
     );
+
+    draw_player_2 u_draw_player_2 (
+    .clk(clk),
+    .rst(rst),
+    .player_2_x(player_2_x),
+    .player_2_y(player_2_y),
+    .player_2_flip_h(player_2_flip_h),
+    .player_2_class(player_2_class),
+    .player_2_data_valid(player_2_data_valid),
+    .vga_in(vga_if_char.in),
+    .vga_out(vga_if_player2.out)
+);
+
 
     MouseCtl u_MouseCtl (
         .clk(clk100MHz),
@@ -192,7 +219,7 @@ module top_vga (
     draw_mouse u_draw_mouse (
         .clk(clk),
         .rst(rst),
-        .vga_in_mouse(vga_if_char.in),
+        .vga_in_mouse(vga_if_player2.in),
         .vga_out_mouse(vga_if_mouse.out),
         .xpos(xpos_MouseCtl),
         .ypos(ypos_MouseCtl)

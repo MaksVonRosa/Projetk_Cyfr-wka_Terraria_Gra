@@ -19,6 +19,7 @@ module hearts_display #(
     input  logic [11:0] boss_lng,
     input  logic [1:0] game_active,
     input  logic game_start,
+    input logic [3:0]  player_2_hp,
     output logic [3:0] current_health,
     vga_if.in  vga_in,
     vga_if.out vga_out
@@ -38,6 +39,9 @@ module hearts_display #(
     logic [11:0] rel_y;
     logic [10:0] rom_addr;
     logic [11:0] pixel_color;
+
+    localparam PLAYER1_HEARTS_Y = PADDING;
+    localparam PLAYER2_HEARTS_Y = PADDING + HEART_H + GAP;
 
     always_ff @(posedge clk or posedge rst) begin
         if (rst) begin
@@ -74,26 +78,42 @@ module hearts_display #(
             else begin
                 current_health <= 0;
             end
-    end
-
+        end
         end
     end
 
     always_comb begin
         rgb_nxt = vga_in.rgb;
         if (game_active == 1 && !vga_in.vblnk && !vga_in.hblnk) begin
-            if (vga_in.vcount >= PADDING && vga_in.vcount < PADDING + HEART_H) begin
+            
+            if (vga_in.vcount >= PLAYER1_HEARTS_Y && vga_in.vcount < PLAYER1_HEARTS_Y + HEART_H) begin
                 for (int i = 0; i < MAX_HP; i++) begin
-                    if (i < current_health) begin
-                        int hx_start = PADDING + i * (HEART_W + GAP);
-                        int hx_end   = hx_start + HEART_W;
-                        if (vga_in.hcount >= hx_start && vga_in.hcount < hx_end) begin
-                            rel_x = vga_in.hcount - hx_start;
-                            rel_y = vga_in.vcount - PADDING;
-                            rom_addr = rel_y * HEART_W + rel_x;
-                            pixel_color = heart_rom[rom_addr];
-                            if (pixel_color != 12'h00F) rgb_nxt = pixel_color;
-                        end
+                    int hx_start = PADDING + i * (HEART_W + GAP);
+                    int hx_end   = hx_start + HEART_W;
+                    if (vga_in.hcount >= hx_start && vga_in.hcount < hx_end) begin
+                        rel_x = vga_in.hcount - hx_start;
+                        rel_y = vga_in.vcount - PLAYER1_HEARTS_Y;
+                        rom_addr = rel_y * HEART_W + rel_x;
+                        pixel_color = heart_rom[rom_addr];
+                        
+                        if (i < current_health && pixel_color != 12'h00F) 
+                            rgb_nxt = pixel_color;
+                    end
+                end
+            end
+            
+            if (vga_in.vcount >= PLAYER2_HEARTS_Y && vga_in.vcount < PLAYER2_HEARTS_Y + HEART_H) begin
+                for (int i = 0; i < MAX_HP; i++) begin
+                    int hx_start = PADDING + i * (HEART_W + GAP);
+                    int hx_end   = hx_start + HEART_W;
+                    if (vga_in.hcount >= hx_start && vga_in.hcount < hx_end) begin
+                        rel_x = vga_in.hcount - hx_start;
+                        rel_y = vga_in.vcount - PLAYER2_HEARTS_Y;
+                        rom_addr = rel_y * HEART_W + rel_x;
+                        pixel_color = heart_rom[rom_addr];
+                        
+                        if (i < player_2_hp && pixel_color != 12'h00F) 
+                            rgb_nxt = pixel_color;
                     end
                 end
             end
