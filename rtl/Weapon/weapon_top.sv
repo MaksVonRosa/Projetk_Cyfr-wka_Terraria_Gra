@@ -35,6 +35,8 @@ module weapon_top (
     logic        flip_hor_archer;
     logic [11:0] pos_x_archer_offset;
     logic [11:0] pos_y_archer_offset;
+    logic [11:0] pos_x_projectile_offset;
+    logic [11:0] pos_y_projectile_offset;
 
     logic proj_direction;
     logic [11:0] pos_x_proj;
@@ -117,7 +119,6 @@ module weapon_top (
         .game_active,
         .pos_x_archer_offset,
         .pos_y_archer_offset,
-        .wpn_type(wpn_type),
         .char_class(char_class),
         .vga_in,
         .vga_out(vga_if_weapon.out)
@@ -144,7 +145,9 @@ module weapon_top (
             .pos_x_melee_offset(pos_x_melee_offset),
             .pos_y_melee_offset(pos_y_melee_offset),
             .pos_x_archer_offset(pos_x_archer_offset),
-            .pos_y_archer_offset(pos_y_archer_offset)
+            .pos_y_archer_offset(pos_y_archer_offset),
+            .pos_x_projectile_offset(pos_x_projectile_offset),
+            .pos_y_projectile_offset(pos_y_projectile_offset)
     );
 /* Archer 
 ------------------------------------------------------------------------------
@@ -158,8 +161,8 @@ module weapon_top (
         .projectile_animated(projectile_animated),
         .flip_hor_archer(proj_direction),   
         .game_active(game_active),
+        .char_class(char_class),
         .mouse_clicked(mouse_clicked), 
-        .direction_sector(direction_sector),
         .vga_in(vga_if_weapon.in),
         .vga_out
     );
@@ -172,8 +175,8 @@ module weapon_top (
         .mouse_clicked(mouse_clicked),
         .xpos_MouseCtl(xpos_MouseCtl),
         .ypos_MouseCtl(ypos_MouseCtl),
-        .pos_x_archer_offset(pos_x_archer_offset),
-        .pos_y_archer_offset(pos_y_archer_offset),
+        .pos_x_projectile_offset(pos_x_projectile_offset),
+        .pos_y_projectile_offset(pos_y_projectile_offset),
         .boss_x(boss_x),
         .boss_y(boss_y),
         .boss_alive(boss_alive),          
@@ -182,7 +185,6 @@ module weapon_top (
         .attack_hit(attack_hit),
         // .projectile_active(projectile_active),
         .projectile_animated(projectile_animated),
-        .direction_sector(direction_sector),
         .proj_direction(proj_direction)
     );
 

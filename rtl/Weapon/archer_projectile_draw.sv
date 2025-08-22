@@ -7,8 +7,8 @@ module archer_projectile_draw (
     input  logic        projectile_animated,       
     input  logic        flip_hor_archer,    // kierunek lotu
     input  logic [1:0]  game_active,
+    input  logic [1:0]  char_class,
     input  logic        mouse_clicked,    
-    input logic [2:0]   direction_sector,
     vga_if.in  vga_in,
     vga_if.out vga_out
 );
@@ -106,7 +106,7 @@ always_ff @(posedge clk) begin
     
     always_comb begin
         rgb_nxt = vga_in.rgb;
-        if (projectile_active && mouse_clicked && game_active && projectile_animated &&
+        if (projectile_active  && game_active && projectile_animated && char_class == 2 &&
             !vga_in.vblnk && !vga_in.hblnk &&
             vga_in.hcount >= pos_x_proj - PROJ_LNG &&
             vga_in.hcount <  pos_x_proj + PROJ_LNG &&
@@ -121,7 +121,7 @@ always_ff @(posedge clk) begin
                 rom_addr = rel_y * IMG_WIDTH + rel_x;
                 pixel_color = archer_proj_rom[rom_addr];
                 // pixel_color  = archer_proj_rom[direction_sector][rom_addr];
-                if (pixel_color != 12'h00F) rgb_nxt = pixel_color;
+                if (pixel_color != 12'h000) rgb_nxt = pixel_color;
             end
         end
     end

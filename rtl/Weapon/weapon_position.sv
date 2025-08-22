@@ -13,7 +13,10 @@ module weapon_position (
     output  logic [11:0] pos_y_melee_offset,
     
     output  logic [11:0] pos_x_archer_offset,
-    output  logic [11:0] pos_y_archer_offset
+    output  logic [11:0] pos_y_archer_offset,
+
+    output  logic [11:0] pos_x_projectile_offset,
+    output  logic [11:0] pos_y_projectile_offset
 
 
 );
@@ -23,6 +26,9 @@ localparam  MELEE_WPN_Y_OFFSET = 15;
 
 localparam ARCHER_WPN_X_OFFSET = 10;
 localparam ARCHER_WPN_Y_OFFSET = 12;
+
+localparam PROJECTILE_WPN_X_OFFSET = 15;
+localparam PROJECTILE_WPN_Y_OFFSET = 0;
 
 always_ff @(posedge clk) begin
         if (rst) begin
@@ -47,8 +53,11 @@ always_ff @(posedge clk) begin
 assign pos_x_melee_offset = flip_hor_melee ? (pos_x -  MELEE_WPN_X_OFFSET) : (pos_x +  MELEE_WPN_X_OFFSET);
 assign pos_y_melee_offset = pos_y + MELEE_WPN_Y_OFFSET;            
 
+
 assign pos_x_archer_offset = flip_hor_archer ? (pos_x - ARCHER_WPN_X_OFFSET) : (pos_x + ARCHER_WPN_X_OFFSET);
 assign pos_y_archer_offset = pos_y + ARCHER_WPN_Y_OFFSET;
 
+assign pos_x_projectile_offset = flip_hor_archer ? (pos_x - PROJECTILE_WPN_X_OFFSET) : (pos_x + PROJECTILE_WPN_X_OFFSET);
+assign pos_y_projectile_offset = pos_y + PROJECTILE_WPN_Y_OFFSET;
 
 endmodule
