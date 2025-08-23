@@ -3,7 +3,7 @@ module game_fsm (
     input  logic rst,
     input  logic game_start,
     input  logic back_to_menu,
-    input  logic [6:0] boss_hp,
+    input logic [6:0]  boss_hp,
     input  logic [3:0] current_health,
     output logic [1:0] game_state
 );

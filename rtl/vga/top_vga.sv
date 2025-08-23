@@ -121,7 +121,6 @@ module top_vga (
         .char_class(char_class),
         .char_hp(char_hp),
         .wpn_type(wpn_type),
-        .projectile_active(projectile_active),
         .vga_in(vga_if_menu.in),
         .vga_out(vga_if_selector.out)
     );
@@ -142,7 +141,6 @@ module top_vga (
     boss_top u_boss (
         .clk(clk),
         .rst(rst),
-        .buttondown(buttondown),
         .char_x(char_x),
         .vga_in(vga_if_plat.in),
         .vga_out(vga_if_boss.out),
@@ -154,7 +152,8 @@ module top_vga (
         .boss_alive(boss_alive),
         .game_active(game_active),
         .game_start(game_start),
-        .attack_hit(attack_hit),
+        .projectile_hit(projectile_hit),
+        .melee_hit(melee_hit),
         .frame_tick(frame_tick)
     );
 
@@ -193,13 +192,12 @@ module top_vga (
         .ypos_MouseCtl(ypos_MouseCtl),
         .frame_tick(frame_tick),
         .game_active(game_active),
-        .wpn_type(wpn_type),
         .char_class(char_class),
-        .projectile_active(projectile_active),
         .boss_alive(boss_alive),
         .boss_x(boss_x),
         .boss_y(boss_y),
-        .attack_hit(attack_hit),
+        .projectile_hit(projectile_hit),
+        // .melee_hit(melee_hit),
         .vga_in(vga_if_char.in),
         .vga_out(vga_if_wpn.out)
         

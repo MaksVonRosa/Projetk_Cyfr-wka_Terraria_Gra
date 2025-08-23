@@ -14,17 +14,19 @@ module weapon_top (
     input  logic        boss_alive,
     input  logic [11:0] boss_x,
     input  logic [11:0] boss_y,
-    output logic        attack_hit,       
+    output logic        projectile_hit,       
 
     vga_if.in  vga_in,
     vga_if.out vga_out
 );
+    import vga_pkg::*;
+
     vga_if vga_if_melee();
     vga_if vga_if_archer();
     vga_if vga_if_projectile();
     vga_if vga_if_weapon();
 
-
+    localparam NUM_PROJ = 4;
     logic        draw_weapon;
     logic        flip_hor_melee;
     logic [11:0] pos_x_melee_offset;
@@ -39,10 +41,12 @@ module weapon_top (
     logic [11:0] pos_y_projectile_offset;
 
     logic proj_direction;
-    logic [11:0] pos_x_proj;
-    logic [11:0] pos_y_proj;
+    // logic [11:0] pos_x_proj;
+    // logic [11:0] pos_y_proj;
+    logic [47:0] pos_x_proj;
+    logic [47:0] pos_y_proj;
 
-    logic projectile_animated;
+    logic [NUM_PROJ-1:0]projectile_animated;
     logic [2:0]   direction_sector;
     // logic draw_archer_wpn;
     // logic draw_melee_wpn;
@@ -157,17 +161,19 @@ module weapon_top (
         .rst,
         .pos_x_proj(pos_x_proj),
         .pos_y_proj(pos_y_proj),
-        .projectile_active(projectile_active),    
+        // .projectile_active(projectile_active),    
         .projectile_animated(projectile_animated),
         .flip_hor_archer(proj_direction),   
         .game_active(game_active),
         .char_class(char_class),
-        .mouse_clicked(mouse_clicked), 
+        // .mouse_clicked(mouse_clicked), 
         .vga_in(vga_if_weapon.in),
         .vga_out
     );
 
-    archer_projectile_animated u_archer_projectile_animated(
+    archer_projectile_animated #(
+        .PROJECTILE_COUNT(PROJECTILE_COUNT)
+    )u_archer_projectile_animated(
         .clk,
         .rst,
         .frame_tick(frame_tick),          
@@ -182,54 +188,11 @@ module weapon_top (
         .boss_alive(boss_alive),          
         .pos_x_proj(pos_x_proj),
         .pos_y_proj(pos_y_proj),
-        .attack_hit(attack_hit),
+        .projectile_hit(projectile_hit),
         // .projectile_active(projectile_active),
-        .projectile_animated(projectile_animated),
-        .proj_direction(proj_direction)
+        .projectile_animated(projectile_animated)
+        // .proj_direction(proj_direction)
     );
 
-    // archer_projectile_ctl #(
-    //     .H_RES(1024), 
-    //     .V_RES(768)
-    // ) u_archer_projectile_ctl (
-    //     .clk, 
-    //     .rst, 
-    //     .frame_tick,
-    //     .fire(fire_archer),
-    //     .start_x(pos_x_archer_offset + (facing_right ? 12'd18 : -12'd18)), // lekki offset od dłoni/łuku
-    //     .start_y(pos_y_archer_offset - 12'd4),
-    //     .facing_right(facing_right),
-    //     .speed_px(8'd12),            // 12 px na klatkę – dostosuj
-    //     .active(proj_active),
-    //     .pos_x_proj(pos_x_proj),
-    //     .pos_y_proj(pos_y_proj),
-    //     .dir_right(proj_dir_right)
-// );
-
-// archer_wpn_draw u_archer_wpn_draw (
-//         .clk,
-//         .rst,
-//         .pos_x_archer_offset(pos_x_archer_offset),
-//         .pos_y_archer_offset(pos_y_archer_offset),
-//         .flip_hor_archer(flip_hor_melee),
-//         .mouse_clicked(draw_archer_wpn),   
-//         .anim_x_offset(anim_x_offset),
-//         .game_active(game_active),
-//         .vga_in(vga_if_archer.in),
-//         .vga_out(vga_out)
-//     );
-
-    // archer_wpn_ctl u_archer_wpn_ctl (
-    //     .clk,
-    //     .rst,
-    //     .mouse_clicked(mouse_clicked),
-    //     .pos_x(pos_x),
-    //     .pos_y(pos_y),
-    //     .xpos_MouseCtl(xpos_MouseCtl),
-    //     .draw_weapon(draw_weapon),
-    //     .flip_hor_archer(flip_hor_archer),
-    //     .pos_x_archer_offset(pos_x_archer_offset),
-    //     .pos_y_archer_offset(pos_y_archer_offset)
-    // );
-
+    
 endmodule

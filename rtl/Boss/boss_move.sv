@@ -2,15 +2,13 @@ module boss_move (
     input  logic clk,
     input  logic rst,
     input  logic frame_tick,
-    input  logic game_active,
+    input  logic [1:0] game_active,
     input  logic [11:0] char_x,
     output logic [11:0] boss_x,
     output logic [11:0] boss_y
 );
     import vga_pkg::*;
 
-    localparam BOSS_HGT    = 95;
-    localparam BOSS_LNG    = 106;
     localparam GROUND_Y    = VER_PIXELS - 52 - BOSS_HGT;
     localparam JUMP_HEIGHT = 350;
     localparam JUMP_SPEED  = 9;
@@ -24,7 +22,7 @@ module boss_move (
     logic jump_dir;
     logic [7:0] wait_counter;
 
-    always_ff @(posedge clk or posedge rst) begin
+    always_ff @(posedge clk) begin
         if (rst) begin
             boss_x       <= HOR_PIXELS / 4;
             boss_y       <= GROUND_Y;
