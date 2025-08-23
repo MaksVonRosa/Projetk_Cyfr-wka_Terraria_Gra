@@ -48,7 +48,7 @@ set sv_files {
     ../rtl/game_screen.sv
     ../rtl/class_selector.sv
     ../rtl/uart/uart_game_encoder.sv
-    ../rtl/uart/uart_game_dencoder.sv
+    ../rtl/uart/uart_game_decoder.sv
     ../rtl/Character/hearts_display.sv
     ../rtl/vga/top_vga.sv
     ../rtl/vga/vga_if.sv

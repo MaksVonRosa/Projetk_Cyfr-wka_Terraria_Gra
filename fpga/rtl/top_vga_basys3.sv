@@ -11,8 +11,10 @@ module top_vga_basys3 (
     output wire [3:0] vgaGreen,
     output wire [3:0] vgaBlue,
     output wire JA1,
+    output wire tx,
+    input  wire rx,
     output wire JA2, //TX
-    input  wire JA3, //RX
+    input  wire JB1, //RX
     output logic [3:0] led,
     inout wire PS2Clk,
     inout wire PS2Data
@@ -141,7 +143,7 @@ module top_vga_basys3 (
         .w_data(uart_data),
         .tx_full(tx_full),
         .tx(JA2),
-        .rx(JA3),
+        .rx(JB1),
         .rd_uart(uart_rd),
         .r_data(r_data),
         .rx_empty(rx_empty)
