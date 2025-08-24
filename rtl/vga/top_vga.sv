@@ -25,8 +25,6 @@ module top_vga (
     output logic [3:0] g,
     output logic [3:0] b,
     output logic flip_h,
-    inout  logic ps2_clk,
-    inout  logic ps2_data,
     input logic [11:0] player_2_x,
     input logic [11:0] player_2_y,
     input logic [3:0]  player_2_hp,
@@ -50,6 +48,7 @@ module top_vga (
     logic frame_tick;
     logic melee_hit;
     logic projectile_hit;
+    logic [20:0] tick_count;
     wire [11:0] boss_hgt, boss_lng, char_hgt;
     wire [3:0] char_hp;
     wire [3:0] class_aggro;
@@ -171,7 +170,7 @@ module top_vga (
         .boss_alive(boss_alive),
         .projectile_hit(projectile_hit),
         .melee_hit(melee_hit),
-        .frame_tick(frame_tick)
+        .frame_tick(frame_tick),
         .boss_out_hp(boss_out_hp),
         .game_active(game_active),
         .game_start(game_start),
@@ -210,7 +209,6 @@ module top_vga (
         .game_start(game_start)
     );
 
-<<<<<<< HEAD
     weapon_top u_weapon_top (
         .clk,
         .rst,
@@ -235,9 +233,7 @@ module top_vga (
     );
     
   
-    MouseCtl u_MouseCtl
-    (
-=======
+
     draw_player_2 u_draw_player_2 (
     .clk(clk),
     .rst(rst),
@@ -252,7 +248,6 @@ module top_vga (
 
 
     MouseCtl u_MouseCtl (
->>>>>>> origin/Maks
         .clk(clk100MHz),
         .rst,
         .ps2_clk(ps2_clk),
@@ -263,15 +258,9 @@ module top_vga (
     );
 
     draw_mouse u_draw_mouse (
-<<<<<<< HEAD
-        .clk,
-        .rst,
-        .vga_in_mouse(vga_if_wpn.in),
-=======
         .clk(clk),
         .rst(rst),
         .vga_in_mouse(vga_if_player2.in),
->>>>>>> origin/Maks
         .vga_out_mouse(vga_if_mouse.out),
         .xpos(xpos_MouseCtl),
         .ypos(ypos_MouseCtl)
@@ -281,7 +270,6 @@ module top_vga (
 
         .clk(clk),
         .rst(rst),
-        .tick_count(tick_count),
         .frame_tick(frame_tick)
 
     );

@@ -44,7 +44,6 @@ module boss_top (
         .game_start(game_start),
         .projectile_hit(projectile_hit),
         .melee_hit(melee_hit),
-        .buttondown(buttondown),
         .boss_hp(boss_hp),
         .player_2_data_valid(player_2_data_valid),
         .boss_out_hp(boss_out_hp)
