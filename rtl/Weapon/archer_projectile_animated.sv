@@ -25,7 +25,7 @@ module archer_projectile_animated #(
     localparam PROJECTILE_LIFETIME = 60;   
     localparam FIRE_COOLDOWN       = 15;    
 
-    logic [PROJECTILE_COUNT-1:0]       active;
+    logic [PROJECTILE_COUNT-1:0]       projectile_active;
     logic signed [13:0]        step_x [PROJECTILE_COUNT];
     logic signed [13:0]        step_y [PROJECTILE_COUNT];
     logic [7:0]                lifetime [PROJECTILE_COUNT];
@@ -36,9 +36,9 @@ module archer_projectile_animated #(
 
     always_ff @(posedge clk) begin
         if (rst) begin
-            active        <= '0;
-            pos_x_proj    <= '{default: HOR_PIXELS/2};
-            pos_y_proj    <= '{default: VER_PIXELS/2};
+            projectile_active        <= '0;
+            pos_x_proj    <= '{default:'0};
+            pos_y_proj    <= '{default:'0};
             step_x        <= '{default:'0};
             step_y        <= '{default:'0};
             lifetime      <= '{default:'0};
@@ -56,8 +56,8 @@ module archer_projectile_animated #(
             if (game_active == 2'd1) begin
                 if (mouse_clicked && cooldown_cnt == 0) begin
                     for (int i = 0; i < PROJECTILE_COUNT; i++) begin
-                        if (!active[i]) begin
-                            active[i]    <= 1;
+                        if (!projectile_active[i]) begin
+                            projectile_active[i]    <= 1;
                             pos_x_proj[i]<= pos_x_projectile_offset;
                             pos_y_proj[i]<= pos_y_projectile_offset;
                             lifetime[i]  <= PROJECTILE_LIFETIME;
@@ -83,7 +83,7 @@ module archer_projectile_animated #(
 
                 if (frame_tick) begin
                     for (int i = 0; i < PROJECTILE_COUNT; i++) begin
-                        if (active[i]) begin
+                        if (projectile_active[i]) begin
                             pos_x_proj[i] <= pos_x_proj[i] + step_x[i];
                             pos_y_proj[i] <= pos_y_proj[i] + step_y[i];
 
@@ -93,23 +93,23 @@ module archer_projectile_animated #(
                             if (pos_x_proj[i] < 0 || pos_x_proj[i] >  HOR_PIXELS ||
                                 pos_y_proj[i] < 0 || pos_y_proj[i] >  VER_PIXELS ||
                                 lifetime[i] == 0) begin
-                                active[i] <= 0;
+                                projectile_active[i] <= 0;
                             end
                             else if (boss_alive &&
                                      pos_x_proj[i] >= boss_x-BOSS_LNG && pos_x_proj[i] <= boss_x+BOSS_LNG &&
                                      pos_y_proj[i] >= boss_y-BOSS_HGT && pos_y_proj[i] <= boss_y+BOSS_HGT) begin
-                                active[i] <= 0;
+                                projectile_active[i] <= 0;
                                 projectile_hit <= 1;
                             end
                         end
                     end
                 end
             end else begin
-                active <= '0; 
+                projectile_active <= '0; 
             end
         end
     end
 
-    assign projectile_animated = active;
+    assign projectile_animated = projectile_active;
 
 endmodule

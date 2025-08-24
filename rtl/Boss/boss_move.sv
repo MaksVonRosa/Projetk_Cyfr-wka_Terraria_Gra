@@ -4,6 +4,9 @@ module boss_move (
     input  logic frame_tick,
     input  logic [1:0] game_active,
     input  logic [11:0] char_x,
+    input  logic [11:0] player_2_x,
+    input  logic [3:0]  player_2_aggro,
+    input  logic [3:0]  class_aggro,
     output logic [11:0] boss_x,
     output logic [11:0] boss_y
 );
@@ -22,7 +25,16 @@ module boss_move (
     logic jump_dir;
     logic [7:0] wait_counter;
 
-    always_ff @(posedge clk) begin
+    logic [11:0] target_x;
+
+    always_comb begin
+        if (player_2_aggro > class_aggro)
+            target_x = player_2_x;
+        else
+            target_x = char_x;
+    end
+
+    always_ff @(posedge clk or posedge rst) begin
         if (rst) begin
             boss_x       <= HOR_PIXELS / 4;
             boss_y       <= GROUND_Y;
@@ -40,7 +52,7 @@ module boss_move (
                     going_up     <= 1;
                     jump_peak    <= boss_y - JUMP_HEIGHT;
                     wait_counter <= WAIT_TICKS;
-                    jump_dir     <= (char_x < boss_x) ? 0 : 1;
+                    jump_dir     <= (target_x < boss_x) ? 0 : 1;
                 end
             end
 

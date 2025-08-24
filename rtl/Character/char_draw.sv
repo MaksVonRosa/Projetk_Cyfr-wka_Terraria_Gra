@@ -7,6 +7,8 @@ module char_draw (
     input  logic flip_h,
     input  logic [1:0] game_active,
     input  logic [1:0] char_class,
+    input  logic [3:0] class_aggro,
+    output logic [3:0] char_aggro,
     output logic [11:0] char_hgt,
     output logic [11:0] char_lng,
     vga_if.in  vga_in,
@@ -46,6 +48,14 @@ module char_draw (
 
     always_comb begin
         alive = (current_health > 0);
+    end
+
+    always_comb begin
+        if (alive) begin
+            char_aggro = class_aggro;
+        end else begin
+            char_aggro = 4'd0;
+        end
     end
 
     always_comb begin

@@ -50,6 +50,7 @@ set sv_files {
     ../rtl/Character/char.sv
     ../rtl/Character/char_ctrl.sv
     ../rtl/Character/char_draw.sv
+    ../rtl/Character/draw_player_2.sv
     ../rtl/Boss/boss_hp.sv
     ../rtl/Boss/boss_move.sv
     ../rtl/Boss/boss_render.sv
@@ -59,6 +60,7 @@ set sv_files {
     ../rtl/game_screen.sv
     ../rtl/class_selector.sv
     ../rtl/uart/uart_game_encoder.sv
+    ../rtl/uart/uart_game_decoder.sv
     ../rtl/Character/hearts_display.sv
     ../rtl/vga/top_vga.sv
     ../rtl/vga/vga_if.sv
@@ -70,8 +72,12 @@ set sv_files {
  set verilog_files {
     ../rtl/clk_wiz_0_clk_wiz.v 
     ../rtl/uart/list_ch08_01_uart_rx.v
+    ../rtl/uart/list_ch08_02_flag_buf.v
     ../rtl/uart/list_ch08_03_uart_tx.v
     ../rtl/uart/list_ch08_04_uart.v
+    ../rtl/uart/list_ch04_11_mod_m_counter.v
+    ../rtl/uart/list_ch04_20_fifo.v
+
  }
 
 # Specify VHDL design files location            -- EDIT

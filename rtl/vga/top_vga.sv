@@ -15,9 +15,28 @@ module top_vga (
     output logic [11:0] ground_y,
     output logic [11:0] char_x,
     output logic [11:0] char_y,
+    output logic [3:0] current_health,
+    output logic [6:0] boss_hp,
+    output logic [11:0] boss_x,
+    output logic [11:0] boss_y,
+    output logic [3:0] char_aggro,
+    output logic [1:0] char_class,
     output logic [3:0] r,
     output logic [3:0] g,
-    output logic [3:0] b
+    output logic [3:0] b,
+    output logic flip_h,
+    inout  logic ps2_clk,
+    inout  logic ps2_data,
+    input logic [11:0] player_2_x,
+    input logic [11:0] player_2_y,
+    input logic [3:0]  player_2_hp,
+    input logic [3:0]  player_2_aggro,
+    input logic        player_2_flip_h,
+    input logic [1:0]  player_2_class,
+    input logic [11:0] boss_out_x,
+    input logic [11:0] boss_out_y,
+    input logic [6:0]  boss_out_hp,
+    input logic        player_2_data_valid
 );
     timeunit 1ns;
     timeprecision 1ps;
@@ -25,17 +44,15 @@ module top_vga (
     wire [10:0] vcount_tim, hcount_tim;
     wire vsync_tim, hsync_tim;
     wire vblnk_tim, hblnk_tim;
+
     wire [11:0] char_hgt, char_lng;
     wire [11:0] pos_x_out, pos_y_out;
-    wire [11:0] boss_x, boss_y, boss_hgt, boss_lng;
-    wire [3:0] current_health, char_hp;
-    wire [6:0] boss_hp;
     logic frame_tick;
     logic melee_hit;
     logic projectile_hit;
-    logic [20:0] tick_count;
-    logic [1:0] char_class;
-    logic [1:0]  wpn_type;
+    wire [11:0] boss_hgt, boss_lng, char_hgt;
+    wire [3:0] char_hp;
+    wire [3:0] class_aggro;
 
     vga_if vga_if_bg();
     vga_if vga_if_char();
@@ -45,6 +62,7 @@ module top_vga (
     vga_if vga_if_mouse();
     vga_if vga_if_wpn();
     vga_if vga_if_selector();
+    vga_if vga_if_player2();
 
     assign vs = vga_if_mouse.vsync;
     assign hs = vga_if_mouse.hsync;
@@ -120,7 +138,7 @@ module top_vga (
         .mouse_clicked(mouse_clicked),
         .char_class(char_class),
         .char_hp(char_hp),
-        .wpn_type(wpn_type),
+        .class_aggro(class_aggro),
         .vga_in(vga_if_menu.in),
         .vga_out(vga_if_selector.out)
     );
@@ -130,7 +148,7 @@ module top_vga (
         .rst(rst),
         .char_x(char_x),
         .char_y(char_y),
-        .char_hgt(32),
+        .char_hgt(char_hgt),
         .vga_in(vga_if_selector.in),
         .vga_out(vga_if_plat.out),
         .ground_y(ground_y),
@@ -142,6 +160,7 @@ module top_vga (
         .clk(clk),
         .rst(rst),
         .char_x(char_x),
+        .player_2_x(player_2_x),
         .vga_in(vga_if_plat.in),
         .vga_out(vga_if_boss.out),
         .boss_x(boss_x),
@@ -150,11 +169,15 @@ module top_vga (
         .boss_lng(boss_lng),
         .boss_hp(boss_hp),
         .boss_alive(boss_alive),
-        .game_active(game_active),
-        .game_start(game_start),
         .projectile_hit(projectile_hit),
         .melee_hit(melee_hit),
         .frame_tick(frame_tick)
+        .boss_out_hp(boss_out_hp),
+        .game_active(game_active),
+        .game_start(game_start),
+        .class_aggro(class_aggro),
+        .player_2_data_valid(player_2_data_valid),
+        .player_2_aggro(player_2_aggro)
     );
 
     draw_char u_char (
@@ -169,12 +192,16 @@ module top_vga (
         .boss_lng(boss_lng),
         .boss_hgt(boss_hgt),
         .char_hp (char_hp),
+        .player_2_hp(player_2_hp),
         .current_health(current_health),
         .char_class(char_class),
+        .char_aggro(char_aggro),
+        .class_aggro(class_aggro),
         .pos_x_out(pos_x_out),
         .pos_y_out(pos_y_out),
-        .char_hgt(),
+        .char_hgt(char_hgt),
         .char_lng(),
+        .flip_h (flip_h),
         .ground_lvl(ground_lvl),
         .frame_tick(frame_tick),
         .vga_char_in(vga_if_boss.in),
@@ -183,6 +210,7 @@ module top_vga (
         .game_start(game_start)
     );
 
+<<<<<<< HEAD
     weapon_top u_weapon_top (
         .clk,
         .rst,
@@ -209,6 +237,22 @@ module top_vga (
   
     MouseCtl u_MouseCtl
     (
+=======
+    draw_player_2 u_draw_player_2 (
+    .clk(clk),
+    .rst(rst),
+    .player_2_x(player_2_x),
+    .player_2_y(player_2_y),
+    .player_2_flip_h(player_2_flip_h),
+    .player_2_class(player_2_class),
+    .player_2_data_valid(player_2_data_valid),
+    .vga_in(vga_if_char.in),
+    .vga_out(vga_if_player2.out)
+);
+
+
+    MouseCtl u_MouseCtl (
+>>>>>>> origin/Maks
         .clk(clk100MHz),
         .rst,
         .ps2_clk(ps2_clk),
@@ -219,9 +263,15 @@ module top_vga (
     );
 
     draw_mouse u_draw_mouse (
+<<<<<<< HEAD
         .clk,
         .rst,
         .vga_in_mouse(vga_if_wpn.in),
+=======
+        .clk(clk),
+        .rst(rst),
+        .vga_in_mouse(vga_if_player2.in),
+>>>>>>> origin/Maks
         .vga_out_mouse(vga_if_mouse.out),
         .xpos(xpos_MouseCtl),
         .ypos(ypos_MouseCtl)

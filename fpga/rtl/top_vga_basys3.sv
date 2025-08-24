@@ -1,40 +1,27 @@
-/**
- * San Jose State University
- * EE178 Lab #4
- * Author: prof. Eric Crabilla
- *
- * Modified by:
- * 2025  AGH University of Science and Technology
- * MTM UEC2
- * Piotr Kaczmarczyk
- *
- * Description:
- * Top level synthesizable module including the project top and all the FPGA-referred modules.
- */
-
 module top_vga_basys3 (
-        input  wire clk,
-        input  wire btnC,
-        input  wire btnU,
-        input  wire btnR,
-        input  wire btnL,
-        input  wire btnD,
-        output wire Vsync,
-        output wire Hsync,
-        output wire [3:0] vgaRed,
-        output wire [3:0] vgaGreen,
-        output wire [3:0] vgaBlue,
-        output wire JA1,
-        inout wire PS2Clk,
-        inout wire PS2Data
-    );
+    input  wire clk,
+    input  wire btnC,
+    input  wire btnU,
+    input  wire btnR,
+    input  wire btnL,
+    input  wire btnD,
+    output wire Vsync,
+    output wire Hsync,
+    output wire [3:0] vgaRed,
+    output wire [3:0] vgaGreen,
+    output wire [3:0] vgaBlue,
+    output wire JA1,
+    output wire tx,
+    input  wire rx,
+    output wire JA2, //TX
+    input  wire JB1, //RX
+    output logic [1:0] led,
+    inout wire PS2Clk,
+    inout wire PS2Data
+);
 
     timeunit 1ns;
     timeprecision 1ps;
-
-    /**
-     * Local variables and signals
-     */
 
     wire clk_ss;
     wire locked;
@@ -42,35 +29,14 @@ module top_vga_basys3 (
     wire clk100MHz;
     wire pclk_mirror;
 
-    (* KEEP = "TRUE" *)
-    (* ASYNC_REG = "TRUE" *)
-    // For details on synthesis attributes used above, see AMD Xilinx UG 901:
-    // https://docs.xilinx.com/r/en-US/ug901-vivado-synthesis/Synthesis-Attributes
-
-
-    /**
-     * Signals assignments
-     */
-
     assign JA1 = pclk_mirror;
 
-
-    /**
-     * FPGA submodules placement
-     */
-    clk_wiz_0_clk_wiz inst
-     (
-     // Clock out ports  
-     .clk100MHz(clk100MHz),
-     .clk65MHz(clk65MHz),
-     // Status and control signals               
-     .locked(locked),
-    // Clock in ports
-     .clk_in1(clk)
-     );
-
-    // Mirror pclk on a pin for use by the testbench;
-    // not functionally required for this design to work.
+    clk_wiz_0_clk_wiz inst (
+        .clk100MHz(clk100MHz),
+        .clk65MHz(clk65MHz),
+        .locked(locked),
+        .clk_in1(clk)
+    );
 
     ODDR pclk_oddr (
         .Q(pclk_mirror),
@@ -81,11 +47,34 @@ module top_vga_basys3 (
         .R(1'b0),
         .S(1'b0)
     );
+    wire [11:0] char_x;
+    wire [11:0] char_y;
+    wire [3:0] current_health;
+    wire [3:0] char_aggro;
+    wire [1:0] char_class;
+    wire flip_h;
+    wire [6:0] boss_hp;
+    wire [11:0] boss_x;
+    wire [11:0] boss_y;
+    wire on_ground;
+    wire [11:0] player_2_x;
+    wire [11:0] player_2_y;
+    wire [3:0]  player_2_hp;
+    wire [3:0]  player_2_aggro;
+    wire        player_2_flip_h;
+    wire [1:0]  player_2_class;
+    wire [11:0] boss_out_x;
+    wire [11:0] boss_out_y;
+    wire [6:0]  boss_out_hp;
+    wire        uart_data_valid;
 
-
-    /**
-     *  Project functional top module
-     */
+    // Sygnały UART
+    logic [7:0] uart_data;
+    logic       uart_wr;
+    logic       tx_full;
+    logic       rx_empty;
+    logic [7:0] r_data;
+    logic       uart_rd;
 
     top_vga u_top_vga (
         .clk(clk65MHz),
@@ -101,7 +90,86 @@ module top_vga_basys3 (
         .g(vgaGreen),
         .b(vgaBlue),
         .hs(Hsync),
-        .vs(Vsync)
+        .vs(Vsync),
+        .char_x(char_x),
+        .char_y(char_y),
+        .current_health(current_health),
+        .char_aggro(char_aggro),
+        .char_class(char_class),
+        .flip_h(flip_h),
+        .boss_hp(boss_hp),
+        .boss_x(boss_x),
+        .boss_y(boss_y),
+        .on_ground(on_ground),
+        .player_2_x(player_2_x),
+        .player_2_y(player_2_y),
+        .player_2_hp(player_2_hp),
+        .player_2_aggro(player_2_aggro),
+        .player_2_flip_h(player_2_flip_h),
+        .player_2_class(player_2_class),
+        .boss_out_x(boss_out_x),
+        .boss_out_y(boss_out_y),
+        .boss_out_hp(boss_out_hp),
+        .player_2_data_valid(uart_data_valid)
     );
+
+    uart_game_encoder u_uart_encoder (
+        .clk(clk65MHz),
+        .rst(btnC),
+        .char_x(char_x),
+        .char_y(char_y),
+        .char_hp(current_health),
+        .char_aggro(char_aggro),
+        .char_class(char_class),
+        .flip_h(flip_h),
+        .boss_hp(boss_hp),
+        .boss_x(boss_x),
+        .boss_y(boss_y),
+        .tx_ready(!tx_full),
+        .tx_full(tx_full),
+        .uart_data(uart_data),
+        .uart_wr(uart_wr)
+    );
+    uart #(
+        .DBIT(8),
+        .SB_TICK(16),
+        .DVSR(35),
+        .DVSR_BIT(6),
+        .FIFO_W(6)
+    ) uart_unit (
+        .clk(clk65MHz),
+        .reset(btnC),
+        .wr_uart(uart_wr),
+        .w_data(uart_data),
+        .tx_full(tx_full),
+        .tx(JA2),
+        .rx(JB1),
+        .rd_uart(uart_rd),
+        .r_data(r_data),
+        .rx_empty(rx_empty)
+    );
+
+
+    uart_game_decoder u_uart_decoder (
+        .clk(clk65MHz),
+        .rst(btnC),
+        .uart_data(r_data),
+        .uart_rd(uart_rd),
+        .rx_valid(!rx_empty),
+        .player_2_x(player_2_x),
+        .player_2_y(player_2_y),
+        .player_2_hp(player_2_hp),
+        .player_2_aggro(player_2_aggro),
+        .player_2_flip_h(player_2_flip_h),
+        .player_2_class(player_2_class),
+        .boss_out_x(boss_out_x),
+        .boss_out_y(boss_out_y),
+        .boss_out_hp(boss_out_hp),
+        .data_valid(uart_data_valid)
+    );
+
+    assign uart_rd = !rx_empty;
+
+    assign led[0] = !tx_full;
 
 endmodule
