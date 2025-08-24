@@ -6,6 +6,7 @@ module draw_player_2 (
     input  logic        player_2_flip_h,
     input  logic [1:0]  player_2_class,
     input  logic        player_2_data_valid,
+    input  logic [6:0]  player_2_hp,
     vga_if.in  vga_in,
     vga_if.out vga_out
 );
@@ -45,7 +46,7 @@ module draw_player_2 (
         logic [11:0] rgb_nxt;
         rgb_nxt = vga_in.rgb;
 
-        if (initialized &&
+        if (initialized && player_2_hp > 0 && 
             !vga_in.vblnk && !vga_in.hblnk &&
             vga_in.hcount >= draw_x - CHAR_LNG &&
             vga_in.hcount <  draw_x + CHAR_LNG &&

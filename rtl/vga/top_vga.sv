@@ -239,6 +239,7 @@ module top_vga (
     .player_2_flip_h(player_2_flip_h),
     .player_2_class(player_2_class),
     .player_2_data_valid(player_2_data_valid),
+    .player_2_hp(player_2_hp),
     .vga_in(vga_if_char.in),
     .vga_out(vga_if_player2.out)
 );
