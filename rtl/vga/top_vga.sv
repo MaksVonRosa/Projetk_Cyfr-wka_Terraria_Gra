@@ -32,6 +32,8 @@ module top_vga (
     wire [3:0] current_health, char_hp;
     wire [6:0] boss_hp;
     logic frame_tick;
+    logic melee_hit;
+    logic projectile_hit;
     logic [20:0] tick_count;
     logic [1:0] char_class;
     logic [1:0]  wpn_type;
@@ -197,7 +199,7 @@ module top_vga (
         .boss_x(boss_x),
         .boss_y(boss_y),
         .projectile_hit(projectile_hit),
-        // .melee_hit(melee_hit),
+        .melee_hit(melee_hit),
         .vga_in(vga_if_char.in),
         .vga_out(vga_if_wpn.out)
         

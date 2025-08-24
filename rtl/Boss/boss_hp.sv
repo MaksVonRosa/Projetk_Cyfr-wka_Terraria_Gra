@@ -3,7 +3,8 @@ module boss_hp (
     input  logic rst,
     input  logic game_start,
     input  logic projectile_hit,    
-    input  logic game_active,   
+    input  logic melee_hit,    
+    input  logic [1:0] game_active,
     output logic [6:0] boss_hp
 );
 
@@ -14,7 +15,7 @@ module boss_hp (
             boss_hp <= BOSS_HP;
         end else if (game_start == 1) begin
             boss_hp <= BOSS_HP;
-        end else if (projectile_hit) begin
+        end else if ((melee_hit||projectile_hit) && game_active) begin
                 boss_hp <= boss_hp - 1;
         end
      end

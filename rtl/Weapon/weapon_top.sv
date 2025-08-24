@@ -15,6 +15,7 @@ module weapon_top (
     input  logic [11:0] boss_x,
     input  logic [11:0] boss_y,
     output logic        projectile_hit,       
+    output logic        melee_hit,       
 
     vga_if.in  vga_in,
     vga_if.out vga_out
@@ -124,6 +125,10 @@ module weapon_top (
         .pos_x_archer_offset,
         .pos_y_archer_offset,
         .char_class(char_class),
+        .melee_hit(melee_hit),
+        .boss_x(boss_x),
+        .boss_y(boss_y),
+        .boss_alive(boss_alive),   
         .vga_in,
         .vga_out(vga_if_weapon.out)
     );

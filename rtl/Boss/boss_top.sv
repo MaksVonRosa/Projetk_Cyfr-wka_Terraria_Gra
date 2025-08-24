@@ -32,10 +32,10 @@ module boss_top (
     boss_hp u_hp (
         .clk(clk),
         .rst(rst),
-        // .game_active(game_active),
+        .game_active(game_active),
         .game_start(game_start),
         .projectile_hit(projectile_hit),
-        // .melee_hit(melee_hit),
+        .melee_hit(melee_hit),
         .boss_hp(boss_hp)
     );
 

@@ -13,6 +13,10 @@ module weapon_draw (
     input  logic [11:0] pos_x_archer_offset,
     input  logic [11:0] pos_y_archer_offset,
     input  logic        flip_hor_archer,
+    input  logic        boss_alive,
+    input  logic [11:0] boss_x,
+    input  logic [11:0] boss_y,
+    output logic        melee_hit,
 
     vga_if.in  vga_in,
     vga_if.out vga_out
@@ -133,7 +137,11 @@ module weapon_draw (
                         rom_addr = rel_y * MELEE_IMG_WIDTH + rel_x;
                         pixel_color = melee_wpn_rom[rom_addr];
                         if (pixel_color != 12'h02F) rgb_nxt = pixel_color;
-                    end
+                    end else if (boss_alive &&
+                                     rel_x >= boss_x-BOSS_LNG && rel_x <= boss_x+BOSS_LNG &&
+                                     rel_y >= boss_y-BOSS_HGT && rel_y <= boss_y+BOSS_HGT) begin
+                                melee_hit = 1;
+                            end
                 end
             end
                
