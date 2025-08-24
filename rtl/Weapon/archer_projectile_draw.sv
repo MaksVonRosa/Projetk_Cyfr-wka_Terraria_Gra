@@ -4,12 +4,10 @@ parameter PROJECTILE_COUNT = vga_pkg::PROJECTILE_COUNT
 )(
     input  logic        clk,
     input  logic        rst,
-    // input  logic [11:0] pos_x_proj,
-    // input  logic [11:0] pos_y_proj,
     input  logic [PROJECTILE_COUNT*12-1:0] pos_x_proj,
     input  logic [PROJECTILE_COUNT*12-1:0] pos_y_proj,
     input logic [PROJECTILE_COUNT-1:0] projectile_animated,
-    input  logic        flip_hor_archer,    // kierunek lotu
+    input  logic        flip_hor_archer,    
     input  logic [1:0]  game_active,
     input  logic [1:0]  char_class,
     vga_if.in  vga_in,
@@ -96,26 +94,6 @@ always_ff @(posedge clk) begin
 
 
     
-    // always_comb begin
-    //     rgb_nxt = vga_in.rgb;
-    //     if (game_active && projectile_animated && char_class == 2 &&
-    //         !vga_in.vblnk && !vga_in.hblnk &&
-    //         vga_in.hcount >= pos_x_proj - PROJ_LNG &&
-    //         vga_in.hcount <  pos_x_proj + PROJ_LNG &&
-    //         vga_in.vcount >= pos_y_proj - PROJ_HGT &&
-    //         vga_in.vcount <  pos_y_proj + PROJ_HGT) begin
-
-    //         rel_y = vga_in.vcount - (pos_y_proj - PROJ_HGT);
-    //         rel_x = vga_in.hcount - (pos_x_proj - PROJ_LNG);
-    //         if (flip_hor_archer) rel_x = (IMG_WIDTH-1) - rel_x;
-
-    //         if (rel_x < IMG_WIDTH && rel_y < IMG_HEIGHT) begin
-    //             rom_addr = rel_y * IMG_WIDTH + rel_x;
-    //             pixel_color = archer_proj_rom[rom_addr];
-    //             if (pixel_color != 12'h000) rgb_nxt = pixel_color;
-    //         end
-    //     end
-    // end
     always_comb begin
         rgb_nxt = vga_in.rgb;
         if (game_active && char_class == 2 &&

@@ -26,7 +26,6 @@ module top_vga (
     wire vsync_tim, hsync_tim;
     wire vblnk_tim, hblnk_tim;
     wire [11:0] char_hgt, char_lng;
-    wire [11:0] pos_x_wpn, pos_y_wpn;
     wire [11:0] pos_x_out, pos_y_out;
     wire [11:0] boss_x, boss_y, boss_hgt, boss_lng;
     wire [3:0] current_health, char_hp;
@@ -55,7 +54,6 @@ module top_vga (
     logic [11:0] xpos_MouseCtl;
     logic [11:0] ypos_MouseCtl;
     logic mouse_clicked;
-    logic projectile_active;
 
     logic game_start;
     logic back_to_menu;
@@ -178,6 +176,7 @@ module top_vga (
         .char_hgt(),
         .char_lng(),
         .ground_lvl(ground_lvl),
+        .frame_tick(frame_tick),
         .vga_char_in(vga_if_boss.in),
         .vga_char_out(vga_if_char.out),
         .game_active(game_active),
@@ -211,6 +210,7 @@ module top_vga (
     MouseCtl u_MouseCtl
     (
         .clk(clk100MHz),
+        .rst,
         .ps2_clk(ps2_clk),
         .ps2_data(ps2_data),
         .xpos(xpos_MouseCtl),
@@ -226,6 +226,7 @@ module top_vga (
         .xpos(xpos_MouseCtl),
         .ypos(ypos_MouseCtl)
     );
+
     tick_gen u_tick_gen(
 
         .clk(clk),

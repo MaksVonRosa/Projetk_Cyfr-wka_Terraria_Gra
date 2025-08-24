@@ -19,6 +19,7 @@ module hearts_display #(
     input  logic [11:0] boss_lng,
     input  logic [1:0] game_active,
     input  logic game_start,
+    input  logic frame_tick,
     output logic [3:0] current_health,
     vga_if.in  vga_in,
     vga_if.out vga_out
@@ -28,9 +29,9 @@ module hearts_display #(
     logic [11:0] heart_rom [0:HEART_W*HEART_H-1];
     initial $readmemh("../../GameSprites/Heart.dat", heart_rom);
 
-    localparam integer FRAME_TICKS = 65_000_000 / 60;
-    logic [20:0] tick_count;
-    logic frame_tick;
+    // localparam integer FRAME_TICKS = 65_000_000 / 60;
+    // logic [20:0] tick_count;
+    // logic frame_tick;
     logic [7:0] damage_cooldown;
 
     logic [11:0] rgb_nxt;
@@ -39,18 +40,18 @@ module hearts_display #(
     logic [10:0] rom_addr;
     logic [11:0] pixel_color;
 
-    always_ff @(posedge clk) begin
-        if (rst) begin
-            tick_count <= 0;
-            frame_tick <= 0;
-        end else if (tick_count == FRAME_TICKS - 1) begin
-            tick_count <= 0;
-            frame_tick <= 1;
-        end else begin
-            tick_count <= tick_count + 1;
-            frame_tick <= 0;
-        end
-    end
+    // always_ff @(posedge clk) begin
+    //     if (rst) begin
+    //         tick_count <= 0;
+    //         frame_tick <= 0;
+    //     end else if (tick_count == FRAME_TICKS - 1) begin
+    //         tick_count <= 0;
+    //         frame_tick <= 1;
+    //     end else begin
+    //         tick_count <= tick_count + 1;
+    //         frame_tick <= 0;
+    //     end
+    // end
 
     always_ff @(posedge clk) begin
         if (rst) begin

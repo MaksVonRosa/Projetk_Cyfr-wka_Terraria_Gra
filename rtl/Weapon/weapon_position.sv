@@ -28,7 +28,7 @@ localparam ARCHER_WPN_X_OFFSET = 10;
 localparam ARCHER_WPN_Y_OFFSET = 12;
 
 localparam PROJECTILE_WPN_X_OFFSET = 30;
-localparam PROJECTILE_WPN_Y_OFFSET = 0;
+localparam PROJECTILE_WPN_Y_OFFSET = -4;
 
 always_ff @(posedge clk) begin
         if (rst) begin

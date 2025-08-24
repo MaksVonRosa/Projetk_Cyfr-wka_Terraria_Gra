@@ -7,8 +7,6 @@ module weapon_draw (
     input  logic        mouse_clicked,
     input  logic [11:0] anim_x_offset,
     input  logic [1:0]  game_active,
-    input  logic [11:0] pos_x,
-    input  logic [11:0] pos_y,
     input  logic [1:0]  char_class,
     input  logic [11:0] pos_x_archer_offset,
     input  logic [11:0] pos_y_archer_offset,

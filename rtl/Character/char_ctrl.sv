@@ -7,6 +7,7 @@ module char_ctrl (
     input  logic on_ground,
     input  logic [1:0] game_active,
     input  logic game_start,
+    input  logic frame_tick,
     output logic [11:0] pos_x,
     output logic [11:0] pos_y,
     output logic [11:0] ground_lvl,
@@ -27,9 +28,9 @@ module char_ctrl (
     logic        is_jumping;
     logic [11:0] jump_peak;
 
-    localparam integer FRAME_TICKS = 65_000_000 / 60;
-    logic [20:0] tick_count;
-    logic        frame_tick;
+    // localparam integer FRAME_TICKS = 65_000_000 / 60;
+    // logic [20:0] tick_count;
+    // logic        frame_tick;
 
     always_ff @(posedge clk) begin
         if (rst) flip_h <= 0;
@@ -39,15 +40,15 @@ module char_ctrl (
         end
     end
 
-    always_ff @(posedge clk) begin
-        if (tick_count == FRAME_TICKS - 1) begin
-            tick_count <= 0;
-            frame_tick <= 1;
-        end else begin
-            tick_count <= tick_count + 1;
-            frame_tick <= 0;
-        end
-    end
+    // always_ff @(posedge clk) begin
+    //     if (tick_count == FRAME_TICKS - 1) begin
+    //         tick_count <= 0;
+    //         frame_tick <= 1;
+    //     end else begin
+    //         tick_count <= tick_count + 1;
+    //         frame_tick <= 0;
+    //     end
+    // end
 
     always_ff @(posedge clk) begin
         if (rst) begin

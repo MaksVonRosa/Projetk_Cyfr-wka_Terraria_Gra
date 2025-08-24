@@ -19,17 +19,12 @@ module archer_projectile_animated #(
     output logic [PROJECTILE_COUNT-1:0]       projectile_animated,
     output logic                      projectile_hit
 );
-
-    localparam SCREEN_W = 1024;
-    localparam SCREEN_H = 768;
-    localparam BOSS_LNG = 106;
-    localparam BOSS_HGT = 95;
+    import vga_pkg::*;
 
     localparam PROJECTILE_SPEED    = 16;   
     localparam PROJECTILE_LIFETIME = 60;   
     localparam FIRE_COOLDOWN       = 15;    
 
-    // stan pocisków
     logic [PROJECTILE_COUNT-1:0]       active;
     logic signed [13:0]        step_x [PROJECTILE_COUNT];
     logic signed [13:0]        step_y [PROJECTILE_COUNT];
@@ -42,8 +37,8 @@ module archer_projectile_animated #(
     always_ff @(posedge clk) begin
         if (rst) begin
             active        <= '0;
-            pos_x_proj    <= '{default:'0};
-            pos_y_proj    <= '{default:'0};
+            pos_x_proj    <= '{default: HOR_PIXELS/2};
+            pos_y_proj    <= '{default: VER_PIXELS/2};
             step_x        <= '{default:'0};
             step_y        <= '{default:'0};
             lifetime      <= '{default:'0};
@@ -59,9 +54,7 @@ module archer_projectile_animated #(
                 cooldown_cnt <= cooldown_cnt - 1;
 
             if (game_active == 2'd1) begin
-                // STRZELANIE
                 if (mouse_clicked && cooldown_cnt == 0) begin
-                    // znajdź pierwszy wolny slot
                     for (int i = 0; i < PROJECTILE_COUNT; i++) begin
                         if (!active[i]) begin
                             active[i]    <= 1;
@@ -69,7 +62,6 @@ module archer_projectile_animated #(
                             pos_y_proj[i]<= pos_y_projectile_offset;
                             lifetime[i]  <= PROJECTILE_LIFETIME;
 
-                            // policz krok
                             dx <= xpos_MouseCtl - pos_x_projectile_offset;
                             dy <= ypos_MouseCtl - pos_y_projectile_offset;
                             max_val <= ( (dx < 0 ? -dx : dx) > (dy < 0 ? -dy : dy) ) ? 
@@ -84,12 +76,11 @@ module archer_projectile_animated #(
                             end
 
                             cooldown_cnt <= FIRE_COOLDOWN;
-                            break; // wystrzel tylko jeden pocisk na klik
+                            break; 
                         end
                     end
                 end
 
-                // ANIMACJA wszystkich pocisków
                 if (frame_tick) begin
                     for (int i = 0; i < PROJECTILE_COUNT; i++) begin
                         if (active[i]) begin
@@ -99,9 +90,8 @@ module archer_projectile_animated #(
                             if (lifetime[i] > 0)
                                 lifetime[i] <= lifetime[i] - 1;
 
-                            // kolizje / koniec życia
-                            if (pos_x_proj[i] < 0 || pos_x_proj[i] > SCREEN_W ||
-                                pos_y_proj[i] < 0 || pos_y_proj[i] > SCREEN_H ||
+                            if (pos_x_proj[i] < 0 || pos_x_proj[i] >  HOR_PIXELS ||
+                                pos_y_proj[i] < 0 || pos_y_proj[i] >  VER_PIXELS ||
                                 lifetime[i] == 0) begin
                                 active[i] <= 0;
                             end
@@ -115,7 +105,7 @@ module archer_projectile_animated #(
                     end
                 end
             end else begin
-                active <= '0; // gra nieaktywna – wyłącz wszystkie pociski
+                active <= '0; 
             end
         end
     end
