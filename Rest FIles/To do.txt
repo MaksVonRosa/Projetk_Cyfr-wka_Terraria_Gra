@@ -1,3 +1,4 @@
+
 1) Poruszanie się postaci gotowe
 2) Wybór/Staty postaci
 2.5) Sprite Postaci gotowe 

@@ -4,6 +4,7 @@ module platform (
     input  logic [11:0] char_x,
     input  logic [11:0] char_y,
     input  logic [11:0] char_hgt,
+    input  logic [1:0] game_active,
     output logic [11:0] ground_y,
     vga_if.in  vga_in,
     vga_if.out vga_out,
@@ -45,40 +46,46 @@ module platform (
     logic [11:0] char_velocity_y;
 
     always_ff @(posedge clk or posedge rst) begin
-    if (rst) begin
-        char_y_prev     <= 0;
-        char_velocity_y <= 0;
-    end else begin
-        char_y_prev     <= char_y;
-        char_velocity_y <= char_y - char_y_prev;
+        if (rst) begin
+            char_y_prev     <= 0;
+            char_velocity_y <= 0;
+        end else begin
+            char_y_prev     <= char_y;
+            char_velocity_y <= char_y - char_y_prev;
+        end
     end
-end
 
     always_comb begin
         on_ground = 0;
-        ground_y = 0;
-        for (int i = 0; i < PLAT_COUNT; i++) begin
-            if ((char_x + char_hgt > plat_x[i]) && 
-                (char_x < plat_x[i] + plat_w[i]) &&
-                (char_y + char_hgt >= plat_y[i] - 1) && 
-                (char_y + char_hgt <= plat_y[i] + 5) &&
-                (char_velocity_y >= 0)) begin
-                on_ground = 1;
-                ground_y  = plat_y[i] - char_hgt;
-                break;
+        ground_y  = 0;
+
+        if (game_active == 1) begin
+            for (int i = 0; i < PLAT_COUNT; i++) begin
+                if ((char_x + char_hgt > plat_x[i]) && 
+                    (char_x < plat_x[i] + plat_w[i]) &&
+                    (char_y + char_hgt >= plat_y[i] - 1) && 
+                    (char_y + char_hgt <= plat_y[i] + 5) &&
+                    (char_velocity_y >= 0)) begin
+                    on_ground = 1;
+                    ground_y  = plat_y[i] - char_hgt;
+                    break;
+                end
             end
         end
     end
 
     always_comb begin
         rgb_nxt = vga_in.rgb;
-        for (int i = 0; i < PLAT_COUNT-1; i++) begin
-            if (!vga_in.vblnk && !vga_in.hblnk &&
-                vga_in.hcount >= plat_x[i] && 
-                vga_in.hcount < plat_x[i] + plat_w[i] &&
-                vga_in.vcount >= plat_y[i] && 
-                vga_in.vcount < plat_y[i] + PLAT_THICK) begin
-                rgb_nxt = PLAT_COLOR;
+
+        if (game_active == 1) begin
+            for (int i = 0; i < PLAT_COUNT-1; i++) begin
+                if (!vga_in.vblnk && !vga_in.hblnk &&
+                    vga_in.hcount >= plat_x[i] && 
+                    vga_in.hcount < plat_x[i] + plat_w[i] &&
+                    vga_in.vcount >= plat_y[i] && 
+                    vga_in.vcount < plat_y[i] + PLAT_THICK) begin
+                    rgb_nxt = PLAT_COLOR;
+                end
             end
         end
     end

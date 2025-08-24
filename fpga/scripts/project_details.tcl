@@ -31,30 +31,61 @@ set xdc_files {
 
 # Specify SystemVerilog design files location   -- EDIT
 set sv_files {
-    ../rtl/vga_pkg.sv
-    ../rtl/vga_timing.sv
+    ../rtl/Weapon/weapon_top.sv
+    ../rtl/Weapon/melee_wpn_animated.sv
+    ../rtl/Weapon/melee_wpn_ctl.sv
+    ../rtl/Weapon/melee_wpn_draw.sv
+    ../rtl/Weapon/archer_wpn_ctl.sv
+    ../rtl/Weapon/archer_wpn_draw.sv
+    ../rtl/Weapon/wpn_selector.sv
+    ../rtl/Weapon/weapon_draw.sv
+    ../rtl/Weapon/weapon_position.sv
+    ../rtl/Weapon/archer_projectile_draw.sv
+    ../rtl/Weapon/archer_projectile_ctl.sv
+    ../rtl/Weapon/archer_projectile_animated.sv
+    ../rtl/Mouse/draw_mouse.sv 
+    ../rtl/vga/vga_pkg.sv
+    ../rtl/vga/vga_timing.sv
     ../rtl/draw_bg.sv
-    ../rtl/char.sv
-    ../rtl/char_ctrl.sv
-    ../rtl/char_draw.sv
-    ../rtl/boss.sv
-    ../rtl/boss_draw.sv
+    ../rtl/Character/char.sv
+    ../rtl/Character/char_ctrl.sv
+    ../rtl/Character/char_draw.sv
+    ../rtl/Character/draw_player_2.sv
+    ../rtl/Boss/boss_hp.sv
+    ../rtl/Boss/boss_move.sv
+    ../rtl/Boss/boss_render.sv
+    ../rtl/Boss/boss_top.sv
     ../rtl/platform.sv
-    ../rtl/hearts_display.sv
-    ../rtl/top_vga.sv
-    ../rtl/vga_if.sv
+    ../rtl/game_fsm.sv
+    ../rtl/game_screen.sv
+    ../rtl/class_selector.sv
+    ../rtl/uart/uart_game_encoder.sv
+    ../rtl/uart/uart_game_decoder.sv
+    ../rtl/Character/hearts_display.sv
+    ../rtl/vga/top_vga.sv
+    ../rtl/vga/vga_if.sv
+    ../rtl/tick_gen.sv
     rtl/top_vga_basys3.sv
 }
 
  # Specify Verilog design files location         -- EDIT
  set verilog_files {
     ../rtl/clk_wiz_0_clk_wiz.v 
+    ../rtl/uart/list_ch08_01_uart_rx.v
+    ../rtl/uart/list_ch08_02_flag_buf.v
+    ../rtl/uart/list_ch08_03_uart_tx.v
+    ../rtl/uart/list_ch08_04_uart.v
+    ../rtl/uart/list_ch04_11_mod_m_counter.v
+    ../rtl/uart/list_ch04_20_fifo.v
+
  }
 
 # Specify VHDL design files location            -- EDIT
-# set vhdl_files {
-#    path/to/file.vhd
-# }
+set vhdl_files {
+    ../rtl/Mouse/MouseCtl.vhd \
+    ../rtl/Mouse/Ps2Interface.vhd \
+    ../rtl/Mouse/MouseDisplay.vhd \
+}
 
 # Specify files for a memory initialization     -- EDIT
 # set mem_files {
