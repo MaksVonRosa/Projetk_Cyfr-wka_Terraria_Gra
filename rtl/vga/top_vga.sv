@@ -43,7 +43,7 @@ module top_vga (
     wire vsync_tim, hsync_tim;
     wire vblnk_tim, hblnk_tim;
     wire [11:0] pos_x_out, pos_y_out;
-    wire [11:0] boss_hgt, boss_lng;
+    wire [11:0] boss_hgt, boss_lng, char_hgt;
     wire [3:0] char_hp;
     wire [3:0] class_aggro;
 
@@ -141,7 +141,7 @@ module top_vga (
         .rst(rst),
         .char_x(char_x),
         .char_y(char_y),
-        .char_hgt(32),
+        .char_hgt(char_hgt),
         .vga_in(vga_if_selector.in),
         .vga_out(vga_if_plat.out),
         .ground_y(ground_y),
@@ -154,6 +154,7 @@ module top_vga (
         .rst(rst),
         .buttondown(buttondown),
         .char_x(char_x),
+        .player_2_x(player_2_x),
         .vga_in(vga_if_plat.in),
         .vga_out(vga_if_boss.out),
         .boss_x(boss_x),
@@ -161,8 +162,12 @@ module top_vga (
         .boss_hgt(boss_hgt),
         .boss_lng(boss_lng),
         .boss_hp(boss_hp),
+        .boss_out_hp(boss_out_hp),
         .game_active(game_active),
-        .game_start(game_start)
+        .game_start(game_start),
+        .class_aggro(class_aggro),
+        .player_2_data_valid(player_2_data_valid),
+        .player_2_aggro(player_2_aggro)
     );
 
     draw_char u_char (
@@ -184,7 +189,7 @@ module top_vga (
         .class_aggro(class_aggro),
         .pos_x_out(pos_x_out),
         .pos_y_out(pos_y_out),
-        .char_hgt(),
+        .char_hgt(char_hgt),
         .char_lng(),
         .flip_h (flip_h),
         .ground_lvl(ground_lvl),

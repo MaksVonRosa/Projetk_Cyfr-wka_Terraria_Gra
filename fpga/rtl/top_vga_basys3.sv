@@ -15,7 +15,7 @@ module top_vga_basys3 (
     input  wire rx,
     output wire JA2, //TX
     input  wire JB1, //RX
-    output logic [3:0] led,
+    output logic [1:0] led,
     inout wire PS2Clk,
     inout wire PS2Data
 );
@@ -171,8 +171,5 @@ module top_vga_basys3 (
     assign uart_rd = !rx_empty;
 
     assign led[0] = !tx_full;
-    assign led[1] = uart_wr;
-    assign led[2] = !rx_empty;
-    assign led[3] = uart_data_valid;
 
 endmodule
