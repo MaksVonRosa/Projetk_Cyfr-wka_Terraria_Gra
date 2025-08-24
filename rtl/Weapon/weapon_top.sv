@@ -35,7 +35,6 @@ module weapon_top (
     logic [11:0] pos_x_projectile_offset;
     logic [11:0] pos_y_projectile_offset;
 
-    logic proj_direction;
     logic [47:0] pos_x_proj;
     logic [47:0] pos_y_proj;
 
@@ -98,7 +97,7 @@ module weapon_top (
         .pos_x_proj(pos_x_proj),
         .pos_y_proj(pos_y_proj),  
         .projectile_animated(projectile_animated),
-        .flip_hor_archer(proj_direction),   
+        .flip_hor_archer(flip_hor_archer),  
         .game_active(game_active),
         .char_class(char_class),
         .vga_in(vga_if_weapon.in),

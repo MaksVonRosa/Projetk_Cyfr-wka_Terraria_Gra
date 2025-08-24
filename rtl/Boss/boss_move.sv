@@ -17,13 +17,13 @@ module boss_move (
     localparam JUMP_SPEED  = 9;
     localparam FALL_SPEED  = 9;
     localparam MOVE_STEP   = 5;
-    localparam integer WAIT_TICKS = 40;
+    localparam integer WAIT_TICKS = 30;
 
     logic is_jumping;
     logic going_up;
     logic [11:0] jump_peak;
     logic jump_dir;
-    logic [7:0] wait_counter;
+    logic [31:0] wait_counter;
 
     logic [11:0] target_x;
 
@@ -34,7 +34,7 @@ module boss_move (
             target_x = char_x;
     end
 
-    always_ff @(posedge clk or posedge rst) begin
+    always_ff @(posedge clk) begin
         if (rst) begin
             boss_x       <= HOR_PIXELS / 4;
             boss_y       <= GROUND_Y;

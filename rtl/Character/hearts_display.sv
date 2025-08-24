@@ -74,8 +74,8 @@ module hearts_display #(
             
             if (vga_in.vcount >= PLAYER1_HEARTS_Y && vga_in.vcount < PLAYER1_HEARTS_Y + HEART_H) begin
                 for (int i = 0; i < MAX_HP; i++) begin
-                    int hx_start = PADDING + i * (HEART_W + GAP);
-                    int hx_end   = hx_start + HEART_W;
+                    automatic int hx_start = PADDING + i * (HEART_W + GAP);
+                    automatic int hx_end   = hx_start + HEART_W;
                     if (vga_in.hcount >= hx_start && vga_in.hcount < hx_end) begin
                         rel_x = vga_in.hcount - hx_start;
                         rel_y = vga_in.vcount - PLAYER1_HEARTS_Y;
@@ -90,8 +90,8 @@ module hearts_display #(
             
             if (vga_in.vcount >= PLAYER2_HEARTS_Y && vga_in.vcount < PLAYER2_HEARTS_Y + HEART_H) begin
                 for (int i = 0; i < MAX_HP; i++) begin
-                    int hx_start = PADDING + i * (HEART_W + GAP);
-                    int hx_end   = hx_start + HEART_W;
+                    automatic int hx_start = PADDING + i * (HEART_W + GAP);
+                    automatic int hx_end   = hx_start + HEART_W;
                     if (vga_in.hcount >= hx_start && vga_in.hcount < hx_end) begin
                         rel_x = vga_in.hcount - hx_start;
                         rel_y = vga_in.vcount - PLAYER2_HEARTS_Y;

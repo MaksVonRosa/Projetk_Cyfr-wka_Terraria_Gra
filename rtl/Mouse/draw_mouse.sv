@@ -28,9 +28,6 @@ import vga_pkg::*;
 /**
  * Local variables and signals
  */
-// wire [11:0] X_RECT = xpos;
-// wire [11:0] Y_RECT = ypos;
-//vga_if vga_dr_mouse_2_MouseDisplay_if();
 
 
 logic [11:0] rgb_mouse;

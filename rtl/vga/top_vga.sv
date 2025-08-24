@@ -179,7 +179,7 @@ module top_vga (
         .player_2_aggro(player_2_aggro)
     );
 
-    draw_char u_char (
+    char u_char (
         .clk(clk),
         .rst(rst),
         .stepleft(stepleft),
@@ -201,7 +201,6 @@ module top_vga (
         .char_hgt(char_hgt),
         .char_lng(),
         .flip_h (flip_h),
-        .ground_lvl(ground_lvl),
         .frame_tick(frame_tick),
         .vga_char_in(vga_if_boss.in),
         .vga_char_out(vga_if_char.out),
@@ -225,15 +224,13 @@ module top_vga (
         .boss_y(boss_y),
         .projectile_hit(projectile_hit),
         .melee_hit(melee_hit),
-        .vga_in(vga_if_char.in),
+        .vga_in(vga_if_player2.in),
         .vga_out(vga_if_wpn.out)
         
 
 
     );
     
-  
-
     draw_player_2 u_draw_player_2 (
     .clk(clk),
     .rst(rst),
@@ -260,7 +257,7 @@ module top_vga (
     draw_mouse u_draw_mouse (
         .clk(clk),
         .rst(rst),
-        .vga_in_mouse(vga_if_player2.in),
+        .vga_in_mouse(vga_if_wpn.in),
         .vga_out_mouse(vga_if_mouse.out),
         .xpos(xpos_MouseCtl),
         .ypos(ypos_MouseCtl)

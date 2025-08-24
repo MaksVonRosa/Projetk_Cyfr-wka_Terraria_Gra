@@ -10,7 +10,6 @@ module char_ctrl (
     input  logic frame_tick,
     output logic [11:0] pos_x,
     output logic [11:0] pos_y,
-    output logic [11:0] ground_lvl,
     output logic flip_h
 );
     import vga_pkg::*;
@@ -54,6 +53,7 @@ module char_ctrl (
         if (rst) begin
             next_y     <= GROUND_Y;
             is_jumping <= 0;
+            jump_peak <= '0;
         end else if (frame_tick && game_active == 1) begin
             if (stepjump && on_ground) begin
                 is_jumping <= 1;
@@ -71,6 +71,5 @@ module char_ctrl (
     always_ff @(posedge clk) begin
         pos_x <= next_x;
         pos_y <= next_y;
-        ground_lvl <= GROUND_Y;
     end
 endmodule

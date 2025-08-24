@@ -23,7 +23,7 @@ module archer_projectile_animated #(
 
     localparam PROJECTILE_SPEED    = 16;   
     localparam PROJECTILE_LIFETIME = 60;   
-    localparam FIRE_COOLDOWN       = 15;    
+    localparam FIRE_COOLDOWN       = 25;    
 
     logic [PROJECTILE_COUNT-1:0]       projectile_active;
     logic signed [13:0]        step_x [PROJECTILE_COUNT];

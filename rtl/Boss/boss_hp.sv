@@ -4,7 +4,6 @@ module boss_hp (
     input  logic game_start,
     input  logic projectile_hit,    
     input  logic melee_hit,  
-    // input  logic       frame_tick,
     input  logic [1:0] game_active,
     input  logic [6:0] boss_out_hp,
     input  logic       player_2_data_valid,

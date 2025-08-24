@@ -7,7 +7,6 @@ module class_selector (
     input  logic        mouse_clicked,
     output logic [1:0]  char_class,
     output logic [3:0]  char_hp,
-    output logic [1:0]  wpn_type,
     output logic [3:0]  class_aggro,
     vga_if.in  vga_in,
     vga_if.out vga_out
@@ -40,7 +39,6 @@ module class_selector (
     assign char_hp    = (selected_class == 1) ? 4'd10 :   // melee
                         (selected_class == 2) ? 4'd8  :   // archer
                                                 4'd0;    // none
-    assign wpn_type   = selected_class; // 1 = sword, 2 = gun, 0 = none
     assign class_aggro = (selected_class == 1) ? 4'd3 :
                          (selected_class == 2) ? 4'd1 :
                                                  4'd0;
