@@ -29,7 +29,7 @@ module draw_player_2 (
     logic [10:0] rom_addr;
     logic initialized;
 
-    always_ff @(posedge clk or posedge rst) begin
+    always_ff @(posedge clk) begin
         if (rst) begin
             draw_x <= 0;
             draw_y <= 0;
