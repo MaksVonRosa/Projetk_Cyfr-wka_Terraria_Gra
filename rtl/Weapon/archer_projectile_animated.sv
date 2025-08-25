@@ -21,7 +21,7 @@ module archer_projectile_animated #(
 );
     import vga_pkg::*;
 
-    localparam PROJECTILE_SPEED    = 16;   
+    localparam PROJECTILE_SPEED    = 30;   
     localparam PROJECTILE_LIFETIME = 60;   
     localparam FIRE_COOLDOWN       = 25;    
 

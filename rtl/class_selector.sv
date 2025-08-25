@@ -47,7 +47,7 @@ module class_selector (
 
     assign char_class = selected_class;
     assign char_hp    = (selected_class == 1) ? 4'd10 :   // melee
-                        (selected_class == 2) ? 4'd8  :   // archer
+                        (selected_class == 2) ? 4'd5  :   // archer
                                                 4'd0;    // none
     assign class_aggro = (selected_class == 1) ? 4'd3 :
                          (selected_class == 2) ? 4'd1 :
@@ -108,7 +108,7 @@ module class_selector (
                 rgb_out = melee_rom[rom_addr];
             if (in_right && archer_rom[rom_addr] != TRANSPARENT_COLOR)
                 rgb_out = archer_rom[rom_addr];
-            if (select_rect  &&  selected_class == 0 /*&& select_rom[rom_addr] != TRANSPARENT_COLOR*/)
+            if (select_rect  &&  selected_class == 0)
                 rgb_out = select_rom[rom_addr_select];
                 
             if (in_center) begin
