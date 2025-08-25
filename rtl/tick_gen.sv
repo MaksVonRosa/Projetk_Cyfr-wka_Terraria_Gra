@@ -8,7 +8,7 @@ module tick_gen(
 
     localparam integer FRAME_TICKS = 65_000_000 / 60;
 
-    always_ff @(posedge clk or posedge rst) begin
+    always_ff @(posedge clk) begin
         if (rst) begin
             tick_count <= 0;
             frame_tick <= 0;

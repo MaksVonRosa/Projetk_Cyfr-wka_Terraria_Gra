@@ -63,7 +63,7 @@ module uart_game_encoder #(
         send_array[14] = boss_hp;
     end
 
-    always_ff @(posedge clk or posedge rst) begin
+    always_ff @(posedge clk) begin
         if (rst) begin
             prev_char_x <= 0; prev_char_y <= 0;
             prev_char_hp <= 0; prev_char_aggro <= 0;
@@ -77,7 +77,7 @@ module uart_game_encoder #(
         end
     end
 
-    always_ff @(posedge clk or posedge rst) begin
+    always_ff @(posedge clk) begin
         if (rst) begin
             current_state <= IDLE;
             send_step <= 0;

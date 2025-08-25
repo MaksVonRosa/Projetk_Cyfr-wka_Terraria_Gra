@@ -41,11 +41,11 @@ module platform (
     
     logic [11:0] rgb_nxt;
     logic [11:0] char_y_prev;
-    logic [11:0] vcount_reg, hcount_reg;
+    logic [10:0] vcount_reg, hcount_reg;
     logic vsync_reg, hsync_reg, vblnk_reg, hblnk_reg;
     logic [11:0] char_velocity_y;
 
-    always_ff @(posedge clk or posedge rst) begin
+    always_ff @(posedge clk) begin
         if (rst) begin
             char_y_prev     <= 0;
             char_velocity_y <= 0;

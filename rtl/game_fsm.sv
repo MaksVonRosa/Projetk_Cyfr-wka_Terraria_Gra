@@ -24,7 +24,7 @@ module game_fsm (
         endcase
     end
 
-    always_ff @(posedge clk or posedge rst) begin
+    always_ff @(posedge clk) begin
         if (rst)
             state_reg <= MENU;
         else
