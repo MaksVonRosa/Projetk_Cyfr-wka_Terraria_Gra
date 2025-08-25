@@ -18,18 +18,12 @@ module game_screen (
     localparam RECT_W = 125;
     localparam RECT_H = 75;
 
-    // localparam RECT_X_SELECT = (HOR_PIXELS - 125)/2;
-    // localparam RECT_Y_SELECT = (VER_PIXELS - 75)/3;
-    // localparam RECT_W_SELECT = 250;
-    // localparam RECT_H_SELECT = 75;
-
     localparam integer CLICK_COOLDOWN = 20;
 
     logic [11:0] rgb_nxt;
     logic [13:0] rom_addr;
     logic [11:0] start_rom [0:9374];
     logic [11:0] back_rom  [0:9374];
-    // logic [11:0] select_rom  [0:9374];
     logic [11:0] pixel_color;
     logic [11:0] rel_x, rel_y;
     logic in_rect;
@@ -39,7 +33,6 @@ module game_screen (
     initial begin
         $readmemh("../GameSprites/START_BUTTON.dat", start_rom);
         $readmemh("../GameSprites/AGAIN_BUTTON.dat",  back_rom);
-        // $readmemh("../GameSprites/SELECT_BUTTON.dat",  select_rom);
     end
 
     always_comb begin
@@ -63,7 +56,7 @@ module game_screen (
         end
     end
 
-    always_ff @(posedge clk or posedge rst) begin
+    always_ff @(posedge clk) begin
         if (rst) begin
             game_start   <= 0;
             back_to_menu <= 0;
