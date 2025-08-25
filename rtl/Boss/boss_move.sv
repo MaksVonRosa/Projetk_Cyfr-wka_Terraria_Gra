@@ -12,19 +12,19 @@ module boss_move (
 );
     import vga_pkg::*;
 
-    localparam GROUND_Y    = VER_PIXELS - 52 - BOSS_HGT;
-    localparam JUMP_HEIGHT = 350;
-    localparam JUMP_SPEED  = 9;
-    localparam FALL_SPEED  = 9;
-    localparam MOVE_STEP   = 5;
+    localparam GROUND_Y     = VER_PIXELS - 52 - BOSS_HGT;
+    localparam JUMP_HEIGHT  = 350;
+    localparam JUMP_SPEED   = 9;
+    localparam FALL_SPEED   = 9;
+    localparam MOVE_STEP    = 5;
     localparam integer WAIT_TICKS = 30;
+    localparam BOSS_START_X = HOR_PIXELS - (HOR_PIXELS/4);  
 
     logic is_jumping;
     logic going_up;
     logic [11:0] jump_peak;
     logic jump_dir;
     logic [31:0] wait_counter;
-
     logic [11:0] target_x;
 
     always_comb begin
@@ -35,14 +35,15 @@ module boss_move (
     end
 
     always_ff @(posedge clk) begin
-        if (rst) begin
-            boss_x       <= HOR_PIXELS / 4;
+        if (rst || !game_active) begin
+            boss_x       <= BOSS_START_X;
             boss_y       <= GROUND_Y;
             is_jumping   <= 0;
             going_up     <= 0;
             jump_peak    <= GROUND_Y - JUMP_HEIGHT;
             wait_counter <= 0;
             jump_dir     <= 1;
+
         end else if (frame_tick && game_active == 1) begin
             if (!is_jumping && boss_y == GROUND_Y) begin
                 if (wait_counter > 0) begin

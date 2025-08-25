@@ -1,40 +1,34 @@
 module top_vga (
-    input  logic clk,
-    input  logic clk100MHz,
-    input  logic rst,
-    input  logic stepleft,
-    input  logic stepright,
-    input  logic stepjump,
-    input  logic buttondown,
-    output logic on_ground,
-    inout  logic ps2_clk,
-    inout  logic ps2_data,
-    output logic vs,
-    output logic hs,
-    output logic ground_lvl,
-    output logic [11:0] ground_y,
+    input  logic        clk,
+    input  logic        clk100MHz,
+    input  logic        rst,
+    input  logic        stepleft,
+    input  logic        stepright,
+    input  logic        stepjump,
+    input  logic [11:0] player_2_x,
+    input  logic [11:0] player_2_y,
+    input  logic [3:0]  player_2_hp,
+    input  logic [3:0]  player_2_aggro,
+    input  logic        player_2_flip_h,
+    input  logic [1:0]  player_2_class,
+    input  logic        player2_game_start,
+    input  logic [6:0]  boss_out_hp,
+    input  logic        player_2_data_valid,
+    inout  logic        ps2_clk,
+    inout  logic        ps2_data,
+    output logic        vs,
+    output logic        hs,
     output logic [11:0] char_x,
     output logic [11:0] char_y,
     output logic [3:0] current_health,
     output logic [6:0] boss_hp,
-    output logic [11:0] boss_x,
-    output logic [11:0] boss_y,
     output logic [3:0] char_aggro,
     output logic [1:0] char_class,
     output logic [3:0] r,
     output logic [3:0] g,
     output logic [3:0] b,
-    output logic flip_h,
-    input logic [11:0] player_2_x,
-    input logic [11:0] player_2_y,
-    input logic [3:0]  player_2_hp,
-    input logic [3:0]  player_2_aggro,
-    input logic        player_2_flip_h,
-    input logic [1:0]  player_2_class,
-    input logic [11:0] boss_out_x,
-    input logic [11:0] boss_out_y,
-    input logic [6:0]  boss_out_hp,
-    input logic        player_2_data_valid
+    output logic        flip_h,
+    output logic        game_start
 );
     timeunit 1ns;
     timeprecision 1ps;
@@ -43,15 +37,17 @@ module top_vga (
     wire vsync_tim, hsync_tim;
     wire vblnk_tim, hblnk_tim;
 
-    wire [11:0] char_hgt, char_lng;
+    wire [11:0] char_hgt;
     wire [11:0] pos_x_out, pos_y_out;
+    wire [11:0] boss_hgt, boss_lng;
+    wire [3:0] char_hp;
+    wire [3:0] class_aggro;
+    wire [11:0] boss_x, boss_y;
+
     logic frame_tick;
     logic melee_hit;
     logic projectile_hit;
-    logic [20:0] tick_count;
-    wire [11:0] boss_hgt, boss_lng, char_hgt;
-    wire [3:0] char_hp;
-    wire [3:0] class_aggro;
+    logic on_ground;
 
     vga_if vga_if_bg();
     vga_if vga_if_char();
@@ -72,24 +68,20 @@ module top_vga (
     logic [11:0] ypos_MouseCtl;
     logic mouse_clicked;
 
-    logic game_start;
-    logic back_to_menu;
     logic [1:0] game_state;
     logic [1:0] game_active;
-    logic show_menu_end;
 
     game_fsm u_game_fsm (
         .clk(clk),
         .rst(rst),
         .game_start(game_start),
-        .back_to_menu(back_to_menu),
+        .player2_game_start(player2_game_start),
         .boss_hp(boss_hp),
         .current_health(current_health),
         .game_state(game_state)
     );
 
     assign game_active = (game_state == 2'd1);
-    assign show_menu_end = (game_state == 2'd0 || game_state == 2'd2);
 
     vga_timing u_vga_timing (
         .clk(clk),
@@ -123,7 +115,6 @@ module top_vga (
         .mouse_clicked(mouse_clicked),
         .game_start(game_start),
         .char_class(char_class),
-        .back_to_menu(back_to_menu),
         .vga_in(vga_if_bg.in),
         .vga_out(vga_if_menu.out)
     );
@@ -150,7 +141,6 @@ module top_vga (
         .char_hgt(char_hgt),
         .vga_in(vga_if_selector.in),
         .vga_out(vga_if_plat.out),
-        .ground_y(ground_y),
         .on_ground(on_ground),
         .game_active(game_active)
     );
@@ -174,6 +164,7 @@ module top_vga (
         .boss_out_hp(boss_out_hp),
         .game_active(game_active),
         .game_start(game_start),
+        .player2_game_start(player2_game_start),
         .class_aggro(class_aggro),
         .player_2_data_valid(player_2_data_valid),
         .player_2_aggro(player_2_aggro)
@@ -205,7 +196,8 @@ module top_vga (
         .vga_char_in(vga_if_boss.in),
         .vga_char_out(vga_if_char.out),
         .game_active(game_active),
-        .game_start(game_start)
+        .game_start(game_start),
+        .player2_game_start(player2_game_start)
     );
 
     weapon_top u_weapon_top (
@@ -239,6 +231,7 @@ module top_vga (
     .player_2_flip_h(player_2_flip_h),
     .player_2_class(player_2_class),
     .player_2_data_valid(player_2_data_valid),
+    .player_2_hp(player_2_hp),
     .vga_in(vga_if_char.in),
     .vga_out(vga_if_player2.out)
 );
