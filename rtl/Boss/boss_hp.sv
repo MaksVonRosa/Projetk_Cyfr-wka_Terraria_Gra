@@ -2,6 +2,7 @@ module boss_hp (
     input  logic clk,
     input  logic rst,
     input  logic game_start,
+    input  logic player2_game_start,
     input  logic projectile_hit,    
     input  logic melee_hit,  
     input  logic [1:0] game_active,
@@ -15,9 +16,7 @@ module boss_hp (
     localparam BOSS_HP = 100;
     
      always_ff @(posedge clk) begin
-        if (rst) begin
-            boss_hp_temp <= BOSS_HP;
-        end else if (game_start == 1) begin
+        if (rst || game_start || player2_game_start) begin
             boss_hp_temp <= BOSS_HP;
         end else if ((melee_hit||projectile_hit) && game_active) begin
                 boss_hp_temp <= boss_hp_temp - 1;

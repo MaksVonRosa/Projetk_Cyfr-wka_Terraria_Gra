@@ -7,7 +7,6 @@ module game_screen (
     input  logic [11:0] mouse_y,
     input  logic        mouse_clicked,
     output logic        game_start,
-    output logic        back_to_menu,
     vga_if.in  vga_in,
     vga_if.out vga_out
 );
@@ -59,11 +58,9 @@ module game_screen (
     always_ff @(posedge clk or posedge rst) begin
         if (rst) begin
             game_start   <= 0;
-            back_to_menu <= 0;
             wait_counter <= 0;
         end else begin
             game_start   <= 0;
-            back_to_menu <= 0;
             if (wait_counter > 0) wait_counter <= wait_counter - 1;
 
             if (mouse_clicked) begin
@@ -77,7 +74,7 @@ module game_screen (
                 if (game_active == 2 && wait_counter == 0 &&
                     mouse_x >= RECT_X && mouse_x < RECT_X+RECT_W &&
                     mouse_y >= RECT_Y && mouse_y < RECT_Y+RECT_H) begin
-                    back_to_menu <= 1;
+                    game_start <= 1;
                     wait_counter  <= CLICK_COOLDOWN;
                 end
             end

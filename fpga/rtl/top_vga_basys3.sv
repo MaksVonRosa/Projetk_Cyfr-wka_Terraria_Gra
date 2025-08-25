@@ -54,21 +54,17 @@ module top_vga_basys3 (
     wire [1:0] char_class;
     wire flip_h;
     wire [6:0] boss_hp;
-    wire [11:0] boss_x;
-    wire [11:0] boss_y;
-    wire on_ground;
+    wire game_start;
+    wire player2_game_start;
     wire [11:0] player_2_x;
     wire [11:0] player_2_y;
     wire [3:0]  player_2_hp;
     wire [3:0]  player_2_aggro;
     wire        player_2_flip_h;
     wire [1:0]  player_2_class;
-    wire [11:0] boss_out_x;
-    wire [11:0] boss_out_y;
     wire [6:0]  boss_out_hp;
     wire        uart_data_valid;
 
-    // Sygnały UART
     logic [7:0] uart_data;
     logic       uart_wr;
     logic       tx_full;
@@ -85,12 +81,13 @@ module top_vga_basys3 (
         .stepleft(btnL),
         .stepright(btnR),
         .stepjump(btnU),
-        .buttondown(btnD),
         .r(vgaRed),
         .g(vgaGreen),
         .b(vgaBlue),
         .hs(Hsync),
         .vs(Vsync),
+        .game_start(game_start),
+        .player2_game_start(player2_game_start),
         .char_x(char_x),
         .char_y(char_y),
         .current_health(current_health),
@@ -98,17 +95,12 @@ module top_vga_basys3 (
         .char_class(char_class),
         .flip_h(flip_h),
         .boss_hp(boss_hp),
-        .boss_x(boss_x),
-        .boss_y(boss_y),
-        .on_ground(on_ground),
         .player_2_x(player_2_x),
         .player_2_y(player_2_y),
         .player_2_hp(player_2_hp),
         .player_2_aggro(player_2_aggro),
         .player_2_flip_h(player_2_flip_h),
         .player_2_class(player_2_class),
-        .boss_out_x(boss_out_x),
-        .boss_out_y(boss_out_y),
         .boss_out_hp(boss_out_hp),
         .player_2_data_valid(uart_data_valid)
     );
@@ -116,6 +108,7 @@ module top_vga_basys3 (
     uart_game_encoder u_uart_encoder (
         .clk(clk65MHz),
         .rst(btnC),
+        .game_start(game_start),
         .char_x(char_x),
         .char_y(char_y),
         .char_hp(current_health),
@@ -123,8 +116,6 @@ module top_vga_basys3 (
         .char_class(char_class),
         .flip_h(flip_h),
         .boss_hp(boss_hp),
-        .boss_x(boss_x),
-        .boss_y(boss_y),
         .tx_ready(!tx_full),
         .tx_full(tx_full),
         .uart_data(uart_data),
@@ -162,8 +153,7 @@ module top_vga_basys3 (
         .player_2_aggro(player_2_aggro),
         .player_2_flip_h(player_2_flip_h),
         .player_2_class(player_2_class),
-        .boss_out_x(boss_out_x),
-        .boss_out_y(boss_out_y),
+        .player2_game_start(player2_game_start),
         .boss_out_hp(boss_out_hp),
         .data_valid(uart_data_valid)
     );

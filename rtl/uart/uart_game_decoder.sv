@@ -12,16 +12,15 @@ module uart_game_decoder #(
     output logic [3:0]  player_2_aggro,
     output logic        player_2_flip_h,
     output logic [1:0]  player_2_class,
-    output logic [11:0] boss_out_x,
-    output logic [11:0] boss_out_y,
     output logic [6:0]  boss_out_hp,
+    output logic        player2_game_start,
     output logic        data_valid
 );
 
-    typedef enum logic [4:0] {
+    typedef enum logic [3:0] {
         IDLE,
         P_X_L, P_X_H, P_Y_L, P_Y_H, P_H, P_A, P_F, P_T,
-        B_X_L, B_X_H, B_Y_L, B_Y_H, B_H
+        B_H, G_S
     } state_t;
 
     state_t current_state, next_state;
@@ -30,19 +29,18 @@ module uart_game_decoder #(
     logic [3:0]  temp_p_hp, temp_p_aggro;
     logic        temp_p_flip_h;
     logic [1:0]  temp_p_class;
-    logic [11:0] temp_b_x, temp_b_y;
     logic [6:0]  temp_b_hp;
+    logic        temp_game_start;
 
     always_ff @(posedge clk or posedge rst) begin
         if (rst) begin
             current_state <= IDLE;
             player_2_x <= 0; player_2_y <= 0; player_2_hp <= 0; player_2_aggro <= 0;
-            player_2_flip_h <= 0; player_2_class <= 0;
-            boss_out_x <= 0; boss_out_y <= 0; boss_out_hp <= 0;
+            player_2_flip_h <= 0; player_2_class <= 0; boss_out_hp <= 0;
+            player2_game_start <= 0;
             data_valid <= 0;
             temp_p_x <= 0; temp_p_y <= 0; temp_p_hp <= 0; temp_p_aggro <= 0;
-            temp_p_flip_h <= 0; temp_p_class <= 0;
-            temp_b_x <= 0; temp_b_y <= 0; temp_b_hp <= 0;
+            temp_p_flip_h <= 0; temp_p_class <= 0; temp_b_hp <= 0; temp_game_start <= 0;
         end else begin
             current_state <= next_state;
             data_valid <= 0;
@@ -57,27 +55,20 @@ module uart_game_decoder #(
                     P_A:   temp_p_aggro <= uart_data[3:0];
                     P_F:   temp_p_flip_h <= uart_data[0];
                     P_T:   temp_p_class <= uart_data[1:0];
-
-                    B_X_L: temp_b_x[7:0] <= uart_data;
-                    B_X_H: temp_b_x[11:8] <= uart_data[3:0];
-                    B_Y_L: temp_b_y[7:0] <= uart_data;
-                    B_Y_H: temp_b_y[11:8] <= uart_data[3:0];
                     B_H:   temp_b_hp <= uart_data[6:0];
-
+                    G_S:   temp_game_start <= uart_data[0];
                     default: ;
                 endcase
 
-                if (current_state == B_H) begin
+                if (current_state == G_S) begin
                     player_2_x <= temp_p_x;
                     player_2_y <= temp_p_y;
                     player_2_hp <= temp_p_hp;
                     player_2_aggro <= temp_p_aggro;
                     player_2_flip_h <= temp_p_flip_h;
                     player_2_class <= temp_p_class;
-
-                    boss_out_x <= temp_b_x;
-                    boss_out_y <= temp_b_y;
                     boss_out_hp <= temp_b_hp;
+                    player2_game_start <= temp_game_start;
                     data_valid <= 1;
                 end
             end
@@ -96,12 +87,9 @@ module uart_game_decoder #(
                 P_H:    next_state=P_A;
                 P_A:    next_state=P_F;
                 P_F:    next_state=P_T;
-                P_T:    if (uart_data=="B") next_state=B_X_L; else next_state=P_T;
-                B_X_L:  next_state=B_X_H;
-                B_X_H:  next_state=B_Y_L;
-                B_Y_L:  next_state=B_Y_H;
-                B_Y_H:  next_state=B_H;
-                B_H:    next_state=IDLE;
+                P_T:    next_state=B_H;
+                B_H:    next_state=G_S;
+                G_S:    next_state=IDLE;
                 default: next_state=IDLE;
             endcase
         end

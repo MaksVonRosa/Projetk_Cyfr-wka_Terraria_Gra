@@ -12,6 +12,7 @@ module char (
     input  logic [11:0] boss_hgt,
     input  logic [1:0] game_active,
     input  logic game_start,
+    input  logic player2_game_start,
     input  logic [3:0] char_hp,
     input  logic frame_tick,
     input  logic [3:0] class_aggro,
@@ -44,7 +45,8 @@ module char (
         .flip_h(flip_h),
         .frame_tick(frame_tick),
         .game_active(game_active),
-        .game_start(game_start)
+        .game_start(game_start),
+        .player2_game_start(player2_game_start)
     );
 
     char_draw u_draw (
@@ -82,6 +84,7 @@ module char (
         .vga_in(vga_char_mid.in),
         .vga_out(vga_char_out),
         .game_active(game_active),
-        .game_start(game_start)
+        .game_start(game_start),
+        .player2_game_start(player2_game_start)
     );
 endmodule

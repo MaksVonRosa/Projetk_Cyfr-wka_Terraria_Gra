@@ -19,6 +19,7 @@ module hearts_display #(
     input  logic [11:0] boss_lng,
     input  logic [1:0] game_active,
     input  logic game_start,
+    input  logic player2_game_start,
     input  logic frame_tick,
     input logic [3:0]  player_2_hp,
     output logic [3:0] current_health,
@@ -43,10 +44,7 @@ module hearts_display #(
 
 
     always_ff @(posedge clk) begin
-        if (rst) begin
-            current_health <= char_hp;
-            damage_cooldown <= 0;
-        end else if (game_start == 1) begin
+        if (rst || game_start || player2_game_start) begin
             current_health <= char_hp;
             damage_cooldown <= 0;
         end else if (frame_tick && game_active == 1) begin

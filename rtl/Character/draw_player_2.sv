@@ -6,7 +6,7 @@ module draw_player_2 (
     input  logic        player_2_flip_h,
     input  logic [1:0]  player_2_class,
     input  logic        player_2_data_valid,
-    input  logic [6:0]  player_2_hp,
+    input  logic [3:0]  player_2_hp,
     vga_if.in  vga_in,
     vga_if.out vga_out
 );
@@ -18,17 +18,20 @@ module draw_player_2 (
     localparam IMG_HEIGHT = 53;
 
     logic [11:0] draw_x, draw_y;
+    logic initialized;
+
     logic [11:0] archer_rom [0:IMG_WIDTH*IMG_HEIGHT-1];
+    logic [11:0] melee_rom  [0:IMG_WIDTH*IMG_HEIGHT-1];
 
     initial begin
         $readmemh("../../GameSprites/Archer.dat", archer_rom);
+        $readmemh("../../GameSprites/Melee.dat",  melee_rom);
     end
 
     logic [5:0] rel_x; 
     logic [5:0] rel_y;
     logic [11:0] pixel_color;
     logic [10:0] rom_addr;
-    logic initialized;
 
     always_ff @(posedge clk or posedge rst) begin
         if (rst) begin
@@ -46,7 +49,7 @@ module draw_player_2 (
         logic [11:0] rgb_nxt;
         rgb_nxt = vga_in.rgb;
 
-        if (initialized && player_2_hp > 0 && 
+        if (initialized && player_2_hp > 0 &&
             !vga_in.vblnk && !vga_in.hblnk &&
             vga_in.hcount >= draw_x - CHAR_LNG &&
             vga_in.hcount <  draw_x + CHAR_LNG &&
@@ -55,11 +58,15 @@ module draw_player_2 (
 
             rel_y = vga_in.vcount - (draw_y - CHAR_HGT);
             rel_x = player_2_flip_h ? (IMG_WIDTH - 1) - (vga_in.hcount - (draw_x - CHAR_LNG)) :
-                                     (vga_in.hcount - (draw_x - CHAR_LNG));
+                                      (vga_in.hcount - (draw_x - CHAR_LNG));
 
             if (rel_x < IMG_WIDTH && rel_y < IMG_HEIGHT) begin
                 rom_addr = rel_y * IMG_WIDTH + rel_x;
-                pixel_color = archer_rom[rom_addr];
+                case (player_2_class)
+                    2: pixel_color = archer_rom[rom_addr];
+                    1: pixel_color = melee_rom[rom_addr];
+                    default: pixel_color = 12'hF00;
+                endcase
 
                 if (pixel_color != 12'hF00)
                     rgb_nxt = pixel_color;
