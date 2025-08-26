@@ -1,3 +1,12 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   boss_hp
+ Author:        Maksymilian Wiącek
+ Last modified: 2025-08-26
+ Coding style: simple, with FPGA sync reset
+ Description:  Boss health points management module
+ */
+//////////////////////////////////////////////////////////////////////////////
 module boss_hp (
     input  logic clk,
     input  logic rst,
@@ -15,6 +24,7 @@ module boss_hp (
 
     localparam BOSS_HP = 100;
     
+
      always_ff @(posedge clk) begin
         if (rst || game_start || player2_game_start) begin
             boss_hp_temp <= BOSS_HP;
@@ -22,7 +32,7 @@ module boss_hp (
                 boss_hp_temp <= boss_hp_temp - 1;
         end
      end
-
+     
     always_comb begin
         if (player_2_data_valid) begin
             if (boss_hp_temp < boss_out_hp)

@@ -1,3 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   game_fsm
+ Author:        Maksymilian Wiącek
+ Last modified: 2025-08-26
+ Description:  Game finite state machine controller
+ */
+//////////////////////////////////////////////////////////////////////////////
 module game_fsm (
     input  logic clk,
     input  logic rst,
@@ -7,12 +15,18 @@ module game_fsm (
     input  logic [3:0] current_health,
     output logic [1:0] game_state
 );
+    //------------------------------------------------------------------------------
+    // local parameters
+    //------------------------------------------------------------------------------
     typedef enum logic [1:0] {
         MENU       = 2'd0,
         GAME       = 2'd1,
         END_SCREEN = 2'd2
     } state_t;
 
+    //------------------------------------------------------------------------------
+    // local variables
+    //------------------------------------------------------------------------------
     state_t state_next, state_reg;
 
     always_comb begin

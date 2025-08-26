@@ -1,3 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   boss_render
+ Author:        Maksymilian Wiącek
+ Last modified: 2025-08-26
+ Description:  Boss rendering module with health bar display
+ */
+//////////////////////////////////////////////////////////////////////////////
 module boss_render (
     input  logic clk,
     input  logic rst,
@@ -11,6 +19,9 @@ module boss_render (
 );
     import vga_pkg::*;
 
+    //------------------------------------------------------------------------------
+    // local parameters
+    //------------------------------------------------------------------------------
     localparam BOSS_HGT    = 95;
     localparam BOSS_LNG    = 106;
     localparam IMG_WIDTH   = 212;
@@ -20,6 +31,9 @@ module boss_render (
     localparam HP_START_X    = HOR_PIXELS - HP_BAR_WIDTH - 10;
     localparam HP_START_Y    = 10;
 
+    //------------------------------------------------------------------------------
+    // local variables
+    //------------------------------------------------------------------------------
     logic [11:0] rgb_nxt;
     logic [8:0] rel_x, rel_y;
     logic [11:0] pixel_color;

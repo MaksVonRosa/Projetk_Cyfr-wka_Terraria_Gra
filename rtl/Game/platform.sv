@@ -1,3 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   platform
+ Author:        Maksymilian Wiącek
+ Last modified: 2025-08-26
+ Description:  Platform collision detection and rendering module
+ */
+//////////////////////////////////////////////////////////////////////////////
 module platform (
     input  logic clk,
     input  logic rst,
@@ -12,12 +20,18 @@ module platform (
 );
     import vga_pkg::*;
 
+    //------------------------------------------------------------------------------
+    // local parameters
+    //------------------------------------------------------------------------------
     localparam PLAT_COUNT = 4;
     localparam PLAT_THICK = 15;
     localparam PLAT_COLOR = 12'h420;
     localparam PLAT_WIDTH = HOR_PIXELS/5;
     localparam GROUND_PLAT_Y = VER_PIXELS - 52;
-    
+
+    //------------------------------------------------------------------------------
+    // local variables
+    //------------------------------------------------------------------------------
     logic [11:0] plat_x[PLAT_COUNT] = '{
         0,
         HOR_PIXELS - PLAT_WIDTH,
@@ -41,7 +55,7 @@ module platform (
     
     logic [11:0] rgb_nxt;
     logic [11:0] char_y_prev;
-    logic [11:0] vcount_reg, hcount_reg;
+    logic [10:0] vcount_reg, hcount_reg;
     logic vsync_reg, hsync_reg, vblnk_reg, hblnk_reg;
     logic [11:0] char_velocity_y;
 

@@ -1,3 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   class_selector
+ Author:        Maksymilian Wiącek
+ Last modified: 2025-08-26
+ Description:  Character class selection module with visual interface
+ */
+//////////////////////////////////////////////////////////////////////////////
 module class_selector (
     input  logic clk,
     input  logic rst,
@@ -13,6 +21,9 @@ module class_selector (
 );
     import vga_pkg::*;
 
+    //------------------------------------------------------------------------------
+    // local parameters
+    //------------------------------------------------------------------------------
     localparam RECT_W = 39;
     localparam RECT_H = 53;
     localparam LEFT_X = HOR_PIXELS/3;
@@ -22,6 +33,9 @@ module class_selector (
     localparam CENTER_Y = TOP_Y + RECT_H/2;
     localparam [11:0] TRANSPARENT_COLOR = 12'hF00;
 
+    //------------------------------------------------------------------------------
+    // local variables
+    //------------------------------------------------------------------------------
     logic [11:0] melee_rom [0:RECT_W*RECT_H-1];
     logic [11:0] archer_rom[0:RECT_W*RECT_H-1];
     logic [1:0]  selected_class;
@@ -31,8 +45,8 @@ module class_selector (
     logic [11:0] rgb_out;
 
     initial begin
-        $readmemh("../GameSprites/Melee.dat", melee_rom);
-        $readmemh("../GameSprites/Archer.dat", archer_rom);
+        $readmemh("../../GameSprites/Melee.dat", melee_rom);
+        $readmemh("../../GameSprites/Archer.dat", archer_rom);
     end
 
     assign char_class = selected_class;

@@ -1,3 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   uart_game_encoder
+ Author:        Maksymilian Wiącek
+ Last modified: 2025-08-26
+ Description:  UART game data encoder for player and boss information
+ */
+//////////////////////////////////////////////////////////////////////////////
 module uart_game_encoder #(
     parameter DATA_WIDTH = 8
 )(
@@ -17,7 +25,14 @@ module uart_game_encoder #(
     output logic uart_wr
 );
 
+    //------------------------------------------------------------------------------
+    // local parameters
+    //------------------------------------------------------------------------------
     typedef enum logic [1:0] {IDLE=0, SENDING=1} state_t;
+
+    //------------------------------------------------------------------------------
+    // local variables
+    //------------------------------------------------------------------------------
     state_t current_state, next_state;
     logic [4:0] send_step;
     logic [11:0] prev_char_x, prev_char_y;

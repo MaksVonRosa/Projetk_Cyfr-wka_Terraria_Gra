@@ -1,3 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   boss_top
+ Author:        Maksymilian Wiącek
+ Last modified: 2025-08-26
+ Description:  Top level boss module integrating movement, HP and rendering
+ */
+//////////////////////////////////////////////////////////////////////////////
 module boss_top (
     input  logic clk,
     input  logic rst,
