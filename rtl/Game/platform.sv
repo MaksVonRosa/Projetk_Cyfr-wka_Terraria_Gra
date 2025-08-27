@@ -2,18 +2,17 @@
 /*
  Module name:   platform
  Author:        Maksymilian Wiącek
- Last modified: 2025-08-26
+ Last modified: 2025-08-27
  Description:  Platform collision detection and rendering module
  */
 //////////////////////////////////////////////////////////////////////////////
 module platform (
     input  logic clk,
-    input  logic rst,
+    //input  logic rst,
     input  logic [11:0] char_x,
     input  logic [11:0] char_y,
     input  logic [11:0] char_hgt,
-    input  logic [1:0] game_active,
-    output logic [11:0] ground_y,
+    input  logic [1:0]  game_active,
     vga_if.in  vga_in,
     vga_if.out vga_out,
     output logic on_ground
@@ -23,10 +22,10 @@ module platform (
     //------------------------------------------------------------------------------
     // local parameters
     //------------------------------------------------------------------------------
-    localparam PLAT_COUNT = 4;
-    localparam PLAT_THICK = 15;
-    localparam PLAT_COLOR = 12'h420;
-    localparam PLAT_WIDTH = HOR_PIXELS/5;
+    localparam PLAT_COUNT    = 4;
+    localparam PLAT_THICK    = 15;
+    localparam PLAT_COLOR    = 12'h420;
+    localparam PLAT_WIDTH    = HOR_PIXELS/5;
     localparam GROUND_PLAT_Y = VER_PIXELS - 52;
 
     //------------------------------------------------------------------------------
@@ -54,34 +53,19 @@ module platform (
     };
     
     logic [11:0] rgb_nxt;
-    logic [11:0] char_y_prev;
     logic [10:0] vcount_reg, hcount_reg;
     logic vsync_reg, hsync_reg, vblnk_reg, hblnk_reg;
-    logic [11:0] char_velocity_y;
-
-    always_ff @(posedge clk or posedge rst) begin
-        if (rst) begin
-            char_y_prev     <= 0;
-            char_velocity_y <= 0;
-        end else begin
-            char_y_prev     <= char_y;
-            char_velocity_y <= char_y - char_y_prev;
-        end
-    end
 
     always_comb begin
         on_ground = 0;
-        ground_y  = 0;
 
         if (game_active == 1) begin
             for (int i = 0; i < PLAT_COUNT; i++) begin
                 if ((char_x + char_hgt > plat_x[i]) && 
                     (char_x < plat_x[i] + plat_w[i]) &&
                     (char_y + char_hgt >= plat_y[i] - 1) && 
-                    (char_y + char_hgt <= plat_y[i] + 5) &&
-                    (char_velocity_y >= 0)) begin
+                    (char_y + char_hgt <= plat_y[i] + 5)) begin
                     on_ground = 1;
-                    ground_y  = plat_y[i] - char_hgt;
                     break;
                 end
             end
