@@ -14,6 +14,7 @@ module top_vga (
     input  logic        player2_game_start,
     input  logic [6:0]  boss_out_hp,
     input  logic        player_2_data_valid,
+    //input  logic        both_players_ready,
     inout  logic        ps2_clk,
     inout  logic        ps2_data,
     output logic        vs,
@@ -48,6 +49,8 @@ module top_vga (
     logic melee_hit;
     logic projectile_hit;
     logic on_ground;
+    logic alive;
+    logic boss_alive;
 
     vga_if vga_if_bg();
     vga_if vga_if_char();
@@ -168,7 +171,7 @@ module top_vga (
         .game_active(game_active),
         .game_start(game_start),
         .player2_game_start(player2_game_start),
-        .class_aggro(class_aggro),
+        .char_aggro(char_aggro),
         .player_2_data_valid(player_2_data_valid),
         .player_2_aggro(player_2_aggro)
     );
@@ -196,6 +199,7 @@ module top_vga (
         .char_lng(),
         .flip_h (flip_h),
         .frame_tick(frame_tick),
+        .alive(alive),
         .vga_char_in(vga_if_boss.in),
         .vga_char_out(vga_if_char.out),
         .game_active(game_active),
@@ -219,6 +223,7 @@ module top_vga (
         .boss_y(boss_y),
         .projectile_hit(projectile_hit),
         .melee_hit(melee_hit),
+        .alive(alive),
         .vga_in(vga_if_player2.in),
         .vga_out(vga_if_wpn.out)
         
@@ -232,6 +237,7 @@ module top_vga (
     .player_2_x(player_2_x),
     .player_2_y(player_2_y),
     .player_2_flip_h(player_2_flip_h),
+    .game_active(game_state),
     .player_2_class(player_2_class),
     .player_2_data_valid(player_2_data_valid),
     .player_2_hp(player_2_hp),

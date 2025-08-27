@@ -19,6 +19,7 @@ module char_draw (
     output logic [3:0] char_aggro,
     output logic [11:0] char_hgt,
     output logic [11:0] char_lng,
+    output logic        alive,
     vga_if.in  vga_in,
     vga_if.out vga_out
 );
@@ -48,7 +49,6 @@ module char_draw (
     logic [5:0] rel_y;
     logic [11:0] pixel_color;
     logic [10:0] rom_addr;
-    logic alive;
 
     always_ff @(posedge clk) begin
         if (rst) begin

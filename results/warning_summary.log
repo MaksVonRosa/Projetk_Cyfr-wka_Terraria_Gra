@@ -1,25 +1,25 @@
 Warnings, critical warnings and errors from synthesis and implementation
 
-Created: 2025-08-27 15:05:02
+Created: 2025-08-27 17:05:16
 
 ----SYNTHESIS----
-WARNING: [Synth 8-7071] port 'zpos' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:243]
-WARNING: [Synth 8-7071] port 'middle' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:243]
-WARNING: [Synth 8-7071] port 'right' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:243]
-WARNING: [Synth 8-7071] port 'new_event' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:243]
-WARNING: [Synth 8-7071] port 'value' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:243]
-WARNING: [Synth 8-7071] port 'setx' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:243]
-WARNING: [Synth 8-7071] port 'sety' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:243]
-WARNING: [Synth 8-7071] port 'setmax_x' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:243]
-WARNING: [Synth 8-7071] port 'setmax_y' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:243]
-WARNING: [Synth 8-7023] instance 'u_MouseCtl' of module 'MouseCtl' has 16 connections declared, but only 7 given [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:243]
+WARNING: [Synth 8-7071] port 'zpos' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:249]
+WARNING: [Synth 8-7071] port 'middle' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:249]
+WARNING: [Synth 8-7071] port 'right' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:249]
+WARNING: [Synth 8-7071] port 'new_event' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:249]
+WARNING: [Synth 8-7071] port 'value' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:249]
+WARNING: [Synth 8-7071] port 'setx' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:249]
+WARNING: [Synth 8-7071] port 'sety' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:249]
+WARNING: [Synth 8-7071] port 'setmax_x' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:249]
+WARNING: [Synth 8-7071] port 'setmax_y' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:249]
+WARNING: [Synth 8-7023] instance 'u_MouseCtl' of module 'MouseCtl' has 16 connections declared, but only 7 given [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:249]
 WARNING: [Synth 8-87] always_comb on 'boss_alive_nxt_reg' did not result in combinational logic [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Boss/boss_render.sv:51]
 WARNING: [Synth 8-87] always_comb on 'pixel_color_reg' did not result in combinational logic [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Character/char_draw.sv:90]
-WARNING: [Synth 8-87] always_comb on 'melee_hit_reg' did not result in combinational logic [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Weapon/weapon_draw.sv:141]
+WARNING: [Synth 8-87] always_comb on 'melee_hit_reg' did not result in combinational logic [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Weapon/weapon_draw.sv:142]
 WARNING: [Synth 8-7129] Port rst in module boss_render is either unconnected or has no load
 WARNING: [Synth 8-327] inferring latch for variable 'boss_alive_nxt_reg' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Boss/boss_render.sv:51]
 WARNING: [Synth 8-327] inferring latch for variable 'pixel_color_reg' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Character/char_draw.sv:90]
-WARNING: [Synth 8-327] inferring latch for variable 'melee_hit_reg' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Weapon/weapon_draw.sv:141]
+WARNING: [Synth 8-327] inferring latch for variable 'melee_hit_reg' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Weapon/weapon_draw.sv:142]
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 
 ----IMPLEMENTATION----

@@ -14,7 +14,7 @@ module boss_move (
     input  logic [11:0] char_x,
     input  logic [11:0] player_2_x,
     input  logic [3:0]  player_2_aggro,
-    input  logic [3:0]  class_aggro,
+    input  logic [3:0]  char_aggro,
     output logic [11:0] boss_x,
     output logic [11:0] boss_y
 );
@@ -42,7 +42,7 @@ module boss_move (
     logic [11:0] target_x;
 
     always_comb begin
-        if (player_2_aggro > class_aggro)
+        if (player_2_aggro > char_aggro)
             target_x = player_2_x;
         else
             target_x = char_x;

@@ -14,8 +14,9 @@ module weapon_draw (
     input  logic        boss_alive,
     input  logic [11:0] boss_x,
     input  logic [11:0] boss_y,
+    input  logic        alive,
     output logic        melee_hit,
-
+    
     vga_if.in  vga_in,
     vga_if.out vga_out
 );
@@ -116,7 +117,7 @@ module weapon_draw (
     always_comb begin
         rgb_nxt = vga_in.rgb;
 
-        if(mouse_clicked && game_active)begin
+        if(mouse_clicked && game_active && alive)begin
             case (char_class)
             2'b01: begin  //Melee
                 if (!vga_in.vblnk && !vga_in.hblnk &&

@@ -19,7 +19,7 @@ module boss_top (
     input  logic [11:0] player_2_x,
     input  logic [6:0] boss_out_hp,
     input  logic [3:0] player_2_aggro,
-    input  logic [3:0] class_aggro,
+    input  logic [3:0] char_aggro,
     input  logic player_2_data_valid,
     vga_if.in  vga_in,
     vga_if.out vga_out,
@@ -31,6 +31,8 @@ module boss_top (
     output logic        boss_alive
 );
     import vga_pkg::*;
+    vga_if vga_boss_mid();
+
     
 
     boss_move u_move (
@@ -42,7 +44,7 @@ module boss_top (
         .player_2_x(player_2_x),
         .boss_x(boss_x),
         .boss_y(boss_y),
-        .class_aggro(class_aggro),
+        .char_aggro(char_aggro),
         .player_2_aggro(player_2_aggro)
     );
 
@@ -56,7 +58,9 @@ module boss_top (
         .melee_hit(melee_hit),
         .boss_hp(boss_hp),
         .player_2_data_valid(player_2_data_valid),
-        .boss_out_hp(boss_out_hp)
+        .boss_out_hp(boss_out_hp),
+        .vga_in(vga_in),
+        .vga_out(vga_boss_mid.out)
     );
 
     boss_render u_render (
@@ -67,7 +71,7 @@ module boss_top (
         .boss_y(boss_y),
         .boss_hp(boss_hp),
         .boss_alive(boss_alive),
-        .vga_in(vga_in),
+        .vga_in(vga_boss_mid.in),
         .vga_out(vga_out)
     );
     assign boss_hgt = BOSS_HGT;
