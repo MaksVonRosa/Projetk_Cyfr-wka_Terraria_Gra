@@ -11,7 +11,8 @@ module game_fsm (
     input  logic rst,
     input  logic game_start,
     input  logic player2_game_start,
-    input logic [6:0]  boss_hp,
+    input  logic [3:0]  player_2_hp,
+    input logic  [6:0]  boss_hp,
     input  logic [3:0] current_health,
     output logic [1:0] game_state
 );
@@ -33,7 +34,7 @@ module game_fsm (
         state_next = state_reg;
         case (state_reg)
             MENU:       if (game_start || player2_game_start)      state_next = GAME;
-            GAME:       if (current_health==0 || boss_hp==0) state_next = END_SCREEN;
+            GAME:       if (current_health==0 && player_2_hp == 0|| boss_hp==0) state_next = END_SCREEN;
             END_SCREEN: if (game_start || player2_game_start)    state_next = GAME;
         endcase
     end

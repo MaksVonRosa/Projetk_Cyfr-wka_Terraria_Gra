@@ -78,6 +78,7 @@ module top_vga (
         .player2_game_start(player2_game_start),
         .boss_hp(boss_hp),
         .current_health(current_health),
+        .player_2_hp(player_2_hp),
         .game_state(game_state)
     );
 
