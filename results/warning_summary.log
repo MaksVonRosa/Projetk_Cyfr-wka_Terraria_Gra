@@ -1,6 +1,6 @@
 Warnings, critical warnings and errors from synthesis and implementation
 
-Created: 2025-08-27 14:45:16
+Created: 2025-08-27 15:05:02
 
 ----SYNTHESIS----
 WARNING: [Synth 8-7071] port 'zpos' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:243]

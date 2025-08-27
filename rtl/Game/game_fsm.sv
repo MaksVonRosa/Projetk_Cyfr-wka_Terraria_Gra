@@ -35,7 +35,7 @@ module game_fsm (
         case (state_reg)
             MENU:       if (game_start && player2_game_start)      state_next = GAME;
             GAME:       if (current_health==0 && player_2_hp == 0|| boss_hp==0) state_next = END_SCREEN;
-            END_SCREEN: if (game_start && player2_game_start)    state_next = GAME;
+            END_SCREEN: if (game_start || player2_game_start)    state_next = GAME;
         endcase
     end
 
