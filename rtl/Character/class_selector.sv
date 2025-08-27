@@ -33,18 +33,15 @@ module class_selector (
     localparam CENTER_Y = TOP_Y + RECT_H/2;
     localparam [11:0] TRANSPARENT_COLOR = 12'hF00;
 
-<<<<<<< HEAD:rtl/class_selector.sv
 
     localparam SELECT_X = (HOR_PIXELS - 250)/2;
     localparam SELECT_Y = (VER_PIXELS - 75)/3;
     localparam SELECT_W = 250;
     localparam SELECT_H = 75;
 
-=======
     //------------------------------------------------------------------------------
     // local variables
     //------------------------------------------------------------------------------
->>>>>>> origin/Maks:rtl/Character/class_selector.sv
     logic [11:0] melee_rom [0:RECT_W*RECT_H-1];
     logic [11:0] archer_rom[0:RECT_W*RECT_H-1];
     logic [11:0] select_rom[0:SELECT_W*SELECT_H-1];
@@ -57,14 +54,9 @@ module class_selector (
     logic [11:0] rgb_out;
 
     initial begin
-<<<<<<< HEAD:rtl/class_selector.sv
-        $readmemh("../GameSprites/Melee.dat", melee_rom);
-        $readmemh("../GameSprites/Archer.dat", archer_rom);
-        $readmemh("../GameSprites/SELECT_BUTTON.dat",  select_rom);
-=======
         $readmemh("../../GameSprites/Melee.dat", melee_rom);
         $readmemh("../../GameSprites/Archer.dat", archer_rom);
->>>>>>> origin/Maks:rtl/Character/class_selector.sv
+        $readmemh("../../GameSprites/SELECT_BUTTON.dat",  select_rom);
     end
 
     assign char_class = selected_class;
