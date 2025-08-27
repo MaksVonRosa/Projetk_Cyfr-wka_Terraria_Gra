@@ -1,3 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   char
+ Author:        Maksymilian Wiącek
+ Last modified: 2025-08-26
+ Description:  Top level character module integrating control, drawing and health display
+ */
+//////////////////////////////////////////////////////////////////////////////
 module char (
     input  logic clk,
     input  logic rst,
@@ -27,6 +35,9 @@ module char (
     vga_if.in  vga_char_in,
     vga_if.out vga_char_out
 );
+    //------------------------------------------------------------------------------
+    // local variables
+    //------------------------------------------------------------------------------
     vga_if vga_char_mid();
 
     logic [11:0] pos_x, pos_y;

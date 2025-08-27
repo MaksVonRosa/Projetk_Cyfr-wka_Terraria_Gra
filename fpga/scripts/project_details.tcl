@@ -40,7 +40,7 @@ set sv_files {
     ../rtl/Mouse/draw_mouse.sv 
     ../rtl/vga/vga_pkg.sv
     ../rtl/vga/vga_timing.sv
-    ../rtl/draw_bg.sv
+    ../rtl/Game/draw_bg.sv
     ../rtl/Character/char.sv
     ../rtl/Character/char_ctrl.sv
     ../rtl/Character/char_draw.sv
@@ -49,10 +49,10 @@ set sv_files {
     ../rtl/Boss/boss_move.sv
     ../rtl/Boss/boss_render.sv
     ../rtl/Boss/boss_top.sv
-    ../rtl/platform.sv
-    ../rtl/game_fsm.sv
-    ../rtl/game_screen.sv
-    ../rtl/class_selector.sv
+    ../rtl/Game/platform.sv
+    ../rtl/Game/game_fsm.sv
+    ../rtl/Game/game_screen.sv
+    ../rtl/Character/class_selector.sv
     ../rtl/uart/uart_game_encoder.sv
     ../rtl/uart/uart_game_decoder.sv
     ../rtl/Character/hearts_display.sv

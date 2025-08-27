@@ -1,3 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   hearts_display
+ Author:        Maksymilian Wiącek
+ Last modified: 2025-08-26
+ Description:  Health points display module with damage cooldown
+ */
+//////////////////////////////////////////////////////////////////////////////
 module hearts_display #(
     parameter MAX_HP  = 10,
     parameter HEART_W = 10,
@@ -28,6 +36,9 @@ module hearts_display #(
 );
     import vga_pkg::*;
 
+    //------------------------------------------------------------------------------
+    // local variables
+    //------------------------------------------------------------------------------
     logic [11:0] heart_rom [0:HEART_W*HEART_H-1];
     initial $readmemh("../../GameSprites/Heart.dat", heart_rom);
 

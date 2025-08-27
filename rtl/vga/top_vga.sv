@@ -113,6 +113,8 @@ module top_vga (
         .mouse_x(xpos_MouseCtl),
         .mouse_y(ypos_MouseCtl),
         .mouse_clicked(mouse_clicked),
+        .player_2_data_valid(player_2_data_valid),
+        .player_2_class(player_2_class),
         .game_start(game_start),
         .char_class(char_class),
         .vga_in(vga_if_bg.in),
@@ -135,7 +137,7 @@ module top_vga (
 
     platform u_platform (
         .clk(clk),
-        .rst(rst),
+        //.rst(rst),
         .char_x(char_x),
         .char_y(char_y),
         .char_hgt(char_hgt),
