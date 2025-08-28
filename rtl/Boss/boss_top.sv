@@ -65,7 +65,6 @@ module boss_top (
 
     boss_render u_render (
         .clk(clk),
-        .rst(rst),
         .game_active(game_active),
         .boss_x(boss_x),
         .boss_y(boss_y),

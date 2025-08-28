@@ -74,6 +74,7 @@ module char_draw (
 
     always_comb begin
         rgb_nxt = vga_in.rgb;
+        pixel_color = rgb_nxt;
         if (game_active == 1 && alive && !vga_in.vblnk && !vga_in.hblnk &&
             vga_in.hcount >= draw_x - CHAR_LNG &&
             vga_in.hcount <  draw_x + CHAR_LNG &&

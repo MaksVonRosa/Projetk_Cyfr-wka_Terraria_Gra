@@ -142,6 +142,7 @@ module weapon_draw (
 
     always_comb begin
         rgb_nxt = vga_in.rgb;
+        melee_hit = 0;
 
         if(mouse_clicked && game_active && alive)begin
             case (char_class)

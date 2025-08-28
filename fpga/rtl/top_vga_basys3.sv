@@ -88,7 +88,6 @@ module top_vga_basys3 (
         .vs(Vsync),
         .game_start(game_start),
         .player2_game_start(player2_game_start),
-        //.both_players_ready(sw0 && sw1),
         .char_x(char_x),
         .char_y(char_y),
         .current_health(current_health),

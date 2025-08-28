@@ -22,7 +22,6 @@ module top_vga (
     input  logic        player2_game_start,
     input  logic [6:0]  boss_out_hp,
     input  logic        player_2_data_valid,
-    //input  logic        both_players_ready,
     inout  logic        ps2_clk,
     inout  logic        ps2_data,
     output logic        vs,

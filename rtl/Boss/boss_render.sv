@@ -8,7 +8,6 @@
 //////////////////////////////////////////////////////////////////////////////
 module boss_render (
     input  logic clk,
-    input  logic rst,
     input  logic [1:0] game_active,
     input  logic [11:0] boss_x,
     input  logic [11:0] boss_y,
@@ -26,10 +25,6 @@ module boss_render (
     localparam BOSS_LNG    = 106;
     localparam IMG_WIDTH   = 212;
     localparam IMG_HEIGHT  = 191;
-    //localparam HP_BAR_WIDTH  = 100;
-    //localparam HP_BAR_HEIGHT = 8;
-    //localparam HP_START_X    = HOR_PIXELS - HP_BAR_WIDTH - 10;
-    //localparam HP_START_Y    = 10;
 
     //------------------------------------------------------------------------------
     // local variables
@@ -46,6 +41,7 @@ module boss_render (
 
     always_comb begin
         rgb_nxt = vga_in.rgb;
+        boss_alive_nxt = 0;
 
         if (game_active == 1 && boss_hp > 0) begin
             boss_alive_nxt = 1;
