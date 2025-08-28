@@ -1,3 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   uart_game_decoder
+ Author:        Maksymilian Wiącek
+ Last modified: 2025-08-26
+ Description:  UART game data decoder for player 2 and boss information
+ */
+//////////////////////////////////////////////////////////////////////////////
 module uart_game_decoder #(
     parameter DATA_WIDTH = 8
 )(
@@ -17,12 +25,18 @@ module uart_game_decoder #(
     output logic        data_valid
 );
 
+    //------------------------------------------------------------------------------
+    // local parameters
+    //------------------------------------------------------------------------------
     typedef enum logic [3:0] {
         IDLE,
         P_X_L, P_X_H, P_Y_L, P_Y_H, P_H, P_A, P_F, P_T,
         B_H, G_S
     } state_t;
 
+    //------------------------------------------------------------------------------
+    // local variables
+    //------------------------------------------------------------------------------
     state_t current_state, next_state;
 
     logic [11:0] temp_p_x, temp_p_y;

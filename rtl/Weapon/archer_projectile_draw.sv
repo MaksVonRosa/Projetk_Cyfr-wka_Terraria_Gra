@@ -10,6 +10,7 @@ parameter PROJECTILE_COUNT = vga_pkg::PROJECTILE_COUNT
     input  logic        flip_hor_archer,    
     input  logic [1:0]  game_active,
     input  logic [1:0]  char_class,
+    input  logic alive,
     vga_if.in  vga_in,
     vga_if.out vga_out
 );
@@ -96,7 +97,7 @@ always_ff @(posedge clk) begin
     
     always_comb begin
         rgb_nxt = vga_in.rgb;
-        if (game_active && char_class == 2 &&
+        if (game_active && char_class == 2 && alive &&
             !vga_in.vblnk && !vga_in.hblnk) begin
 
             for (int i = 0; i < PROJECTILE_COUNT; i++) begin

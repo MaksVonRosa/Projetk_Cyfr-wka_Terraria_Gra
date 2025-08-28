@@ -4,6 +4,7 @@ module melee_wpn_animated
     input  logic rst,
     input  logic frame_tick,       
     input  logic mouse_clicked,
+    input  logic alive,
     output logic signed [11:0] anim_x_offset
 );
     localparam MAX_SWING = 45;    
@@ -32,7 +33,7 @@ wire mouse_click_pulse = (mouse_clicked && !mouse_clicked_d);
             anim_cnt      <= 0;
             anim_x_offset <= 0;
             tick_cnt      <= 0;
-        end else if (frame_tick) begin
+        end else if (frame_tick && alive) begin
             case (anim_state)
             IDLE: begin
                 anim_x_offset <= 0;

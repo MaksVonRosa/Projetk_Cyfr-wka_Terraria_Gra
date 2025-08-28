@@ -4,17 +4,17 @@ module top_vga_basys3 (
     input  wire btnU,
     input  wire btnR,
     input  wire btnL,
-    input  wire btnD,
+    //input  wire sw0,
     output wire Vsync,
     output wire Hsync,
     output wire [3:0] vgaRed,
     output wire [3:0] vgaGreen,
     output wire [3:0] vgaBlue,
     output wire JA1,
-    output wire tx,
-    input  wire rx,
-    output wire JA2, //TX
+    output wire JC1, //TX
     input  wire JB1, //RX
+    //output wire JC2, //TX sw
+    //input  wire JB2, //RX sw
     output logic [1:0] led,
     inout wire PS2Clk,
     inout wire PS2Data
@@ -88,6 +88,7 @@ module top_vga_basys3 (
         .vs(Vsync),
         .game_start(game_start),
         .player2_game_start(player2_game_start),
+        //.both_players_ready(sw0 && sw1),
         .char_x(char_x),
         .char_y(char_y),
         .current_health(current_health),
@@ -133,7 +134,7 @@ module top_vga_basys3 (
         .wr_uart(uart_wr),
         .w_data(uart_data),
         .tx_full(tx_full),
-        .tx(JA2),
+        .tx(JC1),
         .rx(JB1),
         .rd_uart(uart_rd),
         .r_data(r_data),
@@ -161,5 +162,6 @@ module top_vga_basys3 (
     assign uart_rd = !rx_empty;
 
     assign led[0] = !tx_full;
+    assign led[1] = uart_data_valid;
 
 endmodule

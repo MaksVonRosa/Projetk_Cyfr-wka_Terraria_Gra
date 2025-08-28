@@ -1,3 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   boss_move
+ Author:        Maksymilian Wiącek
+ Last modified: 2025-08-26
+ Description:  Boss movement control module with jumping mechanics
+ */
+//////////////////////////////////////////////////////////////////////////////
 module boss_move (
     input  logic clk,
     input  logic rst,
@@ -6,12 +14,15 @@ module boss_move (
     input  logic [11:0] char_x,
     input  logic [11:0] player_2_x,
     input  logic [3:0]  player_2_aggro,
-    input  logic [3:0]  class_aggro,
+    input  logic [3:0]  char_aggro,
     output logic [11:0] boss_x,
     output logic [11:0] boss_y
 );
     import vga_pkg::*;
 
+    //------------------------------------------------------------------------------
+    // local parameters
+    //------------------------------------------------------------------------------
     localparam GROUND_Y     = VER_PIXELS - 52 - BOSS_HGT;
     localparam JUMP_HEIGHT  = 350;
     localparam JUMP_SPEED   = 9;
@@ -20,6 +31,9 @@ module boss_move (
     localparam integer WAIT_TICKS = 30;
     localparam BOSS_START_X = HOR_PIXELS - (HOR_PIXELS/4);  
 
+    //------------------------------------------------------------------------------
+    // local variables
+    //------------------------------------------------------------------------------
     logic is_jumping;
     logic going_up;
     logic [11:0] jump_peak;
@@ -28,12 +42,11 @@ module boss_move (
     logic [11:0] target_x;
 
     always_comb begin
-        if (player_2_aggro > class_aggro)
+        if (player_2_aggro > char_aggro)
             target_x = player_2_x;
         else
             target_x = char_x;
     end
-
     always_ff @(posedge clk) begin
         if (rst || !game_active) begin
             boss_x       <= BOSS_START_X;
@@ -56,14 +69,14 @@ module boss_move (
                     jump_dir     <= (target_x < boss_x) ? 0 : 1;
                 end
             end
-
             if (is_jumping) begin
                 if (going_up) begin
                     if (boss_y > jump_peak + JUMP_SPEED)
                         boss_y <= boss_y - JUMP_SPEED;
                     else
                         going_up <= 0;
-                end else begin
+                end 
+                else begin
                     if (boss_y < GROUND_Y)
                         boss_y <= boss_y + FALL_SPEED;
                     else begin
@@ -72,7 +85,6 @@ module boss_move (
                         wait_counter <= WAIT_TICKS;
                     end
                 end
-
                 if (jump_dir == 0 && boss_x > BOSS_LNG + MOVE_STEP)
                     boss_x <= boss_x - MOVE_STEP;
                 else if (jump_dir == 1 && boss_x < HOR_PIXELS - BOSS_LNG - MOVE_STEP)

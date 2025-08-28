@@ -1,3 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   char_ctrl
+ Author:        Maksymilian Wiącek
+ Last modified: 2025-08-26
+ Description:  Character control module with movement and jumping
+ */
+//////////////////////////////////////////////////////////////////////////////
 module char_ctrl (
     input  logic clk,
     input  logic rst,
@@ -15,6 +23,9 @@ module char_ctrl (
 );
     import vga_pkg::*;
 
+    //------------------------------------------------------------------------------
+    // local parameters
+    //------------------------------------------------------------------------------
     localparam CHAR_HGT    = 27;
     localparam CHAR_LNG    = 19;
     localparam CHAR_SPAWN  = HOR_PIXELS / 5;
@@ -24,6 +35,9 @@ module char_ctrl (
     localparam FALL_SPEED  = 5;
     localparam MOVE_STEP   = 5;
 
+    //------------------------------------------------------------------------------
+    // local variables
+    //------------------------------------------------------------------------------
     logic [11:0] next_x, next_y;
     logic        is_jumping;
     logic [11:0] jump_peak;

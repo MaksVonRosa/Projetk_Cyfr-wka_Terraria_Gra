@@ -1,8 +1,18 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   game_screen
+ Author:        Maksymilian Wiącek
+ Last modified: 2025-08-26
+ Description:  Game screen module with start/restart button rendering
+ */
+//////////////////////////////////////////////////////////////////////////////
 module game_screen (
     input  logic clk,
     input  logic rst,
     input  logic [1:0] game_active,
     input  logic [1:0] char_class,
+    input  logic [1:0] player_2_class,
+    input  logic       player_2_data_valid,
     input  logic [11:0] mouse_x,
     input  logic [11:0] mouse_y,
     input  logic        mouse_clicked,
@@ -12,6 +22,9 @@ module game_screen (
 );
     import vga_pkg::*;
 
+    //------------------------------------------------------------------------------
+    // local parameters
+    //------------------------------------------------------------------------------
     localparam RECT_X = (HOR_PIXELS - 125)/2;
     localparam RECT_Y = (VER_PIXELS - 75)/3;
     localparam RECT_W = 125;
@@ -19,6 +32,9 @@ module game_screen (
 
     localparam integer CLICK_COOLDOWN = 20;
 
+    //------------------------------------------------------------------------------
+    // local variables
+    //------------------------------------------------------------------------------
     logic [11:0] rgb_nxt;
     logic [13:0] rom_addr;
     logic [11:0] start_rom [0:9374];
@@ -28,10 +44,21 @@ module game_screen (
     logic in_rect;
 
     logic [31:0] wait_counter;
+    logic classes_ok;
 
     initial begin
-        $readmemh("../GameSprites/START_BUTTON.dat", start_rom);
-        $readmemh("../GameSprites/AGAIN_BUTTON.dat",  back_rom);
+        $readmemh("../../GameSprites/START_BUTTON.dat", start_rom);
+        $readmemh("../../GameSprites/AGAIN_BUTTON.dat",  back_rom);
+    end
+
+    always_comb begin
+        if (!player_2_data_valid) begin
+            classes_ok = (char_class != 0);
+        end else begin
+            classes_ok = (char_class != 0) &&
+                         (player_2_class != 0) &&
+                         (char_class != player_2_class);
+        end
     end
 
     always_comb begin
@@ -65,7 +92,7 @@ module game_screen (
 
             if (mouse_clicked) begin
                 if (game_active == 0 && wait_counter == 0 &&
-                    char_class != 0 &&
+                    classes_ok &&
                     mouse_x >= RECT_X && mouse_x < RECT_X+RECT_W &&
                     mouse_y >= RECT_Y && mouse_y < RECT_Y+RECT_H) begin
                     game_start   <= 1;

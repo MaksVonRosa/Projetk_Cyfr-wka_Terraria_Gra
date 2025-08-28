@@ -12,6 +12,7 @@ module weapon_top (
     input  logic        boss_alive,
     input  logic [11:0] boss_x,
     input  logic [11:0] boss_y,
+    input  logic        alive,
     output logic        projectile_hit,       
     output logic        melee_hit,       
 
@@ -58,7 +59,8 @@ module weapon_top (
         .melee_hit(melee_hit),
         .boss_x(boss_x),
         .boss_y(boss_y),
-        .boss_alive(boss_alive),   
+        .boss_alive(boss_alive),
+        .alive(alive),   
         .vga_in,
         .vga_out(vga_if_weapon.out)
     );
@@ -68,7 +70,8 @@ module weapon_top (
         .rst,
         .frame_tick(frame_tick),
         .mouse_clicked(mouse_clicked),
-        .anim_x_offset(anim_x_offset)
+        .anim_x_offset(anim_x_offset),
+        .alive(alive)
     );
 
     weapon_position u_weapon_position (
@@ -100,6 +103,7 @@ module weapon_top (
         .flip_hor_archer(flip_hor_archer),  
         .game_active(game_active),
         .char_class(char_class),
+        .alive(alive),
         .vga_in(vga_if_weapon.in),
         .vga_out
     );
@@ -121,6 +125,7 @@ module weapon_top (
         .boss_alive(boss_alive),          
         .pos_x_proj(pos_x_proj),
         .pos_y_proj(pos_y_proj),
+        .alive(alive),
         .projectile_hit(projectile_hit),
         .projectile_animated(projectile_animated)
     );

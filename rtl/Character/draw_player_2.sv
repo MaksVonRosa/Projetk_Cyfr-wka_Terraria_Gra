@@ -1,3 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   draw_player_2
+ Author:        Maksymilian Wiącek
+ Last modified: 2025-08-26
+ Description:  Player 2 drawing module with sprite rendering
+ */
+//////////////////////////////////////////////////////////////////////////////
 module draw_player_2 (
     input  logic clk,
     input  logic rst,
@@ -7,16 +15,23 @@ module draw_player_2 (
     input  logic [1:0]  player_2_class,
     input  logic        player_2_data_valid,
     input  logic [3:0]  player_2_hp,
+    input  logic [1:0]  game_active,
     vga_if.in  vga_in,
     vga_if.out vga_out
 );
     import vga_pkg::*;
 
+    //------------------------------------------------------------------------------
+    // local parameters
+    //------------------------------------------------------------------------------
     localparam CHAR_HGT   = 26;
     localparam CHAR_LNG   = 19; 
     localparam IMG_WIDTH  = 39;
     localparam IMG_HEIGHT = 53;
 
+    //------------------------------------------------------------------------------
+    // local variables
+    //------------------------------------------------------------------------------
     logic [11:0] draw_x, draw_y;
     logic initialized;
 
@@ -49,7 +64,7 @@ module draw_player_2 (
         logic [11:0] rgb_nxt;
         rgb_nxt = vga_in.rgb;
 
-        if (initialized && player_2_hp > 0 &&
+        if (game_active == 1 && initialized && player_2_hp > 0 &&
             !vga_in.vblnk && !vga_in.hblnk &&
             vga_in.hcount >= draw_x - CHAR_LNG &&
             vga_in.hcount <  draw_x + CHAR_LNG &&

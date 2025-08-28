@@ -13,6 +13,7 @@ module archer_projectile_animated #(
     input  logic [11:0] boss_x,
     input  logic [11:0] boss_y,
     input  logic        boss_alive,
+    input  logic        alive,
 
     output logic [PROJECTILE_COUNT-1:0][11:0] pos_x_proj,
     output logic [PROJECTILE_COUNT-1:0][11:0] pos_y_proj,
@@ -53,7 +54,7 @@ module archer_projectile_animated #(
             if (frame_tick && cooldown_cnt > 0)
                 cooldown_cnt <= cooldown_cnt - 1;
 
-            if (game_active == 2'd1) begin
+            if (game_active == 2'd1 && alive) begin
                 if (mouse_clicked && cooldown_cnt == 0) begin
                     for (int i = 0; i < PROJECTILE_COUNT; i++) begin
                         if (!projectile_active[i]) begin

@@ -1,3 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   char
+ Author:        Maksymilian Wiącek
+ Last modified: 2025-08-26
+ Description:  Top level character module integrating control, drawing and health display
+ */
+//////////////////////////////////////////////////////////////////////////////
 module char (
     input  logic clk,
     input  logic rst,
@@ -16,7 +24,8 @@ module char (
     input  logic [3:0] char_hp,
     input  logic frame_tick,
     input  logic [3:0] class_aggro,
-    input logic [3:0]  player_2_hp,
+    input  logic [3:0]  player_2_hp,
+    output logic        alive,
     output logic [3:0] char_aggro,
     output logic [3:0] current_health,
     output logic [11:0] pos_x_out,
@@ -27,6 +36,9 @@ module char (
     vga_if.in  vga_char_in,
     vga_if.out vga_char_out
 );
+    //------------------------------------------------------------------------------
+    // local variables
+    //------------------------------------------------------------------------------
     vga_if vga_char_mid();
 
     logic [11:0] pos_x, pos_y;
@@ -63,6 +75,7 @@ module char (
         .vga_in(vga_char_in),
         .vga_out(vga_char_mid.out),
         .game_active(game_active),
+        .alive(alive),
         .char_class
     );
 

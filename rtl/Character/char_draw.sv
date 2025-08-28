@@ -1,3 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   char_draw
+ Author:        Maksymilian Wiącek
+ Last modified: 2025-08-26
+ Description:  Character drawing module with sprite rendering
+ */
+//////////////////////////////////////////////////////////////////////////////
 module char_draw (
     input  logic clk,
     input  logic rst,
@@ -11,16 +19,23 @@ module char_draw (
     output logic [3:0] char_aggro,
     output logic [11:0] char_hgt,
     output logic [11:0] char_lng,
+    output logic        alive,
     vga_if.in  vga_in,
     vga_if.out vga_out
 );
     import vga_pkg::*;
 
+    //------------------------------------------------------------------------------
+    // local parameters
+    //------------------------------------------------------------------------------
     localparam CHAR_HGT   = 26;
     localparam CHAR_LNG   = 19; 
     localparam IMG_WIDTH  = 39;
     localparam IMG_HEIGHT = 53;
 
+    //------------------------------------------------------------------------------
+    // local variables
+    //------------------------------------------------------------------------------
     logic [11:0] draw_x, draw_y, rgb_nxt;
     logic [11:0] archer_rom [0:IMG_WIDTH*IMG_HEIGHT-1];
     logic [11:0] melee_rom  [0:IMG_WIDTH*IMG_HEIGHT-1];
@@ -34,7 +49,6 @@ module char_draw (
     logic [5:0] rel_y;
     logic [11:0] pixel_color;
     logic [10:0] rom_addr;
-    logic alive;
 
     always_ff @(posedge clk) begin
         if (rst) begin
