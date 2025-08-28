@@ -1,3 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   archer_projectile_draw
+ Author:        Damian Szczepaniak
+ Last modified: 2025-08-28
+ Description:   Projectile of archer weapon attack animating and collision with boss module
+ */
+//////////////////////////////////////////////////////////////////////////////
 module archer_projectile_animated #(
     parameter PROJECTILE_COUNT = 4
 )(
@@ -22,19 +30,31 @@ module archer_projectile_animated #(
 );
     import vga_pkg::*;
 
+//------------------------------------------------------------------------------
+// local parameters
+//------------------------------------------------------------------------------
+ 
     localparam PROJECTILE_SPEED    = 30;   
     localparam PROJECTILE_LIFETIME = 60;   
     localparam FIRE_COOLDOWN       = 25;    
+
+//------------------------------------------------------------------------------
+// local variables
+//------------------------------------------------------------------------------
 
     logic [PROJECTILE_COUNT-1:0]       projectile_active;
     logic signed [13:0]        step_x [PROJECTILE_COUNT];
     logic signed [13:0]        step_y [PROJECTILE_COUNT];
     logic [7:0]                lifetime [PROJECTILE_COUNT];
 
-    logic [7:0] cooldown_cnt;
+    logic [7:0] cooldown_count;
     logic signed [12:0] dx, dy;
     logic signed [12:0] max_val;
 
+//------------------------------------------------------------------------------
+// output register with sync reset
+//------------------------------------------------------------------------------
+   
     always_ff @(posedge clk) begin
         if (rst) begin
             projectile_active        <= '0;
@@ -43,7 +63,7 @@ module archer_projectile_animated #(
             step_x        <= '{default:'0};
             step_y        <= '{default:'0};
             lifetime      <= '{default:'0};
-            cooldown_cnt  <= 0;
+            cooldown_count  <= 0;
             projectile_hit    <= 0;
             dx    <= 0;
             dy    <= 0;
@@ -51,11 +71,11 @@ module archer_projectile_animated #(
         end else begin
             projectile_hit <= 0;
 
-            if (frame_tick && cooldown_cnt > 0)
-                cooldown_cnt <= cooldown_cnt - 1;
+            if (frame_tick && cooldown_count > 0)
+                cooldown_count <= cooldown_count - 1;
 
             if (game_active == 2'd1 && alive) begin
-                if (mouse_clicked && cooldown_cnt == 0) begin
+                if (mouse_clicked && cooldown_count == 0) begin
                     for (int i = 0; i < PROJECTILE_COUNT; i++) begin
                         if (!projectile_active[i]) begin
                             projectile_active[i]    <= 1;
@@ -76,7 +96,7 @@ module archer_projectile_animated #(
                                 step_y[i] <= (dy * PROJECTILE_SPEED) / max_val;
                             end
 
-                            cooldown_cnt <= FIRE_COOLDOWN;
+                            cooldown_count <= FIRE_COOLDOWN;
                             break; 
                         end
                     end

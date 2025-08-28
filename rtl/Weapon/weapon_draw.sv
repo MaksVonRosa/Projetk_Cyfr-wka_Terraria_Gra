@@ -1,3 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   weapon_draw
+ Author:        Damian Szczepaniak
+ Last modified: 2025-08-28
+ Description:  Module for drawing weapons, melee weapon collides with boss 
+ */
+//////////////////////////////////////////////////////////////////////////////
 module weapon_draw (
     input  logic        clk,
     input  logic        rst,
@@ -22,17 +30,25 @@ module weapon_draw (
 );
     import vga_pkg::*;
 
+    //------------------------------------------------------------------------------
+    // local parameters
+    //------------------------------------------------------------------------------
     
-//Melee params
+        //Melee params
     localparam MELEE_IMG_WIDTH  = 54;
     localparam MELEE_IMG_HEIGHT = 28;
     localparam MELEE_WPN_HGT   = 26;
     localparam MELEE_WPN_LNG   = MELEE_IMG_WIDTH/2; 
-//Archer params
+        //Archer params
     localparam ARCHER_IMG_WIDTH  = 40;
     localparam ARCHER_IMG_HEIGHT = 31;
     localparam ARCHER_WPN_HGT   = 26;
     localparam ARCHER_WPN_LNG   = ARCHER_IMG_WIDTH/2; 
+
+    
+    //------------------------------------------------------------------------------
+    // local variables
+    //------------------------------------------------------------------------------
 
     logic [11:0] rgb_nxt;
 
@@ -56,7 +72,13 @@ module weapon_draw (
     logic [10:0] vcount_d2, hcount_d2;
     logic vsync_d2, hsync_d2, vblnk_d2, hblnk_d2;
 
+
+//------------------------------------------------------------------------------
+// output register with sync reset
+//------------------------------------------------------------------------------
+
  //delay 2st
+
     always_ff @(posedge clk) begin
         if (rst) begin
 
@@ -113,6 +135,10 @@ module weapon_draw (
     end
 
 
+//------------------------------------------------------------------------------
+// logic
+//------------------------------------------------------------------------------
+   
 
     always_comb begin
         rgb_nxt = vga_in.rgb;

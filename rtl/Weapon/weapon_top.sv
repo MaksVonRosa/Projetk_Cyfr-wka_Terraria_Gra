@@ -1,3 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   weapon_top
+ Author:        Damian Szczepaniak
+ Last modified: 2025-08-28
+ Description:   Top weapon module integrating control, drawing, animations and attack colision with boss 
+ */
+//////////////////////////////////////////////////////////////////////////////
 module weapon_top (
     input  logic        clk,
     input  logic        rst,  
@@ -20,6 +28,10 @@ module weapon_top (
     vga_if.out vga_out
 );
     import vga_pkg::*;
+
+    //------------------------------------------------------------------------------
+    // local variables
+    //------------------------------------------------------------------------------
 
     vga_if vga_if_weapon();
 

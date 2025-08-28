@@ -1,3 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   top_vga
+ Author:        Maksymilian Wiącek, Damian Szczepaniak
+ Last modified: 2025-08-28
+ Description:   Top module integrating every module
+ */
+//////////////////////////////////////////////////////////////////////////////
 module top_vga (
     input  logic        clk,
     input  logic        clk100MHz,

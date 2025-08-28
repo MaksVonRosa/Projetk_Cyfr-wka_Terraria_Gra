@@ -1,3 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   weapon_position
+ Author:        Damian Szczepaniak
+ Last modified: 2025-08-28
+ Description:   Weapon positioning related to character and mouse position module
+ */
+//////////////////////////////////////////////////////////////////////////////
 module weapon_position (
     input   logic clk,
     input   logic rst,
@@ -20,9 +28,12 @@ module weapon_position (
 
 
 );
+   
+//------------------------------------------------------------------------------
+// local parameters
+//------------------------------------------------------------------------------   
 localparam  MELEE_WPN_X_OFFSET = 40;
 localparam  MELEE_WPN_Y_OFFSET = 15;
-
 
 localparam ARCHER_WPN_X_OFFSET = 10;
 localparam ARCHER_WPN_Y_OFFSET = 12;
@@ -30,6 +41,10 @@ localparam ARCHER_WPN_Y_OFFSET = 12;
 localparam PROJECTILE_WPN_X_OFFSET = 30;
 localparam PROJECTILE_WPN_Y_OFFSET = -4;
 
+//------------------------------------------------------------------------------
+// output register with sync reset
+//------------------------------------------------------------------------------
+   
 always_ff @(posedge clk) begin
         if (rst) begin
             draw_weapon <= 0;

@@ -34,10 +34,23 @@ logic [11:0] rgb_mouse;
 logic enable_mouse;
 logic [11:0] xpos_mouse_limit, ypos_mouse_limit;
 
-/**
- * Internal logic
- */
+MouseDisplay inst(
+    .pixel_clk(clk),
 
+    .xpos(xpos_mouse_limit),
+    .ypos(ypos_mouse_limit),
+
+    .vcount(vga_in_mouse.vcount),
+    .hcount(vga_in_mouse.hcount),
+    .rgb_in(vga_in_mouse.rgb),
+    .rgb_out(rgb_mouse),
+
+    .blank(vga_in_mouse.vblnk | vga_in_mouse.hblnk),
+
+    .enable_mouse_display_out(enable_mouse)
+
+
+);
 
 always_ff @(posedge clk) begin : rect_ff_blk
 
@@ -65,8 +78,6 @@ always_ff @(posedge clk) begin : rect_ff_blk
     end
 end
 
-
-
 always_comb begin
     if (xpos > HOR_PIXELS - 1)
         xpos_mouse_limit = HOR_PIXELS - 1;
@@ -78,23 +89,5 @@ always_comb begin
     else
         ypos_mouse_limit = ypos;
 end
-
-MouseDisplay inst(
-    .pixel_clk(clk),
-
-    .xpos(xpos_mouse_limit),
-    .ypos(ypos_mouse_limit),
-
-    .vcount(vga_in_mouse.vcount),
-    .hcount(vga_in_mouse.hcount),
-    .rgb_in(vga_in_mouse.rgb),
-    .rgb_out(rgb_mouse),
-
-    .blank(vga_in_mouse.vblnk | vga_in_mouse.hblnk),
-
-    .enable_mouse_display_out(enable_mouse)
-
-
-);
 
 endmodule

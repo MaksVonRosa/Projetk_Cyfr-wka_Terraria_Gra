@@ -1,3 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   archer_projectile_draw
+ Author:        Damian Szczepaniak
+ Last modified: 2025-08-28
+ Description:   Projectile of archer weapon drawing module
+ */
+//////////////////////////////////////////////////////////////////////////////
 module archer_projectile_draw #(
 parameter PROJECTILE_COUNT = vga_pkg::PROJECTILE_COUNT
 
@@ -16,10 +24,18 @@ parameter PROJECTILE_COUNT = vga_pkg::PROJECTILE_COUNT
 );
     import vga_pkg::*;
 
+//------------------------------------------------------------------------------
+// local parameters
+//------------------------------------------------------------------------------
+
     localparam IMG_WIDTH  = 8;
     localparam IMG_HEIGHT = 8;
     localparam PROJ_LNG   = IMG_WIDTH/2;
     localparam PROJ_HGT   = IMG_HEIGHT/2;
+
+//------------------------------------------------------------------------------
+// local variables
+//------------------------------------------------------------------------------
 
     logic [11:0] archer_proj_rom [0:IMG_WIDTH*IMG_HEIGHT-1];
     initial $readmemh("../../GameSprites/Archer_projectile.dat", archer_proj_rom);
@@ -37,7 +53,9 @@ parameter PROJECTILE_COUNT = vga_pkg::PROJECTILE_COUNT
     logic [11:0] rgb_d2;
     logic [10:0] vcount_d2, hcount_d2;
     logic vsync_d2, hsync_d2, vblnk_d2, hblnk_d2;
-
+//------------------------------------------------------------------------------
+// output register with sync reset
+//------------------------------------------------------------------------------
 always_ff @(posedge clk) begin
         if (rst) begin
 
@@ -92,9 +110,9 @@ always_ff @(posedge clk) begin
 
         end
     end
-
-
-    
+//------------------------------------------------------------------------------
+// logic
+//------------------------------------------------------------------------------
     always_comb begin
         rgb_nxt = vga_in.rgb;
         if (game_active && char_class == 2 && alive &&

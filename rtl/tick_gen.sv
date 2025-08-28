@@ -1,3 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   tick_gen
+ Author:        Damian Szczepaniak
+ Last modified: 2025-08-28
+ Description:   Generating 60Hz frame tick module for animations 
+ */
+//////////////////////////////////////////////////////////////////////////////
 module tick_gen(
     input logic clk,
     input logic rst,
