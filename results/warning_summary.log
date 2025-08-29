@@ -1,6 +1,6 @@
 Warnings, critical warnings and errors from synthesis and implementation
 
-Created: 2025-08-29 01:01:01
+Created: 2025-08-29 09:48:17
 
 ----SYNTHESIS----
 WARNING: [Synth 8-7071] port 'zpos' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:256]
@@ -13,24 +13,17 @@ WARNING: [Synth 8-7071] port 'sety' of module 'MouseCtl' is unconnected for inst
 WARNING: [Synth 8-7071] port 'setmax_x' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:256]
 WARNING: [Synth 8-7071] port 'setmax_y' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:256]
 WARNING: [Synth 8-7023] instance 'u_MouseCtl' of module 'MouseCtl' has 16 connections declared, but only 7 given [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:256]
-WARNING: [Synth 8-6014] Unused sequential element hcount1_reg was removed.  [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Boss/boss_render.sv:169]
-WARNING: [Synth 8-6014] Unused sequential element vcount1_reg was removed.  [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Boss/boss_render.sv:169]
-WARNING: [Synth 8-6014] Unused sequential element hblnk1_reg was removed.  [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Boss/boss_render.sv:169]
-WARNING: [Synth 8-6014] Unused sequential element vblnk1_reg was removed.  [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Boss/boss_render.sv:169]
-WARNING: [Synth 8-6014] Unused sequential element rgb1_reg was removed.  [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Boss/boss_render.sv:169]
-WARNING: [Synth 8-6014] Unused sequential element mul1_reg was removed.  [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Boss/boss_render.sv:206]
-WARNING: [Synth 8-6014] Unused sequential element hcount2_reg was removed.  [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Boss/boss_render.sv:209]
-WARNING: [Synth 8-6014] Unused sequential element vcount2_reg was removed.  [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Boss/boss_render.sv:209]
-WARNING: [Synth 8-6014] Unused sequential element hblnk2_reg was removed.  [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Boss/boss_render.sv:209]
-WARNING: [Synth 8-6014] Unused sequential element vblnk2_reg was removed.  [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Boss/boss_render.sv:209]
-WARNING: [Synth 8-6014] Unused sequential element rgb2_reg was removed.  [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Boss/boss_render.sv:209]
-WARNING: [Synth 8-6014] Unused sequential element hcount3_reg was removed.  [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Boss/boss_render.sv:233]
-WARNING: [Synth 8-6014] Unused sequential element vcount3_reg was removed.  [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Boss/boss_render.sv:233]
-WARNING: [Synth 8-6014] Unused sequential element hblnk3_reg was removed.  [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Boss/boss_render.sv:233]
-WARNING: [Synth 8-6014] Unused sequential element vblnk3_reg was removed.  [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Boss/boss_render.sv:233]
-WARNING: [Synth 8-6014] Unused sequential element rgb3_reg was removed.  [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Boss/boss_render.sv:233]
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 
 ----IMPLEMENTATION----
-WARNING: [Route 35-328] Router estimated timing not met.
-CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
+WARNING: [Place 46-29] Timing had been disabled during Placer and, therefore, physical synthesis in Placer will be skipped.
+WARNING: [Timing 38-313] There are no user specified timing constraints. Timing constraints are needed for proper timing analysis.
+WARNING: [Power 33-232] No user defined clocks were found in the design! Power estimation will be inaccurate until this is corrected.
+WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout2_buf. Out of range!
+WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout1_buf. Out of range!
+WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout2_buf. Out of range!
+WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout1_buf. Out of range!
+WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout2_buf. Out of range!
+WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout1_buf. Out of range!
+WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout2_buf. Out of range!
+WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout1_buf. Out of range!
