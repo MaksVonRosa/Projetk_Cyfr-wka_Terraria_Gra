@@ -16,9 +16,9 @@ module char_draw (
     input  logic [1:0] game_active,
     input  logic [1:0] char_class,
     input  logic [3:0] class_aggro,
-    input  logic [11:0] archer_data,  // Dodane wejście dla danych ROM łucznika
-    input  logic [11:0] melee_data,   // Dodane wejście dla danych ROM wojownika
-    output logic [10:0] rom_addr,     // Dodane wyjście dla adresu ROM
+    input  logic [11:0] archer_data,
+    input  logic [11:0] melee_data,
+    output logic [10:0] rom_addr,
     output logic [3:0] char_aggro,
     output logic [11:0] char_hgt,
     output logic [11:0] char_lng,
@@ -52,7 +52,7 @@ module char_draw (
 
     always_comb begin
         rgb_nxt = vga_in.rgb;
-        rom_addr = 0;  // Domyślna wartość adresu
+        rom_addr = 0;
         
         if (game_active==1 && alive && !vga_in.vblnk && !vga_in.hblnk &&
             vga_in.hcount >= draw_x-CHAR_LNG && vga_in.hcount < draw_x+CHAR_LNG &&

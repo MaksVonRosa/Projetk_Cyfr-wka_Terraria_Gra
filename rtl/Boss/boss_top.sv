@@ -36,7 +36,7 @@ module boss_top (
     localparam IMG_HEIGHT  = 191;
     
     vga_if vga_boss_mid();
-    logic [15:0] rom_addr;
+    logic [10:0] rom_addr;
     logic [11:0] boss_data;
     logic [11:0] boss_x;
     logic [11:0] boss_y;
@@ -84,8 +84,8 @@ module boss_top (
         .boss_x(boss_x),
         .boss_y(boss_y),
         .boss_hp(boss_hp),
-        .boss_data(boss_data),      // Podłączone dane z ROM
-        .rom_addr(rom_addr),        // Podłączony adres do ROM
+        .boss_data(boss_data),
+        .rom_addr(rom_addr),
         .boss_alive(boss_alive),
         .vga_in(vga_boss_mid.in),
         .vga_out(vga_out)
@@ -93,6 +93,6 @@ module boss_top (
     
     assign boss_hgt = 95;  // BOSS_HGT
     assign boss_lng = 106; // BOSS_LNG
-    assign boss_x_out = boss_x;  // BOSS_HGT
-    assign boss_y_out = boss_y; // BOSS_LNG
+    assign boss_x_out = boss_x;
+    assign boss_y_out = boss_y;
 endmodule

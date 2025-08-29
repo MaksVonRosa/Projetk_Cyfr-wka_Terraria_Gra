@@ -76,10 +76,10 @@ module weapon_top (
     logic [11:0] pos_x_projectile_offset;
     logic [11:0] pos_y_projectile_offset;
 
-    // Zakomentowane sygnały projectile
-    // logic [PROJECTILE_COUNT-1:0][11:0] pos_x_proj;
-    // logic [PROJECTILE_COUNT-1:0][11:0] pos_y_proj;
-    // logic [PROJECTILE_COUNT-1:0] projectile_animated;
+    logic [PROJECTILE_COUNT-1:0][11:0] pos_x_proj;
+    logic [PROJECTILE_COUNT-1:0][11:0] pos_y_proj;
+
+    logic [PROJECTILE_COUNT-1:0]projectile_animated;
 
     //------------------------------------------------------------------------------
     // Melee weapon pipeline
@@ -117,7 +117,7 @@ module weapon_top (
         .char_class(char_class),
         .alive(alive), 
         .vga_in(vga_if_melee.in),
-        .vga_out(vga_out)
+        .vga_out(vga_if_archer.out)
     );
 
     //------------------------------------------------------------------------------
@@ -154,9 +154,8 @@ module weapon_top (
     );
 
     //------------------------------------------------------------------------------
-    // Zakomentowane moduły projectile - bezpośrednie połączenie vga_if_archer do vga_out
+    // Archer projectiles
     //------------------------------------------------------------------------------
-    /*
     archer_projectile_draw u_archer_projectile_draw(
         .clk(clk),
         .rst(rst),
@@ -192,15 +191,5 @@ module weapon_top (
         .projectile_hit(projectile_hit),
         .projectile_animated(projectile_animated)
     );
-    */
-
-    //------------------------------------------------------------------------------
-    // Bezpośrednie połączenie wyjścia archer do głównego wyjścia (zamiast projectile)
-    //------------------------------------------------------------------------------
-
-    //------------------------------------------------------------------------------
-    // Ustawienie projectile_hit na 0 (since projectiles are disabled)
-    //------------------------------------------------------------------------------
-    assign projectile_hit = 1'b0;
 
 endmodule

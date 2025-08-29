@@ -3,7 +3,7 @@ module read_rom #(
     parameter ROM_DEPTH  = 2048,
     parameter FILE_PATH  = ""
 )(
-    input  logic [15:0] addr,
+    input  logic [10:0] addr,
     output logic [ROM_WIDTH-1:0] data
 );
     logic [ROM_WIDTH-1:0] rom_mem [0:ROM_DEPTH-1];

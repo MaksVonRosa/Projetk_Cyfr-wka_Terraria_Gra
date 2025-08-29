@@ -29,16 +29,13 @@ module draw_bg (
     /**
      * Local variables and signals
      */
-    
-    // Pipeline registers
     logic [10:0] vcount_ff, hcount_ff;
     logic vblnk_ff, hblnk_ff;
     logic [11:0] rgb_ff;
     
-    // Pre-calculated values
+    // Pre-calculated values - USUNIĘTO window_center_y bo nieużywane
     logic [10:0] floor_threshold;
     logic [10:0] window1_center_x, window2_center_x;
-    logic [10:0] window_center_y;
     logic [10:0] column1_x, column2_x, column3_x;
     
     // Detection signals
@@ -64,11 +61,10 @@ module draw_bg (
             vblnk_ff <= vblnk_in;
             hblnk_ff <= hblnk_in;
             
-            // Pre-calculate constants
+            // Pre-calculate constants - USUNIĘTO window_center_y
             floor_threshold <= (5 * VER_PIXELS) / 6;
             window1_center_x <= HOR_PIXELS / 3;
             window2_center_x <= (2 * HOR_PIXELS) / 3;
-            window_center_y <= VER_PIXELS / 3 + 20;
             column1_x <= HOR_PIXELS / 6;
             column2_x <= HOR_PIXELS / 2;
             column3_x <= (5 * HOR_PIXELS) / 6;
@@ -100,7 +96,7 @@ module draw_bg (
             is_carpet_ff <= (vcount_ff >= floor_threshold + 5) && 
                            (vcount_ff <= floor_threshold + 45);
             
-            // Window detection
+            // Window detection - użyto stałych wartości zamiast window_center_y
             is_window1_ff <= (hcount_ff > window1_center_x - 32) && 
                             (hcount_ff < window1_center_x + 32) &&
                             (vcount_ff > VER_PIXELS/3) && 
@@ -166,6 +162,7 @@ module draw_bg (
                 end 
                 // Then windows (on top of grid)
                 else if (is_window1_ff || is_window2_ff) begin
+                    // Użyto stałych wartości zamiast window_center_y
                     if (vcount_ff >= VER_PIXELS/3 + 20) begin
                         rgb_ff <= 12'h6cf; // Window blue (lower part)
                     end else begin
@@ -190,26 +187,15 @@ module draw_bg (
     end
 
     //------------------------------------------------------------------------------
-    // STAGE 4: Output registration
+    // STAGE 4: Output registration - USUNIĘTO ZBĘDNE REJESTRY
     //------------------------------------------------------------------------------
     always_ff @(posedge clk) begin
-        if (rst) begin
-            vga_bg_out.vcount <= '0;
-            vga_bg_out.vsync  <= '0;
-            vga_bg_out.vblnk  <= '0;
-            vga_bg_out.hcount <= '0;
-            vga_bg_out.hsync  <= '0;
-            vga_bg_out.hblnk  <= '0;
-            vga_bg_out.rgb    <= '0;
-        end else begin
-            vga_bg_out.vcount <= vcount_in;
-            vga_bg_out.vsync  <= vsync_in;
-            vga_bg_out.vblnk  <= vblnk_in;
-            vga_bg_out.hcount <= hcount_in;
-            vga_bg_out.hsync  <= hsync_in;
-            vga_bg_out.hblnk  <= hblnk_in;
-            vga_bg_out.rgb    <= rgb_ff;
-        end
+    vga_bg_out.vcount <= vcount_in;
+    vga_bg_out.vsync  <= vsync_in;
+    vga_bg_out.vblnk  <= vblnk_in;
+    vga_bg_out.hcount <= hcount_in;
+    vga_bg_out.hsync  <= hsync_in;
+    vga_bg_out.hblnk  <= hblnk_in;
+    vga_bg_out.rgb    <= rgb_ff;
     end
-
 endmodule

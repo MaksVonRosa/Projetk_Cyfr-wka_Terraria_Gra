@@ -90,9 +90,9 @@ module top_vga (
     localparam CHAR_IMG_WIDTH = 39;
     localparam CHAR_IMG_HEIGHT = 53;
 
-    logic [15:0] selector_rom_addr, selector_rom_addr_select;
-    logic [15:0] screen_rom_addr;
-    logic [15:0] player2_rom_addr;
+    logic [10:0] selector_rom_addr, selector_rom_addr_select;
+    logic [10:0] screen_rom_addr;
+    logic [10:0] player2_rom_addr;
     
     logic [11:0] selector_melee_data, selector_archer_data, selector_select_data;
     logic [11:0] screen_start_data, screen_back_data;

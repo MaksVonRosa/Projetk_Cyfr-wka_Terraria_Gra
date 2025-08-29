@@ -33,17 +33,17 @@ module melee_draw (
     localparam MELEE_IMG_HEIGHT = 28;
     localparam MELEE_WPN_HGT   = 26;
     localparam MELEE_WPN_LNG   = MELEE_IMG_WIDTH/2; 
-    localparam BOSS_LNG = 32;  // Assuming boss dimensions
+    localparam BOSS_LNG = 32;
     localparam BOSS_HGT = 32;
+
     //------------------------------------------------------------------------------
     // local variables
     //------------------------------------------------------------------------------
-
     logic [11:0] melee_wpn_rom [0:MELEE_IMG_WIDTH*MELEE_IMG_HEIGHT-1];
     initial $readmemh("../../GameSprites/Melee_wpn.dat", melee_wpn_rom);
 
     // Registered inputs
-    logic [11:0] vga_hcount, vga_vcount;
+    logic [10:0] vga_hcount, vga_vcount;
     logic vga_hblnk, vga_vblnk;
     logic [11:0] vga_rgb_in;
     
@@ -57,25 +57,20 @@ module melee_draw (
     logic draw_melee_ff;
     logic [11:0] rgb_nxt_ff;
     logic [15:0] rom_addr;
-    logic [11:0] pixel_color;
+    // USUNIĘTO: logic [11:0] pixel_color; // Niepotrzebny rejestr
+
+    // Combinatorial signals
+    logic [11:0] pixel_color_comb; // Kombinacyjne odczyt z ROM
 
 //------------------------------------------------------------------------------
 // Input registration
 //------------------------------------------------------------------------------
 always_ff @(posedge clk) begin
-    if (rst) begin
-        vga_hcount <= '0;
-        vga_vcount <= '0;
-        vga_hblnk <= '0;
-        vga_vblnk <= '0;
-        vga_rgb_in <= '0;
-    end else begin
         vga_hcount <= vga_in.hcount;
         vga_vcount <= vga_in.vcount;
         vga_hblnk <= vga_in.hblnk;
         vga_vblnk <= vga_in.vblnk;
         vga_rgb_in <= vga_in.rgb;
-    end
 end
 
 //------------------------------------------------------------------------------
@@ -102,6 +97,14 @@ always_ff @(posedge clk) begin
                          (vga_hcount >= x_min) && (vga_hcount < x_max) &&
                          (vga_vcount >= y_min) && (vga_vcount < y_max);
     end
+end
+
+//------------------------------------------------------------------------------
+// ROM address calculation (combinatorial)
+//------------------------------------------------------------------------------
+always_comb begin
+    rom_addr = rel_y_ff * MELEE_IMG_WIDTH + rel_x_ff;
+    pixel_color_comb = melee_wpn_rom[rom_addr];
 end
 
 //------------------------------------------------------------------------------
@@ -132,10 +135,8 @@ always_ff @(posedge clk) begin
         
         if (draw_melee_ff) begin
             if (rel_x_ff < MELEE_IMG_WIDTH && rel_y_ff < MELEE_IMG_HEIGHT) begin
-                rom_addr = rel_y_ff * MELEE_IMG_WIDTH + rel_x_ff;
-                pixel_color = melee_wpn_rom[rom_addr];
-                if (pixel_color != 12'h02F) begin
-                    rgb_nxt_ff <= pixel_color;
+                if (pixel_color_comb != 12'h02F) begin
+                    rgb_nxt_ff <= pixel_color_comb;
                 end
             end else if (boss_alive &&
                        rel_x_ff >= (boss_x - BOSS_LNG) && rel_x_ff <= (boss_x + BOSS_LNG) &&
@@ -147,18 +148,10 @@ always_ff @(posedge clk) begin
 end
 
 //------------------------------------------------------------------------------
-// Output assignment
+// Output assignment - USUNIĘTO ZBĘDNE REJESTROWANIE
 //------------------------------------------------------------------------------
+
 always_ff @(posedge clk) begin
-    if (rst) begin
-        vga_out.vcount <= '0;
-        vga_out.hcount <= '0;
-        vga_out.vsync <= '0;
-        vga_out.hsync <= '0;
-        vga_out.vblnk <= '0;
-        vga_out.hblnk <= '0;
-        vga_out.rgb <= '0;
-    end else begin
         vga_out.vcount <= vga_in.vcount;
         vga_out.hcount <= vga_in.hcount;
         vga_out.vsync <= vga_in.vsync;
@@ -166,7 +159,5 @@ always_ff @(posedge clk) begin
         vga_out.vblnk <= vga_in.vblnk;
         vga_out.hblnk <= vga_in.hblnk;
         vga_out.rgb <= rgb_nxt_ff;
-    end
 end
-
 endmodule

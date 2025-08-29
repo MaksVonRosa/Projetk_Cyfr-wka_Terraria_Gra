@@ -161,7 +161,7 @@ module game_screen (
     end
 
     //------------------------------------------------------------------------------
-    // Game start logic (SIMPLIFIED - no wait_counter)
+    // Game start logic
     //------------------------------------------------------------------------------
     logic mouse_in_rect;
     
@@ -172,11 +172,9 @@ module game_screen (
         end else begin
             game_start <= 0;
             
-            // Check if mouse is in rectangle
             mouse_in_rect <= (mouse_x_ff >= RECT_X && mouse_x_ff < RECT_X+RECT_W &&
                              mouse_y_ff >= RECT_Y && mouse_y_ff < RECT_Y+RECT_H);
-            
-            // Generate game_start pulse on valid click
+
             if (mouse_clicked_ff && mouse_in_rect && classes_ok_ff) begin
                 if (game_active_ff == 0 || game_active_ff == 2) begin
                     game_start <= 1;

@@ -42,7 +42,7 @@ module class_selector (
 
     logic [1:0] selected_class;
     
-    // Pipeline registers
+
     logic [11:0] vga_hcount_ff, vga_vcount_ff;
     logic [11:0] vga_rgb_ff;
     logic game_active_ff;
@@ -51,11 +51,10 @@ module class_selector (
     logic [11:0] melee_data_ff, archer_data_ff, select_data_ff;
     logic [11:0] rgb_out_ff;
     
-    // Mouse input registration
+
     logic [11:0] mouse_x_ff, mouse_y_ff;
     logic mouse_clicked_ff;
     
-    // ADDED: Registered output for other modules
     logic [1:0] selected_class_reg;
     logic [3:0] char_hp_reg;
     logic [3:0] class_aggro_reg;
@@ -150,7 +149,6 @@ module class_selector (
             in_left_click_zone <= 0;
             in_right_click_zone <= 0;
         end else begin
-            // Pre-calculate click zones
             in_left_click_zone <= (mouse_x_ff >= LEFT_X && mouse_x_ff < LEFT_X+RECT_W &&
                                   mouse_y_ff >= TOP_Y && mouse_y_ff < TOP_Y+RECT_H);
             in_right_click_zone <= (mouse_x_ff >= RIGHT_X && mouse_x_ff < RIGHT_X+RECT_W &&
@@ -180,7 +178,6 @@ module class_selector (
         end else begin
             selected_class_reg <= selected_class;
             
-            // Pre-calculate outputs to avoid complex comb logic in other modules
             case (selected_class)
                 1: begin
                     char_hp_reg <= 4'd10;

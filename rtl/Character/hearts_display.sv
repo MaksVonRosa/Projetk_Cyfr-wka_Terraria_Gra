@@ -30,8 +30,8 @@ module hearts_display #(
     input  logic player2_game_start,
     input  logic frame_tick,
     input  logic [3:0] player_2_hp,
-    input  logic [11:0] heart_data,  // Dodane wejście dla danych z ROM
-    output logic [10:0] rom_addr,    // Dodane wyjście dla adresu ROM
+    input  logic [11:0] heart_data,
+    output logic [10:0] rom_addr,
     output logic [3:0] current_health,
     vga_if.in  vga_in,
     vga_if.out vga_out
@@ -63,14 +63,14 @@ module hearts_display #(
 
     always_comb begin
         rgb_nxt = vga_in.rgb;
-        rom_addr = 0;  // Domyślna wartość adresu
+        rom_addr = 0;
         
         if(game_active==1 && !vga_in.vblnk && !vga_in.hblnk) begin
             // Player 1 hearts
             if(vga_in.vcount >= PLAYER1_HEARTS_Y && vga_in.vcount < PLAYER1_HEARTS_Y+HEART_H) begin
                 for(int i=0;i<MAX_HP;i++) begin
-                    int hx_start = PADDING + i*(HEART_W+GAP);
-                    int hx_end   = hx_start+HEART_W;
+                    automatic int hx_start = PADDING + i*(HEART_W+GAP);
+                    automatic int hx_end   = hx_start+HEART_W;
                     if(vga_in.hcount>=hx_start && vga_in.hcount<hx_end) begin
                         rel_x = vga_in.hcount - hx_start;
                         rel_y = vga_in.vcount - PLAYER1_HEARTS_Y;
@@ -82,8 +82,8 @@ module hearts_display #(
             // Player 2 hearts
             if(vga_in.vcount >= PLAYER2_HEARTS_Y && vga_in.vcount < PLAYER2_HEARTS_Y+HEART_H) begin
                 for(int i=0;i<MAX_HP;i++) begin
-                    int hx_start = PADDING + i*(HEART_W+GAP);
-                    int hx_end   = hx_start+HEART_W;
+                    automatic int hx_start = PADDING + i*(HEART_W+GAP);
+                    automatic int hx_end   = hx_start+HEART_W;
                     if(vga_in.hcount>=hx_start && vga_in.hcount<hx_end) begin
                         rel_x = vga_in.hcount - hx_start;
                         rel_y = vga_in.vcount - PLAYER2_HEARTS_Y;

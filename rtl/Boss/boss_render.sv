@@ -12,8 +12,8 @@ module boss_render (
     input  logic [11:0] boss_x,
     input  logic [11:0] boss_y,
     input  logic [6:0] boss_hp,
-    input  logic [11:0] boss_data,  // Dodane wejście dla danych z ROM
-    output logic [15:0] rom_addr,   // Dodane wyjście dla adresu ROM
+    input  logic [11:0] boss_data,
+    output logic [15:0] rom_addr, 
     output logic boss_alive,
     vga_if.in  vga_in,
     vga_if.out vga_out
@@ -33,7 +33,7 @@ module boss_render (
     always_comb begin
         rgb_nxt = vga_in.rgb;
         boss_alive_nxt = 0;
-        rom_addr = 0;  // Domyślna wartość adresu
+        rom_addr = 0;
 
         if (game_active == 1 && boss_hp > 0) begin
             boss_alive_nxt = 1;

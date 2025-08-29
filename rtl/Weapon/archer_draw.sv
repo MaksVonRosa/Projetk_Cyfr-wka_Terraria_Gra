@@ -32,12 +32,11 @@ module archer_draw (
     //------------------------------------------------------------------------------
     // local variables
     //------------------------------------------------------------------------------
-
     logic [11:0] archer_wpn_rom [0:ARCHER_IMG_WIDTH*ARCHER_IMG_HEIGHT-1];
     initial $readmemh("../../GameSprites/Archer_wpn.dat", archer_wpn_rom);
 
     // Registered inputs
-    logic [11:0] vga_hcount, vga_vcount;
+    logic [10:0] vga_hcount, vga_vcount;
     logic vga_hblnk, vga_vblnk;
     logic [11:0] vga_rgb_in;
     
@@ -49,8 +48,10 @@ module archer_draw (
     logic [11:0] rel_x_ff, rel_y_ff;
     logic draw_archer_ff;
     logic [11:0] rgb_nxt_ff;
-    logic [15:0] rom_addr;
-    logic [11:0] pixel_color;
+    
+    // Combinatorial signals (USUNIĘTO rejestry)
+    logic [15:0] rom_addr_comb;
+    logic [11:0] pixel_color_comb;
 
 //------------------------------------------------------------------------------
 // Input registration
@@ -93,6 +94,14 @@ always_ff @(posedge clk) begin
 end
 
 //------------------------------------------------------------------------------
+// Combinatorial ROM address and pixel color calculation
+//------------------------------------------------------------------------------
+always_comb begin
+    rom_addr_comb = rel_y_ff * ARCHER_IMG_WIDTH + rel_x_ff;
+    pixel_color_comb = archer_wpn_rom[rom_addr_comb];
+end
+
+//------------------------------------------------------------------------------
 // Drawing pipeline stage
 //------------------------------------------------------------------------------
 always_ff @(posedge clk) begin
@@ -117,28 +126,18 @@ always_ff @(posedge clk) begin
         rgb_nxt_ff <= vga_rgb_in;
         
         if (draw_archer_ff && rel_x_ff < ARCHER_IMG_WIDTH && rel_y_ff < ARCHER_IMG_HEIGHT) begin
-            rom_addr = rel_y_ff * ARCHER_IMG_WIDTH + rel_x_ff;
-            pixel_color = archer_wpn_rom[rom_addr];
-            if (pixel_color != 12'hF00) begin
-                rgb_nxt_ff <= pixel_color;
+            if (pixel_color_comb != 12'hF00) begin
+                rgb_nxt_ff <= pixel_color_comb;
             end
         end
     end
 end
 
+
 //------------------------------------------------------------------------------
 // Output assignment
 //------------------------------------------------------------------------------
 always_ff @(posedge clk) begin
-    if (rst) begin
-        vga_out.vcount <= '0;
-        vga_out.hcount <= '0;
-        vga_out.vsync <= '0;
-        vga_out.hsync <= '0;
-        vga_out.vblnk <= '0;
-        vga_out.hblnk <= '0;
-        vga_out.rgb <= '0;
-    end else begin
         vga_out.vcount <= vga_in.vcount;
         vga_out.hcount <= vga_in.hcount;
         vga_out.vsync <= vga_in.vsync;
@@ -146,7 +145,6 @@ always_ff @(posedge clk) begin
         vga_out.vblnk <= vga_in.vblnk;
         vga_out.hblnk <= vga_in.hblnk;
         vga_out.rgb <= rgb_nxt_ff;
-    end
 end
 
 endmodule
