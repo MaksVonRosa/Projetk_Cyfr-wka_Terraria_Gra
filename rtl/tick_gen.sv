@@ -14,7 +14,7 @@ module tick_gen(
 );
     logic [20:0] tick_count;
 
-    localparam integer FRAME_TICKS = 60_000_000 / 60;
+    localparam integer FRAME_TICKS = 65_000_000 / 60;
 
     always_ff @(posedge clk) begin
         if (rst) begin

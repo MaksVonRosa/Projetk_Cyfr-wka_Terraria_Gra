@@ -1,10 +1,8 @@
 Warnings, critical warnings and errors from synthesis and implementation
 
-Created: 2025-08-30 00:13:41
+Created: 2025-08-30 01:02:03
 
 ----SYNTHESIS----
-WARNING: [Synth 8-7071] port 'draw_weapon' of module 'weapon_position' is unconnected for instance 'u_weapon_position' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Weapon/weapon_top.sv:97]
-WARNING: [Synth 8-7023] instance 'u_weapon_position' of module 'weapon_position' has 15 connections declared, but only 14 given [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Weapon/weapon_top.sv:97]
 WARNING: [Synth 8-7071] port 'zpos' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:255]
 WARNING: [Synth 8-7071] port 'middle' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:255]
 WARNING: [Synth 8-7071] port 'right' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:255]
@@ -15,17 +13,15 @@ WARNING: [Synth 8-7071] port 'sety' of module 'MouseCtl' is unconnected for inst
 WARNING: [Synth 8-7071] port 'setmax_x' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:255]
 WARNING: [Synth 8-7071] port 'setmax_y' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:255]
 WARNING: [Synth 8-7023] instance 'u_MouseCtl' of module 'MouseCtl' has 16 connections declared, but only 7 given [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:255]
-WARNING: [Synth 8-3848] Net draw_weapon in module/entity weapon_position does not have driver. [C:/Users/Damian/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Weapon/weapon_position.sv:17]
-WARNING: [Synth 8-7129] Port draw_weapon in module weapon_position is either unconnected or has no load
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 
 ----IMPLEMENTATION----
 WARNING: [Place 46-29] Timing had been disabled during Placer and, therefore, physical synthesis in Placer will be skipped.
 WARNING: [Timing 38-313] There are no user specified timing constraints. Timing constraints are needed for proper timing analysis.
 WARNING: [Power 33-232] No user defined clocks were found in the design! Power estimation will be inaccurate until this is corrected.
-WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout1_buf. Out of range!
 WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout2_buf. Out of range!
 WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout1_buf. Out of range!
 WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout2_buf. Out of range!
 WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout1_buf. Out of range!
 WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout2_buf. Out of range!
+WARNING: [Power 33-230] Invalid input clock frequency for inst/clkout1_buf. Out of range!

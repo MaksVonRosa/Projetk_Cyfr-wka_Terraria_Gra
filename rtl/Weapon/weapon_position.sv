@@ -14,7 +14,6 @@ module weapon_position (
     input   logic [11:0] pos_y,   
     input   logic [11:0] xpos_MouseCtl,   
 
-    output  logic draw_weapon,
     output  logic flip_hor_melee,
     output  logic flip_hor_archer,
     output  logic [11:0] pos_x_melee_offset,
