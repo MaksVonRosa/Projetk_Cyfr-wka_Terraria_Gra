@@ -25,7 +25,9 @@ module top_vga_basys3 (
 
     wire clk_ss;
     wire locked;
-    wire clk65MHz;
+    // wire clk45MHz;
+    wire clk45Mhz;
+    wire clk50Mhz;
     wire clk100MHz;
     wire pclk_mirror;
 
@@ -33,14 +35,15 @@ module top_vga_basys3 (
 
     clk_wiz_0_clk_wiz inst (
         .clk100MHz(clk100MHz),
-        .clk65MHz(clk65MHz),
+        .clk45Mhz(clk45Mhz),
+        .clk50Mhz(clk50Mhz),
         .locked(locked),
         .clk_in1(clk)
     );
 
     ODDR pclk_oddr (
         .Q(pclk_mirror),
-        .C(clk65MHz),
+        .C(clk45Mhz),
         .CE(1'b1),
         .D1(1'b1),
         .D2(1'b0),
@@ -73,7 +76,7 @@ module top_vga_basys3 (
     logic       uart_rd;
 
     top_vga u_top_vga (
-        .clk(clk65MHz),
+        .clk(clk45Mhz),
         .clk100MHz(clk100MHz),
         .rst(btnC),
         .ps2_clk(PS2Clk),
@@ -106,7 +109,7 @@ module top_vga_basys3 (
     );
 
     uart_game_encoder u_uart_encoder (
-        .clk(clk65MHz),
+        .clk(clk45Mhz),
         .rst(btnC),
         .game_start(game_start),
         .char_x(char_x),
@@ -128,7 +131,7 @@ module top_vga_basys3 (
         .DVSR_BIT(6),
         .FIFO_W(6)
     ) uart_unit (
-        .clk(clk65MHz),
+        .clk(clk45Mhz),
         .reset(btnC),
         .wr_uart(uart_wr),
         .w_data(uart_data),
@@ -142,7 +145,7 @@ module top_vga_basys3 (
 
 
     uart_game_decoder u_uart_decoder (
-        .clk(clk65MHz),
+        .clk(clk45Mhz),
         .rst(btnC),
         .uart_data(r_data),
         .uart_rd(uart_rd),

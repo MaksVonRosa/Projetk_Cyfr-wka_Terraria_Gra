@@ -53,8 +53,9 @@
 //  Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase
 //   Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)
 //----------------------------------------------------------------------------
-// clk100MHz__100.00000______0.000______50.0______130.067_____99.281
-// clk65MHz__65.00000______0.000______50.0______142.278_____99.281
+// clk100MHz__100.00000______0.000______50.0______137.681____105.461
+// clk45Mhz__45.00000______0.000______50.0______163.238____105.461
+// clk50Mhz__56.25000______0.000______50.0______155.428____105.461
 //
 //----------------------------------------------------------------------------
 // Input Clock   Freq (MHz)    Input Jitter (UI)
@@ -68,7 +69,8 @@ module clk_wiz_0_clk_wiz
  (// Clock in ports
   // Clock out ports
   output        clk100MHz,
-  output        clk65MHz,
+  output        clk45Mhz,
+  output        clk50Mhz,
   // Status and control signals
   output        locked,
   input         clk_in1
@@ -92,8 +94,8 @@ wire clk_in2_clk_wiz_0;
   //    * Unused outputs are labeled unused
 
   wire        clk100MHz_clk_wiz_0;
-  wire        clk65MHz_clk_wiz_0;
-  wire        clk_out3_clk_wiz_0;
+  wire        clk45Mhz_clk_wiz_0;
+  wire        clk50Mhz_clk_wiz_0;
   wire        clk_out4_clk_wiz_0;
   wire        clk_out5_clk_wiz_0;
   wire        clk_out6_clk_wiz_0;
@@ -108,7 +110,6 @@ wire clk_in2_clk_wiz_0;
   wire        clkfboutb_unused;
     wire clkout0b_unused;
    wire clkout1b_unused;
-   wire clkout2_unused;
    wire clkout2b_unused;
    wire clkout3_unused;
    wire clkout3b_unused;
@@ -123,6 +124,9 @@ wire clk_in2_clk_wiz_0;
   (* KEEP = "TRUE" *) 
   (* ASYNC_REG = "TRUE" *)
   reg  [7 :0] seq_reg2 = 0;
+  (* KEEP = "TRUE" *) 
+  (* ASYNC_REG = "TRUE" *)
+  reg  [7 :0] seq_reg3 = 0;
 
   MMCME2_ADV
   #(.BANDWIDTH            ("OPTIMIZED"),
@@ -130,17 +134,21 @@ wire clk_in2_clk_wiz_0;
     .COMPENSATION         ("ZHOLD"),
     .STARTUP_WAIT         ("FALSE"),
     .DIVCLK_DIVIDE        (1),
-    .CLKFBOUT_MULT_F      (9.750),
+    .CLKFBOUT_MULT_F      (9.000),
     .CLKFBOUT_PHASE       (0.000),
     .CLKFBOUT_USE_FINE_PS ("FALSE"),
-    .CLKOUT0_DIVIDE_F     (9.750),
+    .CLKOUT0_DIVIDE_F     (9.000),
     .CLKOUT0_PHASE        (0.000),
     .CLKOUT0_DUTY_CYCLE   (0.500),
     .CLKOUT0_USE_FINE_PS  ("FALSE"),
-    .CLKOUT1_DIVIDE       (15),
+    .CLKOUT1_DIVIDE       (20),
     .CLKOUT1_PHASE        (0.000),
     .CLKOUT1_DUTY_CYCLE   (0.500),
     .CLKOUT1_USE_FINE_PS  ("FALSE"),
+    .CLKOUT2_DIVIDE       (16),
+    .CLKOUT2_PHASE        (0.000),
+    .CLKOUT2_DUTY_CYCLE   (0.500),
+    .CLKOUT2_USE_FINE_PS  ("FALSE"),
     .CLKIN1_PERIOD        (10.000))
   mmcm_adv_inst
     // Output clocks
@@ -149,9 +157,9 @@ wire clk_in2_clk_wiz_0;
     .CLKFBOUTB           (clkfboutb_unused),
     .CLKOUT0             (clk100MHz_clk_wiz_0),
     .CLKOUT0B            (clkout0b_unused),
-    .CLKOUT1             (clk65MHz_clk_wiz_0),
+    .CLKOUT1             (clk45Mhz_clk_wiz_0),
     .CLKOUT1B            (clkout1b_unused),
-    .CLKOUT2             (clkout2_unused),
+    .CLKOUT2             (clk50Mhz_clk_wiz_0),
     .CLKOUT2B            (clkout2b_unused),
     .CLKOUT3             (clkout3_unused),
     .CLKOUT3B            (clkout3b_unused),
@@ -213,16 +221,29 @@ wire clk_in2_clk_wiz_0;
 
 
   BUFGCE clkout2_buf
-   (.O   (clk65MHz),
+   (.O   (clk45Mhz),
     .CE  (seq_reg2[7]),
-    .I   (clk65MHz_clk_wiz_0));
+    .I   (clk45Mhz_clk_wiz_0));
  
   BUFH clkout2_buf_en
-   (.O   (clk65MHz_clk_wiz_0_en_clk),
-    .I   (clk65MHz_clk_wiz_0));
+   (.O   (clk45Mhz_clk_wiz_0_en_clk),
+    .I   (clk45Mhz_clk_wiz_0));
  
-  always @(posedge clk65MHz_clk_wiz_0_en_clk)
+  always @(posedge clk45Mhz_clk_wiz_0_en_clk)
         seq_reg2 <= {seq_reg2[6:0],locked_int};
+
+
+  BUFGCE clkout3_buf
+   (.O   (clk50Mhz),
+    .CE  (seq_reg3[7]),
+    .I   (clk50Mhz_clk_wiz_0));
+ 
+  BUFH clkout3_buf_en
+   (.O   (clk50Mhz_clk_wiz_0_en_clk),
+    .I   (clk50Mhz_clk_wiz_0));
+ 
+  always @(posedge clk50Mhz_clk_wiz_0_en_clk)
+        seq_reg3 <= {seq_reg3[6:0],locked_int};
 
 
 
