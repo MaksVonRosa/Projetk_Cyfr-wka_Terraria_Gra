@@ -40,7 +40,7 @@ module hearts_display #(
     // local variables
     //------------------------------------------------------------------------------
     logic [11:0] heart_rom [0:HEART_W*HEART_H-1];
-    initial $readmemh("../../GameSprites/Heart.dat", heart_rom);
+    initial $readmemh("../GameSprites/Heart.dat", heart_rom);
 
     logic [7:0] damage_cooldown;
 

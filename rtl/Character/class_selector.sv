@@ -54,9 +54,9 @@ module class_selector (
     logic [11:0] rgb_out;
 
     initial begin
-        $readmemh("../../GameSprites/Melee.dat", melee_rom);
-        $readmemh("../../GameSprites/Archer.dat", archer_rom);
-        $readmemh("../../GameSprites/SELECT_BUTTON.dat",  select_rom);
+        $readmemh("../GameSprites/Melee.dat", melee_rom);
+        $readmemh("../GameSprites/Archer.dat", archer_rom);
+        $readmemh("../GameSprites/SELECT_BUTTON.dat",  select_rom);
     end
 
     assign char_class = selected_class;

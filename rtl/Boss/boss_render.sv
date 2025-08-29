@@ -37,7 +37,7 @@ module boss_render (
     logic [11:0] hp_width; 
     logic boss_alive_nxt; 
 
-    initial $readmemh("../../GameSprites/Boss.dat", boss_rom);
+    initial $readmemh("../GameSprites/Boss.dat", boss_rom);
 
     always_comb begin
         rgb_nxt = vga_in.rgb;

@@ -47,8 +47,8 @@ module game_screen (
     logic classes_ok;
 
     initial begin
-        $readmemh("../../GameSprites/START_BUTTON.dat", start_rom);
-        $readmemh("../../GameSprites/AGAIN_BUTTON.dat",  back_rom);
+        $readmemh("../GameSprites/START_BUTTON.dat", start_rom);
+        $readmemh("../GameSprites/AGAIN_BUTTON.dat",  back_rom);
     end
 
     always_comb begin

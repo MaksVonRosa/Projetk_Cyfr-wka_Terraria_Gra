@@ -39,8 +39,8 @@ module draw_player_2 (
     logic [11:0] melee_rom  [0:IMG_WIDTH*IMG_HEIGHT-1];
 
     initial begin
-        $readmemh("../../GameSprites/Archer.dat", archer_rom);
-        $readmemh("../../GameSprites/Melee.dat",  melee_rom);
+        $readmemh("../GameSprites/Archer.dat", archer_rom);
+        $readmemh("../GameSprites/Melee.dat",  melee_rom);
     end
 
     logic [5:0] rel_x; 

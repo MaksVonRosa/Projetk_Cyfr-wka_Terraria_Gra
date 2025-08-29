@@ -36,7 +36,6 @@ module weapon_top (
     vga_if vga_if_weapon_melee();
     vga_if vga_if_weapon_archer();
 
-    logic        draw_weapon;
     logic        flip_hor_melee;
     logic [11:0] pos_x_melee_offset;
     logic [11:0] pos_y_melee_offset;
@@ -54,29 +53,6 @@ module weapon_top (
 
     logic [PROJECTILE_COUNT-1:0]projectile_animated;
     
-
-
-    // weapon_draw u_weapon_draw (
-    //     .clk,
-    //     .rst,
-    //     .pos_x_melee_offset,
-    //     .pos_y_melee_offset,
-    //     .flip_hor_melee(flip_hor_melee),
-    //     .flip_hor_archer(flip_hor_archer),
-    //     .mouse_clicked(draw_weapon),
-    //     .anim_x_offset,
-    //     .game_active,
-    //     .pos_x_archer_offset,
-    //     .pos_y_archer_offset,
-    //     .char_class(char_class),
-    //     .melee_hit(melee_hit),
-    //     .boss_x(boss_x),
-    //     .boss_y(boss_y),
-    //     .boss_alive(boss_alive),
-    //     .alive(alive),   
-    //     .vga_in,
-    //     .vga_out(vga_if_weapon.out)
-    // );
     weapon_draw_melee u_weapon_draw_melee (
         .clk,
         .rst,

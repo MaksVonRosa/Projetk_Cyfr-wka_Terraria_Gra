@@ -38,7 +38,7 @@ parameter PROJECTILE_COUNT = vga_pkg::PROJECTILE_COUNT
 //------------------------------------------------------------------------------
 
     logic [11:0] archer_proj_rom [0:IMG_WIDTH*IMG_HEIGHT-1];
-    initial $readmemh("../../GameSprites/Archer_projectile.dat", archer_proj_rom);
+    initial $readmemh("../GameSprites/Archer_projectile.dat", archer_proj_rom);
 
    
     logic [11:0] rgb_nxt, pixel_color;

@@ -47,11 +47,9 @@ localparam PROJECTILE_WPN_Y_OFFSET = -4;
    
 always_ff @(posedge clk) begin
         if (rst) begin
-            draw_weapon <= 0;
             flip_hor_melee <= 0;
             flip_hor_archer <= 0;
         end else if (mouse_clicked) begin
-            draw_weapon <= 1;
             if (xpos_MouseCtl > pos_x)begin
                 flip_hor_melee <= 0; 
                 flip_hor_archer <= 0; 
@@ -59,10 +57,7 @@ always_ff @(posedge clk) begin
                 flip_hor_melee <= 1; 
                 flip_hor_archer <= 1; 
             end
-            
-        end else begin
-            draw_weapon <= 0;
-        end
+        end 
     end
     
 assign pos_x_melee_offset = flip_hor_melee ? (pos_x -  MELEE_WPN_X_OFFSET) : (pos_x +  MELEE_WPN_X_OFFSET);

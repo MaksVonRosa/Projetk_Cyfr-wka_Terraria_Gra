@@ -148,7 +148,6 @@ module top_vga (
 
     platform u_platform (
         .clk(clk),
-        //.rst(rst),
         .char_x(char_x),
         .char_y(char_y),
         .char_hgt(char_hgt),

@@ -7,7 +7,7 @@
  */
 //////////////////////////////////////////////////////////////////////////////
 module archer_projectile_animated #(
-    parameter PROJECTILE_COUNT = 4
+    parameter PROJECTILE_COUNT = vga_pkg::PROJECTILE_COUNT
 )(
     input  logic        clk,
     input  logic        rst,
@@ -34,8 +34,8 @@ module archer_projectile_animated #(
 // local parameters
 //------------------------------------------------------------------------------
  
-    localparam PROJECTILE_SPEED    = 32;   
-    localparam PROJECTILE_LIFETIME = 64;   
+    localparam PROJECTILE_SPEED    = 30;   
+    localparam PROJECTILE_LIFETIME = 60;   
     localparam FIRE_COOLDOWN       = 25;    
 
 //------------------------------------------------------------------------------
@@ -133,5 +133,4 @@ module archer_projectile_animated #(
 
     assign projectile_animated = projectile_active;
 
-    
 endmodule

@@ -25,7 +25,6 @@ module top_vga_basys3 (
 
     wire clk_ss;
     wire locked;
-    // wire clk45MHz;
     wire clk45Mhz;
     wire clk50Mhz;
     wire clk100MHz;
