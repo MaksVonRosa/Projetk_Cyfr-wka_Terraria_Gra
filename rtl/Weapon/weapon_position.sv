@@ -14,7 +14,6 @@ module weapon_position (
     input   logic [11:0] pos_y,   
     input   logic [11:0] xpos_MouseCtl,   
 
-    output  logic draw_weapon,
     output  logic flip_hor_melee,
     output  logic flip_hor_archer,
     output  logic [11:0] pos_x_melee_offset,
@@ -47,11 +46,9 @@ localparam PROJECTILE_WPN_Y_OFFSET = -4;
    
 always_ff @(posedge clk) begin
         if (rst) begin
-            draw_weapon <= 0;
             flip_hor_melee <= 0;
             flip_hor_archer <= 0;
         end else if (mouse_clicked) begin
-            draw_weapon <= 1;
             if (xpos_MouseCtl > pos_x)begin
                 flip_hor_melee <= 0; 
                 flip_hor_archer <= 0; 
@@ -61,7 +58,6 @@ always_ff @(posedge clk) begin
             end
             
         end else begin
-            draw_weapon <= 0;
         end
     end
     

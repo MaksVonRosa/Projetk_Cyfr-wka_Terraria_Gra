@@ -14,6 +14,8 @@ sv work ../../rtl/vga/vga_pkg.sv \
         ../../rtl/Weapon/weapon_top.sv \
         ../../rtl/Weapon/melee_wpn_animated.sv \
         ../../rtl/Weapon/weapon_draw.sv \
+        ../../rtl/Weapon/weapon_draw_melee.sv \
+        ../../rtl/Weapon/weapon_draw_archer.sv \
         ../../rtl/Weapon/weapon_position.sv \
         ../../rtl/Weapon/archer_projectile_draw.sv \
         ../../rtl/Weapon/archer_projectile_animated.sv \
@@ -44,6 +46,6 @@ sv work ../../rtl/vga/vga_pkg.sv \
 
 verilog work ../../rtl/clk_wiz_0_clk_wiz.v
 
-#vhdl work ../../rtl/Mouse/MouseCtl.vhd \
- #    ../../rtl/Mouse/Ps2Interface.vhd \
-  #   ../../rtl/Mouse/MouseDisplay.vhd \
+vhdl work ../../rtl/Mouse/MouseCtl.vhd \
+     ../../rtl/Mouse/Ps2Interface.vhd \
+     ../../rtl/Mouse/MouseDisplay.vhd \

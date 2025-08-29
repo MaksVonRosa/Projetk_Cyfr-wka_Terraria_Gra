@@ -27,6 +27,7 @@ set target xc7a35tcpg236-1
 # Specify .xdc files location                   -- EDIT
 set xdc_files {
     constraints/top_vga_basys3.xdc
+    constraints/clk_wiz_0.xdc
 }
 
 # Specify SystemVerilog design files location   -- EDIT
@@ -34,6 +35,8 @@ set sv_files {
     ../rtl/Weapon/weapon_top.sv
     ../rtl/Weapon/melee_wpn_animated.sv
     ../rtl/Weapon/weapon_draw.sv
+    ../rtl/Weapon/weapon_draw_melee.sv
+    ../rtl/Weapon/weapon_draw_archer.sv
     ../rtl/Weapon/weapon_position.sv
     ../rtl/Weapon/archer_projectile_draw.sv
     ../rtl/Weapon/archer_projectile_animated.sv

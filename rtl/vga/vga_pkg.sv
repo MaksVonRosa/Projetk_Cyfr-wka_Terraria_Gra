@@ -28,7 +28,7 @@ package vga_pkg;
     localparam VSYNC_START = 771;
     localparam VSYNC_END = 777;
 
-    localparam PROJECTILE_COUNT = 4;
+    localparam PROJECTILE_COUNT = 1;
     
     localparam BOSS_HGT    = 95;
     localparam BOSS_LNG    = 106;

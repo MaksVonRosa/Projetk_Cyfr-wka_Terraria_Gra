@@ -32,8 +32,9 @@ module weapon_top (
     //------------------------------------------------------------------------------
     // local variables
     //------------------------------------------------------------------------------
-
-    vga_if vga_if_weapon();
+    // vga_if vga_if_weapon();
+    vga_if vga_if_weapon_melee();
+    vga_if vga_if_weapon_archer();
 
     logic        draw_weapon;
     logic        flip_hor_melee;
@@ -48,25 +49,43 @@ module weapon_top (
     logic [11:0] pos_x_projectile_offset;
     logic [11:0] pos_y_projectile_offset;
 
-    logic [47:0] pos_x_proj;
-    logic [47:0] pos_y_proj;
+    logic [PROJECTILE_COUNT*12-1:0] pos_x_proj;
+    logic [PROJECTILE_COUNT*12-1:0] pos_y_proj;
 
     logic [PROJECTILE_COUNT-1:0]projectile_animated;
     
 
 
-    weapon_draw u_weapon_draw (
+    // weapon_draw u_weapon_draw (
+    //     .clk,
+    //     .rst,
+    //     .pos_x_melee_offset,
+    //     .pos_y_melee_offset,
+    //     .flip_hor_melee(flip_hor_melee),
+    //     .flip_hor_archer(flip_hor_archer),
+    //     .mouse_clicked(draw_weapon),
+    //     .anim_x_offset,
+    //     .game_active,
+    //     .pos_x_archer_offset,
+    //     .pos_y_archer_offset,
+    //     .char_class(char_class),
+    //     .melee_hit(melee_hit),
+    //     .boss_x(boss_x),
+    //     .boss_y(boss_y),
+    //     .boss_alive(boss_alive),
+    //     .alive(alive),   
+    //     .vga_in,
+    //     .vga_out(vga_if_weapon.out)
+    // );
+    weapon_draw_melee u_weapon_draw_melee (
         .clk,
         .rst,
         .pos_x_melee_offset,
         .pos_y_melee_offset,
         .flip_hor_melee(flip_hor_melee),
-        .flip_hor_archer(flip_hor_archer),
-        .mouse_clicked(draw_weapon),
+        .mouse_clicked(mouse_clicked),
         .anim_x_offset,
         .game_active,
-        .pos_x_archer_offset,
-        .pos_y_archer_offset,
         .char_class(char_class),
         .melee_hit(melee_hit),
         .boss_x(boss_x),
@@ -74,7 +93,20 @@ module weapon_top (
         .boss_alive(boss_alive),
         .alive(alive),   
         .vga_in,
-        .vga_out(vga_if_weapon.out)
+        .vga_out(vga_if_weapon_melee.out)
+    );
+    weapon_draw_archer u_weapon_draw_archer (
+        .clk,
+        .rst,
+        .flip_hor_archer(flip_hor_archer),
+        .mouse_clicked(mouse_clicked),
+        .game_active,
+        .pos_x_archer_offset,
+        .pos_y_archer_offset,
+        .char_class(char_class),
+        .alive(alive),   
+        .vga_in(vga_if_weapon_melee.in),
+        .vga_out(vga_if_weapon_archer.out)
     );
 
     melee_wpn_animated u_melee_wpn_animated (
@@ -93,7 +125,6 @@ module weapon_top (
             .pos_x(pos_x),
             .pos_y(pos_y),
             .xpos_MouseCtl(xpos_MouseCtl),
-            .draw_weapon(draw_weapon),
             .flip_hor_melee(flip_hor_melee),
             .flip_hor_archer(flip_hor_archer),
             .pos_x_melee_offset(pos_x_melee_offset),
@@ -116,7 +147,7 @@ module weapon_top (
         .game_active(game_active),
         .char_class(char_class),
         .alive(alive),
-        .vga_in(vga_if_weapon.in),
+        .vga_in(vga_if_weapon_archer.in),
         .vga_out
     );
 
