@@ -253,24 +253,24 @@ module top_vga (
 );
 
 
-    MouseCtl u_MouseCtl (
-        .clk(clk100MHz),
-        .rst,
-        .ps2_clk(ps2_clk),
-        .ps2_data(ps2_data),
-        .xpos(xpos_MouseCtl),
-        .ypos(ypos_MouseCtl),
-        .left(mouse_clicked)
-    );
+    // MouseCtl u_MouseCtl (
+    //     .clk(clk100MHz),
+    //     .rst,
+    //     .ps2_clk(ps2_clk),
+    //     .ps2_data(ps2_data),
+    //     .xpos(xpos_MouseCtl),
+    //     .ypos(ypos_MouseCtl),
+    //     .left(mouse_clicked)
+    // );
 
-    draw_mouse u_draw_mouse (
-        .clk(clk),
-        .rst(rst),
-        .vga_in_mouse(vga_if_wpn.in),
-        .vga_out_mouse(vga_if_mouse.out),
-        .xpos(xpos_MouseCtl),
-        .ypos(ypos_MouseCtl)
-    );
+    // draw_mouse u_draw_mouse (
+    //     .clk(clk),
+    //     .rst(rst),
+    //     .vga_in_mouse(vga_if_wpn.in),
+    //     .vga_out_mouse(vga_if_mouse.out),
+    //     .xpos(xpos_MouseCtl),
+    //     .ypos(ypos_MouseCtl)
+    // );
 
     tick_gen u_tick_gen(
 

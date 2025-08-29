@@ -44,6 +44,6 @@ sv work ../../rtl/vga/vga_pkg.sv \
 
 verilog work ../../rtl/clk_wiz_0_clk_wiz.v
 
-vhdl work ../../rtl/Mouse/MouseCtl.vhd \
-     ../../rtl/Mouse/Ps2Interface.vhd \
-     ../../rtl/Mouse/MouseDisplay.vhd \
+#vhdl work ../../rtl/Mouse/MouseCtl.vhd \
+ #    ../../rtl/Mouse/Ps2Interface.vhd \
+  #   ../../rtl/Mouse/MouseDisplay.vhd \
