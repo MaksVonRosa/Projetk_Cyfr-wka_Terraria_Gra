@@ -27,6 +27,7 @@ set target xc7a35tcpg236-1
 # Specify .xdc files location                   -- EDIT
 set xdc_files {
     constraints/top_vga_basys3.xdc
+    constraints/clk_wiz_0.xdc
 }
 
 # Specify SystemVerilog design files location   -- EDIT
@@ -51,6 +52,7 @@ set sv_files {
     ../rtl/Boss/boss_top.sv
     ../rtl/Game/platform.sv
     ../rtl/Game/game_fsm.sv
+    ../rtl/Game/read_rom.sv
     ../rtl/Game/game_screen.sv
     ../rtl/Character/class_selector.sv
     ../rtl/uart/uart_game_encoder.sv

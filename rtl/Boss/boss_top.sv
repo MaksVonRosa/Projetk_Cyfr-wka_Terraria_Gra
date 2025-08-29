@@ -23,17 +23,32 @@ module boss_top (
     input  logic player_2_data_valid,
     vga_if.in  vga_in,
     vga_if.out vga_out,
-    output logic [11:0] boss_x,
-    output logic [11:0] boss_y,
+    output logic [11:0] boss_x_out,
+    output logic [11:0] boss_y_out,
     output logic [11:0] boss_hgt,
     output logic [11:0] boss_lng,
     output logic [6:0]  boss_hp,
     output logic        boss_alive
 );
     import vga_pkg::*;
-    vga_if vga_boss_mid();
-
     
+    localparam IMG_WIDTH   = 212;
+    localparam IMG_HEIGHT  = 191;
+    
+    vga_if vga_boss_mid();
+    logic [15:0] rom_addr;
+    logic [11:0] boss_data;
+    logic [11:0] boss_x;
+    logic [11:0] boss_y;
+
+    read_rom #(
+        .ROM_WIDTH(12), 
+        .ROM_DEPTH(IMG_WIDTH*IMG_HEIGHT), 
+        .FILE_PATH("../../GameSprites/Boss.dat")
+    ) boss_rom_inst(
+        .addr(rom_addr), 
+        .data(boss_data)
+    );
 
     boss_move u_move (
         .clk(clk),
@@ -69,10 +84,15 @@ module boss_top (
         .boss_x(boss_x),
         .boss_y(boss_y),
         .boss_hp(boss_hp),
+        .boss_data(boss_data),      // Podłączone dane z ROM
+        .rom_addr(rom_addr),        // Podłączony adres do ROM
         .boss_alive(boss_alive),
         .vga_in(vga_boss_mid.in),
         .vga_out(vga_out)
     );
-    assign boss_hgt = BOSS_HGT;
-    assign boss_lng = BOSS_LNG;
+    
+    assign boss_hgt = 95;  // BOSS_HGT
+    assign boss_lng = 106; // BOSS_LNG
+    assign boss_x_out = boss_x;  // BOSS_HGT
+    assign boss_y_out = boss_y; // BOSS_LNG
 endmodule

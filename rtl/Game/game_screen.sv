@@ -2,9 +2,9 @@
 /*
  Module name:   game_screen
  Author:        Maksymilian Wiącek
- Last modified: 2025-08-26
+ Last modified: 2025-08-29
  Description:  Game screen module with start/restart button rendering
- */
+*/
 //////////////////////////////////////////////////////////////////////////////
 module game_screen (
     input  logic clk,
@@ -16,6 +16,9 @@ module game_screen (
     input  logic [11:0] mouse_x,
     input  logic [11:0] mouse_y,
     input  logic        mouse_clicked,
+    input  logic [11:0] start_data,
+    input  logic [11:0] back_data,
+    output logic [13:0] rom_addr,
     output logic        game_start,
     vga_if.in  vga_in,
     vga_if.out vga_out
@@ -30,91 +33,178 @@ module game_screen (
     localparam RECT_W = 125;
     localparam RECT_H = 75;
 
-    localparam integer CLICK_COOLDOWN = 20;
-
     //------------------------------------------------------------------------------
     // local variables
     //------------------------------------------------------------------------------
     logic [11:0] rgb_nxt;
-    logic [13:0] rom_addr;
-    logic [11:0] start_rom [0:9374];
-    logic [11:0] back_rom  [0:9374];
     logic [11:0] pixel_color;
-    logic [11:0] rel_x, rel_y;
-    logic in_rect;
+    
+    // Pipeline registers
+    logic [11:0] vga_hcount_ff, vga_vcount_ff;
+    logic [11:0] vga_rgb_ff;
+    logic [1:0] game_active_ff;
+    logic in_rect_ff;
+    logic [11:0] rel_x_ff, rel_y_ff;
+    logic [11:0] start_data_ff, back_data_ff;
+    
+    // Input registration
+    logic [11:0] mouse_x_ff, mouse_y_ff;
+    logic mouse_clicked_ff;
+    logic [1:0] char_class_ff, player_2_class_ff;
+    logic player_2_data_valid_ff;
+    logic classes_ok_ff;
 
-    logic [31:0] wait_counter;
-    logic classes_ok;
-
-    initial begin
-        $readmemh("../../GameSprites/START_BUTTON.dat", start_rom);
-        $readmemh("../../GameSprites/AGAIN_BUTTON.dat",  back_rom);
-    end
-
-    always_comb begin
-        if (!player_2_data_valid) begin
-            classes_ok = (char_class != 0);
-        end else begin
-            classes_ok = (char_class != 0) &&
-                         (player_2_class != 0) &&
-                         (char_class != player_2_class);
-        end
-    end
-
-    always_comb begin
-        rgb_nxt = vga_in.rgb;
-        in_rect = (vga_in.hcount >= RECT_X && vga_in.hcount < RECT_X+RECT_W &&
-                   vga_in.vcount >= RECT_Y && vga_in.vcount < RECT_Y+RECT_H);
-
-        if (in_rect) begin
-            rel_x = vga_in.hcount - RECT_X;
-            rel_y = vga_in.vcount - RECT_Y;
-            rom_addr = rel_y * 125 + rel_x;
-            if (game_active == 0)
-                pixel_color = start_rom[rom_addr];
-            else if (game_active == 2)
-                pixel_color = back_rom[rom_addr];
-            else
-                pixel_color = rgb_nxt;
-
-            if (pixel_color != 12'h000)
-                rgb_nxt = pixel_color;
-        end
-    end
-
+    //------------------------------------------------------------------------------
+    // Input registration stage
+    //------------------------------------------------------------------------------
     always_ff @(posedge clk) begin
         if (rst) begin
-            game_start   <= 0;
-            wait_counter <= 0;
+            vga_hcount_ff <= 0;
+            vga_vcount_ff <= 0;
+            vga_rgb_ff <= 0;
+            game_active_ff <= 0;
+            start_data_ff <= 0;
+            back_data_ff <= 0;
+            mouse_x_ff <= 0;
+            mouse_y_ff <= 0;
+            mouse_clicked_ff <= 0;
+            char_class_ff <= 0;
+            player_2_class_ff <= 0;
+            player_2_data_valid_ff <= 0;
         end else begin
-            game_start   <= 0;
-            if (wait_counter > 0) wait_counter <= wait_counter - 1;
+            vga_hcount_ff <= vga_in.hcount;
+            vga_vcount_ff <= vga_in.vcount;
+            vga_rgb_ff <= vga_in.rgb;
+            game_active_ff <= game_active;
+            start_data_ff <= start_data;
+            back_data_ff <= back_data;
+            mouse_x_ff <= mouse_x;
+            mouse_y_ff <= mouse_y;
+            mouse_clicked_ff <= mouse_clicked;
+            char_class_ff <= char_class;
+            player_2_class_ff <= player_2_class;
+            player_2_data_valid_ff <= player_2_data_valid;
+        end
+    end
 
-            if (mouse_clicked) begin
-                if (game_active == 0 && wait_counter == 0 &&
-                    classes_ok &&
-                    mouse_x >= RECT_X && mouse_x < RECT_X+RECT_W &&
-                    mouse_y >= RECT_Y && mouse_y < RECT_Y+RECT_H) begin
-                    game_start   <= 1;
-                    wait_counter <= CLICK_COOLDOWN;
-                end
-                if (game_active == 2 && wait_counter == 0 &&
-                    mouse_x >= RECT_X && mouse_x < RECT_X+RECT_W &&
-                    mouse_y >= RECT_Y && mouse_y < RECT_Y+RECT_H) begin
+    //------------------------------------------------------------------------------
+    // Class check logic
+    //------------------------------------------------------------------------------
+    always_ff @(posedge clk) begin
+        if (rst) begin
+            classes_ok_ff <= 0;
+        end else begin
+            if (!player_2_data_valid_ff) begin
+                classes_ok_ff <= (char_class_ff != 0);
+            end else begin
+                classes_ok_ff <= (char_class_ff != 0) &&
+                                (player_2_class_ff != 0) &&
+                                (char_class_ff != player_2_class_ff);
+            end
+        end
+    end
+
+    //------------------------------------------------------------------------------
+    // Rectangle detection
+    //------------------------------------------------------------------------------
+    always_ff @(posedge clk) begin
+        if (rst) begin
+            in_rect_ff <= 0;
+            rel_x_ff <= 0;
+            rel_y_ff <= 0;
+        end else begin
+            in_rect_ff <= (vga_hcount_ff >= RECT_X && vga_hcount_ff < RECT_X+RECT_W &&
+                          vga_vcount_ff >= RECT_Y && vga_vcount_ff < RECT_Y+RECT_H);
+            
+            if (in_rect_ff) begin
+                rel_x_ff <= vga_hcount_ff - RECT_X;
+                rel_y_ff <= vga_vcount_ff - RECT_Y;
+            end else begin
+                rel_x_ff <= 0;
+                rel_y_ff <= 0;
+            end
+        end
+    end
+
+    //------------------------------------------------------------------------------
+    // ROM address calculation
+    //------------------------------------------------------------------------------
+    always_ff @(posedge clk) begin
+        if (rst) begin
+            rom_addr <= 0;
+        end else begin
+            rom_addr <= rel_y_ff * 125 + rel_x_ff;
+        end
+    end
+
+    //------------------------------------------------------------------------------
+    // RGB output logic
+    //------------------------------------------------------------------------------
+    always_ff @(posedge clk) begin
+        if (rst) begin
+            rgb_nxt <= 0;
+            pixel_color <= 0;
+        end else begin
+            rgb_nxt <= vga_rgb_ff;
+            pixel_color <= 0;
+            
+            if (in_rect_ff) begin
+                if (game_active_ff == 0)
+                    pixel_color <= start_data_ff;
+                else if (game_active_ff == 2)
+                    pixel_color <= back_data_ff;
+
+                if (pixel_color != 12'h000)
+                    rgb_nxt <= pixel_color;
+            end
+        end
+    end
+
+    //------------------------------------------------------------------------------
+    // Game start logic (SIMPLIFIED - no wait_counter)
+    //------------------------------------------------------------------------------
+    logic mouse_in_rect;
+    
+    always_ff @(posedge clk) begin
+        if (rst) begin
+            game_start <= 0;
+            mouse_in_rect <= 0;
+        end else begin
+            game_start <= 0;
+            
+            // Check if mouse is in rectangle
+            mouse_in_rect <= (mouse_x_ff >= RECT_X && mouse_x_ff < RECT_X+RECT_W &&
+                             mouse_y_ff >= RECT_Y && mouse_y_ff < RECT_Y+RECT_H);
+            
+            // Generate game_start pulse on valid click
+            if (mouse_clicked_ff && mouse_in_rect && classes_ok_ff) begin
+                if (game_active_ff == 0 || game_active_ff == 2) begin
                     game_start <= 1;
-                    wait_counter  <= CLICK_COOLDOWN;
                 end
             end
         end
     end
 
+    //------------------------------------------------------------------------------
+    // VGA output
+    //------------------------------------------------------------------------------
     always_ff @(posedge clk) begin
-        vga_out.vcount <= vga_in.vcount;
-        vga_out.vsync  <= vga_in.vsync;
-        vga_out.vblnk  <= vga_in.vblnk;
-        vga_out.hcount <= vga_in.hcount;
-        vga_out.hsync  <= vga_in.hsync;
-        vga_out.hblnk  <= vga_in.hblnk;
-        vga_out.rgb    <= rgb_nxt;
+        if (rst) begin
+            vga_out.vcount <= 0;
+            vga_out.vsync  <= 0;
+            vga_out.vblnk  <= 0;
+            vga_out.hcount <= 0;
+            vga_out.hsync  <= 0;
+            vga_out.hblnk  <= 0;
+            vga_out.rgb    <= 0;
+        end else begin
+            vga_out.vcount <= vga_in.vcount;
+            vga_out.vsync  <= vga_in.vsync;
+            vga_out.vblnk  <= vga_in.vblnk;
+            vga_out.hcount <= vga_in.hcount;
+            vga_out.hsync  <= vga_in.hsync;
+            vga_out.hblnk  <= vga_in.hblnk;
+            vga_out.rgb    <= rgb_nxt;
+        end
     end
 endmodule

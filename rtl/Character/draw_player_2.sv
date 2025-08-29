@@ -2,9 +2,9 @@
 /*
  Module name:   draw_player_2
  Author:        Maksymilian Wiącek
- Last modified: 2025-08-26
- Description:  Player 2 drawing module with sprite rendering
- */
+ Last modified: 2025-08-29
+ Description:   Player 2 drawing module with sprite rendering
+*/
 //////////////////////////////////////////////////////////////////////////////
 module draw_player_2 (
     input  logic clk,
@@ -16,37 +16,24 @@ module draw_player_2 (
     input  logic        player_2_data_valid,
     input  logic [3:0]  player_2_hp,
     input  logic [1:0]  game_active,
+    input  logic [11:0] archer_data,
+    input  logic [11:0] melee_data,
+    output logic [10:0] rom_addr,
     vga_if.in  vga_in,
     vga_if.out vga_out
 );
     import vga_pkg::*;
 
-    //------------------------------------------------------------------------------
-    // local parameters
-    //------------------------------------------------------------------------------
     localparam CHAR_HGT   = 26;
     localparam CHAR_LNG   = 19; 
     localparam IMG_WIDTH  = 39;
     localparam IMG_HEIGHT = 53;
 
-    //------------------------------------------------------------------------------
-    // local variables
-    //------------------------------------------------------------------------------
     logic [11:0] draw_x, draw_y;
     logic initialized;
-
-    logic [11:0] archer_rom [0:IMG_WIDTH*IMG_HEIGHT-1];
-    logic [11:0] melee_rom  [0:IMG_WIDTH*IMG_HEIGHT-1];
-
-    initial begin
-        $readmemh("../../GameSprites/Archer.dat", archer_rom);
-        $readmemh("../../GameSprites/Melee.dat",  melee_rom);
-    end
-
-    logic [5:0] rel_x; 
-    logic [5:0] rel_y;
+    logic [5:0] rel_x, rel_y;
     logic [11:0] pixel_color;
-    logic [10:0] rom_addr;
+    logic [11:0] rgb_nxt;
 
     always_ff @(posedge clk) begin
         if (rst) begin
@@ -61,8 +48,8 @@ module draw_player_2 (
     end
 
     always_comb begin
-        logic [11:0] rgb_nxt;
         rgb_nxt = vga_in.rgb;
+        rom_addr = 0;
 
         if (game_active == 1 && initialized && player_2_hp > 0 &&
             !vga_in.vblnk && !vga_in.hblnk &&
@@ -74,19 +61,18 @@ module draw_player_2 (
             rel_y = vga_in.vcount - (draw_y - CHAR_HGT);
             rel_x = player_2_flip_h ? (IMG_WIDTH - 1) - (vga_in.hcount - (draw_x - CHAR_LNG)) :
                                       (vga_in.hcount - (draw_x - CHAR_LNG));
+            rom_addr = rel_y * IMG_WIDTH + rel_x;
 
-            if (rel_x < IMG_WIDTH && rel_y < IMG_HEIGHT) begin
-                rom_addr = rel_y * IMG_WIDTH + rel_x;
-                case (player_2_class)
-                    2: pixel_color = archer_rom[rom_addr];
-                    1: pixel_color = melee_rom[rom_addr];
-                    default: pixel_color = 12'hF00;
-                endcase
+            case (player_2_class)
+                2: pixel_color = archer_data;
+                1: pixel_color = melee_data;
+                default: pixel_color = 12'hF00;
+            endcase
 
-                if (pixel_color != 12'hF00)
-                    rgb_nxt = pixel_color;
-            end
+            if (pixel_color != 12'hF00)
+                rgb_nxt = pixel_color;
         end
+
         vga_out.rgb = rgb_nxt;
     end
 

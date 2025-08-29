@@ -35,6 +35,34 @@ module weapon_top (
 
     vga_if vga_if_weapon();
 
+
+    localparam MELEE_IMG_WIDTH = 54;
+    localparam MELEE_IMG_HEIGHT = 28;
+    localparam ARCHER_IMG_WIDTH = 40;
+    localparam ARCHER_IMG_HEIGHT = 31;
+    
+
+    logic [15:0] weapon_rom_addr;
+    logic [11:0] melee_data, archer_data;
+
+    read_rom #(
+        .ROM_WIDTH(12), 
+        .ROM_DEPTH(MELEE_IMG_WIDTH*MELEE_IMG_HEIGHT), 
+        .FILE_PATH("../../GameSprites/Melee_wpn.dat")
+    ) melee_rom_inst(
+        .addr(weapon_rom_addr), 
+        .data(melee_data)
+    );
+    
+    read_rom #(
+        .ROM_WIDTH(12), 
+        .ROM_DEPTH(ARCHER_IMG_WIDTH*ARCHER_IMG_HEIGHT), 
+        .FILE_PATH("../../GameSprites/Archer_wpn.dat")
+    ) archer_rom_inst(
+        .addr(weapon_rom_addr), 
+        .data(archer_data)
+    );
+
     logic        draw_weapon;
     logic        flip_hor_melee;
     logic [11:0] pos_x_melee_offset;
@@ -48,38 +76,41 @@ module weapon_top (
     logic [11:0] pos_x_projectile_offset;
     logic [11:0] pos_y_projectile_offset;
 
-    logic [47:0] pos_x_proj;
-    logic [47:0] pos_y_proj;
+    logic [PROJECTILE_COUNT-1:0][11:0] pos_x_proj;
+    logic [PROJECTILE_COUNT-1:0][11:0] pos_y_proj;
 
     logic [PROJECTILE_COUNT-1:0]projectile_animated;
     
 
 
     weapon_draw u_weapon_draw (
-        .clk,
-        .rst,
-        .pos_x_melee_offset,
-        .pos_y_melee_offset,
+        .clk(clk),
+        .rst(rst),
+        .pos_x_melee_offset(pos_x_melee_offset),
+        .pos_y_melee_offset(pos_y_melee_offset),
         .flip_hor_melee(flip_hor_melee),
         .flip_hor_archer(flip_hor_archer),
         .mouse_clicked(draw_weapon),
-        .anim_x_offset,
-        .game_active,
-        .pos_x_archer_offset,
-        .pos_y_archer_offset,
+        .anim_x_offset(anim_x_offset),
+        .game_active(game_active),
+        .pos_x_archer_offset(pos_x_archer_offset),
+        .pos_y_archer_offset(pos_y_archer_offset),
         .char_class(char_class),
         .melee_hit(melee_hit),
         .boss_x(boss_x),
         .boss_y(boss_y),
         .boss_alive(boss_alive),
-        .alive(alive),   
-        .vga_in,
+        .alive(alive),
+        .melee_data(melee_data),
+        .archer_data(archer_data),
+        .rom_addr(weapon_rom_addr),
+        .vga_in(vga_in),
         .vga_out(vga_if_weapon.out)
     );
 
     melee_wpn_animated u_melee_wpn_animated (
-        .clk,
-        .rst,
+        .clk(clk),
+        .rst(rst),
         .frame_tick(frame_tick),
         .mouse_clicked(mouse_clicked),
         .anim_x_offset(anim_x_offset),
@@ -87,8 +118,8 @@ module weapon_top (
     );
 
     weapon_position u_weapon_position (
-            .clk,
-            .rst,
+            .clk(clk),
+            .rst(rst),
             .mouse_clicked(mouse_clicked),
             .pos_x(pos_x),
             .pos_y(pos_y),
@@ -107,8 +138,8 @@ module weapon_top (
 ------------------------------------------------------------------------------
 */
     archer_projectile_draw u_archer_projectile_draw(
-        .clk,
-        .rst,
+        .clk(clk),
+        .rst(rst),
         .pos_x_proj(pos_x_proj),
         .pos_y_proj(pos_y_proj),  
         .projectile_animated(projectile_animated),
@@ -117,14 +148,14 @@ module weapon_top (
         .char_class(char_class),
         .alive(alive),
         .vga_in(vga_if_weapon.in),
-        .vga_out
+        .vga_out(vga_out)
     );
 
     archer_projectile_animated #(
         .PROJECTILE_COUNT(PROJECTILE_COUNT)
     )u_archer_projectile_animated(
-        .clk,
-        .rst,
+        .clk(clk),
+        .rst(rst),
         .frame_tick(frame_tick),          
         .game_active(game_active),
         .mouse_clicked(mouse_clicked),

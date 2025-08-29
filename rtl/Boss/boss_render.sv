@@ -12,36 +12,28 @@ module boss_render (
     input  logic [11:0] boss_x,
     input  logic [11:0] boss_y,
     input  logic [6:0] boss_hp,
+    input  logic [11:0] boss_data,  // Dodane wejście dla danych z ROM
+    output logic [15:0] rom_addr,   // Dodane wyjście dla adresu ROM
     output logic boss_alive,
     vga_if.in  vga_in,
     vga_if.out vga_out
 );
     import vga_pkg::*;
 
-    //------------------------------------------------------------------------------
-    // local parameters
-    //------------------------------------------------------------------------------
     localparam BOSS_HGT    = 95;
     localparam BOSS_LNG    = 106;
     localparam IMG_WIDTH   = 212;
     localparam IMG_HEIGHT  = 191;
 
-    //------------------------------------------------------------------------------
-    // local variables
-    //------------------------------------------------------------------------------
     logic [11:0] rgb_nxt;
     logic [8:0] rel_x, rel_y;
     logic [11:0] pixel_color;
-    logic [15:0] rom_addr;
-    logic [11:0] boss_rom [0:IMG_WIDTH*IMG_HEIGHT-1];
-    logic [11:0] hp_width; 
-    logic boss_alive_nxt; 
-
-    initial $readmemh("../../GameSprites/Boss.dat", boss_rom);
+    logic boss_alive_nxt;
 
     always_comb begin
         rgb_nxt = vga_in.rgb;
         boss_alive_nxt = 0;
+        rom_addr = 0;  // Domyślna wartość adresu
 
         if (game_active == 1 && boss_hp > 0) begin
             boss_alive_nxt = 1;
@@ -54,7 +46,7 @@ module boss_render (
                 rel_x = vga_in.hcount - (boss_x - BOSS_LNG);
                 if (rel_x < IMG_WIDTH && rel_y < IMG_HEIGHT) begin
                     rom_addr = rel_y * IMG_WIDTH + rel_x;
-                    pixel_color = boss_rom[rom_addr];
+                    pixel_color = boss_data;
                     if (pixel_color != 12'hF00)
                         rgb_nxt = pixel_color;
                 end

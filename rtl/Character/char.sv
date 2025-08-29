@@ -41,6 +41,44 @@ module char (
     //------------------------------------------------------------------------------
     vga_if vga_char_mid();
 
+    // Parametry ROM
+    localparam HEART_W = 10;
+    localparam HEART_H = 9;
+    localparam IMG_WIDTH = 39;
+    localparam IMG_HEIGHT = 53;
+    
+    // Sygnały dla ROM
+    logic [10:0] heart_rom_addr, char_rom_addr;
+    logic [11:0] heart_data, archer_data, melee_data;
+    
+    // Instancje ROM przeniesione na wyższy poziom
+    read_rom #(
+        .ROM_WIDTH(12), 
+        .ROM_DEPTH(HEART_W*HEART_H), 
+        .FILE_PATH("../../GameSprites/Heart.dat")
+    ) heart_rom_inst(
+        .addr(heart_rom_addr), 
+        .data(heart_data)
+    );
+
+    read_rom #(
+        .ROM_WIDTH(12), 
+        .ROM_DEPTH(IMG_WIDTH*IMG_HEIGHT), 
+        .FILE_PATH("../../GameSprites/Archer.dat")
+    ) archer_rom_inst(
+        .addr(char_rom_addr), 
+        .data(archer_data)
+    );
+
+    read_rom #(
+        .ROM_WIDTH(12), 
+        .ROM_DEPTH(IMG_WIDTH*IMG_HEIGHT), 
+        .FILE_PATH("../../GameSprites/Melee.dat")
+    ) melee_rom_inst(
+        .addr(char_rom_addr), 
+        .data(melee_data)
+    );
+
     logic [11:0] pos_x, pos_y;
     assign pos_x_out = pos_x;
     assign pos_y_out = pos_y;
@@ -72,6 +110,9 @@ module char (
         .char_aggro(char_aggro),
         .class_aggro(class_aggro),
         .flip_h(flip_h),
+        .archer_data(archer_data),    // Podłączone dane ROM
+        .melee_data(melee_data),      // Podłączone dane ROM
+        .rom_addr(char_rom_addr),     // Podłączony adres ROM
         .vga_in(vga_char_in),
         .vga_out(vga_char_mid.out),
         .game_active(game_active),
@@ -94,6 +135,8 @@ module char (
         .current_health(current_health),
         .frame_tick(frame_tick),
         .player_2_hp(player_2_hp),
+        .heart_data(heart_data),      // Podłączone dane ROM
+        .rom_addr(heart_rom_addr),    // Podłączony adres ROM
         .vga_in(vga_char_mid.in),
         .vga_out(vga_char_out),
         .game_active(game_active),

@@ -25,8 +25,6 @@ module weapon_position (
 
     output  logic [11:0] pos_x_projectile_offset,
     output  logic [11:0] pos_y_projectile_offset
-
-
 );
    
 //------------------------------------------------------------------------------
@@ -42,37 +40,121 @@ localparam PROJECTILE_WPN_X_OFFSET = 30;
 localparam PROJECTILE_WPN_Y_OFFSET = -4;
 
 //------------------------------------------------------------------------------
-// output register with sync reset
+// Pipeline registers
 //------------------------------------------------------------------------------
-   
+logic mouse_clicked_ff;
+logic [11:0] pos_x_ff, pos_y_ff, xpos_MouseCtl_ff;
+logic flip_hor_melee_ff, flip_hor_archer_ff;
+logic draw_weapon_ff;
+
+// Intermediate calculation registers
+logic [11:0] pos_x_melee_offset_calc, pos_y_melee_offset_calc;
+logic [11:0] pos_x_archer_offset_calc, pos_y_archer_offset_calc;
+logic [11:0] pos_x_projectile_offset_calc, pos_y_projectile_offset_calc;
+
+//------------------------------------------------------------------------------
+// Input registration stage
+//------------------------------------------------------------------------------
 always_ff @(posedge clk) begin
-        if (rst) begin
-            draw_weapon <= 0;
-            flip_hor_melee <= 0;
-            flip_hor_archer <= 0;
-        end else if (mouse_clicked) begin
-            draw_weapon <= 1;
-            if (xpos_MouseCtl > pos_x)begin
-                flip_hor_melee <= 0; 
-                flip_hor_archer <= 0; 
-            end else if (xpos_MouseCtl <= pos_x) begin
-                flip_hor_melee <= 1; 
-                flip_hor_archer <= 1; 
+    if (rst) begin
+        mouse_clicked_ff <= 0;
+        pos_x_ff <= 0;
+        pos_y_ff <= 0;
+        xpos_MouseCtl_ff <= 0;
+    end else begin
+        mouse_clicked_ff <= mouse_clicked;
+        pos_x_ff <= pos_x;
+        pos_y_ff <= pos_y;
+        xpos_MouseCtl_ff <= xpos_MouseCtl;
+    end
+end
+
+//------------------------------------------------------------------------------
+// Flip logic calculation (pipelined)
+//------------------------------------------------------------------------------
+always_ff @(posedge clk) begin
+    if (rst) begin
+        flip_hor_melee_ff <= 0;
+        flip_hor_archer_ff <= 0;
+        draw_weapon_ff <= 0;
+    end else begin
+        draw_weapon_ff <= mouse_clicked_ff;
+        
+        if (mouse_clicked_ff) begin
+            if (xpos_MouseCtl_ff > pos_x_ff) begin
+                flip_hor_melee_ff <= 0; 
+                flip_hor_archer_ff <= 0; 
+            end else begin
+                flip_hor_melee_ff <= 1; 
+                flip_hor_archer_ff <= 1; 
             end
-            
-        end else begin
-            draw_weapon <= 0;
         end
     end
-    
-assign pos_x_melee_offset = flip_hor_melee ? (pos_x -  MELEE_WPN_X_OFFSET) : (pos_x +  MELEE_WPN_X_OFFSET);
-assign pos_y_melee_offset = pos_y + MELEE_WPN_Y_OFFSET;            
+end
 
+//------------------------------------------------------------------------------
+// Offset calculations (pipelined)
+//------------------------------------------------------------------------------
+always_ff @(posedge clk) begin
+    if (rst) begin
+        pos_x_melee_offset_calc <= 0;
+        pos_y_melee_offset_calc <= 0;
+        pos_x_archer_offset_calc <= 0;
+        pos_y_archer_offset_calc <= 0;
+        pos_x_projectile_offset_calc <= 0;
+        pos_y_projectile_offset_calc <= 0;
+    end else begin
+        // Melee offset calculation
+        if (flip_hor_melee_ff) begin
+            pos_x_melee_offset_calc <= pos_x_ff - MELEE_WPN_X_OFFSET;
+        end else begin
+            pos_x_melee_offset_calc <= pos_x_ff + MELEE_WPN_X_OFFSET;
+        end
+        pos_y_melee_offset_calc <= pos_y_ff + MELEE_WPN_Y_OFFSET;
+        
+        // Archer offset calculation
+        if (flip_hor_archer_ff) begin
+            pos_x_archer_offset_calc <= pos_x_ff - ARCHER_WPN_X_OFFSET;
+        end else begin
+            pos_x_archer_offset_calc <= pos_x_ff + ARCHER_WPN_X_OFFSET;
+        end
+        pos_y_archer_offset_calc <= pos_y_ff + ARCHER_WPN_Y_OFFSET;
+        
+        // Projectile offset calculation
+        if (flip_hor_archer_ff) begin
+            pos_x_projectile_offset_calc <= pos_x_ff - PROJECTILE_WPN_X_OFFSET;
+        end else begin
+            pos_x_projectile_offset_calc <= pos_x_ff + PROJECTILE_WPN_X_OFFSET;
+        end
+        pos_y_projectile_offset_calc <= pos_y_ff + PROJECTILE_WPN_Y_OFFSET;
+    end
+end
 
-assign pos_x_archer_offset = flip_hor_archer ? (pos_x - ARCHER_WPN_X_OFFSET) : (pos_x + ARCHER_WPN_X_OFFSET);
-assign pos_y_archer_offset = pos_y + ARCHER_WPN_Y_OFFSET;
-
-assign pos_x_projectile_offset = flip_hor_archer ? (pos_x - PROJECTILE_WPN_X_OFFSET) : (pos_x + PROJECTILE_WPN_X_OFFSET);
-assign pos_y_projectile_offset = pos_y + PROJECTILE_WPN_Y_OFFSET;
+//------------------------------------------------------------------------------
+// Output registration stage
+//------------------------------------------------------------------------------
+always_ff @(posedge clk) begin
+    if (rst) begin
+        draw_weapon <= 0;
+        flip_hor_melee <= 0;
+        flip_hor_archer <= 0;
+        pos_x_melee_offset <= 0;
+        pos_y_melee_offset <= 0;
+        pos_x_archer_offset <= 0;
+        pos_y_archer_offset <= 0;
+        pos_x_projectile_offset <= 0;
+        pos_y_projectile_offset <= 0;
+    end else begin
+        draw_weapon <= draw_weapon_ff;
+        flip_hor_melee <= flip_hor_melee_ff;
+        flip_hor_archer <= flip_hor_archer_ff;
+        pos_x_melee_offset <= pos_x_melee_offset_calc;
+        pos_y_melee_offset <= pos_y_melee_offset_calc;
+        pos_x_archer_offset <= pos_x_archer_offset_calc;
+        pos_y_archer_offset <= pos_y_archer_offset_calc;
+        pos_x_projectile_offset <= pos_x_projectile_offset_calc;
+        pos_y_projectile_offset <= pos_y_projectile_offset_calc;
+    end
+end
 
 endmodule
