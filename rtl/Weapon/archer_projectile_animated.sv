@@ -7,7 +7,7 @@
  */
 //////////////////////////////////////////////////////////////////////////////
 module archer_projectile_animated #(
-    parameter PROJECTILE_COUNT = 4
+    parameter PROJECTILE_COUNT = vga_pkg::PROJECTILE_COUNT
 )(
     input logic clk,
     input logic rst,
@@ -72,6 +72,10 @@ logic [7:0] max_abs;
 logic [7:0] reciprocal;
 logic fire_request_stage1, fire_request_stage2;
 
+// NEW: Output register for LUT
+logic [7:0] reciprocal_lut_value;
+logic [7:0] reciprocal_ff;
+
 //------------------------------------------------------------------------------
 // Fire request registration
 //------------------------------------------------------------------------------
@@ -133,19 +137,33 @@ always_ff @(posedge clk) begin
 end
 
 //------------------------------------------------------------------------------
-// Pipeline stage 3: Lookup reciprocal
+// Pipeline stage 3: Lookup reciprocal with OUTPUT REGISTER
 //------------------------------------------------------------------------------
 always_ff @(posedge clk) begin
     if (rst) begin
-        reciprocal <= 0;
+        reciprocal_ff <= 0;
+        reciprocal_lut_value <= 0;
     end else if (fire_request_stage2) begin
+        // LUT read with registered output
+        reciprocal_lut_value <= reciprocal_lut[max_abs];
+        
         if (max_abs < LUT_SIZE && max_abs != 0) begin
-            reciprocal <= reciprocal_lut[max_abs];
+            reciprocal_ff <= reciprocal_lut_value;
         end else if (max_abs != 0) begin
-            reciprocal <= (PROJECTILE_SPEED * 128) / max_abs; // Fallback
+            reciprocal_ff <= (PROJECTILE_SPEED * 128) / max_abs; // Fallback
         end else begin
-            reciprocal <= 0;
+            reciprocal_ff <= 0;
         end
+    end
+end
+
+// Add one more pipeline stage for LUT output
+logic [7:0] reciprocal_final;
+always_ff @(posedge clk) begin
+    if (rst) begin
+        reciprocal_final <= 0;
+    end else begin
+        reciprocal_final <= reciprocal_ff;
     end
 end
 
@@ -173,7 +191,7 @@ always_ff @(posedge clk) begin
         end
         
         // Initialize new projectile (after pipeline completion)
-        if (fire_request_stage2 && max_abs != 0 && reciprocal != 0) begin
+        if (fire_request_stage2 && max_abs != 0 && reciprocal_final != 0) begin
             for (int i = 0; i < PROJECTILE_COUNT; i++) begin
                 if (!projectile_active[i]) begin
                     projectile_active[i] <= 1;
@@ -182,8 +200,8 @@ always_ff @(posedge clk) begin
                     lifetime[i] <= PROJECTILE_LIFETIME;
                     
                     // Calculate steps using fixed-point multiplication
-                    step_x[i] <= (dx * reciprocal) >>> 7; // Fixed-point adjustment
-                    step_y[i] <= (dy * reciprocal) >>> 7; // Fixed-point adjustment
+                    step_x[i] <= (dx * reciprocal_final) >>> 7; // Fixed-point adjustment
+                    step_y[i] <= (dy * reciprocal_final) >>> 7; // Fixed-point adjustment
                     
                     cooldown_count <= FIRE_COOLDOWN;
                     break;

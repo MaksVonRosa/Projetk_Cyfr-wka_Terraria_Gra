@@ -1,6 +1,6 @@
 Warnings, critical warnings and errors from synthesis and implementation
 
-Created: 2025-08-29 17:15:45
+Created: 2025-08-29 22:13:58
 
 ----SYNTHESIS----
 WARNING: [Synth 8-10180] variable 'hx_start' must explicitly be declared as automatic or static [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Character/hearts_display.sv:72]
@@ -24,17 +24,33 @@ WARNING: [Synth 8-7071] port 'sety' of module 'MouseCtl' is unconnected for inst
 WARNING: [Synth 8-7071] port 'setmax_x' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:287]
 WARNING: [Synth 8-7071] port 'setmax_y' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:287]
 WARNING: [Synth 8-7023] instance 'u_MouseCtl' of module 'MouseCtl' has 16 connections declared, but only 7 given [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:287]
-WARNING: [Synth 8-6014] Unused sequential element melee_x_pos_reg was removed.  [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Weapon/weapon_draw.sv:142]
-WARNING: [Synth 8-6014] Unused sequential element vga_out\.vblnk_reg was removed.  [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Weapon/weapon_draw.sv:222]
-WARNING: [Synth 8-6014] Unused sequential element vga_out\.hblnk_reg was removed.  [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Weapon/weapon_draw.sv:225]
-WARNING: [Synth 8-6014] Unused sequential element vblnk_d1_reg was removed.  [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Weapon/archer_projectile_draw.sv:192]
-WARNING: [Synth 8-6014] Unused sequential element hblnk_d1_reg was removed.  [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Weapon/archer_projectile_draw.sv:193]
-WARNING: [Synth 8-6014] Unused sequential element abs_dx_reg was removed.  [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Weapon/archer_projectile_animated.sv:128]
-WARNING: [Synth 8-6014] Unused sequential element abs_dy_reg was removed.  [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Weapon/archer_projectile_animated.sv:129]
+WARNING: [Synth 8-6014] Unused sequential element window_center_y_reg was removed.  [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Game/draw_bg.sv:71]
+WARNING: [Synth 8-6014] Unused sequential element vga_bg_out\.vcount_reg was removed.  [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Game/draw_bg.sv:197]
+WARNING: [Synth 8-6014] Unused sequential element vga_bg_out\.vblnk_reg was removed.  [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Game/draw_bg.sv:199]
+WARNING: [Synth 8-6014] Unused sequential element vga_bg_out\.hcount_reg was removed.  [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Game/draw_bg.sv:200]
+WARNING: [Synth 8-6014] Unused sequential element vga_bg_out\.hblnk_reg was removed.  [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Game/draw_bg.sv:202]
+WARNING: [Synth 8-6014] Unused sequential element rom_addr_reg was removed.  [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Weapon/melee_draw.sv:135]
+WARNING: [Synth 8-6014] Unused sequential element pixel_color_reg was removed.  [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Weapon/melee_draw.sv:136]
+WARNING: [Synth 8-6014] Unused sequential element vga_out\.vblnk_reg was removed.  [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Weapon/melee_draw.sv:158]
+WARNING: [Synth 8-6014] Unused sequential element vga_out\.hblnk_reg was removed.  [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Weapon/melee_draw.sv:159]
+WARNING: [Synth 8-6014] Unused sequential element rom_addr_reg was removed.  [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Weapon/archer_draw.sv:120]
+WARNING: [Synth 8-6014] Unused sequential element pixel_color_reg was removed.  [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Weapon/archer_draw.sv:121]
+WARNING: [Synth 8-6014] Unused sequential element vga_out\.vblnk_reg was removed.  [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Weapon/archer_draw.sv:138]
+WARNING: [Synth 8-6014] Unused sequential element vga_out\.hblnk_reg was removed.  [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Weapon/archer_draw.sv:139]
+WARNING: [Synth 8-7129] Port ypos_MouseCtl[11] in module weapon_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ypos_MouseCtl[10] in module weapon_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ypos_MouseCtl[9] in module weapon_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ypos_MouseCtl[8] in module weapon_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ypos_MouseCtl[7] in module weapon_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ypos_MouseCtl[6] in module weapon_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ypos_MouseCtl[5] in module weapon_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ypos_MouseCtl[4] in module weapon_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ypos_MouseCtl[3] in module weapon_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ypos_MouseCtl[2] in module weapon_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ypos_MouseCtl[1] in module weapon_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ypos_MouseCtl[0] in module weapon_top is either unconnected or has no load
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 
 ----IMPLEMENTATION----
-WARNING: [Route 35-447] Congestion is preventing the router from routing all nets. The router will prioritize the successful completion of routing all nets over timing optimizations.
-WARNING: [Route 35-468] The router encountered 43 pins that are both setup-critical and hold-critical and tried to fix hold violations at the expense of setup slack. Such pins are:
 WARNING: [Route 35-328] Router estimated timing not met.
 CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.

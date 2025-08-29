@@ -34,7 +34,8 @@ set xdc_files {
 set sv_files {
     ../rtl/Weapon/weapon_top.sv
     ../rtl/Weapon/melee_wpn_animated.sv
-    ../rtl/Weapon/weapon_draw.sv
+    ../rtl/Weapon/melee_draw.sv
+    ../rtl/Weapon/archer_draw.sv
     ../rtl/Weapon/weapon_position.sv
     ../rtl/Weapon/archer_projectile_draw.sv
     ../rtl/Weapon/archer_projectile_animated.sv

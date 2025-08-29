@@ -33,8 +33,8 @@ module weapon_top (
     // local variables
     //------------------------------------------------------------------------------
 
-    vga_if vga_if_weapon();
-
+    vga_if vga_if_melee();
+    vga_if vga_if_archer();
 
     localparam MELEE_IMG_WIDTH = 54;
     localparam MELEE_IMG_HEIGHT = 28;
@@ -42,26 +42,26 @@ module weapon_top (
     localparam ARCHER_IMG_HEIGHT = 31;
     
 
-    logic [15:0] weapon_rom_addr;
+    logic [15:0] melee_rom_addr, archer_rom_addr;
     logic [11:0] melee_data, archer_data;
 
-    read_rom #(
+    /*read_rom #(
         .ROM_WIDTH(12), 
         .ROM_DEPTH(MELEE_IMG_WIDTH*MELEE_IMG_HEIGHT), 
         .FILE_PATH("../../GameSprites/Melee_wpn.dat")
     ) melee_rom_inst(
-        .addr(weapon_rom_addr), 
+        .addr(melee_rom_addr), 
         .data(melee_data)
-    );
+    //);
     
     read_rom #(
         .ROM_WIDTH(12), 
         .ROM_DEPTH(ARCHER_IMG_WIDTH*ARCHER_IMG_HEIGHT), 
         .FILE_PATH("../../GameSprites/Archer_wpn.dat")
     ) archer_rom_inst(
-        .addr(weapon_rom_addr), 
+        .addr(archer_rom_addr), 
         .data(archer_data)
-    );
+    );*/
 
     logic        draw_weapon;
     logic        flip_hor_melee;
@@ -76,38 +76,53 @@ module weapon_top (
     logic [11:0] pos_x_projectile_offset;
     logic [11:0] pos_y_projectile_offset;
 
-    logic [PROJECTILE_COUNT-1:0][11:0] pos_x_proj;
-    logic [PROJECTILE_COUNT-1:0][11:0] pos_y_proj;
+    // Zakomentowane sygnały projectile
+    // logic [PROJECTILE_COUNT-1:0][11:0] pos_x_proj;
+    // logic [PROJECTILE_COUNT-1:0][11:0] pos_y_proj;
+    // logic [PROJECTILE_COUNT-1:0] projectile_animated;
 
-    logic [PROJECTILE_COUNT-1:0]projectile_animated;
-    
-
-
-    weapon_draw u_weapon_draw (
-        .clk(clk),
-        .rst(rst),
-        .pos_x_melee_offset(pos_x_melee_offset),
-        .pos_y_melee_offset(pos_y_melee_offset),
+    //------------------------------------------------------------------------------
+    // Melee weapon pipeline
+    //------------------------------------------------------------------------------
+    melee_draw u_melee_draw (
+        .clk,
+        .rst,
+        .pos_x_melee_offset,
+        .pos_y_melee_offset,
         .flip_hor_melee(flip_hor_melee),
-        .flip_hor_archer(flip_hor_archer),
-        .mouse_clicked(draw_weapon),
-        .anim_x_offset(anim_x_offset),
-        .game_active(game_active),
-        .pos_x_archer_offset(pos_x_archer_offset),
-        .pos_y_archer_offset(pos_y_archer_offset),
+        .mouse_clicked(mouse_clicked),
+        .anim_x_offset,
+        .game_active,
         .char_class(char_class),
         .melee_hit(melee_hit),
         .boss_x(boss_x),
         .boss_y(boss_y),
         .boss_alive(boss_alive),
-        .alive(alive),
-        .melee_data(melee_data),
-        .archer_data(archer_data),
-        .rom_addr(weapon_rom_addr),
-        .vga_in(vga_in),
-        .vga_out(vga_if_weapon.out)
+        .alive(alive),   
+        .vga_in,
+        .vga_out(vga_if_melee.out)
     );
 
+    //------------------------------------------------------------------------------
+    // Archer weapon pipeline
+    //------------------------------------------------------------------------------
+    archer_draw u_archer_draw (
+        .clk,
+        .rst,
+        .flip_hor_archer(flip_hor_archer),
+        .mouse_clicked(mouse_clicked),
+        .game_active,
+        .pos_x_archer_offset,
+        .pos_y_archer_offset,
+        .char_class(char_class),
+        .alive(alive), 
+        .vga_in(vga_if_melee.in),
+        .vga_out(vga_out)
+    );
+
+    //------------------------------------------------------------------------------
+    // Melee animation
+    //------------------------------------------------------------------------------
     melee_wpn_animated u_melee_wpn_animated (
         .clk(clk),
         .rst(rst),
@@ -117,26 +132,31 @@ module weapon_top (
         .alive(alive)
     );
 
+    //------------------------------------------------------------------------------
+    // Weapon positioning
+    //------------------------------------------------------------------------------
     weapon_position u_weapon_position (
-            .clk(clk),
-            .rst(rst),
-            .mouse_clicked(mouse_clicked),
-            .pos_x(pos_x),
-            .pos_y(pos_y),
-            .xpos_MouseCtl(xpos_MouseCtl),
-            .draw_weapon(draw_weapon),
-            .flip_hor_melee(flip_hor_melee),
-            .flip_hor_archer(flip_hor_archer),
-            .pos_x_melee_offset(pos_x_melee_offset),
-            .pos_y_melee_offset(pos_y_melee_offset),
-            .pos_x_archer_offset(pos_x_archer_offset),
-            .pos_y_archer_offset(pos_y_archer_offset),
-            .pos_x_projectile_offset(pos_x_projectile_offset),
-            .pos_y_projectile_offset(pos_y_projectile_offset)
+        .clk(clk),
+        .rst(rst),
+        .mouse_clicked(mouse_clicked),
+        .pos_x(pos_x),
+        .pos_y(pos_y),
+        .xpos_MouseCtl(xpos_MouseCtl),
+        .draw_weapon(draw_weapon),
+        .flip_hor_melee(flip_hor_melee),
+        .flip_hor_archer(flip_hor_archer),
+        .pos_x_melee_offset(pos_x_melee_offset),
+        .pos_y_melee_offset(pos_y_melee_offset),
+        .pos_x_archer_offset(pos_x_archer_offset),
+        .pos_y_archer_offset(pos_y_archer_offset),
+        .pos_x_projectile_offset(pos_x_projectile_offset),
+        .pos_y_projectile_offset(pos_y_projectile_offset)
     );
-/* Archer 
-------------------------------------------------------------------------------
-*/
+
+    //------------------------------------------------------------------------------
+    // Zakomentowane moduły projectile - bezpośrednie połączenie vga_if_archer do vga_out
+    //------------------------------------------------------------------------------
+    /*
     archer_projectile_draw u_archer_projectile_draw(
         .clk(clk),
         .rst(rst),
@@ -147,13 +167,13 @@ module weapon_top (
         .game_active(game_active),
         .char_class(char_class),
         .alive(alive),
-        .vga_in(vga_if_weapon.in),
+        .vga_in(vga_if_archer.in),
         .vga_out(vga_out)
     );
 
     archer_projectile_animated #(
         .PROJECTILE_COUNT(PROJECTILE_COUNT)
-    )u_archer_projectile_animated(
+    ) u_archer_projectile_animated(
         .clk(clk),
         .rst(rst),
         .frame_tick(frame_tick),          
@@ -172,6 +192,15 @@ module weapon_top (
         .projectile_hit(projectile_hit),
         .projectile_animated(projectile_animated)
     );
+    */
 
-    
+    //------------------------------------------------------------------------------
+    // Bezpośrednie połączenie wyjścia archer do głównego wyjścia (zamiast projectile)
+    //------------------------------------------------------------------------------
+
+    //------------------------------------------------------------------------------
+    // Ustawienie projectile_hit na 0 (since projectiles are disabled)
+    //------------------------------------------------------------------------------
+    assign projectile_hit = 1'b0;
+
 endmodule
