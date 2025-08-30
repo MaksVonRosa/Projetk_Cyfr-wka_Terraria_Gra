@@ -57,10 +57,9 @@ module melee_draw (
     logic draw_melee_ff;
     logic [11:0] rgb_nxt_ff;
     logic [15:0] rom_addr;
-    // USUNIĘTO: logic [11:0] pixel_color; // Niepotrzebny rejestr
 
     // Combinatorial signals
-    logic [11:0] pixel_color_comb; // Kombinacyjne odczyt z ROM
+    logic [11:0] pixel_color_comb;
 
 //------------------------------------------------------------------------------
 // Input registration
@@ -100,7 +99,7 @@ always_ff @(posedge clk) begin
 end
 
 //------------------------------------------------------------------------------
-// ROM address calculation (combinatorial)
+// ROM address calculation
 //------------------------------------------------------------------------------
 always_comb begin
     rom_addr = rel_y_ff * MELEE_IMG_WIDTH + rel_x_ff;
@@ -148,7 +147,7 @@ always_ff @(posedge clk) begin
 end
 
 //------------------------------------------------------------------------------
-// Output assignment - USUNIĘTO ZBĘDNE REJESTROWANIE
+// Output assignment
 //------------------------------------------------------------------------------
 
 always_ff @(posedge clk) begin

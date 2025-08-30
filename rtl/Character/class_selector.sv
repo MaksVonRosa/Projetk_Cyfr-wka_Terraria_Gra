@@ -168,7 +168,7 @@ module class_selector (
     end
 
     //------------------------------------------------------------------------------
-    // STAGE 5: Registered outputs for other modules (CRITICAL FIX)
+    // STAGE 5: Registered outputs for other modules 
     //------------------------------------------------------------------------------
     always_ff @(posedge clk) begin
         if (rst) begin

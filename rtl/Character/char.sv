@@ -25,11 +25,9 @@ module char (
     input  logic frame_tick,
     input  logic [3:0] class_aggro,
     input  logic [3:0]  player_2_hp,
-    // ROM data inputs from top level
     input  logic [11:0] heart_data,
     input  logic [11:0] archer_data,
     input  logic [11:0] melee_data,
-    // ROM address outputs to top level
     output logic [10:0] heart_rom_addr,
     output logic [10:0] char_rom_addr,
     output logic        alive,

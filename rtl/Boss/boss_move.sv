@@ -22,10 +22,6 @@ module boss_move (
     localparam MOVE_STEP    = 5;
     localparam integer WAIT_TICKS = 30;
     localparam BOSS_START_X = HOR_PIXELS - (HOR_PIXELS/4);  
-
-    //------------------------------------------------------------------------------
-    // rejestry pośrednie
-    //------------------------------------------------------------------------------
     logic is_jumping, is_jumping_next;
     logic going_up, going_up_next;
     logic [11:0] jump_peak, jump_peak_next;
@@ -33,10 +29,7 @@ module boss_move (
     logic jump_dir, jump_dir_next;
     logic [11:0] target_x;
     logic [11:0] boss_x_next, boss_y_next;
-
-    //------------------------------------------------------------------------------
-    // logika kombinacyjna - ETAP 1
-    //------------------------------------------------------------------------------
+    
     always_comb begin
         target_x = (player_2_aggro > char_aggro) ? player_2_x : char_x;
         boss_x_next = boss_x;

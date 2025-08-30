@@ -42,7 +42,6 @@ module char_ctrl (
     logic        is_jumping;
     logic [11:0] jump_peak;
     
-    // Registered inputs to improve timing
     logic stepleft_reg, stepright_reg, stepjump_reg;
     logic on_ground_reg;
     logic frame_tick_reg;

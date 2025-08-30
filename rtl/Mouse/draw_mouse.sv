@@ -32,13 +32,13 @@ logic enable_mouse;
 // Pipeline registers
 logic [11:0] xpos_ff, ypos_ff;
 logic vblnk_ff, hblnk_ff, vsync_ff, hsync_ff;
-logic [10:0] vcount_ff, hcount_ff; // Changed to 11-bit to match VGA interface
+logic [10:0] vcount_ff, hcount_ff;
 logic [11:0] rgb_ff;
 
 MouseDisplay inst(
     .pixel_clk(clk),
-    .xpos(xpos_ff),  // Use registered version directly
-    .ypos(ypos_ff),  // Use registered version directly
+    .xpos(xpos_ff),
+    .ypos(ypos_ff),
     .vcount(vcount_ff),
     .hcount(hcount_ff),
     .rgb_in(rgb_ff),
@@ -60,9 +60,8 @@ always_ff @(posedge clk) begin
         hcount_ff <= '0;
         rgb_ff <= '0;
     end else begin
-        // Position limiting with registered output
-        xpos_ff <= (xpos > HOR_PIXELS - 1) ? (HOR_PIXELS - 1) : xpos[10:0]; // Trim to 11-bit if needed
-        ypos_ff <= (ypos > VER_PIXELS - 1) ? (VER_PIXELS - 1) : ypos[10:0]; // Trim to 11-bit if needed
+        xpos_ff <= (xpos > HOR_PIXELS - 1) ? (HOR_PIXELS - 1) : xpos[10:0];
+        ypos_ff <= (ypos > VER_PIXELS - 1) ? (VER_PIXELS - 1) : ypos[10:0];
         
         vblnk_ff <= vga_in_mouse.vblnk;
         hblnk_ff <= vga_in_mouse.hblnk;
@@ -91,7 +90,7 @@ always_ff @(posedge clk) begin
         vga_out_mouse.hblnk  <= hblnk_ff;
         vga_out_mouse.vcount <= vcount_ff;
         vga_out_mouse.hcount <= hcount_ff;
-        vga_out_mouse.rgb    <= rgb_mouse; // From MouseDisplay
+        vga_out_mouse.rgb    <= rgb_mouse;
     end
 end
 

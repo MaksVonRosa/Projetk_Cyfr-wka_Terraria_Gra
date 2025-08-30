@@ -33,7 +33,7 @@ module draw_bg (
     logic vblnk_ff, hblnk_ff;
     logic [11:0] rgb_ff;
     
-    // Pre-calculated values - USUNIĘTO window_center_y bo nieużywane
+    // Pre-calculated values
     logic [10:0] floor_threshold;
     logic [10:0] window1_center_x, window2_center_x;
     logic [10:0] column1_x, column2_x, column3_x;
@@ -61,7 +61,7 @@ module draw_bg (
             vblnk_ff <= vblnk_in;
             hblnk_ff <= hblnk_in;
             
-            // Pre-calculate constants - USUNIĘTO window_center_y
+            // Pre-calculate constants
             floor_threshold <= (5 * VER_PIXELS) / 6;
             window1_center_x <= HOR_PIXELS / 3;
             window2_center_x <= (2 * HOR_PIXELS) / 3;
@@ -96,7 +96,7 @@ module draw_bg (
             is_carpet_ff <= (vcount_ff >= floor_threshold + 5) && 
                            (vcount_ff <= floor_threshold + 45);
             
-            // Window detection - użyto stałych wartości zamiast window_center_y
+            // Window detection
             is_window1_ff <= (hcount_ff > window1_center_x - 32) && 
                             (hcount_ff < window1_center_x + 32) &&
                             (vcount_ff > VER_PIXELS/3) && 
@@ -118,7 +118,7 @@ module draw_bg (
                             (hcount_ff < column3_x + 15) &&
                             (vcount_ff < floor_threshold);
             
-            // Grid pattern detection - only on wall areas (not on windows/columns)
+            // Grid pattern detection
             if (is_wall_ff && !is_window1_ff && !is_window2_ff && 
                 !is_column1_ff && !is_column2_ff && !is_column3_ff) begin
                 is_grid_pattern_ff <= ((((vcount_ff / 16) % 2 == 1 ? (hcount_ff + 16) : hcount_ff) % 32) < 2 ||
@@ -162,7 +162,6 @@ module draw_bg (
                 end 
                 // Then windows (on top of grid)
                 else if (is_window1_ff || is_window2_ff) begin
-                    // Użyto stałych wartości zamiast window_center_y
                     if (vcount_ff >= VER_PIXELS/3 + 20) begin
                         rgb_ff <= 12'h6cf; // Window blue (lower part)
                     end else begin
@@ -187,7 +186,7 @@ module draw_bg (
     end
 
     //------------------------------------------------------------------------------
-    // STAGE 4: Output registration - USUNIĘTO ZBĘDNE REJESTRY
+    // STAGE 4: Output registration
     //------------------------------------------------------------------------------
     always_ff @(posedge clk) begin
     vga_bg_out.vcount <= vcount_in;

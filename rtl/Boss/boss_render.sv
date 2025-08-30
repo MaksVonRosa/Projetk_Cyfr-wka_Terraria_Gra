@@ -3,7 +3,7 @@
  Module name:   boss_render
  Author:        Maksymilian Wiącek
  Last modified: 2025-08-26
- Description:  Boss rendering module with health bar display - OPTYMALIZOWANA
+ Description:  Boss rendering module with health bar display
  */
 //////////////////////////////////////////////////////////////////////////////
 module boss_render (
