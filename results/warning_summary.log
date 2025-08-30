@@ -1,12 +1,21 @@
 Warnings, critical warnings and errors from synthesis and implementation
 
-Created: 2025-08-30 11:31:31
+Created: 2025-08-30 14:07:41
 
 ----SYNTHESIS----
+WARNING: [Synth 8-689] width (11) of port connection 'addr' does not match port width (16) of module 'read_rom' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:101]
+WARNING: [Synth 8-689] width (11) of port connection 'addr' does not match port width (16) of module 'read_rom__parameterized0' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:102]
+WARNING: [Synth 8-689] width (11) of port connection 'addr' does not match port width (16) of module 'read_rom__parameterized1' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:103]
+WARNING: [Synth 8-689] width (11) of port connection 'addr' does not match port width (16) of module 'read_rom__parameterized2' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:104]
+WARNING: [Synth 8-689] width (11) of port connection 'addr' does not match port width (16) of module 'read_rom__parameterized3' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:105]
+WARNING: [Synth 8-689] width (11) of port connection 'addr' does not match port width (16) of module 'read_rom__parameterized0' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:106]
+WARNING: [Synth 8-689] width (11) of port connection 'addr' does not match port width (16) of module 'read_rom' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:107]
 WARNING: [Synth 8-689] width (11) of port connection 'rom_addr' does not match port width (14) of module 'game_screen' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:158]
-WARNING: [Synth 8-689] width (11) of port connection 'rom_addr' does not match port width (19) of module 'class_selector' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:176]
-WARNING: [Synth 8-689] width (11) of port connection 'rom_addr_select' does not match port width (19) of module 'class_selector' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:177]
-WARNING: [Synth 8-689] width (11) of port connection 'rom_addr' does not match port width (16) of module 'boss_render' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Boss/boss_top.sv:88]
+WARNING: [Synth 8-689] width (11) of port connection 'rom_addr' does not match port width (16) of module 'class_selector' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:176]
+WARNING: [Synth 8-689] width (11) of port connection 'rom_addr_select' does not match port width (16) of module 'class_selector' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:177]
+WARNING: [Synth 8-689] width (11) of port connection 'addr' does not match port width (16) of module 'read_rom__parameterized5' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Character/char.sv:57]
+WARNING: [Synth 8-689] width (11) of port connection 'addr' does not match port width (16) of module 'read_rom__parameterized0' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Character/char.sv:66]
+WARNING: [Synth 8-689] width (11) of port connection 'addr' does not match port width (16) of module 'read_rom' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Character/char.sv:75]
 WARNING: [Synth 8-7071] port 'zpos' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:287]
 WARNING: [Synth 8-7071] port 'middle' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:287]
 WARNING: [Synth 8-7071] port 'right' of module 'MouseCtl' is unconnected for instance 'u_MouseCtl' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:287]
@@ -25,7 +34,6 @@ WARNING: [Synth 8-6014] Unused sequential element abs_dx_reg was removed.  [C:/U
 WARNING: [Synth 8-6014] Unused sequential element abs_dy_reg was removed.  [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Weapon/archer_projectile_animated.sv:126]
 WARNING: [Synth 8-7129] Port clk100MHz in module top_vga is either unconnected or has no load
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-WARNING: [Synth 8-7129] Port clk100MHz in module top_vga is either unconnected or has no load
 
 ----IMPLEMENTATION----
 CLEAR :)

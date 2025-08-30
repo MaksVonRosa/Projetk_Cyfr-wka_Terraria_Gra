@@ -36,7 +36,7 @@ module boss_top (
     localparam IMG_HEIGHT  = 191;
     
     vga_if vga_boss_mid();
-    logic [10:0] rom_addr;
+    logic [15:0] rom_addr;
     logic [11:0] boss_data;
     logic [11:0] boss_x;
     logic [11:0] boss_y;
