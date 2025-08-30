@@ -1,6 +1,6 @@
 Warnings, critical warnings and errors from synthesis and implementation
 
-Created: 2025-08-30 14:07:41
+Created: 2025-08-30 15:16:34
 
 ----SYNTHESIS----
 WARNING: [Synth 8-689] width (11) of port connection 'addr' does not match port width (16) of module 'read_rom' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:101]
