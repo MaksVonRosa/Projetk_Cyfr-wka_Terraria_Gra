@@ -33,7 +33,7 @@ module archer_draw (
     // local variables
     //------------------------------------------------------------------------------
     logic [11:0] archer_wpn_rom [0:ARCHER_IMG_WIDTH*ARCHER_IMG_HEIGHT-1];
-    initial $readmemh("../../GameSprites/Archer_wpn.dat", archer_wpn_rom);
+    initial $readmemh("../GameSprites/Archer_wpn.dat", archer_wpn_rom);
 
     // Registered inputs
     logic [10:0] vga_hcount, vga_vcount;

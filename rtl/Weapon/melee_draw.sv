@@ -40,7 +40,7 @@ module melee_draw (
     // local variables
     //------------------------------------------------------------------------------
     logic [11:0] melee_wpn_rom [0:MELEE_IMG_WIDTH*MELEE_IMG_HEIGHT-1];
-    initial $readmemh("../../GameSprites/Melee_wpn.dat", melee_wpn_rom);
+    initial $readmemh("../GameSprites/Melee_wpn.dat", melee_wpn_rom);
 
     // Registered inputs
     logic [10:0] vga_hcount, vga_vcount;

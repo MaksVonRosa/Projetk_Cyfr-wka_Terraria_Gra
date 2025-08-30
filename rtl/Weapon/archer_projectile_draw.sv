@@ -35,7 +35,7 @@ module archer_projectile_draw #(
     // local variables
     //------------------------------------------------------------------------------
     logic [11:0] archer_proj_rom [0:IMG_WIDTH*IMG_HEIGHT-1];
-    initial $readmemh("../../GameSprites/Archer_projectile.dat", archer_proj_rom);
+    initial $readmemh("../GameSprites/Archer_projectile.dat", archer_proj_rom);
 
     // Single stage pipeline
     logic [11:0] rgb_nxt;

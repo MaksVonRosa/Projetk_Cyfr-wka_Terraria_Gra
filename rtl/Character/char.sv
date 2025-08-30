@@ -25,6 +25,13 @@ module char (
     input  logic frame_tick,
     input  logic [3:0] class_aggro,
     input  logic [3:0]  player_2_hp,
+    // ROM data inputs from top level
+    input  logic [11:0] heart_data,
+    input  logic [11:0] archer_data,
+    input  logic [11:0] melee_data,
+    // ROM address outputs to top level
+    output logic [10:0] heart_rom_addr,
+    output logic [10:0] char_rom_addr,
     output logic        alive,
     output logic [3:0] char_aggro,
     output logic [3:0] current_health,
@@ -46,36 +53,6 @@ module char (
     localparam IMG_WIDTH = 39;
     localparam IMG_HEIGHT = 53;
     
-    logic [10:0] heart_rom_addr, char_rom_addr;
-    logic [11:0] heart_data, archer_data, melee_data;
-    
-    read_rom #(
-        .ROM_WIDTH(12), 
-        .ROM_DEPTH(HEART_W*HEART_H), 
-        .FILE_PATH("../../GameSprites/Heart.dat")
-    ) heart_rom_inst(
-        .addr(heart_rom_addr), 
-        .data(heart_data)
-    );
-
-    read_rom #(
-        .ROM_WIDTH(12), 
-        .ROM_DEPTH(IMG_WIDTH*IMG_HEIGHT), 
-        .FILE_PATH("../../GameSprites/Archer.dat")
-    ) archer_rom_inst(
-        .addr(char_rom_addr), 
-        .data(archer_data)
-    );
-
-    read_rom #(
-        .ROM_WIDTH(12), 
-        .ROM_DEPTH(IMG_WIDTH*IMG_HEIGHT), 
-        .FILE_PATH("../../GameSprites/Melee.dat")
-    ) melee_rom_inst(
-        .addr(char_rom_addr), 
-        .data(melee_data)
-    );
-
     logic [11:0] pos_x, pos_y;
     assign pos_x_out = pos_x;
     assign pos_y_out = pos_y;
@@ -114,7 +91,7 @@ module char (
         .vga_out(vga_char_mid.out),
         .game_active(game_active),
         .alive(alive),
-        .char_class
+        .char_class(char_class)
     );
 
     hearts_display u_hearts_display (

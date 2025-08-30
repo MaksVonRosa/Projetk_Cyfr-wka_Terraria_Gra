@@ -36,33 +36,6 @@ module weapon_top (
     vga_if vga_if_melee();
     vga_if vga_if_archer();
 
-    localparam MELEE_IMG_WIDTH = 54;
-    localparam MELEE_IMG_HEIGHT = 28;
-    localparam ARCHER_IMG_WIDTH = 40;
-    localparam ARCHER_IMG_HEIGHT = 31;
-    
-
-    logic [15:0] melee_rom_addr, archer_rom_addr;
-    logic [11:0] melee_data, archer_data;
-
-    /*read_rom #(
-        .ROM_WIDTH(12), 
-        .ROM_DEPTH(MELEE_IMG_WIDTH*MELEE_IMG_HEIGHT), 
-        .FILE_PATH("../../GameSprites/Melee_wpn.dat")
-    ) melee_rom_inst(
-        .addr(melee_rom_addr), 
-        .data(melee_data)
-    //);
-    
-    read_rom #(
-        .ROM_WIDTH(12), 
-        .ROM_DEPTH(ARCHER_IMG_WIDTH*ARCHER_IMG_HEIGHT), 
-        .FILE_PATH("../../GameSprites/Archer_wpn.dat")
-    ) archer_rom_inst(
-        .addr(archer_rom_addr), 
-        .data(archer_data)
-    );*/
-
     logic        draw_weapon;
     logic        flip_hor_melee;
     logic [11:0] pos_x_melee_offset;
