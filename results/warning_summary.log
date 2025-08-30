@@ -1,6 +1,6 @@
 Warnings, critical warnings and errors from synthesis and implementation
 
-Created: 2025-08-29 23:24:40
+Created: 2025-08-30 11:31:31
 
 ----SYNTHESIS----
 WARNING: [Synth 8-689] width (11) of port connection 'rom_addr' does not match port width (14) of module 'game_screen' [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/vga/top_vga.sv:158]
@@ -23,8 +23,9 @@ WARNING: [Synth 8-6014] Unused sequential element vga_out\.vblnk_reg was removed
 WARNING: [Synth 8-6014] Unused sequential element vga_out\.hblnk_reg was removed.  [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Weapon/melee_draw.sv:160]
 WARNING: [Synth 8-6014] Unused sequential element abs_dx_reg was removed.  [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Weapon/archer_projectile_animated.sv:125]
 WARNING: [Synth 8-6014] Unused sequential element abs_dy_reg was removed.  [C:/Users/KittyFox/Documents/GitHub/Projetk_Cyfr-wka_Terraria_Gra/rtl/Weapon/archer_projectile_animated.sv:126]
+WARNING: [Synth 8-7129] Port clk100MHz in module top_vga is either unconnected or has no load
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port clk100MHz in module top_vga is either unconnected or has no load
 
 ----IMPLEMENTATION----
-WARNING: [Route 35-328] Router estimated timing not met.
-CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
+CLEAR :)

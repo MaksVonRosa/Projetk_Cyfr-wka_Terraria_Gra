@@ -285,7 +285,7 @@ module top_vga (
     );
 
     MouseCtl u_MouseCtl (
-        .clk(clk100MHz),
+        .clk(clk),
         .rst(rst),
         .ps2_clk(ps2_clk),
         .ps2_data(ps2_data),
