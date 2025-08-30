@@ -16,6 +16,9 @@ module char_draw (
     input  logic [1:0] game_active,
     input  logic [1:0] char_class,
     input  logic [3:0] class_aggro,
+    input  logic [11:0] archer_data,
+    input  logic [11:0] melee_data,
+    output logic [10:0] rom_addr,
     output logic [3:0] char_aggro,
     output logic [11:0] char_hgt,
     output logic [11:0] char_lng,
@@ -25,75 +28,48 @@ module char_draw (
 );
     import vga_pkg::*;
 
-    //------------------------------------------------------------------------------
-    // local parameters
-    //------------------------------------------------------------------------------
     localparam CHAR_HGT   = 26;
     localparam CHAR_LNG   = 19; 
     localparam IMG_WIDTH  = 39;
     localparam IMG_HEIGHT = 53;
 
-    //------------------------------------------------------------------------------
-    // local variables
-    //------------------------------------------------------------------------------
     logic [11:0] draw_x, draw_y, rgb_nxt;
-    logic [11:0] archer_rom [0:IMG_WIDTH*IMG_HEIGHT-1];
-    logic [11:0] melee_rom  [0:IMG_WIDTH*IMG_HEIGHT-1];
-
-    initial begin
-        $readmemh("../GameSprites/Archer.dat", archer_rom);
-        $readmemh("../GameSprites/Melee.dat",  melee_rom);
-    end
-
-    logic [5:0] rel_x; 
-    logic [5:0] rel_y;
+    logic [5:0] rel_x, rel_y;
     logic [11:0] pixel_color;
-    logic [10:0] rom_addr;
 
     always_ff @(posedge clk) begin
-        if (rst) begin
-            draw_x <= HOR_PIXELS / 5;
-            draw_y <= VER_PIXELS - 50 - CHAR_HGT;
-        end else begin
-            draw_x <= pos_x;
-            draw_y <= pos_y;
+        if (rst) begin 
+            draw_x <= HOR_PIXELS/5; 
+            draw_y <= VER_PIXELS-50-CHAR_HGT;
+        end else begin 
+            draw_x <= pos_x; 
+            draw_y <= pos_y; 
         end
     end
 
-    always_comb begin
-        alive = (current_health > 0);
-    end
-
-    always_comb begin
-        if (alive) begin
-            char_aggro = class_aggro;
-        end else begin
-            char_aggro = 4'd0;
-        end
-    end
+    always_comb alive = (current_health > 0);
+    always_comb char_aggro = alive ? class_aggro : 4'd0;
 
     always_comb begin
         rgb_nxt = vga_in.rgb;
-        pixel_color = rgb_nxt;
-        if (game_active == 1 && alive && !vga_in.vblnk && !vga_in.hblnk &&
-            vga_in.hcount >= draw_x - CHAR_LNG &&
-            vga_in.hcount <  draw_x + CHAR_LNG &&
-            vga_in.vcount >= draw_y - CHAR_HGT &&
-            vga_in.vcount <  draw_y + CHAR_HGT) begin
+        rom_addr = 0;
+        
+        if (game_active==1 && alive && !vga_in.vblnk && !vga_in.hblnk &&
+            vga_in.hcount >= draw_x-CHAR_LNG && vga_in.hcount < draw_x+CHAR_LNG &&
+            vga_in.vcount >= draw_y-CHAR_HGT && vga_in.vcount < draw_y+CHAR_HGT) begin
 
-            rel_y = vga_in.vcount - (draw_y - CHAR_HGT);
-            rel_x = flip_h ? (IMG_WIDTH - 1) - (vga_in.hcount - (draw_x - CHAR_LNG)) : 
-                            (vga_in.hcount - (draw_x - CHAR_LNG));
+            rel_y = vga_in.vcount - (draw_y-CHAR_HGT);
+            rel_x = flip_h ? (IMG_WIDTH-1)-(vga_in.hcount-(draw_x-CHAR_LNG)) :
+                             (vga_in.hcount-(draw_x-CHAR_LNG));
 
             if (rel_x < IMG_WIDTH && rel_y < IMG_HEIGHT) begin
-                rom_addr = rel_y * IMG_WIDTH + rel_x;
-                if (char_class == 2)
-                    pixel_color = archer_rom[rom_addr];
-                else if (char_class == 1)
-                    pixel_color = melee_rom[rom_addr];
-
-                if (pixel_color != 12'hF00) 
-                    rgb_nxt = pixel_color;
+                rom_addr = rel_y*IMG_WIDTH + rel_x;
+                case(char_class)
+                    2: pixel_color = archer_data;
+                    1: pixel_color = melee_data;
+                    default: pixel_color = 12'hF00;
+                endcase
+                if (pixel_color != 12'hF00) rgb_nxt = pixel_color;
             end
         end
     end

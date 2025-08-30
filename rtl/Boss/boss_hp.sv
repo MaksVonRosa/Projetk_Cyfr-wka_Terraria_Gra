@@ -29,8 +29,15 @@ module boss_hp (
     localparam HP_START_Y      = 10;
 
     logic [6:0] boss_hp_temp;
-    logic [11:0] hp_width;
-    logic [11:0] rgb_nxt;
+    logic [11:0] vga_rgb_pipeline [1:0];
+    logic [11:0] vga_hcount_pipeline;
+    logic [11:0] vga_vcount_pipeline;
+    logic vga_hsync_pipeline;
+    logic vga_vsync_pipeline;
+    logic vga_hblnk_pipeline;
+    logic vga_vblnk_pipeline;
+    logic [6:0] boss_hp_reg;
+    logic [11:0] hp_width_reg;
 
     always_ff @(posedge clk) begin
         if (rst || game_start || player2_game_start) begin
@@ -42,34 +49,46 @@ module boss_hp (
 
     always_comb begin
         if (player_2_data_valid) begin
-            if (boss_hp_temp < boss_out_hp)
-                boss_hp = boss_hp_temp;
-            else
-                boss_hp = boss_out_hp;
+            boss_hp = (boss_hp_temp < boss_out_hp) ? boss_hp_temp : boss_out_hp;
         end else begin
             boss_hp = boss_hp_temp;
         end
     end
 
-    always_comb begin
-        rgb_nxt = vga_in.rgb;
-        if (game_active == 1) begin
-            hp_width = HP_BAR_WIDTH * boss_hp / 100;
-            if (vga_in.vcount >= HP_START_Y && vga_in.vcount < HP_START_Y + HP_BAR_HEIGHT &&
-                vga_in.hcount >= HP_START_X && vga_in.hcount < HP_START_X + hp_width) begin
-                rgb_nxt = 12'hF00;
-            end
-        end
+    always_ff @(posedge clk) begin
+        boss_hp_reg <= boss_hp;
+        
+        hp_width_reg <= boss_hp_reg;
+        vga_hcount_pipeline <= vga_in.hcount;
+        vga_vcount_pipeline <= vga_in.vcount;
+        vga_hsync_pipeline  <= vga_in.hsync;
+        vga_vsync_pipeline  <= vga_in.vsync;
+        vga_hblnk_pipeline  <= vga_in.hblnk;
+        vga_vblnk_pipeline  <= vga_in.vblnk;
     end
 
     always_ff @(posedge clk) begin
-        vga_out.vcount <= vga_in.vcount;
-        vga_out.vsync  <= vga_in.vsync;
-        vga_out.vblnk  <= vga_in.vblnk;
-        vga_out.hcount <= vga_in.hcount;
-        vga_out.hsync  <= vga_in.hsync;
-        vga_out.hblnk  <= vga_in.hblnk;
-        vga_out.rgb    <= rgb_nxt;
+        if (vga_vcount_pipeline >= HP_START_Y && 
+            vga_vcount_pipeline < HP_START_Y + HP_BAR_HEIGHT &&
+            vga_hcount_pipeline >= HP_START_X && 
+            vga_hcount_pipeline < HP_START_X + HP_BAR_WIDTH) begin
+            if (vga_hcount_pipeline < HP_START_X + hp_width_reg) begin
+                vga_rgb_pipeline[0] <= 12'hF00;
+            end else begin
+                vga_rgb_pipeline[0] <= 12'h000;
+            end
+        end else begin
+            vga_rgb_pipeline[0] <= vga_in.rgb;
+        end
+    end
+    always_ff @(posedge clk) begin
+        vga_out.hcount <= vga_hcount_pipeline;
+        vga_out.vcount <= vga_vcount_pipeline;
+        vga_out.hsync  <= vga_hsync_pipeline;
+        vga_out.vsync  <= vga_vsync_pipeline;
+        vga_out.hblnk  <= vga_hblnk_pipeline;
+        vga_out.vblnk  <= vga_vblnk_pipeline;
+        vga_out.rgb    <= (game_active == 1) ? vga_rgb_pipeline[0] : vga_in.rgb;
     end
 
 endmodule

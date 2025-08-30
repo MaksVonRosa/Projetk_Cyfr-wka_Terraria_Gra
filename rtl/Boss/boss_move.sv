@@ -1,11 +1,3 @@
-//////////////////////////////////////////////////////////////////////////////
-/*
- Module name:   boss_move
- Author:        Maksymilian Wiącek
- Last modified: 2025-08-26
- Description:  Boss movement control module with jumping mechanics
- */
-//////////////////////////////////////////////////////////////////////////////
 module boss_move (
     input  logic clk,
     input  logic rst,
@@ -32,64 +24,82 @@ module boss_move (
     localparam BOSS_START_X = HOR_PIXELS - (HOR_PIXELS/4);  
 
     //------------------------------------------------------------------------------
-    // local variables
+    // rejestry pośrednie
     //------------------------------------------------------------------------------
-    logic is_jumping;
-    logic going_up;
-    logic [11:0] jump_peak;
-    logic jump_dir;
-    logic [31:0] wait_counter;
+    logic is_jumping, is_jumping_next;
+    logic going_up, going_up_next;
+    logic [11:0] jump_peak, jump_peak_next;
+    logic [31:0] wait_counter, wait_counter_next;
+    logic jump_dir, jump_dir_next;
     logic [11:0] target_x;
+    logic [11:0] boss_x_next, boss_y_next;
 
+    //------------------------------------------------------------------------------
+    // logika kombinacyjna - ETAP 1
+    //------------------------------------------------------------------------------
     always_comb begin
-        if (player_2_aggro > char_aggro)
-            target_x = player_2_x;
-        else
-            target_x = char_x;
-    end
-    always_ff @(posedge clk) begin
-        if (rst || !game_active) begin
-            boss_x       <= BOSS_START_X;
-            boss_y       <= GROUND_Y;
-            is_jumping   <= 0;
-            going_up     <= 0;
-            jump_peak    <= GROUND_Y - JUMP_HEIGHT;
-            wait_counter <= 0;
-            jump_dir     <= 1;
+        target_x = (player_2_aggro > char_aggro) ? player_2_x : char_x;
+        boss_x_next = boss_x;
+        boss_y_next = boss_y;
+        is_jumping_next = is_jumping;
+        going_up_next = going_up;
+        jump_peak_next = jump_peak;
+        wait_counter_next = wait_counter;
+        jump_dir_next = jump_dir;
 
-        end else if (frame_tick && game_active == 1) begin
+        if (rst || !game_active) begin
+            boss_x_next = BOSS_START_X;
+            boss_y_next = GROUND_Y;
+            is_jumping_next = 0;
+            going_up_next = 0;
+            jump_peak_next = GROUND_Y - JUMP_HEIGHT;
+            wait_counter_next = 0;
+            jump_dir_next = 1;
+        end
+        else if (frame_tick && game_active == 1) begin
             if (!is_jumping && boss_y == GROUND_Y) begin
                 if (wait_counter > 0) begin
-                    wait_counter <= wait_counter - 1;
+                    wait_counter_next = wait_counter - 1;
                 end else begin
-                    is_jumping   <= 1;
-                    going_up     <= 1;
-                    jump_peak    <= boss_y - JUMP_HEIGHT;
-                    wait_counter <= WAIT_TICKS;
-                    jump_dir     <= (target_x < boss_x) ? 0 : 1;
+                    is_jumping_next = 1;
+                    going_up_next = 1;
+                    jump_peak_next = boss_y - JUMP_HEIGHT;
+                    wait_counter_next = WAIT_TICKS;
+                    jump_dir_next = (target_x < boss_x) ? 0 : 1;
                 end
             end
             if (is_jumping) begin
                 if (going_up) begin
                     if (boss_y > jump_peak + JUMP_SPEED)
-                        boss_y <= boss_y - JUMP_SPEED;
+                        boss_y_next = boss_y - JUMP_SPEED;
                     else
-                        going_up <= 0;
+                        going_up_next = 0;
                 end 
                 else begin
                     if (boss_y < GROUND_Y)
-                        boss_y <= boss_y + FALL_SPEED;
+                        boss_y_next = boss_y + FALL_SPEED;
                     else begin
-                        boss_y       <= GROUND_Y;
-                        is_jumping   <= 0;
-                        wait_counter <= WAIT_TICKS;
+                        boss_y_next = GROUND_Y;
+                        is_jumping_next = 0;
+                        wait_counter_next = WAIT_TICKS;
                     end
                 end
                 if (jump_dir == 0 && boss_x > BOSS_LNG + MOVE_STEP)
-                    boss_x <= boss_x - MOVE_STEP;
+                    boss_x_next = boss_x - MOVE_STEP;
                 else if (jump_dir == 1 && boss_x < HOR_PIXELS - BOSS_LNG - MOVE_STEP)
-                    boss_x <= boss_x + MOVE_STEP;
+                    boss_x_next = boss_x + MOVE_STEP;
             end
         end
     end
+
+    always_ff @(posedge clk) begin
+        boss_x <= boss_x_next;
+        boss_y <= boss_y_next;
+        is_jumping <= is_jumping_next;
+        going_up <= going_up_next;
+        jump_peak <= jump_peak_next;
+        wait_counter <= wait_counter_next;
+        jump_dir <= jump_dir_next;
+    end
+
 endmodule

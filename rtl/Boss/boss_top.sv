@@ -21,10 +21,12 @@ module boss_top (
     input  logic [3:0] player_2_aggro,
     input  logic [3:0] char_aggro,
     input  logic player_2_data_valid,
+    input  logic [11:0] boss_data,
+    output logic [15:0] boss_rom_addr,
     vga_if.in  vga_in,
     vga_if.out vga_out,
-    output logic [11:0] boss_x,
-    output logic [11:0] boss_y,
+    output logic [11:0] boss_x_out,
+    output logic [11:0] boss_y_out,
     output logic [11:0] boss_hgt,
     output logic [11:0] boss_lng,
     output logic [6:0]  boss_hp,
@@ -32,8 +34,8 @@ module boss_top (
 );
     import vga_pkg::*;
     vga_if vga_boss_mid();
-
-    
+    logic [11:0] boss_x;
+    logic [11:0] boss_y;
 
     boss_move u_move (
         .clk(clk),
@@ -69,10 +71,15 @@ module boss_top (
         .boss_x(boss_x),
         .boss_y(boss_y),
         .boss_hp(boss_hp),
+        .boss_data(boss_data),
+        .rom_addr(boss_rom_addr),
         .boss_alive(boss_alive),
         .vga_in(vga_boss_mid.in),
         .vga_out(vga_out)
     );
-    assign boss_hgt = BOSS_HGT;
-    assign boss_lng = BOSS_LNG;
+    
+    assign boss_hgt = 95;  // BOSS_HGT
+    assign boss_lng = 106; // BOSS_LNG
+    assign boss_x_out = boss_x;
+    assign boss_y_out = boss_y;
 endmodule
